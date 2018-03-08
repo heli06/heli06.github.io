@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>数据结构-排序算法 | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="上学期写的关于排序的算法。最近抽空修正了原本的一些BUG加了注释，现在发出来。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构-排序算法">
+<meta property="og:url" content="http://heli06.github.io/category/数据结构-排序算法/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="上学期写的关于排序的算法。最近抽空修正了原本的一些BUG加了注释，现在发出来。">
+<meta property="og:updated_time" content="2017-03-10T13:32:50.806Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构-排序算法">
+<meta name="twitter:description" content="上学期写的关于排序的算法。最近抽空修正了原本的一些BUG加了注释，现在发出来。">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-数据结构-排序算法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/数据结构-排序算法/" class="article-date">
+  	<time datetime="2017-03-10T13:13:27.000Z" itemprop="datePublished">2017-03-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据结构-排序算法
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上学期写的关于排序的算法。最近抽空修正了原本的一些BUG加了注释，现在发出来。</p>
+<a id="more"></a>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;time.h&gt;
+#include&lt;cstdlib&gt;
+
+using namespace std;
+
+//直接插入排序
+template&lt;class T&gt;
+void InsertionSort(T Data[], int n){
+    int p, i;
+    for(p = 1; p &lt; n; p++){
+        T temp = Data[p];
+        i = p-1;
+        while( i&gt;=0 &amp;&amp; Data[i] &gt; temp){
+            Data[i+1] = Data[i];
+            i--;
+        }
+        Data[i+1] = temp;
+    }
+}
+
+//折半插入排序
+template&lt;class T&gt;
+void BinaryInsertionSort(T Data[], int n){
+    int left, mid, right, p;
+    for(p = 1; p &lt; n; p++){
+        T temp = Data[p];
+        left = 0;
+        right = p-1;
+        while(left &lt;= right){
+            mid = (left + right)/2;
+            if(Data[mid] &gt; temp)
+                right = mid - 1;
+            else
+                left = mid + 1;
+        }
+        for(int i = p-1; i&gt;=left; i--)
+            Data[i+1] = Data[i];
+        Data[left] = temp;
+    }
+}
+
+//希尔排序
+template&lt;class T&gt;
+void ShellSort(T Data[], int n){
+    int d = n/2;
+    while(d &gt;= 1){
+        for(int k = 0; k &lt; d; k++){
+            for(int i = k+d; i &lt; n; i += d){
+                T temp = Data[i];
+                int j = i - d;
+                while(j&gt;=k &amp;&amp; Data[j]&gt;temp){
+                    Data[j+d] = Data[j];
+                    j -= d;
+                }
+                Data[j+d] = temp;
+            }
+        }
+        d = d/2;
+    }
+}
+
+//冒泡排序
+template&lt;typename T&gt;
+void BubbleSort(T Data[], int n){
+    int flag = 0;
+    for(int i = 0; i &lt; n; i++){
+        flag = 0;
+        for(int j = 1; j &lt; n-i; j++){
+            if(Data[j] &lt; Data[j-1]){
+                flag = 1;
+                swap(Data[j], Data[j-1]);
+            }
+        }
+        if(!flag)
+            return;
+    }
+}
+template&lt;class T&gt;
+void print(T Data[], int n){
+    for(int i = 0; i &lt; n; i++){
+        cout&lt;&lt;Data[i]&lt;&lt;&apos; &apos;;
+    }
+    cout&lt;&lt;endl;
+}
+
+template&lt;class T&gt;
+void cpy(T Data[], T temp[], int n){
+    for(int i = 0; i &lt; n; i++){
+        Data[i] = temp[i];
+    }
+}
+
+//实现对data[start]到data[end]的操作，并返回划分后轴元素对应的位置
+template&lt;class T&gt;
+int Partition(T Data[], int start, int end){
+    T pivot = Data[start];
+    int left = start,right = end;
+    while(left &lt;= right){
+        while(left&lt;=right &amp;&amp; Data[left]&lt;=pivot)
+            left++;
+        while(left&lt;=right &amp;&amp; Data[right]&gt;pivot)
+            right--;
+
+        if(left&lt;right){
+            swap(Data[right], Data[left]);
+            left++;
+            right--;
+        }
+    }
+    swap(Data[start], Data[right]);
+    return right;
+}
+
+//快速排序
+template&lt;class T&gt;
+void QuickSort(T Data[], int left, int right){
+    if(left &lt; right){
+        int p = Partition(Data, left, right);
+        QuickSort(Data, left, p-1);
+        QuickSort(Data, p+1, right);
+    }
+}
+
+//简单选择排序
+template&lt;class T&gt;
+void SelectionSort(T Data[], int n){
+    for(int i = 1; i &lt; n; i++){
+        int k = i-1;
+        for(int j = i; j &lt; n; j++){
+            if(Data[j] &lt; Data[k])
+                k = j;
+        }
+        if(k != i-1){
+            swap(Data[k], Data[i-1]);
+        }
+    }
+}
+
+//Data为待归并数组，其中对Data[start,mid]和Data[mid+1,end]之间的数据进行归并
+template&lt;class T&gt;
+void Merge(T Data[], int start, int mid, int end){
+    int len1 = mid - start + 1, len2 = end - mid;
+    int i, j, k;
+    T * left = new T[len1];
+    T * right = new T[len2];
+    for(i = 0; i &lt; len1; i++)
+        left[i] = Data[i+start];
+    for(i = 0; i &lt; len2; i++)
+        right[i] = Data[i+mid+1];
+    i = 0;j = 0;
+    for(k = start; k &lt; end; k++){
+        if(i == len1 || j == len2)
+            break;
+        if(left[i] &lt;= right[j])
+            Data[k] = left[i++];
+        else
+            Data[k] = right[j++];
+    }
+    while(i &lt; len1)
+        Data[k++] = left[i++];
+    while(j &lt; len2)
+        Data[k++] = right[j++];
+
+    delete [] left;
+    delete [] right;
+}
+
+//归并排序
+template&lt;class T&gt;
+void MergeSort(T Data[], int start, int end){
+    if(start &lt; end){
+        int mid = (start + end)/2;
+        MergeSort(Data, start, mid);
+        MergeSort(Data, mid+1, end);
+        Merge(Data, start, mid, end);
+    }
+}
+
+int main(){
+    int arr[12], temp[12];
+    srand(time(0));
+    for(int i = 0; i &lt; 12; i++){
+        arr[i] = rand()%100;
+    }
+    for(int i = 0; i &lt; 12; i++){
+        temp[i] = arr[i];
+    }
+    cout&lt;&lt;&quot;随机生成序列：&quot;;
+    print&lt;int&gt;(arr, 12);
+
+    InsertionSort&lt;int&gt;(arr, 12);
+    cout&lt;&lt;&quot;直接插入排序：&quot;;
+    print&lt;int&gt;(arr, 12);
+    cpy&lt;int&gt;(arr, temp, 12);
+
+    BinaryInsertionSort&lt;int&gt;(arr, 12);
+    cout&lt;&lt;&quot;折半插入排序：&quot;;
+    print&lt;int&gt;(arr, 12);
+    cpy&lt;int&gt;(arr, temp, 12);
+
+    ShellSort&lt;int&gt;(arr, 12);
+    cout&lt;&lt;&quot;希尔排序：&quot;;
+    print&lt;int&gt;(arr, 12);
+    cpy&lt;int&gt;(arr, temp, 12);
+
+    BubbleSort&lt;int&gt;(arr, 12);
+    cout&lt;&lt;&quot;冒泡排序：&quot;;
+    print&lt;int&gt;(arr, 12);
+    cpy&lt;int&gt;(arr, temp, 12);
+
+    QuickSort&lt;int&gt;(arr, 0, 11);
+    cout&lt;&lt;&quot;快速排序：&quot;;
+    print&lt;int&gt;(arr, 12);
+    cpy&lt;int&gt;(arr, temp, 12);
+
+    SelectionSort&lt;int&gt;(arr, 12);
+    cout&lt;&lt;&quot;选择排序：&quot;;
+    print&lt;int&gt;(arr, 12);
+    cpy&lt;int&gt;(arr, temp, 12);
+
+    MergeSort&lt;int&gt;(arr, 0, 11);
+    cout&lt;&lt;&quot;归并排序：&quot;;
+    print&lt;int&gt;(arr, 12);
+    cpy&lt;int&gt;(arr, temp, 12);
+
+    return 0;
+}
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/Linux入门书籍/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Linux入门书籍
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/数据结构-图/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据结构-图</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="数据结构-排序算法" data-title="数据结构-排序算法" data-url="http://heli06.github.io/category/数据结构-排序算法/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

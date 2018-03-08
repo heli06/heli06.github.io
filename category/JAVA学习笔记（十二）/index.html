@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JAVA学习笔记（十二） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="零碎知识
+Set、List、Map的实现值得关注
+Java Application，Java Applet（小程序）值得关注
+J2EE全都是抽象类或接口，没有实现。它只是一套标准，需要其他人去遵守、实现它。Tomcat、TomcatEE、JBox等部分或完整实现了J2EE。以下课程使用Tomcat进行教学。最好下载Zip包
+“日志处理程序”值得关注
+JavaEE的API要仔细阅读
+HTTP协议需要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA学习笔记（十二）">
+<meta property="og:url" content="http://heli06.github.io/category/JAVA学习笔记（十二）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="零碎知识
+Set、List、Map的实现值得关注
+Java Application，Java Applet（小程序）值得关注
+J2EE全都是抽象类或接口，没有实现。它只是一套标准，需要其他人去遵守、实现它。Tomcat、TomcatEE、JBox等部分或完整实现了J2EE。以下课程使用Tomcat进行教学。最好下载Zip包
+“日志处理程序”值得关注
+JavaEE的API要仔细阅读
+HTTP协议需要">
+<meta property="og:updated_time" content="2017-07-12T03:28:30.269Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA学习笔记（十二）">
+<meta name="twitter:description" content="零碎知识
+Set、List、Map的实现值得关注
+Java Application，Java Applet（小程序）值得关注
+J2EE全都是抽象类或接口，没有实现。它只是一套标准，需要其他人去遵守、实现它。Tomcat、TomcatEE、JBox等部分或完整实现了J2EE。以下课程使用Tomcat进行教学。最好下载Zip包
+“日志处理程序”值得关注
+JavaEE的API要仔细阅读
+HTTP协议需要">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-JAVA学习笔记（十二）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（十二）/" class="article-date">
+  	<time datetime="2017-07-12T03:02:52.000Z" itemprop="datePublished">2017-07-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA学习笔记（十二）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="零碎知识"><a href="#零碎知识" class="headerlink" title="零碎知识"></a>零碎知识</h2><ul>
+<li><code>Set</code>、<code>List</code>、<code>Map</code>的实现值得关注</li>
+<li><code>Java Application</code>，<code>Java Applet</code>（小程序）值得关注</li>
+<li><code>J2EE</code>全都是抽象类或接口，没有实现。它只是一套标准，需要其他人去遵守、实现它。<code>Tomcat</code>、<code>TomcatEE</code>、<code>JBox</code>等部分或完整实现了<code>J2EE</code>。以下课程使用<code>Tomcat</code>进行教学。最好下载Zip包</li>
+<li>“日志处理程序”值得关注</li>
+<li><code>JavaEE</code>的API要仔细阅读</li>
+<li><code>HTTP</code>协议需要仔细学习</li>
+<li>之前所学内容属于<code>JavaSE</code>，接下来的内容属于<code>JavaEE</code></li>
+</ul>
+<a id="more"></a>
+<hr>
+<h2 id="First-J2EE-Web-Application"><a href="#First-J2EE-Web-Application" class="headerlink" title="First J2EE Web Application"></a>First J2EE Web Application</h2><p>程序猿主要实现<code>javax.servlet</code>（继承了<code>Servlet</code>函数）下的各种函数。其中<code>service()</code>必须实现。</p>
+<p>以下是一个完整可运行的例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> javax.servlet.*;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.*;</div><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(</span></span></div><div class="line">        HttpServletRequest request,</div><div class="line">        HttpServletResponse response) </div><div class="line">        <span class="keyword">throws</span> IOException, ServletException &#123;</div><div class="line">        </div><div class="line">        <span class="comment">//数据分为Header和Body，Header对Body进行描述</span></div><div class="line">        <span class="comment">//详情请查看HTTP协议</span></div><div class="line">        <span class="comment">//可以按以下语句设置Header</span></div><div class="line">        <span class="comment">//response.setHeader(</span></div><div class="line">        <span class="comment">//"Content-Type", "text/html", charset=utf-8)；</span></div><div class="line">        </div><div class="line">        <span class="comment">//这样设置更简单</span></div><div class="line">        response.setContentType(<span class="string">"text/html"</span>);  </div><div class="line">        </div><div class="line">        <span class="comment">//此例中用字符输出流会比较好</span></div><div class="line">        PrintWriter out = response.getWriter();</div><div class="line">        </div><div class="line">        <span class="comment">//有时候可能要用字节输出流</span></div><div class="line">        <span class="comment">//OutputStream os = response.getOutputSream();</span></div><div class="line">        </div><div class="line">        out.println(<span class="string">"&lt;h1&gt;Hello World!&lt;/h1&gt;"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>要这样编译：</p>
+<pre><code>javac -classpath apache-tomcat\……… HelloServlet
+</code></pre><p>到这里还没有结束。要通过以下叙述的方法在<code>Tomcat</code>上部署网站。</p>
+<p>在某个我记不清但打开目录就能想起来的文件夹下，建立<code>first</code> 文件夹。<code>fisrt</code>下建立<code>WEB-INF</code>、<code>classes</code>、<code>lib</code>三个子文件夹。 <code>WEB-INF</code>下建立<code>web.xml</code>文件。</p>
+<p>把之前编译生成的<code>class</code>文件放入<code>classes</code>下。</p>
+<p>以下是<code>web.xml</code>文件的内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--这里的头声明不能省略--&gt;</span></div><div class="line">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</div><div class="line">//在这里，因为是受控文件的缘故，根元素只能是web-app</div><div class="line"><span class="tag">&lt;<span class="name">web-app</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>s1<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>HelloServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></div><div class="line">    </div><div class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>s1<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!--这里规定了url访问路径--&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/a<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code>XML</code>是定义语言，它不能进行加减乘除计算。<br>可以在<code>xsd</code>文件内定<code>xml</code>文件的数据类型、是否有序等。<br><code>XML</code>也是一个大坑，这里不再赘述。</p>
+<p>通过<code>Tomcat</code>的<code>bin</code>目录下的<code>startup</code>和<code>shutdown</code> 文件来开启/关闭服务器。</p>
+<p>项目不拷贝到<code>Tomcat</code>下也是可以的，在<code>conf/server.xml</code>里配置一下就行：</p>
+<pre><code>&lt;Context path=&quot;/abc&quot; docBase=&quot;d:\java\first&quot;/&gt;
+</code></pre><p>手动建立工程非常麻烦，比较流行的IDE应该都有更加便捷的办法来建立JavaWeb项目。这里不做赘述，请同学们自行研究。</p>
+<p>话说课程越往后笔记越短，因为根本不好写成笔记的形式……还是仔细听课为上。</p>
+<hr>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/JAVA学习笔记（十三）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JAVA学习笔记（十三）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/JAVA学习笔记（十一）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA学习笔记（十一）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JAVA学习笔记（十二）" data-title="JAVA学习笔记（十二）" data-url="http://heli06.github.io/category/JAVA学习笔记（十二）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

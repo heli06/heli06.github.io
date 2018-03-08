@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>“J2EE高级编程”笔记（四） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="上节回顾和补充
+HttpServletRequest
+HttpServletResponse
+
+不要在Servlet类里设置成员变量，并发访问情况下会有严重问题。service函数在执行时是多线程的，底层已经实现。
+
+本节新内容：
+HttpSession
+Servlet, ServletConfig, ServletContext
+RequestDispatcher
+Filter
+
+
+HttpSe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“J2EE高级编程”笔记（四）">
+<meta property="og:url" content="http://heli06.github.io/category/“J2EE高级编程“笔记（四）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="上节回顾和补充
+HttpServletRequest
+HttpServletResponse
+
+不要在Servlet类里设置成员变量，并发访问情况下会有严重问题。service函数在执行时是多线程的，底层已经实现。
+
+本节新内容：
+HttpSession
+Servlet, ServletConfig, ServletContext
+RequestDispatcher
+Filter
+
+
+HttpSe">
+<meta property="og:updated_time" content="2017-11-16T02:38:45.107Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="“J2EE高级编程”笔记（四）">
+<meta name="twitter:description" content="上节回顾和补充
+HttpServletRequest
+HttpServletResponse
+
+不要在Servlet类里设置成员变量，并发访问情况下会有严重问题。service函数在执行时是多线程的，底层已经实现。
+
+本节新内容：
+HttpSession
+Servlet, ServletConfig, ServletContext
+RequestDispatcher
+Filter
+
+
+HttpSe">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-“J2EE高级编程“笔记（四）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/“J2EE高级编程“笔记（四）/" class="article-date">
+  	<time datetime="2017-11-15T23:58:31.000Z" itemprop="datePublished">2017-11-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      “J2EE高级编程”笔记（四）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="上节回顾和补充"><a href="#上节回顾和补充" class="headerlink" title="上节回顾和补充"></a>上节回顾和补充</h3><ul>
+<li><code>HttpServletRequest</code></li>
+<li><code>HttpServletResponse</code></li>
+</ul>
+<p>不要在<code>Servlet</code>类里设置成员变量，并发访问情况下会有严重问题。<br><code>service</code>函数在执行时是多线程的，底层已经实现。</p>
+<hr>
+<h3 id="本节新内容："><a href="#本节新内容：" class="headerlink" title="本节新内容："></a>本节新内容：</h3><ul>
+<li><code>HttpSession</code></li>
+<li><code>Servlet</code>, <code>ServletConfig</code>, <code>ServletContext</code></li>
+<li><code>RequestDispatcher</code></li>
+<li><code>Filter</code></li>
+</ul>
+<hr>
+<h4 id="HttpSession"><a href="#HttpSession" class="headerlink" title="HttpSession"></a>HttpSession</h4><p><code>HttpSession</code>通过<code>Token</code>（一串服务器生成的长随机字符串）实现。客户端获取<code>Token</code>后一般存在<code>cookie</code>中。如果客户端浏览器设置“阻止所有cookie”，需要会话支持的应用可能无法使用。<br>当然也有办法替代<code>cookie</code>：URL重写技术和隐藏域技术。详情可查看<a href="http://www.runoob.com/servlet/servlet-session-tracking.html" target="_blank" rel="external">菜鸟教程-session跟踪</a>，介绍了三大技术的使用方法。<br>有多少个用户同时访问，就有多少个<code>HttpSession</code>对象。如果某个session长时间没反应，会被服务器删除相关数据（间隔时间可以通过<code>setMaxInactiveInterval(int interval)</code>设置）。<br><code>Token</code>、<code>cookie</code>等信息可以在浏览器的开发者工具中查看。</p>
+<a id="more"></a>
+<p>以下程序摘自菜鸟教程的完整示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.runoob.test;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.PrintWriter;</div><div class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</div><div class="line"><span class="keyword">import</span> java.util.Date;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.servlet.ServletException;</div><div class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpSession;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Servlet implementation class SessionTrack</div><div class="line"> */</div><div class="line"><span class="meta">@WebServlet</span>(<span class="string">"/SessionTrack"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SessionTrack</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException</span></div><div class="line">    &#123;</div><div class="line">        <span class="comment">// 如果不存在 session 会话，则创建一个 session 对象</span></div><div class="line">        HttpSession session = request.getSession(<span class="keyword">true</span>);</div><div class="line">        <span class="comment">// 获取 session 创建时间</span></div><div class="line">        Date createTime = <span class="keyword">new</span> Date(session.getCreationTime());</div><div class="line">        <span class="comment">// 获取该网页的最后一次访问时间</span></div><div class="line">        Date lastAccessTime = <span class="keyword">new</span> Date(session.getLastAccessedTime());</div><div class="line">         </div><div class="line">        <span class="comment">//设置日期输出的格式  </span></div><div class="line">        SimpleDateFormat df=<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);  </div><div class="line">    </div><div class="line">        String title = <span class="string">"Servlet Session 实例 - 菜鸟教程"</span>;</div><div class="line">        Integer visitCount = <span class="keyword">new</span> Integer(<span class="number">0</span>);</div><div class="line">        String visitCountKey = <span class="keyword">new</span> String(<span class="string">"visitCount"</span>);</div><div class="line">        String userIDKey = <span class="keyword">new</span> String(<span class="string">"userID"</span>);</div><div class="line">        String userID = <span class="keyword">new</span> String(<span class="string">"Runoob"</span>);</div><div class="line">    </div><div class="line">        <span class="comment">// 检查网页上是否有新的访问者</span></div><div class="line">        <span class="keyword">if</span> (session.isNew())&#123;</div><div class="line">            title = <span class="string">"Servlet Session 实例 - 菜鸟教程"</span>;</div><div class="line">             session.setAttribute(userIDKey, userID);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">             visitCount = (Integer)session.getAttribute(visitCountKey);</div><div class="line">             visitCount = visitCount + <span class="number">1</span>;</div><div class="line">             userID = (String)session.getAttribute(userIDKey);</div><div class="line">        &#125;</div><div class="line">        session.setAttribute(visitCountKey,  visitCount);</div><div class="line">    </div><div class="line">        <span class="comment">// 设置响应内容类型</span></div><div class="line">        response.setContentType(<span class="string">"text/html;charset=UTF-8"</span>);</div><div class="line">        PrintWriter out = response.getWriter();</div><div class="line">    </div><div class="line">        String docType = <span class="string">"&lt;!DOCTYPE html&gt;\n"</span>;</div><div class="line">        out.println(docType +</div><div class="line">                <span class="string">"&lt;html&gt;\n"</span> +</div><div class="line">                <span class="string">"&lt;head&gt;&lt;title&gt;"</span> + title + <span class="string">"&lt;/title&gt;&lt;/head&gt;\n"</span> +</div><div class="line">                <span class="string">"&lt;body bgcolor=\"#f0f0f0\"&gt;\n"</span> +</div><div class="line">                <span class="string">"&lt;h1 align=\"center\"&gt;"</span> + title + <span class="string">"&lt;/h1&gt;\n"</span> +</div><div class="line">                 <span class="string">"&lt;h2 align=\"center\"&gt;Session 信息&lt;/h2&gt;\n"</span> +</div><div class="line">                <span class="string">"&lt;table border=\"1\" align=\"center\"&gt;\n"</span> +</div><div class="line">                <span class="string">"&lt;tr bgcolor=\"#949494\"&gt;\n"</span> +</div><div class="line">                <span class="string">"  &lt;th&gt;Session 信息&lt;/th&gt;&lt;th&gt;值&lt;/th&gt;&lt;/tr&gt;\n"</span> +</div><div class="line">                <span class="string">"&lt;tr&gt;\n"</span> +</div><div class="line">                <span class="string">"  &lt;td&gt;id&lt;/td&gt;\n"</span> +</div><div class="line">                <span class="string">"  &lt;td&gt;"</span> + session.getId() + <span class="string">"&lt;/td&gt;&lt;/tr&gt;\n"</span> +</div><div class="line">                <span class="string">"&lt;tr&gt;\n"</span> +</div><div class="line">                <span class="string">"  &lt;td&gt;创建时间&lt;/td&gt;\n"</span> +</div><div class="line">                <span class="string">"  &lt;td&gt;"</span> +  df.format(createTime) + </div><div class="line">                <span class="string">"  &lt;/td&gt;&lt;/tr&gt;\n"</span> +</div><div class="line">                <span class="string">"&lt;tr&gt;\n"</span> +</div><div class="line">                <span class="string">"  &lt;td&gt;最后访问时间&lt;/td&gt;\n"</span> +</div><div class="line">                <span class="string">"  &lt;td&gt;"</span> + df.format(lastAccessTime) + </div><div class="line">                <span class="string">"  &lt;/td&gt;&lt;/tr&gt;\n"</span> +</div><div class="line">                <span class="string">"&lt;tr&gt;\n"</span> +</div><div class="line">                <span class="string">"  &lt;td&gt;用户 ID&lt;/td&gt;\n"</span> +</div><div class="line">                <span class="string">"  &lt;td&gt;"</span> + userID + </div><div class="line">                <span class="string">"  &lt;/td&gt;&lt;/tr&gt;\n"</span> +</div><div class="line">                <span class="string">"&lt;tr&gt;\n"</span> +</div><div class="line">                <span class="string">"  &lt;td&gt;访问统计：&lt;/td&gt;\n"</span> +</div><div class="line">                <span class="string">"  &lt;td&gt;"</span> + visitCount + <span class="string">"&lt;/td&gt;&lt;/tr&gt;\n"</span> +</div><div class="line">                <span class="string">"&lt;/table&gt;\n"</span> +</div><div class="line">                <span class="string">"&lt;/body&gt;&lt;/html&gt;"</span>); </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="RequestDispatcher（请求派发器）"><a href="#RequestDispatcher（请求派发器）" class="headerlink" title="RequestDispatcher（请求派发器）"></a>RequestDispatcher（请求派发器）</h4><p>两个重要函数：</p>
+<ul>
+<li>forward，转发</li>
+<li>include，将别的组件的输出包括进来</li>
+</ul>
+<p>详细内容请自学。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/“J2EE高级编程”笔记（五）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          “J2EE高级编程”笔记（五）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/“J2EE高级编程”笔记（三）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">“J2EE高级编程”笔记（三）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="“J2EE高级编程“笔记（四）" data-title="“J2EE高级编程”笔记（四）" data-url="http://heli06.github.io/category/“J2EE高级编程“笔记（四）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

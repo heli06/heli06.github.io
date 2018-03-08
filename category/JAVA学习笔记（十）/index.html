@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JAVA学习笔记（十） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="零碎知识
+XML，可扩展交互语言。半格式化的语言，比文本文件更具有扩展性和灵活性。
+设计模式包含创建模式，结构模式，行为模式。后文着重阐述创建模式。
+
+创建模式单例模式解释：确保某个类在内存中只有一个。
+例子：
+1234567891011121314151617public class Abc &amp;#123;    private Abc() &amp;#123;&amp;#125;    private publ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA学习笔记（十）">
+<meta property="og:url" content="http://heli06.github.io/category/JAVA学习笔记（十）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="零碎知识
+XML，可扩展交互语言。半格式化的语言，比文本文件更具有扩展性和灵活性。
+设计模式包含创建模式，结构模式，行为模式。后文着重阐述创建模式。
+
+创建模式单例模式解释：确保某个类在内存中只有一个。
+例子：
+1234567891011121314151617public class Abc &amp;#123;    private Abc() &amp;#123;&amp;#125;    private publ">
+<meta property="og:updated_time" content="2017-07-10T03:35:13.875Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA学习笔记（十）">
+<meta name="twitter:description" content="零碎知识
+XML，可扩展交互语言。半格式化的语言，比文本文件更具有扩展性和灵活性。
+设计模式包含创建模式，结构模式，行为模式。后文着重阐述创建模式。
+
+创建模式单例模式解释：确保某个类在内存中只有一个。
+例子：
+1234567891011121314151617public class Abc &amp;#123;    private Abc() &amp;#123;&amp;#125;    private publ">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-JAVA学习笔记（十）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（十）/" class="article-date">
+  	<time datetime="2017-07-10T02:32:19.000Z" itemprop="datePublished">2017-07-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA学习笔记（十）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="零碎知识"><a href="#零碎知识" class="headerlink" title="零碎知识"></a>零碎知识</h2><ul>
+<li><code>XML</code>，可扩展交互语言。半格式化的语言，比文本文件更具有扩展性和灵活性。</li>
+<li>设计模式包含创建模式，结构模式，行为模式。后文着重阐述创建模式。</li>
+</ul>
+<h2 id="创建模式"><a href="#创建模式" class="headerlink" title="创建模式"></a>创建模式</h2><h4 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h4><p>解释：确保某个类在内存中只有一个。</p>
+<p>例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Abc</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Abc</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">public</span> <span class="keyword">static</span> Abc s1 = <span class="keyword">null</span>;</div><div class="line">    <span class="comment">//…………</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Abc <span class="title">getAbc</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(s1 == <span class="keyword">null</span>) &#123;</div><div class="line">            s1 = <span class="keyword">new</span> Abc();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> s1;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span> </span>&#123;</div><div class="line">        Abc a = Abc.getAbc();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<hr>
+<h4 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h4><p>先介绍两个类：<code>ClassLoader</code>，<code>Class</code>。这两个类禁止程序猿去实例化。<br><code>ClassLoader</code>提供类的加载方式。它的派生类有很多。<br><code>Class</code>类的用法如下。</p>
+<pre><code>Object o = new Student();
+Student s1 = new Student();
+Class c = o.getClass();
+Student.class == c  //true
+s1.getClass() == Student.class  //true
+</code></pre><p>然后接着是简单工厂模式的例子。<br>其实我觉得这篇博文讲得更清晰一些：<a href="http://www.cnblogs.com/liaoweipeng/p/5768197.html" target="_blank" rel="external">点击查看</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//定义一个产品的抽象函数接口</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Product</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AProduct</span> <span class="keyword">extends</span> <span class="title">Product</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">//…………</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//…………还有BProduct,CProduct…………</span></div><div class="line"></div><div class="line"><span class="comment">//可以按需要产生AProject,BProject,CProject……</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductFactory</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> Product <span class="title">getProduct</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> AProduct();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> Product <span class="title">getProduct</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        Class c = getClass();</div><div class="line">        ClassLoader cl = c.getClassLoader();</div><div class="line">        String clazz = <span class="string">""</span>;</div><div class="line">        Properties p = <span class="keyword">new</span> Properties(name);</div><div class="line">        p.load(<span class="keyword">new</span> FileInputStream(<span class="string">"a.properties"</span>));</div><div class="line">        </div><div class="line">        clazz = p.getProperty(<span class="string">"productType"</span>);</div><div class="line">        </div><div class="line">        <span class="comment">//这个是啥玩意儿，我当时没听明白……</span></div><div class="line">        <span class="keyword">return</span> (Product)Beans.newInstantiate(clazz, cl);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接着谈谈<code>Java bean</code>。<br>关于<code>Java bean</code>到底是啥，还是百度或知乎说得清楚。我就举一个例子：</p>
+<pre><code>public class A {
+    public A(int i) {
+
+    }
+    private int age;
+
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = (byte) age;
+    }
+}
+</code></pre><p>这就是符合<code>Java bean</code>的写法。</p>
+<hr>
+<h4 id="观察者模式-与-Java事件处理模型"><a href="#观察者模式-与-Java事件处理模型" class="headerlink" title="观察者模式 与 Java事件处理模型"></a>观察者模式 与 Java事件处理模型</h4><p>解释：如果一个被观察的对象（变量）发生变化，其它对象（变量）因此而发生变化<br>比方说，一个人生日到了，观察到这一<strong>事件</strong>的他的朋友、父母等会给他买礼物。<br>完整的代码见老师给的文件，路径：7\eventdelegation\src </p>
+<p>以下是接近完整的代码，举的就是一个人要过生日的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.*;</div><div class="line"></div><div class="line"><span class="comment">//定义监听“年龄变化”事件的监听者接口</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">AgeChangedListener</span> <span class="keyword">extends</span> <span class="title">EventListener</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> </span></div><div class="line">        <span class="keyword">void</span> <span class="title">processAgeChanged</span><span class="params">(AgeChangedEvent ace)</span> &#123;</div><div class="line">            <span class="comment">//…………</span></div><div class="line">        &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//父母想要监视“年龄变化”，就得继承接口</span></div><div class="line">pulic <span class="class"><span class="keyword">class</span> <span class="title">Parent</span> <span class="keyword">implements</span> <span class="title">AgeChangedListener</span> </span>&#123;</div><div class="line">    <span class="comment">//规定监听到事件后要做什么的函数</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">processAgeChanged</span><span class="params">(AgeChangeEvent ace)</span> </span>&#123;</div><div class="line">        <span class="comment">//可以这样获取被观察者</span></div><div class="line">        Student s = (Student) ace.getSource();</div><div class="line">        <span class="comment">//…………</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//这是同班同学</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Classmate</span> <span class="keyword">implements</span> <span class="title">AgeChangedListener</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">processAgeChanged</span><span class="params">(AgeChangeEvent ace)</span> </span>&#123;</div><div class="line">        <span class="comment">//…………</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//学生，此例子中它的age属性被监听</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line">    </div><div class="line">    <span class="comment">//线性表记录有谁会在乎它的生日</span></div><div class="line">    List&lt;AgeChangedListener&gt; listeners = </div><div class="line">        <span class="keyword">new</span> ArrayList&lt;AgeChangedListener&gt;();</div><div class="line">    </div><div class="line">    <span class="comment">//添加监听者的函数</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> </span></div><div class="line">        <span class="title">addAgeChangedListener</span><span class="params">(AgeChangedListener acl)</span> &#123;</div><div class="line">        <span class="keyword">if</span>(!listeners.contains(acl)) &#123;</div><div class="line">            listeners.add(acl);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">//生日到了，在朋友圈里喊一声，提醒监听者</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(AgeChangedEvent ace)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span>(Iterator&lt;AgeChangedListener&gt; it = listeners.iterator(); it.hasNext();) &#123;</div><div class="line">            AgeChangedListener acl = it.next();</div><div class="line">            <span class="comment">//多线程，避免哪位送礼物磨磨蹭蹭，阻塞了</span></div><div class="line">            <span class="keyword">new</span> Thread() &#123;</div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                    acl.processAgeChanged(ace);</div><div class="line">                &#125;</div><div class="line">            &#125;.start();</div><div class="line">            acl.processAgeChanged(ace);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> age; &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">        AgeChangedEvent ace = </div><div class="line">            <span class="keyword">new</span> AgeChangedEvent(<span class="keyword">this</span>, <span class="keyword">this</span>.age, age);</div><div class="line">        process(ace);</div><div class="line">        <span class="keyword">this</span>.age = age;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//定义“年龄变化”事件</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AgeChangedEvent</span> <span class="keyword">extends</span> <span class="title">EventObject</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> oldAge, newAge;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(AgeChangedEvent ace)</span> </span>&#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AgeChangedEvent</span><span class="params">(Student s, <span class="keyword">int</span> oldAge, <span class="keyword">int</span> newAge)</span></span>&#123;</div><div class="line">        <span class="keyword">super</span>(s);</div><div class="line">        <span class="keyword">this</span>.oldAge = oldAge;</div><div class="line">        <span class="keyword">this</span>.newAge = newAge;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getOldAge</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> oldAge; &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNewAge</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> newAge; &#125;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//程序在这里运行</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span> </span>&#123;</div><div class="line">        Parent p1 = <span class="keyword">new</span> Parent();</div><div class="line">        Parent p2 = <span class="keyword">new</span> Parent();</div><div class="line">        Classmate c1 = <span class="keyword">new</span> Classmate();</div><div class="line">        </div><div class="line">        Student s1 = <span class="keyword">new</span> Student();</div><div class="line">        s1.addAgeChangedListener(p1);</div><div class="line">        s1.addAgeChangedListener(p2);</div><div class="line">        s1.addAgeChangedListener(p3);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="GUI编程"><a href="#GUI编程" class="headerlink" title="GUI编程"></a>GUI编程</h2><p>使用Java进行GUI编程，有这些库能用：<code>awt</code>，<code>swing</code>，<code>swt</code>，<code>JavaFX</code>。<br>进行GUI设计可以采用直接拖组件的方式，不必非要直接写代码。<br>GUI编程里广泛使用了事件注册与监听机制，比较典型的是焦点的聚焦与失焦。这里不多赘述。<br>任何组件的外观是由一个函数画出来的。</p>
+<h4 id="awt"><a href="#awt" class="headerlink" title="awt"></a>awt</h4><p>在老师给的代码里有示例程序，路径：\7\GUI。示例程序很简单且自带注释，这里就不赘述了。</p>
+<p>GUI编程的最简单的类库。</p>
+<p><code>Component</code>是一切组件类的根类。组件包括<code>Canvas</code>，<code>Button</code>，<code>Checkbox</code>等9个（真的好少）。这些组件是能够改写的。</p>
+<p><code>awt</code>调用的是本地的组件，功能很弱，无法制作外观复杂的软件。而且各个平台上显示的效果不同。</p>
+<p><code>Canvas</code>（画布）是一个更基础的组件类型。如果要一个没有提供的组件，可以用<code>Canvas</code>画出来。</p>
+<h4 id="swing"><a href="#swing" class="headerlink" title="swing"></a>swing</h4><p><code>swing</code>拥有丰富的组件，可移植性100%。缺点是运行较慢，因为所有组件都自己绘制。<br>老师下节课会详细讲。</p>
+<h4 id="swt"><a href="#swt" class="headerlink" title="swt"></a>swt</h4><p><code>swt</code>介于<code>awt</code>和<code>swing</code>之间。它调用本地的东西来绘制。<br>这个老师好像不打算讲。</p>
+<h4 id="JavaFX"><a href="#JavaFX" class="headerlink" title="JavaFX"></a>JavaFX</h4><p><code>JavaFX</code>在所有方面大大超越它的前辈们。除了体积较大几乎没有缺点。<br>老师好像也不打算讲，但我强烈推荐学习一下。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/JAVA学习笔记（十一）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JAVA学习笔记（十一）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/JAVA学习笔记（九）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA学习笔记（九）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JAVA学习笔记（十）" data-title="JAVA学习笔记（十）" data-url="http://heli06.github.io/category/JAVA学习笔记（十）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

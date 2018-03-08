@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JAVA学习笔记（四） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="零碎知识
+Base64的原理、编码解码方式和应用（邮箱、图片转Base64、URL等）。老师说得零散，百度吧，百度百科解释得还不错。
+文件相关函数：seek()等。
+Java有很好的API文档，记得下载
+在JAVA里，return,break等后接顺序执行语句，会报错（unreachable statement，无法到达的语句）
+抛出的异常尽可能精确，提高代码可读性
+覆盖函数的访问权限不能比被覆盖">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA学习笔记（四）">
+<meta property="og:url" content="http://heli06.github.io/category/JAVA学习笔记（四）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="零碎知识
+Base64的原理、编码解码方式和应用（邮箱、图片转Base64、URL等）。老师说得零散，百度吧，百度百科解释得还不错。
+文件相关函数：seek()等。
+Java有很好的API文档，记得下载
+在JAVA里，return,break等后接顺序执行语句，会报错（unreachable statement，无法到达的语句）
+抛出的异常尽可能精确，提高代码可读性
+覆盖函数的访问权限不能比被覆盖">
+<meta property="og:updated_time" content="2017-06-29T05:01:47.676Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA学习笔记（四）">
+<meta name="twitter:description" content="零碎知识
+Base64的原理、编码解码方式和应用（邮箱、图片转Base64、URL等）。老师说得零散，百度吧，百度百科解释得还不错。
+文件相关函数：seek()等。
+Java有很好的API文档，记得下载
+在JAVA里，return,break等后接顺序执行语句，会报错（unreachable statement，无法到达的语句）
+抛出的异常尽可能精确，提高代码可读性
+覆盖函数的访问权限不能比被覆盖">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-JAVA学习笔记（四）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（四）/" class="article-date">
+  	<time datetime="2017-06-29T02:47:35.000Z" itemprop="datePublished">2017-06-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA学习笔记（四）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="零碎知识"><a href="#零碎知识" class="headerlink" title="零碎知识"></a>零碎知识</h3><ol>
+<li>Base64的原理、编码解码方式和应用（邮箱、图片转Base64、URL等）。老师说得零散，百度吧，百度百科解释得还不错。</li>
+<li>文件相关函数：seek()等。</li>
+<li>Java有很好的API文档，记得下载</li>
+<li>在JAVA里，return,break等后接顺序执行语句，会报错（unreachable statement，无法到达的语句）</li>
+<li>抛出的异常尽可能精确，提高代码可读性</li>
+<li>覆盖函数的访问权限不能比被覆盖函数的访问权限低</li>
+</ol>
+<a id="more"></a>
+<p>private：只有自己可以访问<br>（default）：同包的可以访问<br>protected : 同包和不同包的派生类可以访问<br>public：都可以访问</p>
+<p>以下是例子：</p>
+<pre><code>package a;
+class A {
+    private int j;
+    protected int i;
+}
+
+package b;
+class B extends a.A {
+    public void a() {
+        a.A a = new a.A();
+        a.i = 9;//错误，不能通过父类型访问
+        B b = new B();
+        b.i = 9;//正确
+        i = 9;
+    }
+}
+</code></pre><hr>
+<h3 id="复习内容：数据，类型，操作"><a href="#复习内容：数据，类型，操作" class="headerlink" title="复习内容：数据，类型，操作"></a>复习内容：数据，类型，操作</h3><ol>
+<li><p>算术运算，计算结果类型最低是int而非byte。</p>
+<pre><code>byte b1 = 5;
+byte b2 = 6;
+byte b3 = 0;
+
+b3 = b1 + b2;//错误
+b3 = (byte)( b1 + b2 );//正确的写法
+
+b1 += b2;//正确，有隐式类型转换
+
+b1 = b2 + 5.0;//错误，此处b2进行了提升
+b1 = (byte)( b2 + 5.0 );//正确的写法
+</code></pre></li>
+<li><p>浮点数不能进行移位运算。没有例子。</p>
+</li>
+<li><p>多态会带来风险</p>
+<pre><code>class A {
+    void a() {}
+}
+class B extends A {
+    //void a() { b(); }
+    void b() {}
+    main() {
+        A a = new B();
+        a.b();//错误，警告“A类中没有b”
+        ((B)a).b();//正确
+        a.a();//给类b添加a()的重载后正确
+    }
+}
+</code></pre></li>
+<li><p>数据操作</p>
+<pre><code>int i = (int) 3.3;//这样来取整不太好
+//最好用Math.floor(),Math.ceil(),
+//Math.round()
+</code></pre></li>
+</ol>
+<hr>
+<h3 id="接口、对象的用法"><a href="#接口、对象的用法" class="headerlink" title="接口、对象的用法"></a>接口、对象的用法</h3><pre><code>//线程的例子
+class A implements Runnable {}
+class B implements Runnable {}
+
+new Thread(new A());
+new Thread(new B());
+
+class Thread {
+    private Runnable r;
+    Thread(Runnable r) {
+        this.r = r;
+    }
+}
+
+interface Runnable {
+    public void run();
+}
+</code></pre><hr>
+<h3 id="新内容：异常处理"><a href="#新内容：异常处理" class="headerlink" title="新内容：异常处理"></a>新内容：异常处理</h3><p>错误分两类：检查（相当于C++的运行错误）和运行错误（相当于C++的逻辑错误）<br>一切错误的根类：Throwable<br>Throwable的派生类：</p>
+<ol>
+<li>Error(程序运行时的严重错误，可能导致虚拟机停止。此类错误不处理也无必要处理。)</li>
+<li>Exception(相对不严重的、有时是难以预测的错误，比如网络中断)</li>
+</ol>
+<p>Excepion的派生类之一：RuntimeException， 以下异常均是它的派生类。<br>这些异常可通过程序猿提高编程技巧解决。</p>
+<pre><code>//编译器不管运行时异常，写了也没用
+class Student {
+    String id, name;
+    int age;
+    public void study() {
+
+    }
+    public static void main(String[] args) {
+        Student s1 = new Student();
+        s1.age = 18;
+        //if( s1 != null )
+        s1 = null;//NullPointerException, 空指针异常
+        s1.age++;
+
+        int i = 5, j = 0;
+        //if( j != 0 )
+        i /= j;//ArithmeticException, 算数运算异常
+
+        Object o = new int[0];
+        //if( o instanceof Student )
+        s1 = (Student) o;//ClassCastException, 类型转换异常
+
+        //if( args.length &gt; 1 )
+        System.out.println(args[1]);
+        //IndexOutOfBoundsException, 下标越界异常
+    }
+}
+</code></pre><p>但是有一类异常：checked exception，检查类异常，与程序猿无关（设备突然损坏等）。<br>比如IOException</p>
+<pre><code>//当程序里可能存在检查性异常，编译不通过
+import java.io.*;
+
+public class ReadFile {
+
+    //第二种异常检测方法：写在函数后
+    //main() throws AException，BException{  
+
+    public static void main(String[] args) {
+    //第一种异常检测方法：try
+        try {
+            //也可以这样抛
+            //throw new Exception();
+
+            FileInputStream fis = new FileInputStream(&quot;a.dat&quot;);
+            int c = fis.read();
+            fis.close();
+        }
+        catch(FileNotFoundException e) {}
+        catch(IOException e) {}
+        //如果以下catch放在最前，以上两个失效
+        catch(Exception e) {
+            //可以弹窗或记日志
+        }
+        //也可以这样写
+        /*catch(Exceptione){
+            if(IOException){
+            …………
+            }else{
+            …………
+            }
+        }*/
+
+        //finally会在catch执行完后执行，
+        //除非强制退出System.exit()等。
+        //finally和catch不一定非得有
+        finally {
+
+        }
+    }
+}
+</code></pre><p>常见的处理异常的手段：</p>
+<pre><code>class Student {
+    void a() throws AException {
+        …………
+    }
+}
+
+void teach() throws BException {
+    try {
+        new Student().buy();
+    }
+    catch(Exception e) {
+        while(e != null) {
+            System.out.println(e.getMessage());
+            e.getCause();
+        }
+    }
+    //也能多重抛出
+    /*catch(AException e) {
+        throw new BException(e);
+    }*/
+}
+</code></pre><p>一道例题，讲的是：覆盖函数不允许抛出被覆盖函数没有声明的检查性异常</p>
+<pre><code>class A {
+    void a() throws IOException {}
+}
+class B extends A {
+    void a() throws Exception {}
+    void x() {
+        A a = new B();//错误，抛出的是Exception
+        a.a();
+    }
+}
+</code></pre><p>但如果是这样：</p>
+<pre><code>class A {
+    void a() throws Exception {}
+}
+class B extends A {
+    void a() throws IOException {}
+    void x() {
+        A a = new B();//正确
+        a.a();
+    }
+}
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/JAVA学习笔记（五）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JAVA学习笔记（五）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/JAVA学习笔记（三）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA学习笔记（三）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JAVA学习笔记（四）" data-title="JAVA学习笔记（四）" data-url="http://heli06.github.io/category/JAVA学习笔记（四）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

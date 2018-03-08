@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JAVA学习笔记（十四） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Web编程（回顾）在老师发的代码的servlet路径底下有传输验证码图片和验证登录的示例程序。
+Tomcat自带的网页访问8080端口，会有JSP的各种示例与游戏，值得好好研究。
+Guess Number 游戏的示例代码。其实老师发的或是Tomcat的示例程序里都有，这里蛮贴一下。
+这是 Model 部分的代码：
+123456789101112131415161718192021222324252">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA学习笔记（十四）">
+<meta property="og:url" content="http://heli06.github.io/category/JAVA学习笔记（十四）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="Web编程（回顾）在老师发的代码的servlet路径底下有传输验证码图片和验证登录的示例程序。
+Tomcat自带的网页访问8080端口，会有JSP的各种示例与游戏，值得好好研究。
+Guess Number 游戏的示例代码。其实老师发的或是Tomcat的示例程序里都有，这里蛮贴一下。
+这是 Model 部分的代码：
+123456789101112131415161718192021222324252">
+<meta property="og:updated_time" content="2017-07-14T04:00:17.491Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA学习笔记（十四）">
+<meta name="twitter:description" content="Web编程（回顾）在老师发的代码的servlet路径底下有传输验证码图片和验证登录的示例程序。
+Tomcat自带的网页访问8080端口，会有JSP的各种示例与游戏，值得好好研究。
+Guess Number 游戏的示例代码。其实老师发的或是Tomcat的示例程序里都有，这里蛮贴一下。
+这是 Model 部分的代码：
+123456789101112131415161718192021222324252">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-JAVA学习笔记（十四）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（十四）/" class="article-date">
+  	<time datetime="2017-07-14T02:16:49.000Z" itemprop="datePublished">2017-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA学习笔记（十四）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Web编程（回顾）"><a href="#Web编程（回顾）" class="headerlink" title="Web编程（回顾）"></a>Web编程（回顾）</h2><p>在老师发的代码的servlet路径底下有传输验证码图片和验证登录的示例程序。</p>
+<p><code>Tomcat</code>自带的网页访问8080端口，会有<code>JSP</code>的各种示例与游戏，值得好好研究。</p>
+<p>Guess Number 游戏的示例代码。其实老师发的或是<code>Tomcat</code>的示例程序里都有，这里蛮贴一下。</p>
+<p>这是 Model 部分的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> a;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NumberGuessBean</span> </span>&#123;</div><div class="line">    <span class="keyword">boolean</span> success;</div><div class="line">    <span class="keyword">int</span> answer;</div><div class="line">    <span class="keyword">int</span> count;</div><div class="line">    String hint;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NumberGuessBean</span><span class="params">()</span> </span>&#123;</div><div class="line">        reset();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reset</span><span class="params">()</span> </span>&#123;</div><div class="line">        answer = (<span class="keyword">int</span>)(Math.random() * <span class="number">100</span> + <span class="number">1</span>);</div><div class="line">        count = <span class="number">0</span>;</div><div class="line">        success = <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setGuess</span><span class="params">(String guess)</span> </span>&#123;</div><div class="line">        count++;</div><div class="line">        <span class="keyword">int</span> g = Integer.parseInt(guess);</div><div class="line">        <span class="keyword">if</span>(g &gt; answer) &#123;</div><div class="line">            hint = <span class="string">"lower"</span>;</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(g &lt; anwer) &#123;</div><div class="line">            hint = <span class="string">"higher"</span>;</div><div class="line">        &#125;<span class="keyword">else</span> &#123;</div><div class="line">            success = <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>这是服务端的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NumberGuessServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(</span></span></div><div class="line">    HttpServletRequest req, </div><div class="line">    HttpServletResponse res) <span class="keyword">throws</span> IOExcepiton &#123;</div><div class="line">        <span class="comment">//要分用户，所以要取得session</span></div><div class="line">        HttpSession session = request.getSession();</div><div class="line">        </div><div class="line">        String guess = request.getParameter(<span class="string">"guess"</span>);</div><div class="line">        </div><div class="line">        Object o = session.getAttribute(<span class="string">"bean"</span>);</div><div class="line">        NumberGuessBean bean = <span class="keyword">null</span>;</div><div class="line">        </div><div class="line">        <span class="comment">//刚玩则新建对象，否则用旧的</span></div><div class="line">        <span class="comment">//有多少个用户在玩，就new几个对象</span></div><div class="line">        <span class="keyword">if</span>(o == <span class="keyword">null</span>) &#123;</div><div class="line">            bean = <span class="keyword">new</span> NumberGuessBean();</div><div class="line">            session.setAttribute(<span class="string">"bean"</span>, bean);</div><div class="line">        &#125;<span class="keyword">else</span> &#123;</div><div class="line">            bean = (NumberGuessBean) o;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        bean.setGuess(guess);</div><div class="line">        </div><div class="line">        PrintWriter out = res.getWriter();</div><div class="line">        <span class="keyword">if</span>(bean.getSuccess()) &#123;</div><div class="line">            out.println(<span class="string">"Congratulation!"</span>)</div><div class="line">            out.println(<span class="string">"Care to &lt;a href='numguessbean'&gt;"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            out.println(<span class="string">"Try"</span> + bean.getHint());</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//if(guess = null || guess.length() == 0)</span></div><div class="line">        <span class="comment">//…………</span></div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h2><p>先安利一下Web编程学习网站<a href="https://www.runoob.com/jsp/jsp-tutorial.html" target="_blank" rel="external">菜鸟教程</a>，想深入学习<code>JSP</code>的可以参考一下。</p>
+<p>之前的示例的写法，把页面与逻辑混在一起了，以后扩展、维护都很困难。所以要使用<code>JSP</code>技术。</p>
+<p>简单来说，<code>JSP</code> = <code>html</code> + <code>Java</code><br><code>html</code>负责静态部分，<code>Java</code>负责动态部分。<br>先来个入门级的示例。把以下代码保存在名为<code>time.jsp</code>的文件里：</p>
+<pre><code>&lt;h1&gt;now is : &lt;%= new java.util.Date() %&gt;&lt;/h1&gt;
+</code></pre><p>然后扔到<code>Tomcat</code>的<code>examples/</code>路径下，访问<code>localhost:8080/examples/time.jsp</code>，就能获取当前时间了。</p>
+<p><code>.jsp</code>文件第一次访问可能很慢，因为要转换成<code>Java</code>源代码。不过可以事先提前转换。转换的代码也在<code>Tomcat</code>下能找着（路径我没记下来，但不难找）。</p>
+<hr>
+<h4 id="JSP语法"><a href="#JSP语法" class="headerlink" title="JSP语法"></a>JSP语法</h4><p>其实我觉得看<a href="https://www.runoob.com/jsp/jsp-syntax.html" target="_blank" rel="external">菜鸟教程的JSP语法篇</a>比看我的笔记会更清晰些…………</p>
+<p>脚本程序的语法格式：</p>
+<pre><code>&lt;% out.println(&quot;Hello World&quot;); %&gt;
+</code></pre><p><code>JSP</code>表达式的语法格式：</p>
+<pre><code>&lt;p&gt;
+   今天的日期是: &lt;%= new java.util.Date() %&gt;
+&lt;/p&gt;
+</code></pre><p><code>JSP</code>指令，用来设置与整个JSP页面相关的属性：</p>
+<pre><code>&lt;%-- 定义页面的依赖属性 --%&gt; 
+&lt;%-- 比如脚本语言、error页面、缓存需求等等 --%&gt;
+&lt;%@ page ... %&gt;    
+
+&lt;%-- 包含其他文件 --%&gt;
+&lt;%@ include ... %&gt;
+
+&lt;%-- 引入标签库的定义，可以是自定义标签 --%&gt;
+&lt;%@ taglib ... %&gt;
+</code></pre><p>以下是依赖属性的定义方式的不完整的例子：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;%@ </div><div class="line">    pageEncoding=<span class="string">"gbk"</span></div><div class="line">    session=<span class="string">"false"</span>     &lt;%-- 默认为<span class="keyword">true</span> --%&gt;</div><div class="line">    <span class="keyword">import</span>=<span class="string">"java.io.*, java.util.*"</span></div><div class="line">    isErrorPage=<span class="string">"true"</span></div><div class="line">    errorPage=<span class="string">"/err.jsp"</span>    &lt;%-- 将出错页面输出到客户端 --%&gt;</div><div class="line">    buffer=<span class="string">"12KB"</span>   &lt;%-- 设定缓冲区大小 --%&gt;</div><div class="line">%&gt;</div></pre></td></tr></table></figure>
+<p><code>JSP</code>的九个<code>implicit object</code>（隐含对象）：</p>
+<ul>
+<li><code>request</code>，<code>HttpServletRequest</code>类的实例</li>
+<li><code>response</code>，<code>HttpServletResponse</code>类的实例</li>
+<li><code>out</code>，<code>PrintWriter</code>类的实例，用于把结果输出至网页上。要向网页输出内容时，请优先使用它</li>
+<li><code>session</code>，<code>HttpSession</code>类的实例</li>
+<li><code>application</code>，<code>ServletContext</code>类的实例，与应用上下文有关</li>
+<li><code>config</code>，<code>ServletConfig</code>类的实例</li>
+<li><code>pageContext</code>，<code>PageContext</code>类的实例，提供对<code>JSP</code>页面所有对象以及命名空间的访问</li>
+<li><code>page</code>，类似于<code>Java</code>类中的<code>this</code>关键字</li>
+<li><code>Exception</code>，<code>Exception</code>类的对象，代表发生错误的JSP页面中对应的异常对象</li>
+</ul>
+<hr>
+<h4 id="JSP动作元素"><a href="#JSP动作元素" class="headerlink" title="JSP动作元素"></a>JSP动作元素</h4><p>JSP动作元素在请求处理阶段起作用。JSP动作元素是用<code>XML</code>语法写成的。<br>利用JSP动作可以动态地插入文件、重用<code>JavaBean</code>组件、把用户重定向到另外的页面、为Java插件生成<code>HTML</code>代码。<br>动作元素只有一种语法，它符合<code>XML</code>标准：</p>
+<pre><code>&lt;jsp:action_name attribute=&quot;value&quot; /&gt;
+</code></pre><p>以下是一个不完整的例子：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;%-- 引入Student类文件，<span class="keyword">new</span>一个名为a的Student对象 --%&gt;</div><div class="line">&lt;%-- 作用域有<span class="number">4</span>种，这里要选session --%&gt;</div><div class="line">&lt;jsp:useBean id=<span class="string">"a"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"a.Student"</span></div><div class="line">scope=<span class="string">"page|request|session|application"</span>/&gt;</div><div class="line"></div><div class="line">&lt;%-- 默认为<span class="keyword">true</span> --%&gt;</div><div class="line">&lt;%-- 获取、设置属性 --%&gt;</div><div class="line">&lt;jsp:getProperty name=<span class="string">"a"</span> property=<span class="string">"age"</span>/&gt;</div><div class="line">&lt;jsp:setProperty name=<span class="string">"a"</span> property=<span class="string">"age"</span> value=<span class="string">"18"</span>/&gt;</div><div class="line"></div><div class="line">&lt;%-- 如果这样设置，更改什么属性取决于客户端提交什么数据 --%&gt;</div><div class="line">&lt;jsp:setProperty name=<span class="string">"a"</span> property=<span class="string">"*"</span>/&gt;</div><div class="line">&lt;% a.study(); %&gt;</div></pre></td></tr></table></figure>
+<p>最后是之前的猜数字游戏，用<code>JSP</code>写的示例文件的路径：<code>exapmles\jsp\num\numguess.jsp</code></p>
+<hr>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/Java分布式文件存储系统/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Java分布式文件存储系统
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/JAVA学习笔记（十三）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA学习笔记（十三）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JAVA学习笔记（十四）" data-title="JAVA学习笔记（十四）" data-url="http://heli06.github.io/category/JAVA学习笔记（十四）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

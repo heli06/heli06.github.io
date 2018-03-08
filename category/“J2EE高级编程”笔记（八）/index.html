@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>“J2EE高级编程”笔记（八） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JspPageJspPage继承了Servlet，它本质上还是Servlet；它在web.xml里的注册方式和Servlet是很类似的。
+123456789101112131415161718&amp;lt;web-app&amp;gt;    &amp;lt;servlet&amp;gt;        &amp;lt;servlet-name&amp;gt;s1&amp;lt;/servlet-name&amp;gt;        &amp;lt;servlet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“J2EE高级编程”笔记（八）">
+<meta property="og:url" content="http://heli06.github.io/category/“J2EE高级编程”笔记（八）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="JspPageJspPage继承了Servlet，它本质上还是Servlet；它在web.xml里的注册方式和Servlet是很类似的。
+123456789101112131415161718&amp;lt;web-app&amp;gt;    &amp;lt;servlet&amp;gt;        &amp;lt;servlet-name&amp;gt;s1&amp;lt;/servlet-name&amp;gt;        &amp;lt;servlet">
+<meta property="og:updated_time" content="2017-12-01T14:40:46.214Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="“J2EE高级编程”笔记（八）">
+<meta name="twitter:description" content="JspPageJspPage继承了Servlet，它本质上还是Servlet；它在web.xml里的注册方式和Servlet是很类似的。
+123456789101112131415161718&amp;lt;web-app&amp;gt;    &amp;lt;servlet&amp;gt;        &amp;lt;servlet-name&amp;gt;s1&amp;lt;/servlet-name&amp;gt;        &amp;lt;servlet">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-“J2EE高级编程”笔记（八）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/“J2EE高级编程”笔记（八）/" class="article-date">
+  	<time datetime="2017-11-30T00:04:32.000Z" itemprop="datePublished">2017-11-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      “J2EE高级编程”笔记（八）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JspPage"><a href="#JspPage" class="headerlink" title="JspPage"></a>JspPage</h2><p><code>JspPage</code>继承了<code>Servlet</code>，它本质上还是<code>Servlet</code>；它在<code>web.xml</code>里的注册方式和<code>Servlet</code>是很类似的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;web-app&gt;</div><div class="line">    &lt;servlet&gt;</div><div class="line">        &lt;servlet-name&gt;s1&lt;/servlet-name&gt;</div><div class="line">        &lt;servlet-class&gt;</div><div class="line">            com.abc.servlets.HelloServlet</div><div class="line">        &lt;/servlet-class&gt;</div><div class="line">        &lt;jsp-file&gt;jsp-file/WEB-INF/jsps/a.jsp&lt;/jsp-file&gt;</div><div class="line">        &lt;init-param&gt;</div><div class="line">            &lt;param-name&gt;rate&lt;/param-name&gt;</div><div class="line">            &lt;param-value&gt;8&lt;/param-value&gt;</div><div class="line">        &lt;/init-param&gt;</div><div class="line">    &lt;/servlet&gt;</div><div class="line">    </div><div class="line">    &lt;servlet-mapping&gt;</div><div class="line">        &lt;servlet-name&gt;s1&lt;/servlet-name&gt;</div><div class="line">        &lt;url-pattern&gt;/a.php&lt;/url-pattern&gt;</div><div class="line">    &lt;/servlet-mapping&gt;</div><div class="line">&lt;/web-app&gt;</div></pre></td></tr></table></figure>
+<p>注意<code>servlet-mapping</code>是可以省略的，因为<code>Jsp</code>实现了自动部署。</p>
+<p>如果<code>jsp-file</code>的路径写在了<code>WEB-INF</code>下，那么它不能直接访问；只能通过<code>url-pattern</code>的路径或是间接的转发来使用。</p>
+<p>以下是一个<code>.jsp</code>文件的示例。代码不一定有实际含义。</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;%-- page通常写在前面 --%&gt;</div><div class="line">&lt;%@ page pageEncoding=<span class="string">"gbk"</span></div><div class="line">        <span class="keyword">import</span>=<span class="string">"java.util.Set, java.util.Map, java.io.*"</span></div><div class="line">%&gt;</div><div class="line"></div><div class="line">&lt;%-- 包含其它文件 --%&gt;</div><div class="line">&lt;%@ include file=<span class="string">"a.jsp"</span> %&gt;</div><div class="line"></div><div class="line">welcome &lt;%= session.getAttribute(<span class="string">"name"</span>) %&gt;</div><div class="line"></div><div class="line">&lt;%</div><div class="line">    Connection con =         (Connection)appliacation.getAttribute(<span class="string">"con"</span>)</div><div class="line">%&gt;</div><div class="line"></div><div class="line">&lt;%-- 代码片段 --%&gt;</div><div class="line">&lt;% </div><div class="line">    String s = <span class="string">"abc"</span>;</div><div class="line">    s = s.toUpperCase();</div><div class="line">    <span class="keyword">if</span>(s.startsWith(<span class="string">"A"</span>)) &#123;</div><div class="line">        &lt;%-- 注意以下代码使用了隐含对象 --%&gt;</div><div class="line">        String name = request.getParameter(<span class="string">"name"</span>);</div><div class="line">        out.write(<span class="string">"morning!"</span>);</div><div class="line">        out.println(config.getInitParameter(<span class="string">"rate"</span>));</div><div class="line">    &#125;</div><div class="line">%&gt;</div></pre></td></tr></table></figure>
+<h4 id="隐含对象"><a href="#隐含对象" class="headerlink" title="隐含对象"></a>隐含对象</h4><p>以下九个隐含对象(<code>implicit objects</code>)已经预先声明，不必重复声明，也不能声明同名的变量：</p>
+<ul>
+<li><code>HttpServletRequest request</code></li>
+<li><code>HttpServletResponse response</code></li>
+<li><code>HttpSession session</code>（当<code>session</code>被设置为<code>false</code>时不可用）</li>
+<li><code>ServletConfig config</code></li>
+<li><code>ServletContext application</code></li>
+<li><code>JspWriter out</code></li>
+<li>类型不明的 <code>page</code>(类似<code>this</code>，指向内存中的该jsp对象)</li>
+<li><code>PageContext pageContext</code>（门面模式，当一个系统过于复杂，提供一个入口来使用常见函数）。这里提供了<code>getRequest()</code>，<code>getSession()</code>，<code>getOut()</code>等。当<code>.jsp</code>需要给<code>.java</code>传参时，传<code>pageContext</code>就足够了。</li>
+<li><code>Exception exception</code>（<code>.jsp</code>不需要写异常处理，所有的jsp代码都在<code>_jspService()</code>的<code>try</code>语句块中。通常没有这个对象，除非该<code>.jsp</code>文件里的<code>isErrorPage</code>被设置为<code>true</code>）</li>
+</ul>
+<p>关于隐含对象的相关知识也可以参考<a href="http://www.runoob.com/jsp/jsp-implicit-objects.html" target="_blank" rel="external">菜鸟教程-JSP隐式对象</a></p>
+<hr>
+<h2 id="jsp-action"><a href="#jsp-action" class="headerlink" title="jsp action"></a>jsp action</h2><p>与JSP指令元素不同的是，JSP动作元素在请求处理阶段起作用。JSP动作元素是用XML语法写成的，它区分大小写。</p>
+<p><a href="http://www.runoob.com/jsp/jsp-actions.html" target="_blank" rel="external">菜鸟教程-JSP动作元素</a></p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;%-- id是_jspService()内的一个局部变量名称，也是指定作用域（如session）内的一个绑定名称 --%&gt;</div><div class="line">&lt;jsp:useBean id=<span class="string">"s1"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"com.abc.bean.Student"</span> </div><div class="line">    scope=<span class="string">"session"</span>/&gt;</div><div class="line">    </div><div class="line">    </div><div class="line">&lt;jsp:setProperty/&gt;    </div><div class="line">&lt;jsp:setProperty name=<span class="string">"s1"</span> property=<span class="string">"age"</span> value=<span class="string">"18"</span>/&gt;</div><div class="line"></div><div class="line">以下两行效果一样，但jsp:setProperty的写法不会报错，很安全</div><div class="line">&lt;jsp:setProperty name=<span class="string">"s1"</span> property=<span class="string">"age"</span> param=<span class="string">"age"</span>/&gt;</div><div class="line">&lt;% s1.setAge(Integer.parseInt(request.getParameter(<span class="string">"age"</span>))) %&gt;</div><div class="line"></div><div class="line">以下一行能实现自动匹配</div><div class="line">&lt;jsp:setProperty name=<span class="string">"s1"</span> property=<span class="string">"*"</span> &gt;</div><div class="line"></div><div class="line">&lt;jsp:getProperty/&gt;</div><div class="line">以下三行效果一样：</div><div class="line">age &lt;jsp:getProperty name=<span class="string">"s1"</span> property=<span class="string">"age"</span>/&gt;</div><div class="line">age &lt;%= s1.getAge() %&gt;</div><div class="line">age &lt;% out.print(s1.getAge()); %&gt;</div><div class="line">&lt;jsp:forward page/&gt;</div><div class="line">&lt;jsp:include page/&gt;</div></pre></td></tr></table></figure>
+<p>javaBean 技术规范要求属性名第一个字母必须小写</p>
+<hr>
+<h2 id="JSP表达式语言（Expression-Language）"><a href="#JSP表达式语言（Expression-Language）" class="headerlink" title="JSP表达式语言（Expression Language）"></a>JSP表达式语言（Expression Language）</h2><p>关于这个老师只是开了个头，这种语言大概长以下这个样子：</p>
+<pre><code>age:${s1.age}
+age:${5+6}
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/“J2EE高级编程”笔记（九）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          “J2EE高级编程”笔记（九）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/“J2EE高级编程”笔记（七）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">“J2EE高级编程”笔记（七）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="“J2EE高级编程”笔记（八）" data-title="“J2EE高级编程”笔记（八）" data-url="http://heli06.github.io/category/“J2EE高级编程”笔记（八）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

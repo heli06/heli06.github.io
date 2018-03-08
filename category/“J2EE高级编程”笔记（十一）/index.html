@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>“J2EE高级编程”笔记（十一） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="因为上节课我有事情没上，“J2EE高级编程”笔记（十）的内容暂缺……内容和自定义标签、IterationTag、doAfterBody()、EVAL_BODY_AGAIN、BodyTag、SimpleTag、doTag()、JspFragment（简化了，能自动处理返回值）有关，先空着以后补充吧。
+菜鸟教程-自定义标签里也涉及了相关内容
+123456789101112131415161718192">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“J2EE高级编程”笔记（十一）">
+<meta property="og:url" content="http://heli06.github.io/category/“J2EE高级编程”笔记（十一）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="因为上节课我有事情没上，“J2EE高级编程”笔记（十）的内容暂缺……内容和自定义标签、IterationTag、doAfterBody()、EVAL_BODY_AGAIN、BodyTag、SimpleTag、doTag()、JspFragment（简化了，能自动处理返回值）有关，先空着以后补充吧。
+菜鸟教程-自定义标签里也涉及了相关内容
+123456789101112131415161718192">
+<meta property="og:updated_time" content="2017-12-21T02:05:19.012Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="“J2EE高级编程”笔记（十一）">
+<meta name="twitter:description" content="因为上节课我有事情没上，“J2EE高级编程”笔记（十）的内容暂缺……内容和自定义标签、IterationTag、doAfterBody()、EVAL_BODY_AGAIN、BodyTag、SimpleTag、doTag()、JspFragment（简化了，能自动处理返回值）有关，先空着以后补充吧。
+菜鸟教程-自定义标签里也涉及了相关内容
+123456789101112131415161718192">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-“J2EE高级编程”笔记（十一）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/“J2EE高级编程”笔记（十一）/" class="article-date">
+  	<time datetime="2017-12-12T05:34:38.000Z" itemprop="datePublished">2017-12-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      “J2EE高级编程”笔记（十一）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>因为上节课我有事情没上，“J2EE高级编程”笔记（十）的内容暂缺……内容和自定义标签、<code>IterationTag</code>、<code>doAfterBody()</code>、<code>EVAL_BODY_AGAIN</code>、<code>BodyTag</code>、<code>SimpleTag</code>、<code>doTag()</code>、<code>JspFragment</code>（简化了，能自动处理返回值）有关，先空着以后补充吧。</p>
+<p><a href="http://www.runoob.com/jsp/jsp-custom-tags.html" target="_blank" rel="external">菜鸟教程-自定义标签</a>里也涉及了相关内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"><span class="keyword">import</span> javax.servlet.*;</div><div class="line"><span class="keyword">import</span> javax.servlet.jsp.tagext.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeTag</span> <span class="keyword">extends</span> <span class="title">TagSupport</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doStartTag</span><span class="params">()</span> <span class="keyword">throws</span> JspException </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            pageContext.getOut()</div><div class="line">            .println(<span class="keyword">new</span> Java.util.Date());</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="function">nea <span class="title">JspException</span><span class="params">(e)</span></span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeTag</span> <span class="keyword">extends</span> <span class="title">SimpleTagSupport</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doTag</span><span class="params">()</span> <span class="keyword">throws</span> IOException, JspException </span>&#123;</div><div class="line">        JspContext jc = getJspContext();</div><div class="line">        PageContext pc = (PageContext)jc;</div><div class="line">        HttpSession session = pc.getSession();</div><div class="line">        </div><div class="line">       </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当大部分代码用于输出时，推荐用以下方法：</p>
+<p><code>.jsp</code>文件改名为<code>.tag</code>，放到<code>/WEB-INF/tags</code>下，然后如此引用：</p>
+<pre><code>&lt;%@ tablib tagdir=&quot;/WEB-INF/tags&quot; prefix=&quot;t&quot; %&gt;
+&lt;t:time/&gt;
+</code></pre><p>这一块我记得不太清楚，只能说大致如此，待修正</p>
+<hr>
+<h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><p>关于<code>ODBC</code>和<code>JDBC</code>的定义、区别与联系，<a href="http://blog.csdn.net/u010926964/article/details/46389867" target="_blank" rel="external">点击查看</a></p>
+<p>天下的<code>JDBC</code>分为四种：</p>
+<ul>
+<li>JDBC-ODBC Bridge（效率差，一般不用）</li>
+<li>pure java(又称thin方式)（性能好、速度快、平台无关，功能一般）</li>
+<li>省略</li>
+<li>省略</li>
+</ul>
+<p>代码里写到SQL语句时，注意要避免字符串拼接的写法，这样有可能遭受SQL注入攻击；要使用<code>?</code>占位符来写。</p>
+<p>连接数据库的一个示例程序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import java.sql.*;</div><div class="line">public class JdbcTest &#123;</div><div class="line">    public static void main(String[] args) throws Exception &#123;</div><div class="line">        //jdbc url</div><div class="line">        //数据库不一定是mysql，只是mysql提供了驱动程序</div><div class="line">        Connection con = DriverManager</div><div class="line">        .getConnection(&quot;jdbc:mysql://localhost/test&quot;, </div><div class="line">            &quot;java&quot;, &quot;java12345&quot;);</div><div class="line">        Statement stmt = con.createStatement();</div><div class="line">        ResultSet rs = </div><div class="line">            stmt.executeQuery(&quot;select * from test&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/“J2EE高级编程”笔记（十三）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          “J2EE高级编程”笔记（十三）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/“J2EE高级编程”笔记（九）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">“J2EE高级编程”笔记（九）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="“J2EE高级编程”笔记（十一）" data-title="“J2EE高级编程”笔记（十一）" data-url="http://heli06.github.io/category/“J2EE高级编程”笔记（十一）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

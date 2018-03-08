@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>“J2EE高级编程”笔记（九） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JSP表达式语言更多内容可以参考菜鸟教程-JSP表达式语言。有几点需要注意：
+
+注意JSP Expression也有隐含对象，而且有11个。除了pageContext是PageContext类型的，其余都是都是map类型的。
+${param.username}和${param[&amp;quot;username&amp;quot;]}效果相同
+表达式语言也是在服务端而非客户端运行的
+
+以下是一个示例程序：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“J2EE高级编程”笔记（九）">
+<meta property="og:url" content="http://heli06.github.io/category/“J2EE高级编程”笔记（九）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="JSP表达式语言更多内容可以参考菜鸟教程-JSP表达式语言。有几点需要注意：
+
+注意JSP Expression也有隐含对象，而且有11个。除了pageContext是PageContext类型的，其余都是都是map类型的。
+${param.username}和${param[&amp;quot;username&amp;quot;]}效果相同
+表达式语言也是在服务端而非客户端运行的
+
+以下是一个示例程序：">
+<meta property="og:updated_time" content="2017-12-05T07:04:43.026Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="“J2EE高级编程”笔记（九）">
+<meta name="twitter:description" content="JSP表达式语言更多内容可以参考菜鸟教程-JSP表达式语言。有几点需要注意：
+
+注意JSP Expression也有隐含对象，而且有11个。除了pageContext是PageContext类型的，其余都是都是map类型的。
+${param.username}和${param[&amp;quot;username&amp;quot;]}效果相同
+表达式语言也是在服务端而非客户端运行的
+
+以下是一个示例程序：">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-“J2EE高级编程”笔记（九）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/“J2EE高级编程”笔记（九）/" class="article-date">
+  	<time datetime="2017-12-05T05:34:26.000Z" itemprop="datePublished">2017-12-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      “J2EE高级编程”笔记（九）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JSP表达式语言"><a href="#JSP表达式语言" class="headerlink" title="JSP表达式语言"></a>JSP表达式语言</h2><p>更多内容可以参考<a href="http://www.runoob.com/jsp/jsp-expression-language.html" target="_blank" rel="external">菜鸟教程-JSP表达式语言</a>。有几点需要注意：</p>
+<ul>
+<li>注意<code>JSP Expression</code>也有隐含对象，而且有11个。除了<code>pageContext</code>是<code>PageContext</code>类型的，其余都是都是<code>map</code>类型的。</li>
+<li><code>${param.username}</code>和<code>${param[&quot;username&quot;]}</code>效果相同</li>
+<li>表达式语言也是在服务端而非客户端运行的</li>
+</ul>
+<p>以下是一个示例程序：</p>
+<a id="more"></a>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;%-- init.jsp --%&gt;</div><div class="line"></div><div class="line">&lt;%</div><div class="line">    Student s1 = <span class="keyword">new</span> Student(<span class="string">"001"</span>, <span class="string">"zs"</span>, <span class="string">"18"</span>);</div><div class="line">    Student s1 = <span class="keyword">new</span> Student(<span class="string">"002"</span>, <span class="string">"ls"</span>, <span class="string">"19"</span>);</div><div class="line">    </div><div class="line">    List list = <span class="keyword">new</span> ArrayList();</div><div class="line">    list.add(s1);</div><div class="line">    list.add(s2);</div><div class="line">    </div><div class="line">    session.setAttribute(<span class="string">"data"</span>, list);</div><div class="line">%&gt;</div><div class="line"></div><div class="line">$&#123;sessionScope.data[<span class="number">0</span>].name&#125;</div><div class="line">$&#123;sessionScope.data[<span class="number">1</span>][<span class="string">"name"</span>]&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="Tag组件"><a href="#Tag组件" class="headerlink" title="Tag组件"></a>Tag组件</h2><p>回顾一下，目前学过的组件有：<code>Servlet</code>，<code>Filter</code>，<code>Listener</code>。</p>
+<p><code>JSP</code>不像<code>HTML</code>和<code>XML</code>这些纯粹的标记语言，这使得<code>JSP</code>写的网页看起来很混乱，可能同时有<code>HTML</code>、<code>CSS</code>、<code>JavaScript</code>、<code>Java</code>的代码；为了让<code>JSP</code>看起来更像标记语言一点，就有了<code>Tag</code>。它可以用来自定义标签。这不仅使得网页看起来简洁，也便于网页的组件化。</p>
+<p><code>Tag</code>在<code>javax.servlet.jsp.tagext</code>包里。接下来介绍几个重要函数（按调用顺序排列）：</p>
+<pre><code>setPageContext(PageContext pc)//初始化函数
+int doStartTag() throws JspException
+int dpEndTag() throws JspException
+release//之所以叫`release()`而不是`destroy()`，是因为并不真正销毁对象，只是放回对象池，提高虚拟机效率。
+</code></pre><p>以下是一个示例程序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> tag;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"><span class="keyword">import</span> java.servlet.jsp.tagext.*;</div><div class="line"></div><div class="line"><span class="comment">//TagSupport又是典型的适配器类</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeTag</span> <span class="keyword">extends</span> <span class="title">TagSupport</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doStartTag</span><span class="params">()</span> <span class="keyword">throws</span> JspException </span>&#123;</div><div class="line">        <span class="comment">//早期版本里，pageContext从TagSupport继承下来</span></div><div class="line">        JspWriter out = pageContext.getOut();</div><div class="line">        <span class="comment">//注意早期版本要抛出IOException</span></div><div class="line">        <span class="comment">//输出写在开始或结束标记都行</span></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">//时间可以选择格式化后输出</span></div><div class="line">            out.println(<span class="keyword">new</span> java.util.Date());</div><div class="line">        &#125; <span class="keyword">catch</span>(IOException e) &#123;</div><div class="line">            <span class="comment">//这里采用了异常链的写法</span></div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> JspException(e);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//返回值共有五个枚举值可选</span></div><div class="line">        <span class="comment">//这里返回的从名字就能看出，解析body内容</span></div><div class="line">        <span class="keyword">return</span> EVAL_BODY_INCLUDE;</div><div class="line">        <span class="comment">//如果这样写，body的内容不解析：</span></div><div class="line">        <span class="comment">//return SKIP_BODY;</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doEndTag</span><span class="params">()</span> <span class="keyword">throws</span> JspException </span>&#123;</div><div class="line">        <span class="comment">//继续解析后续页面</span></div><div class="line">        <span class="keyword">return</span> EVAL_PAGE;</div><div class="line">        <span class="comment">//如果这样写，后续页面不解析</span></div><div class="line">        <span class="comment">//return SKIP_PAGE;</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>要使用以上<code>Tag</code>，得在标记库描述符文件（<code>.tld</code>）里注明。通常使用工具生成，一般放在<code>WEB-INF</code>下。</p>
+<p><code>.tld</code>文件的解释和标签在<code>JSP</code>文件里的使用方法，可以参考<a href="http://www.runoob.com/jsp/jsp-custom-tags.html" target="_blank" rel="external">菜鸟教程-自定义标签</a>。注意自定义标签也可以有属性，包括颜色、格式等等。</p>
+<p>以后可以去开源网站上找自己想要用的<code>Tag</code>，不必都自己写。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/“J2EE高级编程”笔记（十一）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          “J2EE高级编程”笔记（十一）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/“J2EE高级编程”笔记（八）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">“J2EE高级编程”笔记（八）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="“J2EE高级编程”笔记（九）" data-title="“J2EE高级编程”笔记（九）" data-url="http://heli06.github.io/category/“J2EE高级编程”笔记（九）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>《JavaScript高级程序设计》复习（1~13章） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="记得自己初学JavaScript没多久就被安利了这本书，兴致冲冲地拿起来读，然后…………没读到第六章就坑了。那时候太年轻，读不懂。现在再次拿起这本“红宝书”…………算是能读得进去了吧…………
+现在是ES6的年代，看完红宝书还得去看看ES6的书籍。
+这篇博文更接近摘录，偶尔会有自己的理解。笔记字数少的章节不代表它不重要；很可能是因为它通篇都很重要而无法摘录。文中所提书的页码，以图灵社区的PDF版为准">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《JavaScript高级程序设计》复习（1~13章）">
+<meta property="og:url" content="http://heli06.github.io/category/《JavaScript高级程序设计》复习（1~13章）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="记得自己初学JavaScript没多久就被安利了这本书，兴致冲冲地拿起来读，然后…………没读到第六章就坑了。那时候太年轻，读不懂。现在再次拿起这本“红宝书”…………算是能读得进去了吧…………
+现在是ES6的年代，看完红宝书还得去看看ES6的书籍。
+这篇博文更接近摘录，偶尔会有自己的理解。笔记字数少的章节不代表它不重要；很可能是因为它通篇都很重要而无法摘录。文中所提书的页码，以图灵社区的PDF版为准">
+<meta property="og:updated_time" content="2018-01-18T03:49:00.222Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《JavaScript高级程序设计》复习（1~13章）">
+<meta name="twitter:description" content="记得自己初学JavaScript没多久就被安利了这本书，兴致冲冲地拿起来读，然后…………没读到第六章就坑了。那时候太年轻，读不懂。现在再次拿起这本“红宝书”…………算是能读得进去了吧…………
+现在是ES6的年代，看完红宝书还得去看看ES6的书籍。
+这篇博文更接近摘录，偶尔会有自己的理解。笔记字数少的章节不代表它不重要；很可能是因为它通篇都很重要而无法摘录。文中所提书的页码，以图灵社区的PDF版为准">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-《JavaScript高级程序设计》复习（1~13章）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/《JavaScript高级程序设计》复习（1~13章）/" class="article-date">
+  	<time datetime="2018-01-04T08:18:45.000Z" itemprop="datePublished">2018-01-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      《JavaScript高级程序设计》复习（1~13章）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记得自己初学<code>JavaScript</code>没多久就被安利了这本书，兴致冲冲地拿起来读，然后…………没读到第六章就坑了。那时候太年轻，读不懂。现在再次拿起这本“红宝书”…………算是能读得进去了吧…………</p>
+<p>现在是<code>ES6</code>的年代，看完红宝书还得去看看<code>ES6</code>的书籍。</p>
+<p>这篇博文更接近摘录，偶尔会有自己的理解。<br>笔记字数少的章节不代表它不重要；很可能是因为它通篇都很重要而无法摘录。<br>文中所提书的页码，以图灵社区的<code>PDF</code>版为准。</p>
+<h3 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h3><ul>
+<li><code>Null</code>的含义是<strong>空对象指针</strong>，而<code>undefined</code>的含义是<strong>未经初始化的变量</strong>，这是两者的本质差别</li>
+<li>ECMAScript 能够表示的最小数值保<br>存在<code>Number.MIN_VALUE</code>中，大多数时候是<code>5e-324</code>；最大数值保存在<br><code>Number.MAX_VALUE</code>中，大多数时候是<code>1.7976931348623157e+308</code>。超出范围的值表示为<code>-Infinity</code>（负无穷）或<code>Infinity</code>（正无穷）。想确定一个数值是不是有穷的，可以使用<code>isFinite()</code>函数</li>
+<li>逻辑非操作符也可以用于将一个值转换为与其对应的布尔值。而同时使用两个逻辑非操作符，实际上就会模拟<code>Boolean()</code>转型函数的行为</li>
+<li><code>NaN</code>，即非数值（Not a Number）是一个特殊的数值，这个数值用于表示一个本来要返回数值的操作数未返回数值的情况，例如一个数字除以0。任何涉及<code>NaN</code>的操作（例如<code>NaN/10</code>）都会返回<code>NaN</code>。<code>NaN</code>与任何值都不相等，包括<code>NaN</code>本身。可使用<code>isNaN()</code>函数来判断传进的参数是不是数值。</li>
+<li><code>parseInt()</code>，<code>parseFloat()</code>，<code>Number()</code>是很灵活的函数</li>
+<li><code>for-in</code>语句是一种精准的迭代语句，可以用来枚举对象的属性</li>
+<li>在函数体内可以通过<code>arguments</code>对象来<br>访问这个参数数组，从而获取传递给函数的每一个参数。<code>arguments</code> 对象只是与数组类似<strong>而非</strong><code>Array</code> 的实例。可以使用方括号语法访<br>问它的每一个元素，用<code>length</code>属性来确定传递进来多少个参数</li>
+</ul>
+<a id="more"></a>
+<hr>
+<h3 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h3><p>这章不长，但我感觉每个字都很重要，它涉及的内容和编译技术课上讲述的知识密切相关……待我多看几遍再来写</p>
+<hr>
+<h3 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h3><ul>
+<li><code>Array.length</code>是个很神奇的属性，不仅可读还可写</li>
+<li><code>Array</code>对象有许多好用的函数，如<code>sort()</code>，<code>concat()</code>，<code>spice()</code>等，以及各种迭代方法</li>
+<li><code>function</code>的<code>caller</code>，<code>callee</code>，<code>apply()</code>，<code>call()</code>值得关注</li>
+<li>三个包装类和弹体内置对象都值得关注</li>
+</ul>
+<hr>
+<h3 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h3><p>这章的重点看目录就知道了。各种花式创建对象和继承方式，要多看几遍。</p>
+<hr>
+<h3 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h3><ul>
+<li>js里实现了<strong>函数声明提升</strong></li>
+<li>写递归函数时，可以使用<code>arguments.callee</code>（非严格模式）或命名函数表达式（严格模式）来解除函数名与执行的耦合</li>
+<li>匿名函数的执行环境具有全局性，因此其<code>this</code>对象通常指向<code>window</code></li>
+<li><code>JavaScript</code>从来不会告诉你是否多次声明了同一个变量；遇到这种情况，它只会对后续的声明视而不见（不过，它会执行后续声明中的变量初始化）</li>
+<li>模仿块级作用域和私有变量，以及有趣的静态私有变量</li>
+<li>模块模式-单例</li>
+</ul>
+<hr>
+<h3 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h3><ul>
+<li>全局变量会成为<code>window</code>对象的属性。但全局变量不能通过<code>delete</code>操作符删除，而直接在<code>window</code>对象上的定义的属性可以</li>
+<li><code>window</code>、<code>frame</code>、<code>top</code>、<code>parent</code>之间的关系值得注意；最好使用<code>top</code>而非<code>window</code>来引用这些框架</li>
+<li>想确定窗口大小似乎很复杂。不知道现在的浏览器厂商或者js的一些库在这一方面是否取得统一</li>
+<li>只使用前两个参数时，<code>windwo.open()</code>可以被<code>&lt;a&gt;</code>取代。但弹出式窗口大概率被新型浏览器拦截。<code>window.open()</code>很有趣</li>
+<li>一般认为，使用超时调用来模拟间歇调用的是一种最佳模式。最好不要使用间歇调用。</li>
+<li>系统对话框（<code>alert</code>、<code>confirm</code>、<code>prompt</code>、<code>print</code>、<code>find</code>）很适合向用户显示消息并请用户作出决定。由于不涉及<code>HTML</code>、<code>CSS</code>或<code>JavaScript</code>，因此它们是增强<code>Web</code>应用程序的一种便捷方式。</li>
+<li><code>window.location</code>和<code>document.location</code>引用的是同一个对象</li>
+</ul>
+<hr>
+<h3 id="第九章"><a href="#第九章" class="headerlink" title="第九章"></a>第九章</h3><ul>
+<li>不到万不得已，就不要使用客户端检测。只要能找到更通用的方法，就应该优先采用更通用的方法。————这种说法和《JavaScript DOM编程艺术》一致，看来确实应该作为<code>web</code>开发的准则</li>
+<li>9.3.1的故事很有趣</li>
+</ul>
+<hr>
+<h3 id="第十章"><a href="#第十章" class="headerlink" title="第十章"></a>第十章</h3><p>通篇都很重要。不过其中关于兼容性的部分嘛……建议碰到问题再看看就好。以下仅摘出易忽略的地方。</p>
+<ul>
+<li>IE浏览器这该死的兼容性啊……</li>
+<li>只有公认的（非自定义的）特性才会以属性的形式添加到<code>DOM</code>对象中</li>
+<li><code>Document</code>节点的子节点可以是<code>DocumentType</code>、<code>Element</code>、<code>ProcessingInstruction</code>或<code>Comment</code></li>
+<li><code>document</code>对象的<code>body</code>属性，指向<code>&lt;body&gt;</code>元素;<code>documentElement</code>属性指向<code>&lt;html&gt;</code>元素</li>
+<li>通常将<code>&lt;!DOCTYPE&gt;</code>标签看成一个与文档其他<br>部分不同的实体，可以通过<code>doctype</code>属性来访问它的信息。浏览器对<code>document.doctype</code>的支持差别很大</li>
+<li>文档信息有很多很有趣的地方，比如特殊集合</li>
+<li>在通过<code>JavaScript</code>以编程方式操作<code>DOM</code>时，开发人员经常不使用 <code>getAttribute()</code>，而是只使用对象的属性。只有在取得自定义特性值的情况下，才会使用<code>getAttribute()</code>方法</li>
+<li><code>Element</code>是使用<code>attributes</code>属性的唯一一个<code>DOM</code>节点类型</li>
+<li>文档片段<code>documentfragment</code>是一种“轻量级”的文档，可以包含和控制节点，但不会像完整的文档那样占用额外的资源</li>
+<li>表格类标签有许多有用的属性</li>
+</ul>
+<hr>
+<h3 id="第十一、十二章"><a href="#第十一、十二章" class="headerlink" title="第十一、十二章"></a>第十一、十二章</h3><p>呃……这几章提到的许多东西还没有统一的标准……不过也有接近统一标准的东西。比较凌乱就不摘录了……</p>
+<hr>
+<h3 id="第十三章"><a href="#第十三章" class="headerlink" title="第十三章"></a>第十三章</h3><p>很重要的章节</p>
+<ul>
+<li>微软旗下的产品真是不怎么遵守标准，坑爹的<code>IE</code>……</li>
+<li>事件处理程序可分为<code>HTML</code>、<code>DOM0</code>、<code>DOM2</code>三种处理程序</li>
+<li>在触发<code>DOM</code>上的某个事件时，会产生一个事件对象<code>event</code>，这个对象中包含着所有与事件有关的信息</li>
+<li>指定事件处理程序的方式有两种：<code>HTML</code>方式和<code>JavaScript</code>方式</li>
+<li>客户区坐标、页面坐标、屏幕坐标是有区别的</li>
+<li>“DOM2 级事件”规范在<code>event</code>对象中还提供了<code>detail</code>属性，用于给出有关事件的更多信息。对于鼠标事件来说，<code>detail</code>中包含了一个数值，表示在给定位置上发生了多少次单击</li>
+<li>事件类型值得多看，能做出很多很有趣的东西</li>
+<li>移动设备、触摸等这一块……也不知最新的标准咋样了……</li>
+<li>性能优化：事件委托、移除事件处理程序</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/《HTML5与CSS3基础教程》复习/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          《HTML5与CSS3基础教程》复习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/《JavaScript DOM编程艺术（第二版）》复习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《JavaScript DOM编程艺术（第二版）》复习</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="《JavaScript高级程序设计》复习（1~13章）" data-title="《JavaScript高级程序设计》复习（1~13章）" data-url="http://heli06.github.io/category/《JavaScript高级程序设计》复习（1~13章）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

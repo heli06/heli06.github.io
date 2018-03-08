@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JAVA学习笔记（六） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="预备和零碎知识
+文件访问方式分为两种：顺序访问方式和随机访问方式。区别从名字就能看出来。
+路径分为相对路径与绝对路径。写程序时相对路径更为常用。
+..代表父目录，.代表当前目录。
+
+
+java.io包之后的小标题都是这个包里的类。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA学习笔记（六）">
+<meta property="og:url" content="http://heli06.github.io/category/JAVA学习笔记（六）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="预备和零碎知识
+文件访问方式分为两种：顺序访问方式和随机访问方式。区别从名字就能看出来。
+路径分为相对路径与绝对路径。写程序时相对路径更为常用。
+..代表父目录，.代表当前目录。
+
+
+java.io包之后的小标题都是这个包里的类。">
+<meta property="og:updated_time" content="2017-07-03T11:38:29.284Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA学习笔记（六）">
+<meta name="twitter:description" content="预备和零碎知识
+文件访问方式分为两种：顺序访问方式和随机访问方式。区别从名字就能看出来。
+路径分为相对路径与绝对路径。写程序时相对路径更为常用。
+..代表父目录，.代表当前目录。
+
+
+java.io包之后的小标题都是这个包里的类。">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-JAVA学习笔记（六）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（六）/" class="article-date">
+  	<time datetime="2017-07-03T04:01:34.000Z" itemprop="datePublished">2017-07-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA学习笔记（六）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="预备和零碎知识"><a href="#预备和零碎知识" class="headerlink" title="预备和零碎知识"></a>预备和零碎知识</h2><ul>
+<li>文件访问方式分为两种：顺序访问方式和随机访问方式。区别从名字就能看出来。</li>
+<li>路径分为相对路径与绝对路径。写程序时相对路径更为常用。</li>
+<li><code>..</code>代表父目录，<code>.</code>代表当前目录。</li>
+</ul>
+<hr>
+<h2 id="java-io包"><a href="#java-io包" class="headerlink" title="java.io包"></a>java.io包</h2><p>之后的小标题都是这个包里的类。</p>
+<a id="more"></a>
+<hr>
+<h2 id="File（文件）"><a href="#File（文件）" class="headerlink" title="File（文件）"></a>File（文件）</h2><p>在Java中，文件和文件夹都属于File类。其它编程语言可能有区别。<br>File仅仅用于描述文件的属性，不提供任何对文件读写的方法。<br>常用函数如下。</p>
+<ul>
+<li><code>File file = new File(&quot;d:\\test.txt&quot;);</code>：新建文件对象。File的构造函数极多，多看多练。</li>
+<li><code>isFile()</code>：判断是否是一个文件</li>
+<li><code>isDirectory()</code>：判断是否是一个文件夹</li>
+<li><code>exists()</code>：判断文件是否存在</li>
+<li><code>getName()</code>：获取文件名字，包括扩展名</li>
+<li><code>getParent()</code>：获取父文件夹名称</li>
+<li><code>getCanonicalPath()</code>：获取标准路径。能把参数中的<code>.</code>和<code>..</code>替换掉（比如从命令行传入的参数）</li>
+<li><code>getAbsolutePath()</code>：获取绝对路径</li>
+<li><code>length()</code>：返回文件大小</li>
+<li><code>lastModified()</code>：返回最后访问时间。注意返回类型为<code>long</code>，意思是距离1970年1月1日0时0分0秒已经度过多少<strong>毫秒</strong>。可通过<code>Date</code>类的构造函数转换为<code>Date</code>类</li>
+<li><code>list()</code>：返回该文件夹中的子文件和子文件夹</li>
+</ul>
+<p>以下是遍历一个文件夹中所有文件的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printFile</span><span class="params">(File f)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!f.isDirectory()) &#123;</div><div class="line">        System.out.println(</div><div class="line">        <span class="string">"FileExample only accept directory"</span>);</div><div class="line">        System.exit(<span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">//输出文件的标准路径</span></div><div class="line">    System.out.println(f.getCanonicalPath());</div><div class="line">    </div><div class="line">    <span class="comment">//得到目录的子文件列表</span></div><div class="line">    File[] children = f.listFiles();</div><div class="line">    </div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; children.length; i++) &#123;</div><div class="line">    </div><div class="line">        <span class="comment">//如果是子文件夹则递归</span></div><div class="line">        <span class="keyword">if</span> (children[i].isDirectory()) &#123;</div><div class="line">            printFile(children[i]);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            System.out.println(children[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="RandomAccessFile（随机文件读写）"><a href="#RandomAccessFile（随机文件读写）" class="headerlink" title="RandomAccessFile（随机文件读写）"></a>RandomAccessFile（随机文件读写）</h2><p>该类实现了<code>DataInput</code>接口和<code>DataOutput</code>接口，意味着该类能够同时读和写。现有大部分有格式的文件，该类都提供了现成的读写方法。<br>常用函数如下：</p>
+<ul>
+<li><code>readInt()</code>, <code>readDouble()</code>……等一系列方法</li>
+<li><code>readFully(byte[] b)</code>：如果没有接收到全部数据（参数中可定义数据大小）就一直等待下去。网络编程常用</li>
+<li><code>readLine()</code>：只对文本文件有意义，按行读取</li>
+<li><code>readUTF(……)</code>：</li>
+<li><code>skipBytes(int n)</code>：跳过n个字节的内容</li>
+<li>与<code>read</code>相对应的一系列<code>write</code>方法</li>
+<li><code>seek(long position)</code>，定位函数</li>
+</ul>
+<p>一个不完整的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//假设a.dat里存的都是int类型的数字</span></div><div class="line">RandomAccessFile raf = </div><div class="line">    <span class="keyword">new</span> RandomAccessFile(<span class="string">"a.dat"</span>, <span class="string">"r"</span>);</div><div class="line">    raf.seek(<span class="number">4</span>);<span class="comment">//指针移至第4个字节（从0计算）</span></div><div class="line">    <span class="comment">//这样第一个int数就被跳过</span></div><div class="line">    raf.readInt();<span class="comment">//读取第二个int数</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="stream"><a href="#stream" class="headerlink" title="stream"></a>stream</h2><h4 id="关于stream的基本概念"><a href="#关于stream的基本概念" class="headerlink" title="关于stream的基本概念"></a>关于stream的基本概念</h4><p>一个流不可能同时读和写。<br>关于流的分类：<a href="http://www.cnblogs.com/moonpool/p/5488463.html" target="_blank" rel="external">点击查看</a>。<a href="http://blog.csdn.net/pingyan158/article/details/6587659" target="_blank" rel="external">还有这一篇</a>。<br>节点流和处理流的差别要重点掌握。通俗地讲，节点流负责将数据读或写出来，处理流负责加工节点流提供的数据。</p>
+<p>重点讲一讲<code>InputStream</code>类（<code>OutputStream</code>类与它类似）。注意，该类是抽象类。</p>
+<ol>
+<li>从流中读取数据</li>
+</ol>
+<ul>
+<li><code>int read()</code>：读取一个字节，返回值为所读的字节。如果返回-1，流结束。</li>
+<li><code>int read(byte b[])</code>：读取多个字节，放置到字节数组b中，通常读取的字节数量为b的长度，返回值为实际读取字节的数量。返回-1，流结束。如果读取长度超过数组长度，发生数据下标越界异常。</li>
+<li><code>int read(byte b[] ,int off,int len)</code>：读取len个字节，放置到以下标off开始字节数组b中，返回值为实际读取的字节的数量。</li>
+<li><code>int available()</code>：返回值为流中尚未读取的字节的数量。</li>
+<li><code>long skip(long n)</code>：读指针跳过n个字节不读，返回值为实际跳过的字节数量</li>
+</ul>
+<ol>
+<li>关闭流（<code>Input</code>类继承了<code>Closeable</code>接口）</li>
+</ol>
+<ul>
+<li><code>close()</code> 流操作完毕后必须关闭</li>
+</ul>
+<ol>
+<li>使用输入流中的标记</li>
+</ol>
+<ul>
+<li><code>boolean markSupported()</code>：当前的流是否支持读指针的记录功能</li>
+<li><code>void mark(int readlimit)</code>：记录当前指针的所在位置。readlimit表示读指针读出的readlimit个字节后，所标记的指针位置才失效。使用这个函数前请用前一个函数判断流是否支持</li>
+<li><code>void reset()</code>：把读指针重新指向用mark方法所记录的位置</li>
+</ul>
+<hr>
+<h4 id="FileInputStraem-和-FileOutputStream"><a href="#FileInputStraem-和-FileOutputStream" class="headerlink" title="FileInputStraem 和 FileOutputStream"></a>FileInputStraem 和 FileOutputStream</h4><p>这两个类均继承了<code>InputStream</code>类。这两个类是节点流。<br>它们用于向文件读取/写入字节。<br>以下是使用<code>FileInputStream</code>和<code>FileOutputStream</code>实现文件复制的例子。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Copy1</span> </span>&#123;</div><div class="line">    <span class="comment">//通过命令行传入源文件和目标文件</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            FileInputStream fis = </div><div class="line">                <span class="keyword">new</span> FileInputStream(args[<span class="number">0</span>]);</div><div class="line">            FileOutputStream fos = </div><div class="line">                <span class="keyword">new</span> FileOutputStream(args[<span class="number">1</span>]);</div><div class="line">            <span class="keyword">int</span> c = <span class="number">0</span>;</div><div class="line">            </div><div class="line">            <span class="comment">//将数据一个字节一个字节地读出</span></div><div class="line">            <span class="keyword">while</span>((c == fis.read()) != -<span class="number">1</span>) &#123;</div><div class="line">                <span class="comment">//读出的数据又写入目标文件</span></div><div class="line">                fos.write(c);</div><div class="line">            &#125;</div><div class="line">            fis.close();</div><div class="line">            fos.close();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果是大文件，用上面的方法一个字节一个字节地复制太慢了。以下一次复制8k,效率更高。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">copy2</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            FileInputStream fis = </div><div class="line">                <span class="keyword">new</span> FileInputStream(args[<span class="number">0</span>]);</div><div class="line">            FileOutputStream fos = </div><div class="line">                <span class="keyword">new</span> FileOutputStream(args[<span class="number">1</span>]);</div><div class="line">            <span class="keyword">int</span> c = <span class="number">0</span>;</div><div class="line">            </div><div class="line">            <span class="comment">//设置字节数组作为缓冲区</span></div><div class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">8192</span>];</div><div class="line">            <span class="comment">//一次读入一个数组，效率提升</span></div><div class="line">            <span class="keyword">while</span> ((c = fis.read(buffer)) != -<span class="number">1</span>) &#123;</div><div class="line">                <span class="comment">//读入多少数据则输出多少数据</span></div><div class="line">                fos.write(buffer, <span class="number">0</span>, c);</div><div class="line">            &#125;</div><div class="line">            fis.close();</div><div class="line">            fos.close();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="ByteArrayInputStream-和-ByteArrayOutputStream"><a href="#ByteArrayInputStream-和-ByteArrayOutputStream" class="headerlink" title="ByteArrayInputStream 和 ByteArrayOutputStream"></a>ByteArrayInputStream 和 ByteArrayOutputStream</h4><p>这个类用于处理<code>byte</code>类型的数组。<br>以下是不完整的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ByteArrayInputStream bais = </div><div class="line">    <span class="keyword">new</span> ByteArrayInputStream(<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>]);</div><div class="line">    </div><div class="line"><span class="comment">//baos会自行开一个数组，不必传入参数</span></div><div class="line"><span class="comment">//但要传也可以</span></div><div class="line">ByteArrayOutputStream baos = </div><div class="line">    <span class="keyword">new</span> ByteArrayOutputStream();</div></pre></td></tr></table></figure>
+<p>另外，<code>ByteArrayOutputStream</code>有<code>toByteArray()</code>这个方法</p>
+<hr>
+<h4 id="FilterInputStream-和-FilterOutputStream"><a href="#FilterInputStream-和-FilterOutputStream" class="headerlink" title="FilterInputStream 和 FilterOutputStream"></a>FilterInputStream 和 FilterOutputStream</h4><p>如果用之前提到的<code>FileOutputStream</code>向一个文件里写入<code>int</code>型的数组，程序大概是这样的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i = <span class="number">987</span>;</div><div class="line">FileOutputStream fos = </div><div class="line">    <span class="keyword">new</span> FileOutputStream(<span class="string">"a.dat"</span>);</div><div class="line">fos.write(i);</div><div class="line">fos.write(i&gt;&gt;<span class="number">8</span>);</div><div class="line">fos.write(i&gt;&gt;<span class="number">16</span>);</div><div class="line">fos.write(i&gt;&gt;<span class="number">24</span>);</div><div class="line">fos.close();</div></pre></td></tr></table></figure>
+<p>用节点流这样处理数据太傻了。而<code>FilterInputStream</code>等处理流的意义就在于，封装、简化数据的处理过程。<br>过滤器数据流（filter stream）是为某种目的过滤字节的数据流。使用过滤器类可以读取整数值、双精度值或字符串，而不是字节或字符。<code>FilterInputStream</code>和<code>FilterOutputStream</code>类是过滤数据的基类，也是个抽象类。</p>
+<p><code>FilterInputStream</code>类大概的样子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FilterInputStream</span> </span></div><div class="line">    <span class="keyword">extends</span> <span class="title">InputStream</span> &#123;</div><div class="line">    <span class="keyword">private</span> InputStream in;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FilterInputStream</span><span class="params">(InputStream in)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.in = in;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        <span class="comment">//以下并非实际情况，只是一个演示</span></div><div class="line">        <span class="keyword">int</span> c = in.read();</div><div class="line">        <span class="keyword">if</span>(c == -<span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">return</span> c;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">//假设信息要取反加密</span></div><div class="line">            <span class="keyword">return</span> ~c &amp; <span class="number">0xff</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    …………</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="DataInputStream-和-DataOutputStream"><a href="#DataInputStream-和-DataOutputStream" class="headerlink" title="DataInputStream 和 DataOutputStream"></a>DataInputStream 和 DataOutputStream</h4><p>这两个类分别继承了<code>FilterInputStream</code>和<code>FilterOutputStream</code>。<br><code>DataInputStream</code>从数据流读取字节，并且将它们转换为合适的基本类型值和字符串。<code>DataOutputStream</code>将基本类型的值或字符串转换为字节，并且将字节输出到数据流。</p>
+<p>以下是一个不完整的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//往a.dat内写入数据</div><div class="line">FileOutputStream fos = new FileOutputStream(&quot;a.dat&quot;);</div><div class="line"></div><div class="line">DataOutputStream dos = new DataOutputStream(fos);</div><div class="line"></div><div class="line">dos.writeInt(5);</div><div class="line">dos.writeDouble(3.14);</div><div class="line"></div><div class="line">dos.close();</div><div class="line">fos.close();</div></pre></td></tr></table></figure>
+<p>实际应用中，流可以链接起来，实现流水线式地处理。<br>以下是一个不完整的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//a.zip是一个加密过的压缩文件，要从里面读数据</span></div><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReadData</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span> </span></div><div class="line">        <span class="keyword">throws</span> IOException&#123;</div><div class="line">        <span class="comment">//节点流先登场</span></div><div class="line">        FileInputStream fis = <span class="keyword">new</span> fileInputStream(<span class="string">"a.zip"</span>);</div><div class="line">        </div><div class="line">        <span class="comment">//缓冲，提高速度</span></div><div class="line">        BufferedInputStream bis = </div><div class="line">            <span class="keyword">new</span> BufferedInputStream(fis);</div><div class="line">        </div><div class="line">        <span class="comment">//DecryptedInputStream和ZipInputStream</span></div><div class="line">        <span class="comment">//有可能Java自带，也可能是自己定义的</span></div><div class="line">        </div><div class="line">        <span class="comment">//负责解密</span></div><div class="line">        DecryptedInputStream ddis = </div><div class="line">            <span class="keyword">new</span> DecryptedInputSteram(bis);</div><div class="line">            </div><div class="line">        <span class="comment">//负责解压</span></div><div class="line">        ZipInputStream zis = </div><div class="line">            <span class="keyword">new</span> ZipInputStream(ddis);</div><div class="line">        </div><div class="line">        <span class="comment">//负责读出数据</span></div><div class="line">        DataInputStream dis = <span class="keyword">new</span> DataInputStream(zis);</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> i = dis.readInt();</div><div class="line">        <span class="keyword">double</span> d = dis.readDouble();</div><div class="line">        fis.close();</div><div class="line">        bis.close();</div><div class="line">        ddis.close();</div><div class="line">        zis.close();</div><div class="line">        dis.close();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="ObjectInputStream-和-ObjectOutputStream"><a href="#ObjectInputStream-和-ObjectOutputStream" class="headerlink" title="ObjectInputStream 和 ObjectOutputStream"></a>ObjectInputStream 和 ObjectOutputStream</h4><p>如果要以对象为单位进行读写操作，<code>DataOutputStream</code>和<code>DataInputStream</code>就帮不上忙了。<br>此时得使用<code>ObjectInputStream</code>和<code>ObjectOutputStream</code>。</p>
+<p>以下是一个不完整的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//从a.dat中读出Student的数据</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"></div><div class="line"><span class="comment">//因为Student中有Watch，所以也得继承Serializable</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Watch</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//注意Student类得继承Serializable（序列化）的接口</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">Serializable</span>, <span class="title">Comparable</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Watch[] wa = <span class="keyword">new</span> Watch[<span class="number">3</span>];</div><div class="line">    …………</div><div class="line">&#125;</div><div class="line"></div><div class="line">main() &#123;</div><div class="line">    FileInputStream fos = </div><div class="line">        <span class="keyword">new</span> FileInputStream(<span class="string">"a.dat"</span>);</div><div class="line">        </div><div class="line">    BufferedInputStream bis = </div><div class="line">        <span class="keyword">new</span> BufferedInputStream(fos);</div><div class="line">    </div><div class="line">    ObjectInputStream oos = </div><div class="line">        <span class="keyword">new</span> ObjectInputStream(bis);</div><div class="line">        </div><div class="line">    Student s1 = (Student) oos.readObject();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上程序中，<code>Serializable</code>接口是一种标记接口，因为它没有方法。所以，不需要在类中为实现<code>Serializable</code>接口增加额外的代码。实现这个接口可以启动Java的序列化机制，自动完成存储对象和数组的过程。</p>
+<hr>
+<h4 id="老师没讲完要求自学的内容"><a href="#老师没讲完要求自学的内容" class="headerlink" title="老师没讲完要求自学的内容"></a>老师没讲完要求自学的内容</h4><ul>
+<li><code>PrintStream</code>和<code>PrintWriter</code></li>
+<li><code>FileReader</code>和<code>FileWriter</code></li>
+<li><code>InputStreamReader</code>和<code>OutputStreamWriter</code></li>
+</ul>
+<hr>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/JAVA学习笔记（七）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JAVA学习笔记（七）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/JAVA学习笔记（五）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA学习笔记（五）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JAVA学习笔记（六）" data-title="JAVA学习笔记（六）" data-url="http://heli06.github.io/category/JAVA学习笔记（六）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

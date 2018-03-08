@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>CentOS7.2上配置Python3+pip3+Selenium+PhantomJS | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前一篇博文里提到的爬虫写好啦，总不能老是放在自己的笔记本上爬取数据吧，消耗网费还占时间，自然得挂在阿里云等服务器上。可这里也有一堆坑等着我踩。
+我的阿里云装的是CentOS7.2，租来以后基本没动过。配置的环境请看那长长的标题。
+Python3 和 pip3注意，千万不能卸载CentOS7.2自带的Python2.7！这是我配环境犯下的第一个错误！因为yum等许多和系统关联很紧密的东西是依托Pyt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS7.2上配置Python3+pip3+Selenium+PhantomJS">
+<meta property="og:url" content="http://heli06.github.io/category/CentOS7.2上配置Python3+pip3+Selenium+PhantomJS/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="前一篇博文里提到的爬虫写好啦，总不能老是放在自己的笔记本上爬取数据吧，消耗网费还占时间，自然得挂在阿里云等服务器上。可这里也有一堆坑等着我踩。
+我的阿里云装的是CentOS7.2，租来以后基本没动过。配置的环境请看那长长的标题。
+Python3 和 pip3注意，千万不能卸载CentOS7.2自带的Python2.7！这是我配环境犯下的第一个错误！因为yum等许多和系统关联很紧密的东西是依托Pyt">
+<meta property="og:updated_time" content="2017-12-31T15:01:59.959Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CentOS7.2上配置Python3+pip3+Selenium+PhantomJS">
+<meta name="twitter:description" content="前一篇博文里提到的爬虫写好啦，总不能老是放在自己的笔记本上爬取数据吧，消耗网费还占时间，自然得挂在阿里云等服务器上。可这里也有一堆坑等着我踩。
+我的阿里云装的是CentOS7.2，租来以后基本没动过。配置的环境请看那长长的标题。
+Python3 和 pip3注意，千万不能卸载CentOS7.2自带的Python2.7！这是我配环境犯下的第一个错误！因为yum等许多和系统关联很紧密的东西是依托Pyt">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-CentOS7.2上配置Python3+pip3+Selenium+PhantomJS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/CentOS7.2上配置Python3+pip3+Selenium+PhantomJS/" class="article-date">
+  	<time datetime="2017-12-31T14:10:54.000Z" itemprop="datePublished">2017-12-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CentOS7.2上配置Python3+pip3+Selenium+PhantomJS
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前一篇博文里提到的爬虫写好啦，总不能老是放在自己的笔记本上爬取数据吧，消耗网费还占时间，自然得挂在阿里云等服务器上。可这里也有一堆坑等着我踩。</p>
+<p>我的阿里云装的是<code>CentOS7.2</code>，租来以后基本没动过。配置的环境请看那长长的标题。</p>
+<h3 id="Python3-和-pip3"><a href="#Python3-和-pip3" class="headerlink" title="Python3 和 pip3"></a>Python3 和 pip3</h3><p>注意，<strong>千万不能卸载</strong><code>CentOS7.2</code>自带的<code>Python2.7</code>！这是我配环境犯下的第一个错误！因为<code>yum</code>等许多和系统关联很紧密的东西是依托<code>Python2.7</code>的，你卸载后<code>yum</code>等一堆东西都不能用，麻烦很大！如果你卸载了咋办呢？麻烦的做法是靠<code>rpm</code>方法把缺失的文件给补回来。我就比较厉害了，感谢阿里云的快照功能，我直接回滚磁盘。还好上面没啥重要的东西。</p>
+<p>这样做就足够了：</p>
+<pre><code>yum install python34 -y
+python3 --version
+//没有自带pip3，从官网安装
+wget --no-check-certificate https://bootstrap.pypa.io/get-pip.py
+python3 get-pip.py
+pip3 -V
+</code></pre><p>以后若要使用<code>Python3</code>和<code>pip3</code>，就使用<code>python3</code>和<code>pip3</code>命令；若要使用<code>Python2</code>和<code>pip2</code>，就使用<code>python</code>和<code>pip</code>命令。</p>
+<a id="more"></a>
+<p>网上有的教程为了让你直接运行<code>python</code>命令时启用的是<code>Python3</code>而不是<code>Python2.7</code>，很麻烦地让你删改各种软链接和配置文件（本强迫症患者就被坑得够惨）。我十分不建议这么做，<code>CentOS</code>和<code>Python2.7</code>结合得太紧密了，这样改也容易出事。还是老老实实地按上面的做法来吧，也没麻烦到哪去。</p>
+<hr>
+<h3 id="Selenium-和-PhantomJS"><a href="#Selenium-和-PhantomJS" class="headerlink" title="Selenium 和 PhantomJS"></a>Selenium 和 PhantomJS</h3><p>前一步若能完成，后面的麻烦事就少了。安装<code>Selenium</code>，这样做就行：</p>
+<pre><code>pip install Selenium
+</code></pre><p>能用<code>pip</code>，<code>yum</code>等解决的就不要自己去搞什么压缩包，太麻烦了。</p>
+<p><code>PhantomJS</code>无头浏览器就没办法了。它并非一个<code>Python</code>库，所以它不能像<code>Python</code>的其他库一样安装，也不能用<code>pip</code>安装。<br>像这样做就很好：</p>
+<pre><code>wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
+tar -xjvf phantomjs-2.1.1-linux-x86_64.tar.bz2
+//创建软链接，放入系统路径：　
+sudo ln -s ~/bin/phantomjs-1.9.7-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs
+//安装依赖——fontconfig和freetype：　
+yum install fontconfig freetype2
+//在终端下测试Phantomjs：
+phantomjs -v
+</code></pre><p>下载、解压、创建软链接、安装依赖、测试，一气呵成。</p>
+<p>如果解压失败，多半是<code>gzip2</code>没装上。用<code>yum</code>就行：</p>
+<pre><code>yum install bzip2
+</code></pre><p>好，进入最后一步~~</p>
+<hr>
+<h3 id="让爬虫在关闭终端后保持运行"><a href="#让爬虫在关闭终端后保持运行" class="headerlink" title="让爬虫在关闭终端后保持运行"></a>让爬虫在关闭终端后保持运行</h3><p>环境配好了，通过远程<code>ssh</code>连上主机了，看着终端的正常输出，真是舒服啊。看了一会儿想断开连接，可连接一断爬虫跟着不干活了。这可咋整呢？</p>
+<p>方法有很多，什么进程守护啊、写<code>Shell</code>脚本啊……太麻烦，使用<code>tmux</code>（<code>linux</code>终端复用软件）最简单：</p>
+<pre><code>yum install tmux -y //安装软件
+tmux //启动新终端
+cd xxx //cd到你的脚本目录
+python server.py//
+</code></pre><p>此时脚本已经在运行了。就算关闭<code>shell</code>终端该程序还是在运行，因为启动该程序的直接终端是<code>tmux</code>，而不是你的。<br>如果想查看进程状态，重新打开终端，执行</p>
+<pre><code>tmux attach
+</code></pre><p>就可以了。另外，<a href="https://segmentfault.com/q/1010000006241123" target="_blank" rel="external">这个网页还提供了许多别的方案，感兴趣者请点击</a></p>
+<p>就等着明天收数据了~~</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/《JavaScript DOM编程艺术（第二版）》复习/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          《JavaScript DOM编程艺术（第二版）》复习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/bilibili多进程爬虫/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">bilibili多进程爬虫</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="CentOS7.2上配置Python3+pip3+Selenium+PhantomJS" data-title="CentOS7.2上配置Python3+pip3+Selenium+PhantomJS" data-url="http://heli06.github.io/category/CentOS7.2上配置Python3+pip3+Selenium+PhantomJS/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

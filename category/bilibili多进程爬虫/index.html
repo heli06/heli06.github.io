@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>bilibili多进程爬虫 | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一些闲话接下来将近两周没有课，我就帮一位同学写了个bilibili爬虫爬取十万条用户数据，来完成TA的大数据分析作业。原本以为用以前的日语听力习题爬虫改一改就能用，结果……B站果然是B站啊，反爬虫的本事还是相当高的。
+先上最终完成版的源代码，注释应该够详细了：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bilibili多进程爬虫">
+<meta property="og:url" content="http://heli06.github.io/category/bilibili多进程爬虫/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="一些闲话接下来将近两周没有课，我就帮一位同学写了个bilibili爬虫爬取十万条用户数据，来完成TA的大数据分析作业。原本以为用以前的日语听力习题爬虫改一改就能用，结果……B站果然是B站啊，反爬虫的本事还是相当高的。
+先上最终完成版的源代码，注释应该够详细了：">
+<meta property="og:updated_time" content="2017-12-31T15:02:42.002Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="bilibili多进程爬虫">
+<meta name="twitter:description" content="一些闲话接下来将近两周没有课，我就帮一位同学写了个bilibili爬虫爬取十万条用户数据，来完成TA的大数据分析作业。原本以为用以前的日语听力习题爬虫改一改就能用，结果……B站果然是B站啊，反爬虫的本事还是相当高的。
+先上最终完成版的源代码，注释应该够详细了：">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-bilibili多进程爬虫" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/bilibili多进程爬虫/" class="article-date">
+  	<time datetime="2017-12-31T06:56:37.000Z" itemprop="datePublished">2017-12-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      bilibili多进程爬虫
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一些闲话"><a href="#一些闲话" class="headerlink" title="一些闲话"></a>一些闲话</h2><p>接下来将近两周没有课，我就帮一位同学写了个bilibili爬虫爬取十万条用户数据，来完成TA的大数据分析作业。原本以为用以前的日语听力习题爬虫改一改就能用，结果……B站果然是B站啊，反爬虫的本事还是相当高的。</p>
+<p>先上最终完成版的源代码，注释应该够详细了：</p>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 注意修改无头浏览器的地址，该装的库要装</span></div><div class="line"><span class="comment"># .csv文件请提前准备好</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</div><div class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</div><div class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</div><div class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions <span class="keyword">as</span> EC</div><div class="line"><span class="keyword">from</span> selenium.common.exceptions <span class="keyword">import</span> TimeoutException</div><div class="line"><span class="keyword">import</span> csv</div><div class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</div><div class="line"><span class="keyword">import</span> os, time</div><div class="line"><span class="keyword">from</span> selenium.webdriver.common.desired_capabilities <span class="keyword">import</span> DesiredCapabilities</div><div class="line"><span class="keyword">import</span> random</div><div class="line"></div><div class="line"><span class="comment"># 子进程，主要代码都写在这里</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">scrawler_process</span><span class="params">(process_start, num, sum, pace)</span>:</span></div><div class="line">    print(<span class="string">'Run task %s (%s)...'</span> % (num, os.getpid()))</div><div class="line">    start = time.time()</div><div class="line"></div><div class="line">    <span class="comment"># 修改请求头，反爬虫</span></div><div class="line">    dcap = dict(DesiredCapabilities.PHANTOMJS)</div><div class="line">    dcap[<span class="string">"phantomjs.page.settings.userAgent"</span>] = (</div><div class="line">        <span class="string">"Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.23 Mobile Safari/537.36"</span></div><div class="line">    )</div><div class="line">    service_args = []</div><div class="line">    <span class="comment"># 关闭图片加载有蜜汁BUG</span></div><div class="line">    <span class="comment">#service_args.append('--load-images=no')  ##关闭图片加载</span></div><div class="line">    service_args.append(<span class="string">'--disk-cache=yes'</span>)  <span class="comment">##开启缓存</span></div><div class="line">    service_args.append(<span class="string">'--ignore-ssl-errors=true'</span>)  <span class="comment">##忽略https错误</span></div><div class="line">    phantom_path = <span class="string">'phantomjs\\bin\\phantomjs.exe'</span></div><div class="line">    driver = webdriver.PhantomJS(executable_path=phantom_path, service_args=service_args)</div><div class="line"></div><div class="line">   <span class="comment">#已爬取的有效数据量</span></div><div class="line">    counter = <span class="number">0</span></div><div class="line">    <span class="comment">#urlNumber</span></div><div class="line">    urlNumber = process_start + num</div><div class="line">    <span class="comment">#爬取连续失败的次数</span></div><div class="line">    fail_num = <span class="number">0</span></div><div class="line"></div><div class="line">    <span class="comment">#写入的文件名</span></div><div class="line">    filename = <span class="string">'bilibili-%d.csv'</span> % (num)</div><div class="line">    out = open(filename, <span class="string">"a"</span>, newline=<span class="string">""</span>, encoding=<span class="string">"utf-8"</span>)</div><div class="line">    csv_writer = csv.writer(out, dialect=<span class="string">"excel"</span>)</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (counter &lt; sum <span class="keyword">and</span> urlNumber &lt; <span class="number">272500000</span>):</div><div class="line">        <span class="comment"># 随机选取uid</span></div><div class="line">        url = <span class="string">"https://space.bilibili.com/%d#/dynamic"</span> % (urlNumber + random.randint(<span class="number">-1249</span>, +<span class="number">1249</span>))  <span class="comment"># 要爬取的地址</span></div><div class="line">        driver.get(url)</div><div class="line">        print(url)</div><div class="line">        <span class="comment"># bsObj = BeautifulSoup(driver.page_source)</span></div><div class="line">        <span class="comment"># print(bsObj.prettify())</span></div><div class="line"></div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            <span class="comment">#判定网页是否加载完全</span></div><div class="line">            element = WebDriverWait(driver, <span class="number">2</span>).until(</div><div class="line">                EC.presence_of_element_located((By.CLASS_NAME, <span class="string">"content"</span>)))</div><div class="line">            span = driver.find_element_by_id(<span class="string">"h-name"</span>)</div><div class="line"></div><div class="line">            <span class="comment">#获取性别的元素并处理</span></div><div class="line">            sexSpanClass = driver.find_element_by_id(<span class="string">"h-gender"</span>).get_attribute(<span class="string">"class"</span>).split(<span class="string">" "</span>)</div><div class="line">            <span class="keyword">if</span> len(sexSpanClass) == <span class="number">3</span>:</div><div class="line">                sex = sexSpanClass[<span class="number">2</span>]</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                sex = <span class="string">"未填写"</span></div><div class="line"></div><div class="line">            <span class="comment"># 获取等级的元素并处理</span></div><div class="line">            level = driver.find_element_by_css_selector(</div><div class="line">                <span class="string">"#space-body &gt; div.h &gt; div.wrapper &gt; div.h-inner &gt; div.h-user &gt; div &gt; div.h-basic &gt; div:nth-child(1) &gt; a.h-level.m-level"</span>).get_attribute(</div><div class="line">                <span class="string">"lvl"</span>)</div><div class="line">            uid = urlNumber</div><div class="line"></div><div class="line">            <span class="comment"># 获取注册时间的元素并处理</span></div><div class="line">            regtime = driver.find_element_by_class_name(<span class="string">"regtime"</span>).find_element_by_class_name(<span class="string">"text"</span>)</div><div class="line">            regtime_text = regtime.text</div><div class="line">            <span class="keyword">if</span> (regtime_text == <span class="string">''</span>):</div><div class="line">                regtime_text = <span class="string">"未填写"</span></div><div class="line"></div><div class="line">            <span class="comment"># 获取生日的元素并处理</span></div><div class="line">            birthday = driver.find_element_by_class_name(<span class="string">"birthday"</span>).find_element_by_class_name(<span class="string">"text"</span>)</div><div class="line">            birthday_text = birthday.text</div><div class="line">            <span class="keyword">if</span> (birthday_text == <span class="string">''</span>):</div><div class="line">                birthday_text = <span class="string">"未填写"</span></div><div class="line"></div><div class="line">            <span class="comment"># 获取地理位置的元素并处理</span></div><div class="line">            geo = driver.find_element_by_class_name(<span class="string">"geo"</span>).find_element_by_class_name(<span class="string">"text"</span>)</div><div class="line">            geo_text = geo.text</div><div class="line">            <span class="keyword">if</span> (geo.text == <span class="string">''</span>):</div><div class="line">                geo_text = <span class="string">"未填写"</span></div><div class="line"></div><div class="line">            <span class="comment"># 获取粉丝数的元素并处理</span></div><div class="line">            fan_num = driver.find_element_by_id(<span class="string">"n-fs"</span>)</div><div class="line">            fan_num_text = fan_num.text</div><div class="line">            <span class="keyword">if</span> (fan_num_text[<span class="number">-1</span>] == <span class="string">"万"</span>):</div><div class="line">                fan_num_text = float(fan_num_text[:<span class="number">-1</span>]) * <span class="number">10000</span></div><div class="line"></div><div class="line">            <span class="comment"># 以span是否存在作为网页是否加载成功的依据</span></div><div class="line">            <span class="keyword">if</span> (span != <span class="keyword">None</span>):</div><div class="line">                nickname = span.text</div><div class="line">                print(nickname, sex, level, uid, regtime_text[<span class="number">3</span>:].strip(), birthday_text, geo_text, fan_num_text)</div><div class="line">                row = [nickname, sex, level, uid, regtime_text[<span class="number">3</span>:].strip(), birthday_text, geo_text, fan_num_text]</div><div class="line">                csv_writer.writerow(row)</div><div class="line"></div><div class="line">            <span class="comment"># print(bsObj.find(id="h-name").get_text())</span></div><div class="line">            urlNumber += pace</div><div class="line">            counter += <span class="number">1</span></div><div class="line">            fail_num = <span class="number">0</span></div><div class="line">            driver.get(<span class="string">"http://about:blank"</span>)</div><div class="line">        <span class="keyword">except</span> TimeoutException:</div><div class="line">            urlNumber += pace</div><div class="line">            fail_num += <span class="number">1</span></div><div class="line">            <span class="comment">#如果连续失败三次，说明被反爬虫或大片的uid不存在</span></div><div class="line">            <span class="keyword">if</span>(fail_num &gt; <span class="number">2</span>):</div><div class="line">                driver.get(<span class="string">"https://www.bilibili.com/"</span>)</div><div class="line">                print(<span class="string">'sleep 30s'</span>)</div><div class="line">                <span class="comment">#缓一缓歇会儿再爬</span></div><div class="line">                time.sleep(<span class="number">30</span>)</div><div class="line">                <span class="comment">#连续失败次数清零，重新计数</span></div><div class="line">                fail_num = <span class="number">0</span></div><div class="line">                <span class="comment">#跳过不存在的uid</span></div><div class="line">                urlNumber += <span class="number">250000</span></div><div class="line">                <span class="comment">#PHANTOMJS可能存在一种BUG，多进程爬取时网页的信息会弄串了，访问空白页可以重置</span></div><div class="line">                driver.get(<span class="string">"http://about:blank"</span>)</div><div class="line"></div><div class="line">    driver.close()</div><div class="line"></div><div class="line">    end = time.time()</div><div class="line">    print(<span class="string">'Task %s runs %0.2f seconds.'</span> % (num, (end - start)))</div><div class="line"></div><div class="line"><span class="comment"># 主程序</span></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</div><div class="line">    <span class="comment"># 记录开始时间</span></div><div class="line">    start_time = time.time()</div><div class="line"></div><div class="line">    <span class="comment">#从哪一条id开始爬取</span></div><div class="line">    crawler_start = <span class="number">0</span></div><div class="line">    <span class="comment">#进程数</span></div><div class="line">    crawler_num = <span class="number">1</span></div><div class="line">    <span class="comment">#每个进程要爬取的有效数据量</span></div><div class="line">    crawler_sum = <span class="number">10000</span></div><div class="line">    <span class="comment">#隔多少id爬取一次</span></div><div class="line">    crawler_pace = <span class="number">2500</span></div><div class="line">    print(<span class="string">'Parent process %s.'</span> % os.getpid())</div><div class="line">    <span class="comment">#进程池</span></div><div class="line">    p = Pool(crawler_num)</div><div class="line">    <span class="comment">#启动进程</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(crawler_num):</div><div class="line">        p.apply_async(scrawler_process, args=(crawler_start, i, crawler_sum, crawler_pace,))</div><div class="line">    print(<span class="string">'Waiting for all subprocesses done...'</span>)</div><div class="line">    p.close()</div><div class="line">    p.join()</div><div class="line">    print(<span class="string">'All subprocesses done.'</span>)</div><div class="line"></div><div class="line">    end_time = time.time()</div><div class="line">    print(end_time - start_time)</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="代码背后的故事"><a href="#代码背后的故事" class="headerlink" title="代码背后的故事"></a>代码背后的故事</h2><p>咋一看很简单，用的知识点都很初级。项目这东西从来都是说着容易做着难，为了这150多行代码我也折腾了三天。</p>
+<h3 id="初期似乎很顺利"><a href="#初期似乎很顺利" class="headerlink" title="初期似乎很顺利"></a>初期似乎很顺利</h3><p>B站的<strong>UID排列</strong>很规律——从0排到两亿多，理论上我只要遍历就行。</p>
+<p>原本不想用无头浏览器————效率还是太低。可只利用<code>Beautifulsoup</code>， <code>requests</code>， <code>urllib</code>什么的，即使设置文件请求头，B站给我返回的页面是“您的浏览器不支持访问个人主页，请升级浏览器”。用无头浏览器没有这个问题。原因以后可以深究。</p>
+<p>最开始的版本是单线程的，比起久远的日语听力题爬虫就多了个<code>WebDriverWait</code>隐式等待页面加载完成，稍微提高一点效率。某天深夜爬取1000条数据用了1480秒，寻思着这也太慢了点，第二天就开始折腾多进程。</p>
+<p>这个爬虫之前我也没写过多进程。俗话说得好，“人生苦短，我用python”，我看着<strong>廖雪峰</strong>的<code>Python3</code>教程直接上手做，除了在这里传参时搞错了位置：</p>
+<pre><code># 正确的做法
+p.apply_async(scrawler_process, args=(crawler_start, i, crawler_sum, crawler_pace,))
+# 错误的做法
+p.apply_async(scrawler_process(crawler_start, i, crawler_sum, crawler_pace))
+</code></pre><p>导致进程无法同时启动稍微耽搁了一会儿，没有别的问题。</p>
+<p>这里要提一下，为什么用多进程而非多线程。引用一下<strong>廖雪峰</strong>大神的话吧————</p>
+<blockquote>
+<p>Python解释器由于设计时有GIL全局锁，导致了多线程无法利用多核。多线程的并发在Python中就是一个美丽的梦。</p>
+</blockquote>
+<p>我试着开4个进程爬4组数据，结果————</p>
+<hr>
+<h3 id="与B站反爬虫的初次交手"><a href="#与B站反爬虫的初次交手" class="headerlink" title="与B站反爬虫的初次交手"></a>与B站反爬虫的初次交手</h3><p>嗯哼，我被封IP了。一开始封个半分钟到三分钟不等，我干脆让爬虫歇息30秒再爬（所以源代码里还有<code>sleep(30)</code>的代码），结果B站把我封了一个多小时，我差点以为这辈子再也没法用宿舍的网上B站了……</p>
+<p>让爬虫休息没用，我开始推测B站的反爬虫策略。我试着不持续访问用户主页去别的页面转悠转悠，可没有明显效果；改请求头也成效不大，看来B站就是根据IP地址访问频率来反爬虫的。</p>
+<p>终极的对策是用<strong>IP代理池</strong>和<strong>分布式爬取</strong>。可我就做一个学校的作业，不想搞得那么麻烦（其实是太菜没做过）。看来还是别爬得太狠，开一两个进程就行了。我暂时认输。</p>
+<p>这里分享一篇分布式爬虫的文章：<a href="https://www.cnblogs.com/printhelloworld/p/6944343.html" target="_blank" rel="external">分布式B站爬虫任务系统</a><br>还有高素质的知乎：<a href="https://www.zhihu.com/question/47464143" target="_blank" rel="external">IP代理池相关讨论</a><br>《Python爬虫开发与项目实战》作者的博客：<a href="https://www.cnblogs.com/qiyeboy/p/5693128.html" target="_blank" rel="external">据说大家都能用的IP代理池</a></p>
+<hr>
+<h3 id="利用API？"><a href="#利用API？" class="headerlink" title="利用API？"></a>利用API？</h3><p>自己搞不定，就上网搜呗。网上大量的爬虫都是一两年前的，当时B站反爬虫还没现在那么狠，甚至有对外公开的<code>API</code>接口。可惜B站被爬怕了。如果有条件，去试着申请<code>API</code>吧~我只能放弃。</p>
+<hr>
+<h3 id="效率优化"><a href="#效率优化" class="headerlink" title="效率优化"></a>效率优化</h3><p>还是回到无头浏览器的老路子。我阅读了几篇相关的文章，这里罗列出来：</p>
+<p><a href="https://www.jianshu.com/p/9d408e21dc3a" target="_blank" rel="external">盘点selenium phantomJS使用的坑</a><br>我认为的重点/碰到的坑：</p>
+<ol>
+<li><code>phantomJS</code>无头浏览器的配置（不加载图片、请求头、代理、超时返回等）</li>
+<li><code>phantomJS</code>的并发问题（多线程满满的BUG，还好我用的多进程）</li>
+</ol>
+<p><a href="https://zhuanlan.zhihu.com/p/25507989" target="_blank" rel="external">Phantomjs性能优化</a><br>我认为的重点/碰到的坑：</p>
+<ol>
+<li>关闭图片加载功能似乎有问题，会导致浏览器进程莫名罢工</li>
+<li>全篇都是重点</li>
+</ol>
+<p><a href="https://thief.one/2017/03/01/Phantomjs%E7%88%AC%E8%BF%87%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/" target="_blank" rel="external">【phantomjs系列】Selenium+Phantomjs爬过的那些坑</a><br><a href="https://eth.space/phantomjs-debug/" target="_blank" rel="external">Selenium+PhantomJS的爬虫那些事儿</a><br>我认为的重点/碰到的坑：</p>
+<ol>
+<li>Phantomjs连续访问网页时的状态污染问题么……保险起见，我按文中所述，每次访问网页后加上<code>driver.get(&quot;about:blank&quot;)</code></li>
+<li>这两篇文章说的是同一个项目的同一个问题，由该项目的不同技术人员写的</li>
+</ol>
+<p><a href="https://www.zhihu.com/question/35547395" target="_blank" rel="external">知乎-selenium 怎样设置请求头？</a><br>我认为的重点/碰到的坑：</p>
+<ol>
+<li>全篇都是重点</li>
+<li>注意<code>Chrome</code>也有无头版本的。鉴于<code>phantomjs</code>已经<strong>无人维护</strong>，使用<code>Chrome headless</code>才是正道</li>
+</ol>
+<hr>
+<h3 id="文件读写、字符串函数、字符集、随机函数、无效UID"><a href="#文件读写、字符串函数、字符集、随机函数、无效UID" class="headerlink" title="文件读写、字符串函数、字符集、随机函数、无效UID"></a>文件读写、字符串函数、字符集、随机函数、无效UID</h3><p>爬取下来的原始数据不适合导入数据库处理。我用字符串函数好好休整了一番，其间艰辛自不必说，看源码吧。</p>
+<p>爬取的数据总得找个地方存。应同学的要求，我选择<code>.csv</code>格式存储。也不难写：</p>
+<p><a href="https://www.cnblogs.com/mayi0312/p/6840931.html" target="_blank" rel="external">Python读写CSV文件操作</a></p>
+<p>千辛万苦走到这一步，可以很愉快地爬数据了是不是？<strong>Naive！</strong><br><strong>字符集！字符集！字符集！</strong><br><code>Python</code>默认的编码格式与操作系统相同————中文系统应该是<code>GBK</code>。而我的爬虫在爬到某个用户昵称里有阿拉伯语的奇葩时，很愉快地报错挂掉了…………</p>
+<p>还好问题发现得早，这样改一改就行：</p>
+<pre><code>out = open(filename, &quot;a&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;)
+</code></pre><p>另一个问题就发现得晚了————爬取的用户生日集中在一月份————原因是我的爬虫每隔2500个<code>uid</code>爬取一次数据，导致爬取的用户生日都撞车。这个问题发现时已经爬了五千组数据了，这个问题嘛，Emmmmmmm……于是要给<code>urlNumber</code>加上随机函数。</p>
+<p>另外，可能是B站回滚过数据库，有大片连续的<code>uid</code>是无效的。所以我设置了连续失败三次后<code>urlNumber</code>增加量为正常<code>pace</code>的十倍，以此来跳过无效的<code>uid</code>。</p>
+<p>终于可以愉快地爬数据了~~~</p>
+<hr>
+<h3 id="结尾的一些闲话"><a href="#结尾的一些闲话" class="headerlink" title="结尾的一些闲话"></a>结尾的一些闲话</h3><p>我有一个学姐半开玩笑地说过一句话：</p>
+<blockquote>
+<p>程序猿其实应该属于手工业，才不是什么高新技术产业。</p>
+</blockquote>
+<p>确实，码代码是需要熟练的，和做手工活一样。这个爬虫从技术原理上讲没有很高的难度（也就比入门级高一点而已），真写起代码来问题丛生。想成为合格的程序猿？<strong>“无他，唯手熟耳。”</strong></p>
+<p>幸甚至哉，歌以咏志。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/CentOS7.2上配置Python3+pip3+Selenium+PhantomJS/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          CentOS7.2上配置Python3+pip3+Selenium+PhantomJS
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/“J2EE高级编程”笔记（十五）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">“J2EE高级编程”笔记（十五）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="bilibili多进程爬虫" data-title="bilibili多进程爬虫" data-url="http://heli06.github.io/category/bilibili多进程爬虫/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

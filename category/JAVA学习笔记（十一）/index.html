@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JAVA学习笔记（十一） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="异步调用同步调用与异步调用的区别很好理解。举个例子：老师让同学去装水，等同学把水带回来才上课，是同步调用；不管同学有没有回来都先继续上课，水来了才喝水，是异步调用。
+以下是个不完整的例子，讲的是“把耗时大的任务先放入队列，然后从队列里取出任务来处理，从而实现异步调用”。
+以下例子涉及LinkedBlockingQueue。这部分老师讲得零散，我蛮搜索了一篇博文，点击查看">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA学习笔记（十一）">
+<meta property="og:url" content="http://heli06.github.io/category/JAVA学习笔记（十一）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="异步调用同步调用与异步调用的区别很好理解。举个例子：老师让同学去装水，等同学把水带回来才上课，是同步调用；不管同学有没有回来都先继续上课，水来了才喝水，是异步调用。
+以下是个不完整的例子，讲的是“把耗时大的任务先放入队列，然后从队列里取出任务来处理，从而实现异步调用”。
+以下例子涉及LinkedBlockingQueue。这部分老师讲得零散，我蛮搜索了一篇博文，点击查看">
+<meta property="og:updated_time" content="2017-07-11T03:02:09.085Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA学习笔记（十一）">
+<meta name="twitter:description" content="异步调用同步调用与异步调用的区别很好理解。举个例子：老师让同学去装水，等同学把水带回来才上课，是同步调用；不管同学有没有回来都先继续上课，水来了才喝水，是异步调用。
+以下是个不完整的例子，讲的是“把耗时大的任务先放入队列，然后从队列里取出任务来处理，从而实现异步调用”。
+以下例子涉及LinkedBlockingQueue。这部分老师讲得零散，我蛮搜索了一篇博文，点击查看">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-JAVA学习笔记（十一）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（十一）/" class="article-date">
+  	<time datetime="2017-07-11T02:12:35.000Z" itemprop="datePublished">2017-07-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA学习笔记（十一）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="异步调用"><a href="#异步调用" class="headerlink" title="异步调用"></a>异步调用</h2><p>同步调用与异步调用的区别很好理解。举个例子：老师让同学去装水，等同学把水带回来才上课，是同步调用；不管同学有没有回来都先继续上课，水来了才喝水，是异步调用。</p>
+<p>以下是个不完整的例子，讲的是“把耗时大的任务先放入队列，然后从队列里取出任务来处理，从而实现异步调用”。</p>
+<p>以下例子涉及<code>LinkedBlockingQueue</code>。这部分老师讲得零散，我蛮搜索了一篇博文，<a href="http://www.cnblogs.com/linjiqin/archive/2013/05/30/3108188.html" target="_blank" rel="external">点击查看</a></p>
+<a id="more"></a>
+<pre><code>public static final LinkedBlockingQueue&lt;Map&gt; queue = 
+    //……………………
+
+class A {
+    public void a(int i) {
+        //………………某耗时很长的过程（如大量I/O）
+    }
+}
+class B {
+    public void b() {
+        //A a = new A();
+        //a.a(9); 如果这样写，会在这里死等
+
+        //可以先把消息放入消息队列
+        Map map = new HashMap();
+        map.put(&quot;operation&quot;, &quot;a&quot;);
+        queue.add(map);
+    }
+}
+
+main() {
+    new Thread() {
+        public void run() {
+            while(true) {
+                //从队列里取消息
+                Map map = (Map) queue.take();
+                String op = map.get(&quot;operation&quot;);
+                Integer i = (Integer) map.get(&quot;i&quot;);
+                //处理消息
+                if(&quot;a&quot;.equals(op)) {
+                    a.a(i);
+                }
+            }
+        }
+    }
+}
+</code></pre><p>异步编程是有风险的，特别是有回调函数、返回的信息涉及当前状态的时候。一个解决办法是<code>restful</code>，无状态编程，使得返回的信息不涉及当前状态，避开安全问题。</p>
+<hr>
+<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>以下内容摘自百度百科。这个词条讲得还可以。</p>
+<p><code>MVC</code>全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写，一种软件设计典范，用一种业务逻辑、数据、界面显示分离的方法组织代码，将业务逻辑聚集到一个部件里面，在改进和个性化定制界面及用户交互的同时，不需要重新编写业务逻辑。MVC被独特地发展起来用于映射传统的输入、处理和输出功能在一个逻辑的图形化用户界面的结构中。</p>
+<p>控制器是视图的观察者。典型的例子就是WINDOWS系统的图形界面。对视图的变动会被控制器观察到，控制器会更新模型，模型会通知视图状态已改变，视图会刷新。比方说删除文件，开两个窗口一起观察，从一个窗口中删掉文件后，另一个窗口中的相同文件也会消失。</p>
+<p>老师的代码里有MVC的简单例子，路径：\7\mvc\src<br>有些例子是用<code>awt</code>实现的。</p>
+<p>现在的趋势是V、C合一。原本有M、V、C三个类，现在只要UI类和控制器类就好了。</p>
+<hr>
+<h2 id="GUI编程"><a href="#GUI编程" class="headerlink" title="GUI编程"></a>GUI编程</h2><p>先谈谈GUI编程中几种界面布局方式：</p>
+<ul>
+<li><strong>流布局</strong>：按行显示，一行摆不下，会折到下一行。组件的大小会由操作系统钦定成它认为最合适的。一行的高度由高度最大的组件决定。</li>
+<li><strong>网格布局</strong>：可以设置成几行几类，此时整个界面被切成若干个单元格，组件放在单元格里。组件的大小和单元格的大小一样。</li>
+<li><strong>改进型网格布局</strong>：组件不一定铺满单元格。WEB前端领域中有一个很著名的“<strong>盒模型</strong>”，感兴趣的同学可自行查阅。</li>
+<li><strong>边界布局</strong>：将容器划分成上、下、左、右、中五块，只能放五个组件。上、下优先放，组件宽度等于容器的宽度。中间可铺满。如果组件数量超过五个，可使用面板类，组件里套组件。</li>
+<li><strong>卡片布局</strong>：能够让多个组件共享同一个显示空间。共享空间的组件之间的关系就像一叠牌，组件叠在一起。有些组件会被其它组件压在下面。当然可改变叠放顺序。</li>
+</ul>
+<p>以上布局可以嵌套使用。</p>
+<p><code>swing</code>与MVC模式密不可分。</p>
+<p><code>swing</code>和<code>awt</code>并非完全独立。<code>swing</code>沿用、改进了<code>awt</code>里部分好用的东西。</p>
+<p>在<code>swing</code>中，界面被分为若干层。详情可查阅Java API文档与老师提供的代码。（我对<code>swing</code>实在是没有兴趣，它已经被<code>JavaFX</code>淘汰了，不想赘述）</p>
+<p>老师的代码里有如何读写<code>XML</code>、<code>EXCEL</code>和文本文件的例子，值得一看。有部分代码在路径：/9/之下。</p>
+<p>大作业里的监控程序主要用到<code>swing</code>里的<code>JTable</code>。</p>
+<p>今天的笔记好短啊……就这样结束吧~</p>
+<hr>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/JAVA学习笔记（十二）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JAVA学习笔记（十二）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/JAVA学习笔记（十）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA学习笔记（十）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JAVA学习笔记（十一）" data-title="JAVA学习笔记（十一）" data-url="http://heli06.github.io/category/JAVA学习笔记（十一）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

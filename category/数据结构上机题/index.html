@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>数据结构上机题 | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这个学期的数据结构真心有点难……不过程序写出来后还是挺有成就感的。贴两个程序上来吧，分别是简易计算器和银行叫号系统。简易计算器重点考察对栈的应用（中缀表达式转后缀表达式、后缀表达式计算），银行叫号系统考察对队列的应用。银行叫号系统的user的多态有点小问题。源代码在codeblocks下编译通过。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构上机题">
+<meta property="og:url" content="http://heli06.github.io/category/数据结构上机题/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="这个学期的数据结构真心有点难……不过程序写出来后还是挺有成就感的。贴两个程序上来吧，分别是简易计算器和银行叫号系统。简易计算器重点考察对栈的应用（中缀表达式转后缀表达式、后缀表达式计算），银行叫号系统考察对队列的应用。银行叫号系统的user的多态有点小问题。源代码在codeblocks下编译通过。">
+<meta property="og:updated_time" content="2016-11-07T14:34:39.692Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构上机题">
+<meta name="twitter:description" content="这个学期的数据结构真心有点难……不过程序写出来后还是挺有成就感的。贴两个程序上来吧，分别是简易计算器和银行叫号系统。简易计算器重点考察对栈的应用（中缀表达式转后缀表达式、后缀表达式计算），银行叫号系统考察对队列的应用。银行叫号系统的user的多态有点小问题。源代码在codeblocks下编译通过。">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-数据结构上机题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/数据结构上机题/" class="article-date">
+  	<time datetime="2016-11-07T14:27:55.000Z" itemprop="datePublished">2016-11-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据结构上机题
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这个学期的数据结构真心有点难……不过程序写出来后还是挺有成就感的。<br>贴两个程序上来吧，分别是简易计算器和银行叫号系统。简易计算器重点考察对栈的应用（中缀表达式转后缀表达式、后缀表达式计算），银行叫号系统考察对队列的应用。<br>银行叫号系统的user的多态有点小问题。<br>源代码在codeblocks下编译通过。</p>
+<a id="more"></a>
+<h2 id="简易计算器"><a href="#简易计算器" class="headerlink" title="简易计算器"></a>简易计算器</h2><pre><code>#include&lt;iostream&gt;
+#include&lt;fstream&gt;
+#include&lt;sstream&gt;
+#include&lt;cstring&gt;
+#include&lt;cstdlib&gt;
+
+using namespace std;
+
+int getPrio(char x){    //优先级判断函数
+    if(x == &apos;*&apos; || x == &apos;/&apos; ||x == &apos;(&apos;)
+        return 1;
+    else
+        return 0;
+}
+
+template&lt;class T&gt;       //顺序栈类
+class Stack{
+public:
+    void Clear();
+    bool Push(const T item);
+    bool Pop(T &amp;item);
+    bool Top(T &amp;item);
+};
+
+template&lt;class T&gt;
+class ArrayStack:public Stack&lt;T&gt;{
+private:
+    int maxSize;
+    int top;
+    T *st;
+
+public:
+    ArrayStack(int Size){
+        maxSize = Size;
+        top = -1;
+        st = new T[maxSize];
+    }
+    ~ArrayStack(){
+        delete []st;
+    }
+    void Clear(){
+        top = -1;
+    }
+    bool Push(const T item){
+        if(top == maxSize - 1){
+            cout&lt;&lt;&quot;栈满溢出&quot;&lt;&lt;endl;
+            return false;
+        }
+        else{
+            st[++top] = item;
+            return true;
+        }
+    }
+    bool Pop(T &amp;item){
+        if(top == -1){
+            cout&lt;&lt;&quot;栈为空，不能进行删除操作&quot;&lt;&lt;endl;
+            return false;
+        }
+        else{
+            item = st[top--];
+            return true;
+        }
+    }
+    bool Top(T &amp;item){
+        if(top == -1){
+            cout&lt;&lt;&quot;栈为空，不能读取栈顶元素&quot;&lt;&lt;endl;
+            return false;
+        }
+        else{
+            item = st[top];
+            return true;
+        }
+    }
+    void print(){           //调试时为了方便可打印栈
+        for(int i = 0; i &lt;= top; i++){
+            cout&lt;&lt;st[i]&lt;&lt;&apos; &apos;;
+        }
+        cout&lt;&lt;endl;
+    }
+};
+
+class Calculator{           //计算器类
+public:
+    string infixToSuffix(string inFix){                 //中缀表达式转后缀表达式函数
+        ArrayStack&lt;char&gt; temp(100);                     //此栈用于存储运算符，之后简称运算符栈
+        temp.Push(&apos;#&apos;);                                 //先Push#作为栈底方便处理
+        string sufFix;                                  //此字符串用于存储后缀表达式
+        char tmp;                                       //一个临时变量，方便处理比较等情况
+        for(int i = 0; i &lt; inFix.size(); i++){          //扫描中缀表达式
+            if(47 &lt; inFix[i] &amp;&amp; inFix[i] &lt; 58 || inFix[i] == 46){         //处理数字，直接加入后缀表达式
+                sufFix += inFix[i];
+            }
+            else{
+                tmp = sufFix[sufFix.size()-1];             //处理符号
+                if(inFix[i] == &apos;(&apos;){                      //处理开括号，直接入运算符栈
+                    temp.Push(&apos;(&apos;);
+                }
+                else if(inFix[i] == &apos;)&apos;){                 //处理闭括号
+                    temp.Top(tmp);
+                    while(tmp != &apos;(&apos;){                    //将栈中元素依次弹出，直到遇到第一个开括号为止
+                        temp.Pop(tmp);                    //出运算符栈
+                        sufFix += &apos; &apos;;                    //加空格方便阅读
+                        sufFix += tmp;                    //加入后缀表达式
+                        temp.Top(tmp);                    //获取新的栈顶元素
+                    }
+                    temp.Pop(tmp);                        //将开括号弹出
+                }
+                else{                                     //处理运算符
+                    temp.Top(tmp);
+                    while(tmp!= &apos;#&apos; &amp;&amp; tmp != &apos;(&apos; &amp;&amp; getPrio(inFix[i]) &lt;= getPrio(tmp)){      //当栈非空 &amp;&amp; 栈顶不是开括号
+                        temp.Pop(tmp);               //同上
+                        sufFix += &apos; &apos;;
+                        sufFix += tmp;
+                        temp.Top(tmp);
+                    }
+                    temp.Push(inFix[i]);
+                }
+                sufFix += &apos; &apos;;                      //加空格方便阅读
+            }
+            //cout&lt;&lt;inFix[i]&lt;&lt;endl;
+            //temp.print();                           //方便调试
+            //cout&lt;&lt;endl&lt;&lt;sufFix&lt;&lt;endl;               //方便调试
+        }
+        temp.Top(tmp);
+        while(tmp != &apos;#&apos;){                          //将栈中剩余运算符依次弹出，压入后缀表达式栈
+            temp.Pop(tmp);                          //同上
+            sufFix += &apos; &apos;;
+            sufFix += tmp;
+            temp.Top(tmp);
+        }
+        cout&lt;&lt;sufFix&lt;&lt;endl;
+        return sufFix;
+    }
+
+    double calSufFix(string sufFix){
+        ArrayStack&lt;double&gt; temp(100);                   //计算时所用的栈
+        double num,x,y;                                 //为方便计算而设的变量
+        char sufToChar[100];
+        strcpy(sufToChar,sufFix.c_str());
+        char *charStr = strtok(sufToChar,&quot; &quot;);     //根据空格分割字符串
+        while(charStr)
+        {
+            //cout&lt;&lt;&quot;charStr的值：&quot;&lt;&lt;charStr&lt;&lt;endl;
+            if(atof(charStr)){                       //字符串转数字函数
+                temp.Push(atof(charStr));
+            }
+            else{                                    //扫描到运算符后进行计算
+                temp.Pop(x);
+                temp.Pop(y);
+                switch(charStr[0]){
+                    case &apos;+&apos;:num = y + x;break;
+                    case &apos;-&apos;:num = y - x;break;
+                    case &apos;*&apos;:num = y * x;break;
+                    case &apos;/&apos;:num = y / x;break;
+                    default:break;
+                }
+                temp.Push(num);
+            }
+
+            charStr = strtok(NULL,&quot; &quot;);
+        }
+        temp.Pop(num);
+        return num;
+    }
+};
+
+int main(){
+    Calculator c1;
+    string str;
+    cin&gt;&gt;str;
+    cout&lt;&lt;c1.calSufFix(c1.infixToSuffix(str));
+    return 0;
+}
+</code></pre><hr>
+<h2 id="银行叫号系统"><a href="#银行叫号系统" class="headerlink" title="银行叫号系统"></a>银行叫号系统</h2><pre><code>#include&lt;iostream&gt;
+#include&lt;typeinfo&gt;
+#include &lt;ctime&gt;
+#include &lt;cstdlib&gt;
+#include&lt;typeinfo&gt;
+#include&lt;stdlib.h&gt;
+
+using namespace std;
+
+template&lt;class T&gt;
+class LinkNode{
+public:
+    T data;             //保存节点元素的内容
+    LinkNode&lt;T&gt; *next;   //指向后继节点的指针
+
+    LinkNode(const T info = NULL, LinkNode&lt;T&gt; *nextVal = NULL){
+        data = info;
+        next = nextVal;
+    }
+    ~LinkNode(){
+
+    }
+};
+
+template&lt;class T&gt;
+class Queue{
+public:
+    void Clear();
+    bool EnQueue(const T item);
+    bool DeQueue(T &amp; item);
+    bool IsEmpty();
+    bool IsFull();
+    bool GetFront(T &amp; item);
+};
+
+template&lt;class T&gt;
+class LinkQueue:public Queue&lt;T&gt;{
+public:
+    int Size;
+    LinkNode&lt;T&gt; * Front;
+    LinkNode&lt;T&gt; * Rear;
+
+    LinkQueue(){
+        Size = 0;
+        Front = Rear = NULL;
+    }
+
+    ~LinkQueue(){
+        Clear();
+    }
+
+    void Clear(){
+        while(Front != NULL){
+            Rear = Front;
+            Front = Front-&gt;next;
+            delete Rear;
+        }
+        Rear = NULL;
+        Size = 0;
+    }
+
+    bool EnQueue(const T item){
+        if(Rear == NULL){
+            Front = Rear = new LinkNode&lt;T&gt;(item,NULL);
+        }
+        else{
+            Rear-&gt;next = new LinkNode&lt;T&gt;(item,NULL);
+            Rear = Rear-&gt;next;
+        }
+        Size++;
+        return true;
+    }
+
+    bool DeQueue(T &amp; item){
+        LinkNode&lt;T&gt; * temp;
+        if(Size == 0){
+            //cout&lt;&lt;&quot;队列为空&quot;&lt;&lt;endl;
+            return false;
+        }
+        item = Front-&gt;data;
+        temp = Front;
+        Front = Front-&gt;next;
+        delete temp;
+        if(Front == NULL){
+            Rear = NULL;
+        }
+        Size--;
+        return true;
+    }
+
+    bool GetFront(T &amp; item){
+        if(Size == 0){
+            cout&lt;&lt;&quot;队列为空&quot;&lt;&lt;endl;
+            return false;
+        }
+        item = Front-&gt;data;
+        return true;
+    }
+};
+
+class User{
+public:
+    int id;
+    int ArriveTime;
+    int ServeTime;
+    string type;
+    static int counter;
+
+    User(){
+        ServeTime = (rand()%9)/3 + 1;
+    }
+    void getServed(){
+        cout&lt;&lt;type&lt;&lt;id&lt;&lt;&quot;正在接受服务&quot;&lt;&lt;endl;
+    }
+};
+int User::counter = 0;
+
+class NormalUser:public User{
+public:
+    NormalUser(){
+        type = &quot;普通用户&quot;;
+        id = counter++;
+    }
+    void getServed(){
+        cout&lt;&lt;&quot;普通用户&quot;&lt;&lt;id&lt;&lt;&quot;正在接受服务&quot;&lt;&lt;endl;
+    }
+};
+
+
+class VIPUser:public User{
+public:
+    VIPUser(){
+        type = &quot;VIP用户&quot;;
+        id = counter++;
+    }
+    void getServed(){
+        cout&lt;&lt;&quot;VIP用户&quot;&lt;&lt;id&lt;&lt;&quot;正在接受服务&quot;&lt;&lt;endl;
+    }
+};
+
+class OfficalUser:public User{
+public:
+    OfficalUser(){
+        type = &quot;对公用户&quot;;
+        id = counter++;
+    }
+    void getServed(){
+        cout&lt;&lt;&quot;VIP用户&quot;&lt;&lt;id&lt;&lt;&quot;正在接受服务&quot;&lt;&lt;endl;
+    }
+};
+
+class BankWindow{
+public:
+    bool isBusy;
+    int id;
+    User client;
+    static int counter;
+
+    BankWindow(){
+        isBusy = false;
+        id = counter++;
+    }
+
+    void HandleUser();
+};
+int BankWindow::counter = 0;
+
+class NormalBankWindow:public BankWindow{
+public:
+    void HandleUser(){
+        cout&lt;&lt;&quot;普通窗口&quot;&lt;&lt;id&lt;&lt;&quot;叫号,&quot;&lt;&lt;client.type&lt;&lt;client.id&lt;&lt;endl;
+    }
+};
+
+class VIPBankWindow:public BankWindow{
+public:
+     void HandleUser(){
+        cout&lt;&lt;&quot;VIP窗口&quot;&lt;&lt;id&lt;&lt;&quot;叫号,&quot;&lt;&lt;client.type&lt;&lt;client.id&lt;&lt;endl;
+    }
+};
+
+class OfficalBankWindow:public BankWindow{
+public:
+     void HandleUser(){
+        cout&lt;&lt;&quot;对公窗口&quot;&lt;&lt;id&lt;&lt;&quot;叫号,&quot;&lt;&lt;client.type&lt;&lt;client.id&lt;&lt;endl;
+    }
+};
+
+class Simulater{
+public:
+    LinkQueue&lt;User&gt; NormalUserQueue;
+    LinkQueue&lt;User&gt; VIPUserQueue;
+    LinkQueue&lt;User&gt; OfficalUserQueue;
+    NormalBankWindow *NormalList;
+    VIPBankWindow *VIPList;
+    OfficalBankWindow *OfficalList;
+    int NormalNum;
+    int VIPNum;
+    int OfficalNum;
+
+    Simulater(int NormalNum,int VIPNum,int OfficalNum){
+        this-&gt;NormalNum = NormalNum;
+        this-&gt;VIPNum = VIPNum;
+        this-&gt;OfficalNum = OfficalNum;
+        NormalList = new NormalBankWindow[NormalNum];
+        VIPList = new VIPBankWindow[VIPNum];
+        OfficalList = new OfficalBankWindow[OfficalNum];
+    }
+    ~Simulater(){
+        delete NormalList;
+        delete VIPList;
+        delete OfficalList;
+    }
+
+    void simulateCustomerEnter(){
+         srand(unsigned(time(0)));
+         switch((rand()%9)){
+            case 0:case 1:break;
+            case 2:case 3:case 4:case 5:
+                NormalUserQueue.EnQueue(NormalUser());break;
+            case 6:case 7:case 8:case 9:
+                NormalUserQueue.EnQueue(NormalUser());
+                NormalUserQueue.EnQueue(NormalUser());break;
+         }
+         if((rand()%9)&gt;6){
+            VIPUserQueue.EnQueue(VIPUser());
+         }
+         if((rand()%9)&gt;6){
+            OfficalUserQueue.EnQueue(OfficalUser());
+         }
+         cout&lt;&lt;&quot;现有&quot;&lt;&lt;NormalUserQueue.Size&lt;&lt;&quot;个普通用户，&quot;&lt;&lt;VIPUserQueue.Size&lt;&lt;&quot;个VIP用户,&quot;&lt;&lt;OfficalUserQueue.Size&lt;&lt;&quot;个对公用户等候&quot;&lt;&lt;endl;
+    }
+
+    void simulateCallCustomer(time_t now_time){         //依次循环普通窗口、VIP窗口、对公窗口
+        for(int i = 0; i &lt; NormalNum; i++){
+            if(NormalList[i].isBusy){
+                cout&lt;&lt;&quot;普通窗口&quot;&lt;&lt;i&lt;&lt;&quot;正在为&quot;;
+                NormalList[i].client.getServed();       //接受服务
+                if(now_time - NormalList[i].client.ArriveTime &gt;= NormalList[i].client.ServeTime){
+                    NormalList[i].isBusy = false;
+                }
+            }
+            else if(NormalUserQueue.DeQueue(NormalList[i].client)){
+                NormalList[i].client.ArriveTime = now_time;
+                NormalList[i].isBusy = true;
+                NormalList[i].HandleUser();
+            }
+            else{
+                cout&lt;&lt;&quot;普通窗口&quot;&lt;&lt;i&lt;&lt;&quot;为空&quot;&lt;&lt;endl;
+            }
+        }
+        for(int i = 0; i &lt; VIPNum; i++){
+            if(VIPList[i].isBusy){
+                cout&lt;&lt;&quot;VIP窗口&quot;&lt;&lt;i+NormalNum&lt;&lt;&quot;正在为&quot;;
+                VIPList[i].client.getServed();
+                if(now_time - VIPList[i].client.ArriveTime &gt;= VIPList[i].client.ServeTime){
+                    VIPList[i].isBusy = false;
+                }
+            }
+            else if(VIPUserQueue.DeQueue(VIPList[i].client)){
+                VIPList[i].client.ArriveTime = now_time;
+                VIPList[i].isBusy = true;
+                VIPList[i].HandleUser();
+            }
+            else if(NormalUserQueue.DeQueue(VIPList[i].client)){
+                VIPList[i].client.ArriveTime = now_time;
+                VIPList[i].isBusy = true;
+                VIPList[i].HandleUser();
+            }
+            else{
+                cout&lt;&lt;&quot;VIP窗口&quot;&lt;&lt;i&lt;&lt;&quot;为空&quot;&lt;&lt;endl;
+            }
+        }
+        for(int i = 0; i &lt; OfficalNum; i++){
+            if(OfficalList[i].isBusy){
+                cout&lt;&lt;&quot;对公窗口&quot;&lt;&lt;i+NormalNum+VIPNum&lt;&lt;&quot;正在为&quot;;
+                OfficalList[i].client.getServed();
+                if(now_time - OfficalList[i].client.ArriveTime &gt;= OfficalList[i].client.ServeTime){
+                    OfficalList[i].isBusy = false;
+                }
+            }
+            else if(OfficalUserQueue.DeQueue(OfficalList[i].client)){
+                OfficalList[i].client.ArriveTime = now_time;
+                OfficalList[i].isBusy = true;
+                OfficalList[i].HandleUser();
+            }
+            else if(NormalUserQueue.DeQueue(OfficalList[i].client)){
+                OfficalList[i].client.ArriveTime = now_time;
+                OfficalList[i].isBusy = true;
+                OfficalList[i].HandleUser();
+            }
+            else{
+                cout&lt;&lt;&quot;对公窗口&quot;&lt;&lt;i&lt;&lt;&quot;为空&quot;&lt;&lt;endl;
+            }
+        }
+    }
+
+    void Simulate(){            //模拟函数，负责调用前两个函数和计时
+        time_t start_time = unsigned(time(0));
+        time_t now_time = unsigned(time(0));
+        while(now_time - start_time &lt; 20){
+            simulateCustomerEnter();
+            simulateCallCustomer(now_time);
+            _sleep((1-((time(0))-now_time))*1000);
+            now_time = unsigned(time(0));
+            cout&lt;&lt;now_time - start_time&lt;&lt;endl;
+        }
+        cout&lt;&lt;&quot;模拟时间结束&quot;&lt;&lt;endl;
+    }
+};
+
+int main(){
+    Simulater bank(3,1,1);
+    bank.Simulate();
+    return 0;
+}
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/表白墙/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          表白墙
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/日语N2听力题爬虫完整版/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">日语N2听力题爬虫凑合着用版</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="数据结构上机题" data-title="数据结构上机题" data-url="http://heli06.github.io/category/数据结构上机题/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

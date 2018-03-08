@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JAVA学习笔记（一）（二） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="（一）组合、封装、多态与继承先说继承。
+class person{
+string name;
+int age;
+}
+class Student extends Person{
+string student_id;
+}
+JAVA的类只支持单继承，但接口支持多继承（以后的课会提到）。以下的内容都与继承联系紧密。
+1.组合与聚合“组合”与“聚合”这两个词都用于描述类与类之间的关系。聚合(aggregat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA学习笔记（一）（二）">
+<meta property="og:url" content="http://heli06.github.io/category/JAVA学习笔记（一）（二）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="（一）组合、封装、多态与继承先说继承。
+class person{
+string name;
+int age;
+}
+class Student extends Person{
+string student_id;
+}
+JAVA的类只支持单继承，但接口支持多继承（以后的课会提到）。以下的内容都与继承联系紧密。
+1.组合与聚合“组合”与“聚合”这两个词都用于描述类与类之间的关系。聚合(aggregat">
+<meta property="og:updated_time" content="2017-07-02T13:49:57.079Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA学习笔记（一）（二）">
+<meta name="twitter:description" content="（一）组合、封装、多态与继承先说继承。
+class person{
+string name;
+int age;
+}
+class Student extends Person{
+string student_id;
+}
+JAVA的类只支持单继承，但接口支持多继承（以后的课会提到）。以下的内容都与继承联系紧密。
+1.组合与聚合“组合”与“聚合”这两个词都用于描述类与类之间的关系。聚合(aggregat">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-JAVA学习笔记（一）（二）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（一）（二）/" class="article-date">
+  	<time datetime="2017-06-20T03:59:59.000Z" itemprop="datePublished">2017-06-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA学习笔记（一）（二）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="（一）组合、封装、多态与继承"><a href="#（一）组合、封装、多态与继承" class="headerlink" title="（一）组合、封装、多态与继承"></a>（一）组合、封装、多态与继承</h2><p>先说继承。</p>
+<pre><code>class person{
+string name;
+int age;
+}
+class Student extends Person{
+string student_id;
+}
+</code></pre><p>JAVA的类只支持单继承，但接口支持多继承（以后的课会提到）。<br>以下的内容都与继承联系紧密。</p>
+<h4 id="1-组合与聚合"><a href="#1-组合与聚合" class="headerlink" title="1.组合与聚合"></a>1.组合与聚合</h4><p>“组合”与“聚合”这两个词都用于描述类与类之间的关系。<br>聚合(aggregation)关系: 聚合是整体和个体之间的关系,即has-a的关系，此时整体与部分之间是可分离的，他们可以具有各自的生命周期，部分可以属于多个整体对象，也可以为多个整体对象共享；比如人与他买的汽车、公司与员工的关系等。<br>组合(合成)关系(composition): 他体现的是一种contains-a的关系，这种关系比聚合更强，也称为强聚合；他同样体现整体与部分间的关系，但此时整体与部分是不可分的，整体的生命周期结束也就意味着部分的生命周期结束；比如你和你的大脑。</p>
+<a id="more"></a>
+<p>以下是组合与聚合的例子：</p>
+<pre><code>class Car{}
+Class Head{}
+Class Person{
+Car c; //此为聚合，c仅仅是一个引用变量
+Head h = new Head();//此为组合
+}
+public static void main{
+Person p = new p();//人一出生就有了脑子，但还没车
+Car c1 = new Car();
+p.c = c1;//直到这一步才有了车
+}
+</code></pre><h4 id="2-封装"><a href="#2-封装" class="headerlink" title="2.封装"></a>2.封装</h4><p>通常，一个类的数据成员不能直接被修改，而是通过一对set、get函数来写、读（不一定两者皆有）。<br>以下是封装的例子：</p>
+<pre><code>class student{
+    private int age;
+    public int getAge(){
+        return age;
+    }
+    public void setAge(int age){
+        this.age = age;
+    }
+}
+</code></pre><h4 id="3-多态"><a href="#3-多态" class="headerlink" title="3.多态"></a>3.多态</h4><p>多态在代码层面上有两种体现形式：覆盖（override）与重载（overload）。<br>此为覆盖的例子：</p>
+<pre><code>class A{
+    int work(){
+        Return 0;
+    }
+}
+class B extends A{
+    int work(){
+        return 1;
+        //若新建一个B的对象b，那么b.work()返回1
+    }
+}
+</code></pre><p>此为重载的例子：</p>
+<pre><code>class adder{
+    int add(int i,int j){return i+j;}
+    double add(double i,double j){return i+j;}
+}
+</code></pre><h4 id="（二）值得注意的几个关键字"><a href="#（二）值得注意的几个关键字" class="headerlink" title="（二）值得注意的几个关键字"></a>（二）值得注意的几个关键字</h4><p>接下来的内容我真的没办法自己写，见谅。<br>主要看例子，1和3的例子都挺好的。<br>super的内容请结合构造函数的内容一起看。</p>
+<ol>
+<li><a href="http://www.cnblogs.com/lzq198754/p/5767066.html" target="_blank" rel="external">static</a></li>
+<li><a href="http://blog.csdn.net/dllgdxlxl/article/details/52927495" target="_blank" rel="external">final</a></li>
+<li><a href="http://www.cnblogs.com/hasse/p/5023392.html" target="_blank" rel="external">super</a></li>
+<li><a href="http://www.cnblogs.com/hasse/p/5023392.html" target="_blank" rel="external">this</a></li>
+</ol>
+<p>final 用于修饰变量的例子：</p>
+<pre><code>final int i = 5; 
+i = 6;//报错，不能被修改
+</code></pre><h4 id="（三）构造函数"><a href="#（三）构造函数" class="headerlink" title="（三）构造函数"></a>（三）构造函数</h4><p><a href="http://longying2008.iteye.com/blog/1535722" target="_blank" rel="external">点击这里查看</a></p>
+<h4 id="（四）运算符"><a href="#（四）运算符" class="headerlink" title="（四）运算符"></a>（四）运算符</h4><p>这一块基本同C++，就强调四点。</p>
+<ol>
+<li>请熟练掌握位运算符</li>
+<li>进行取模运算（比如-17%13）时，余数和被除数符号位一致。</li>
+<li>移位运算仅对整型变量有效。</li>
+<li><code>&gt;&gt;&gt;</code>是无符号移位，<a href="https://zhidao.baidu.com/question/438987791" target="_blank" rel="external">用法</a></li>
+</ol>
+<h4 id="（五）类型转换"><a href="#（五）类型转换" class="headerlink" title="（五）类型转换"></a>（五）类型转换</h4><p>可在基本数据类型之间、对象与对象之间转换。但不能在对象与基本数据类型之间进行转换。基本同C++，<a href="http://blog.csdn.net/dllgdxlxl/article/details/52927495" target="_blank" rel="external">用法</a><br>另外老师上课时举了个挺有趣的例子：</p>
+<pre><code>class A{}
+class B extends A{}
+public static void main(){
+    A a = new A();
+    B b = new B();
+    a = b;//正确
+    b = a;//错误，类的类型可向下兼容但反之不可
+}
+</code></pre><p>另外一个例子。注意Object是所有类的根类</p>
+<pre><code>class A{}
+class B extends A{}
+public static void main(){
+Object o1 = new A();
+Object o2 = new B();
+Object o3 = new int[3];
+A a = new A();
+B b = new B();
+
+o1 = o2; //正确
+o2 = o1;//正确
+o1 = o3;//正确
+o3 = a; //正确
+o3 = b; //正确
+b = (B)o3;//强制类型转换。编译时通过，运行时报错。
+}
+</code></pre><h4 id="（六）instanceof"><a href="#（六）instanceof" class="headerlink" title="（六）instanceof"></a>（六）instanceof</h4><p>这个老师刚开了个头，用来判断对象a是否是类B的一个实例，如：a instanceof b。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/JAVA学习笔记（三）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JAVA学习笔记（三）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/几个基于Jquey和Bootstrap的实用组件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">几个基于Jquey和Bootstrap的实用组件</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JAVA学习笔记（一）（二）" data-title="JAVA学习笔记（一）（二）" data-url="http://heli06.github.io/category/JAVA学习笔记（一）（二）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

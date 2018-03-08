@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JAVA学习笔记（九） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="网络编程的简单例子以下是一个“客户端向服务器发送算式，服务器向客户端返回结果”的完整例子，可编译运行。包含客户端和服务端的代码。
+客户端：
+123456789101112131415161718192021222324252627282930313233343536373839404142package a;import java.io.*;import java.net.*;class TCli">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA学习笔记（九）">
+<meta property="og:url" content="http://heli06.github.io/category/JAVA学习笔记（九）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="网络编程的简单例子以下是一个“客户端向服务器发送算式，服务器向客户端返回结果”的完整例子，可编译运行。包含客户端和服务端的代码。
+客户端：
+123456789101112131415161718192021222324252627282930313233343536373839404142package a;import java.io.*;import java.net.*;class TCli">
+<meta property="og:updated_time" content="2017-07-06T08:12:23.059Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA学习笔记（九）">
+<meta name="twitter:description" content="网络编程的简单例子以下是一个“客户端向服务器发送算式，服务器向客户端返回结果”的完整例子，可编译运行。包含客户端和服务端的代码。
+客户端：
+123456789101112131415161718192021222324252627282930313233343536373839404142package a;import java.io.*;import java.net.*;class TCli">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-JAVA学习笔记（九）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（九）/" class="article-date">
+  	<time datetime="2017-07-05T03:32:19.000Z" itemprop="datePublished">2017-07-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA学习笔记（九）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="网络编程的简单例子"><a href="#网络编程的简单例子" class="headerlink" title="网络编程的简单例子"></a>网络编程的简单例子</h2><p>以下是一个“客户端向服务器发送算式，服务器向客户端返回结果”的完整例子，可编译运行。包含客户端和服务端的代码。</p>
+<p>客户端：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> a;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"><span class="keyword">import</span> java.net.*;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TClient</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Socket s = <span class="keyword">new</span> Socket(<span class="string">"127.0.0.1"</span>, <span class="number">2222</span>);</div><div class="line">            </div><div class="line">            <span class="comment">//创建输入输出两个流</span></div><div class="line">            InputStream in = s.getInputStream();</div><div class="line">            OurputStream out = s.getOutputStream();</div><div class="line">            DataInputStream dis = <span class="keyword">new</span> DataInputStream(in);</div><div class="line">            DataOutputStream dos = <span class="keyword">new</span> DataOutputStream(out);</div><div class="line">            </div><div class="line">            <span class="comment">//约定1为加法，2为减法</span></div><div class="line">            dos.writeInt(<span class="number">1</span>);</div><div class="line">            <span class="comment">//输出5和6</span></div><div class="line">            dos.writeInt(<span class="number">5</span>);</div><div class="line">            dos.writeInt(<span class="number">6</span>);</div><div class="line">            <span class="comment">//清空缓存区，确保数据已发送</span></div><div class="line">            dos.flush();</div><div class="line">            <span class="keyword">int</span> result = dis.readInt();</div><div class="line">            System.out.println(<span class="string">"5 + 6 = "</span> + result);</div><div class="line">            </div><div class="line">            <span class="comment">//以下同上</span></div><div class="line">            dos.writeInt(<span class="number">2</span>);</div><div class="line">            dos.writeInt(<span class="number">11</span>);</div><div class="line">            dos.writeInt(<span class="number">5</span>);</div><div class="line">            dos.flush();</div><div class="line">            result = dis.readInt();</div><div class="line">            System.out.println(<span class="string">"11 - 5 = "</span> + result);</div><div class="line">            </div><div class="line">            <span class="comment">//Socket关闭，流结束。</span></div><div class="line">            s.close();</div><div class="line">        &#125;<span class="keyword">catch</span>(Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>服务端：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> a;</div><div class="line"><span class="keyword">import</span> java.net.*;</div><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TServer</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span> <span class="keyword">throws</span> Exception</span>&#123;</div><div class="line">    </div><div class="line">        ServerSocket ss = <span class="keyword">new</span> ServerSocket(<span class="number">2222</span>);</div><div class="line">        System.out.println(<span class="string">"Server is ready"</span>);</div><div class="line">        </div><div class="line">        Socket s = ss.accept();</div><div class="line">        <span class="comment">//输出来连接的客户端的地址</span></div><div class="line">        System.out.println(s.getInetAddress());</div><div class="line">        </div><div class="line">        InputStream in = s.getInputStream();</div><div class="line">        OurputStream out = s.getOutputStream();</div><div class="line">        DataInputStream dis = <span class="keyword">new</span> DataInputStream(in);</div><div class="line">        DataOutputStream dos = <span class="keyword">new</span> DataOutputStream(out);</div><div class="line">        </div><div class="line">        <span class="comment">//不断接收客户端信息</span></div><div class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</div><div class="line">            <span class="keyword">int</span> command = dis.readInt();</div><div class="line">            <span class="comment">//根据约定设置好的功能选项</span></div><div class="line">            <span class="keyword">switch</span>(command) &#123;</div><div class="line">                <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">                    dos.writeInt(</div><div class="line">                        id.readInt() + dis.readInt()</div><div class="line">                    );</div><div class="line">                    dos.flush();</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">                    dos.writeInt(</div><div class="line">                        id.readInt() + dis.readInt()</div><div class="line">                    );</div><div class="line">                    dos.flush();</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="修改、优化之前的例子"><a href="#修改、优化之前的例子" class="headerlink" title="修改、优化之前的例子"></a>修改、优化之前的例子</h2><p>之前的例子有好多问题：服务端只给一个客户端提供服务，客户端一旦断开服务端就抛出异常；不利于后续扩展。所以按照以下步骤开始大改。</p>
+<p>首先，定义一个接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IOStartegy</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(Socket s)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这是线程支持类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.net.*;</div><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadSupport</span> <span class="keyword">implements</span> <span class="title">IOStrategy</span> </span>&#123;</div><div class="line">    IOStrategy ios;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThreadSupport</span><span class="params">(IOStrategy ios)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.ios = ios;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(Socket s)</span> </span>&#123;</div><div class="line">        <span class="keyword">new</span> IOThread(ios, s).start();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>写一个自己的线程类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IOThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> IOStrategy ios;</div><div class="line">    <span class="keyword">private</span> Socket socket;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">IOThread</span><span class="params">(IOStrategy ios, Socket socket)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.ios = ios;</div><div class="line">        <span class="keyword">this</span>.socket = socket;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        ios.service(socket);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>具体的用于模拟计算器的类写在这里：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CalcProtocol</span> <span class="keyword">implements</span> <span class="title">IOStrategy</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(Socket s)</span> </span>&#123;</div><div class="line">        InputStream in = s.getInputStream();</div><div class="line">        OurputStream out = s.getOutputStream();</div><div class="line">        DataInputStream dis = <span class="keyword">new</span> DataInputStream(in);</div><div class="line">        DataOutputStream dos = <span class="keyword">new</span> DataOutputStream(out);</div><div class="line">        </div><div class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</div><div class="line">            <span class="keyword">int</span> command = dis.readInt();</div><div class="line">            <span class="keyword">switch</span>(command) &#123;</div><div class="line">                <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">                    dos.writeInt(</div><div class="line">                        id.readInt() + dis.readInt()</div><div class="line">                    );</div><div class="line">                    dos.flush();</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">                    dos.writeInt(</div><div class="line">                        id.readInt() + dis.readInt()</div><div class="line">                    );</div><div class="line">                    dos.flush();</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样，服务端的代码就简洁多了：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CalcServer</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span> </span>&#123;</div><div class="line">        IOStrategy p = <span class="keyword">new</span> CalcProtocal();</div><div class="line">        IOStrategy t = <span class="keyword">new</span> ThreadSupport(p);</div><div class="line">        TServer s = <span class="keyword">new</span> TServer(t);</div><div class="line">        s.start();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>完整的程序请见老师发在群里的文件。</p>
+<hr>
+<h2 id="利用线程池继续修改例子"><a href="#利用线程池继续修改例子" class="headerlink" title="利用线程池继续修改例子"></a>利用线程池继续修改例子</h2><p>如果收到一个请求就建一个线程，线程数量很有可能过多导致效率大幅降低。<br>解决的办法是建一个线程池，线程最大数量有限：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadPoolSupport</span> <span class="keyword">implements</span> <span class="title">IOStrategy</span> </span>&#123;</div><div class="line">    List threads = <span class="keyword">new</span> ArrayList();</div><div class="line">    IOStrategy p = <span class="keyword">null</span>;</div><div class="line">    </div><div class="line">    <span class="comment">//预先准备200个线程</span></div><div class="line">    <span class="comment">//这里的参数没有Socket</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolSupport</span> <span class="params">(IOStrategy p)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.p = p;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">200</span>; i++) &#123;</div><div class="line">            MyThread m = <span class="keyword">new</span> MyThread(p);</div><div class="line">            m.start();</div><div class="line">            threads.add(m);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">//接到请求后，看看有没有空闲的线程</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(Socket s)</span> </span>&#123;</div><div class="line">        <span class="keyword">boolean</span> found = <span class="keyword">false</span>;</div><div class="line">        MyThread t = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; threads.size(); i++) &#123;</div><div class="line">            MyThread m = (MyThread) threads.get(i);</div><div class="line">            <span class="keyword">if</span>(m.isIdle()) &#123;</div><div class="line">                found = <span class="keyword">true</span>;</div><div class="line">                t = m;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(t != <span class="keyword">null</span>) &#123;</div><div class="line">            t.setSocket(s);</div><div class="line">        &#125;<span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">//如果没有空闲线程，新建线程</span></div><div class="line">            <span class="comment">//但应该限制最大数量，这里的代码没有体现</span></div><div class="line">            t = <span class="keyword">new</span> MyThread(p);</div><div class="line">            threads.add(t);</div><div class="line">            t.setSocket(s);</div><div class="line">        &#125;</div><div class="line">            </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>线程的类也要修改。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line">    IOStrategy p;</div><div class="line">    Socket s;</div><div class="line">    </div><div class="line">    <span class="comment">//线程刚创建时还没有请求</span></div><div class="line">    MyThread(IOStrategy p) &#123;</div><div class="line">        <span class="keyword">this</span>.p = p;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//检测线程是否空闲</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isIdle</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> s == <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//有请求要处理了才设置Socket</span></div><div class="line">    <span class="function">sychronized <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSocket</span><span class="params">(Socket s)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.s = s;</div><div class="line">        <span class="comment">//下一个函数里有wait</span></div><div class="line">        notify();</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//运行后开始等待，直到有请求要处理</span></div><div class="line">    <span class="function"><span class="keyword">synchronized</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</div><div class="line">            <span class="keyword">try</span> &#123; wait(); &#125;</div><div class="line">            <span class="keyword">catch</span>(Exception e) &#123;&#125;</div><div class="line">            p.service(s);</div><div class="line">            s = <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>完整的程序，老师发的文件里好像也有。</p>
+<hr>
+<h2 id="Hashtable-和-HashMap-的差别"><a href="#Hashtable-和-HashMap-的差别" class="headerlink" title="Hashtable 和 HashMap 的差别"></a>Hashtable 和 HashMap 的差别</h2><p>它们的差别在前文的笔记里有提到过：</p>
+<pre><code>Map map1 = new HashMap();
+Map map2 = new HashTable();
+
+map1.put(&quot;001&quot;, null);//正确
+map1.put(&quot;001&quot;, null);//错误
+</code></pre><p>若涉及多线程编程，还有一个不能忽略的差别：<code>HashTable</code>是<strong>同步</strong>的集合，<code>HashMap</code>是<strong>未同步</strong>的集合。所以<code>HashTable</code>比<code>HashMap</code>更为安全。</p>
+<p>当然，<code>HashMap</code>也可以转换为同步的形式：</p>
+<pre><code>map = Collections.synchronizedMap(map);
+</code></pre><p>在<code>java.util</code>中有许多很实用的工具类，值得深入研究。</p>
+<hr>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/JAVA学习笔记（十）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JAVA学习笔记（十）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/JAVA学习笔记（八）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA学习笔记（八）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JAVA学习笔记（九）" data-title="JAVA学习笔记（九）" data-url="http://heli06.github.io/category/JAVA学习笔记（九）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

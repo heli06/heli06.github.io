@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>使用vue-cli重构的掌上作业系统 | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="又是一个宁静的夜晚~~也不想写正经的博文了，就当聊聊天吧。
+先上链接：vue-cli-web-homework
+这个项目只能算是我为了快速熟悉vue.js vuex vue-router 而做的练习。严格来说vue-cli不适合用在掌上作业系统上，因为掌上作业系统好歹也算多页运用，而我还不会把vue-cli改成适用于多页的。
+目前还没有全部完成，只是做了登录和家校互动的帖子查询，但足够让我感受到前">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用vue-cli重构的掌上作业系统">
+<meta property="og:url" content="http://heli06.github.io/category/使用vue-cli重构的掌上作业系统/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="又是一个宁静的夜晚~~也不想写正经的博文了，就当聊聊天吧。
+先上链接：vue-cli-web-homework
+这个项目只能算是我为了快速熟悉vue.js vuex vue-router 而做的练习。严格来说vue-cli不适合用在掌上作业系统上，因为掌上作业系统好歹也算多页运用，而我还不会把vue-cli改成适用于多页的。
+目前还没有全部完成，只是做了登录和家校互动的帖子查询，但足够让我感受到前">
+<meta property="og:updated_time" content="2017-09-13T15:57:01.673Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用vue-cli重构的掌上作业系统">
+<meta name="twitter:description" content="又是一个宁静的夜晚~~也不想写正经的博文了，就当聊聊天吧。
+先上链接：vue-cli-web-homework
+这个项目只能算是我为了快速熟悉vue.js vuex vue-router 而做的练习。严格来说vue-cli不适合用在掌上作业系统上，因为掌上作业系统好歹也算多页运用，而我还不会把vue-cli改成适用于多页的。
+目前还没有全部完成，只是做了登录和家校互动的帖子查询，但足够让我感受到前">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-使用vue-cli重构的掌上作业系统" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/使用vue-cli重构的掌上作业系统/" class="article-date">
+  	<time datetime="2017-09-13T15:06:08.000Z" itemprop="datePublished">2017-09-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用vue-cli重构的掌上作业系统
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>又是一个宁静的夜晚~~也不想写正经的博文了，就当聊聊天吧。</p>
+<p>先上链接：<a href="https://git.oschina.net/yuezhuo/vue-cli-web-homework" target="_blank" rel="external">vue-cli-web-homework</a></p>
+<p>这个项目只能算是我为了快速熟悉<code>vue.js</code> <code>vuex</code> <code>vue-router</code> 而做的练习。严格来说<code>vue-cli</code>不适合用在掌上作业系统上，因为掌上作业系统好歹也算多页运用，而我还不会把<code>vue-cli</code>改成适用于多页的。</p>
+<p>目前还没有全部完成，只是做了登录和家校互动的帖子查询，但足够让我感受到前端组件化的威力。</p>
+<p>最近心事繁多，眼下只想安安静静地写写小说。如果能把CCF考到300分以上那就太好啦（这个考试怎么说呢……挺纠结的）。</p>
+<a id="more"></a>
+<p>开学前两周就好好休息吧，之后的技能学习安排估计是：</p>
+<ul>
+<li>服务器搭建</li>
+<li>廖雪峰大神的js教程系列</li>
+<li>SCSS</li>
+<li>Java后端和Node.js后端</li>
+<li>除了bootstrap的其它UI框架</li>
+</ul>
+<p>最近常听毛不易的歌。贴上《消愁》的歌词算是本篇博文的结尾吧。</p>
+<p>当你走进这欢乐场</p>
+<p>背上所有的梦与想</p>
+<p>各色的脸上各色的妆</p>
+<p>没人记得你的模样</p>
+<p>三巡酒过你在角落</p>
+<p>固执的唱着苦涩的歌</p>
+<p>听他在喧嚣里被淹没</p>
+<p>你拿起酒杯对自己说</p>
+<p>一杯敬朝阳 一杯敬月光</p>
+<p>唤醒我的向往 温柔了寒窗</p>
+<p>于是可以不回头地逆风飞翔</p>
+<p>不怕心头有雨 眼底有霜</p>
+<p>一杯敬故乡 一杯敬远方</p>
+<p>守着我的善良 催着我成长</p>
+<p>所以南北的路从此不再漫长</p>
+<p>灵魂不再无处安放</p>
+<p>一杯敬明天 一杯敬过往</p>
+<p>支撑我的身体 厚重了肩膀</p>
+<p>虽然从不相信所谓山高水长</p>
+<p>人生苦短何必念念不忘</p>
+<p>一杯敬自由 一杯敬死亡</p>
+<p>宽恕我的平凡 驱散了迷惘</p>
+<p>好吧天亮之后总是潦草离场</p>
+<p>清醒的人最荒唐</p>
+<p>好吧天亮之后总是潦草离场</p>
+<p>清醒的人最荒唐</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/CCF备战过程中的经典习题摘录/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          CCF备战过程中的经典习题摘录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/“Java分布式文件存储系统”的经验总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">“Java分布式文件存储系统”的经验总结</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="使用vue-cli重构的掌上作业系统" data-title="使用vue-cli重构的掌上作业系统" data-url="http://heli06.github.io/category/使用vue-cli重构的掌上作业系统/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

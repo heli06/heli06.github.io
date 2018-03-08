@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>日语N2听力题爬虫凑合着用版 | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我原以为第一部分的登录做好后就没有难题了，结果呵呵……主要是两个坑，一个是selenium元素模拟点击，另外一个是用PIL处理图片。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日语N2听力题爬虫凑合着用版">
+<meta property="og:url" content="http://heli06.github.io/category/日语N2听力题爬虫完整版/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="我原以为第一部分的登录做好后就没有难题了，结果呵呵……主要是两个坑，一个是selenium元素模拟点击，另外一个是用PIL处理图片。">
+<meta property="og:updated_time" content="2016-10-26T15:44:16.134Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="日语N2听力题爬虫凑合着用版">
+<meta name="twitter:description" content="我原以为第一部分的登录做好后就没有难题了，结果呵呵……主要是两个坑，一个是selenium元素模拟点击，另外一个是用PIL处理图片。">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-日语N2听力题爬虫完整版" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/日语N2听力题爬虫完整版/" class="article-date">
+  	<time datetime="2016-10-26T14:15:25.000Z" itemprop="datePublished">2016-10-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      日语N2听力题爬虫凑合着用版
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我原以为第一部分的登录做好后就没有难题了，结果呵呵……<br>主要是两个坑，一个是selenium元素模拟点击，另外一个是用PIL处理图片。<br><a id="more"></a></p>
+<p>###坑1<br>这个题库的题目是五个一组，做完一组后交卷，网站给你打分，然后做下一组。我本来的打算是让程序将所有题目选A后交卷，再做下一组，顺便把题目爬下来。结果做到第二题后再模拟点击A选项后报错，报的是“元素可能不唯一或不可见”。time.sleep(5)用了，元素的唯一性也用Chrome的开发者工具查过了，大神学长也查不出为何<br>坑填不了就绕过去呗。还好这个题库设计得很智障，只要把页面刷新一次就会再随机生成5道题，只要一直刷新就能爬取一堆题目（但这样做会有重复）。<br>所以有关代码是这样写的：</p>
+<pre><code>while( counter1 &lt; 20 ):
+    driver.refresh()
+    time.sleep(0.5)
+    counter = 0
+    while ( counter &lt; 5 ):
+    //具体的爬取过程
+</code></pre><p>###坑2<br>题目的形式多样，有文字题也有图片题。一个个具体解析太麻烦了，干脆每道题截个图存下来吧。<br>这是有关代码：</p>
+<pre><code>fname = &quot;C:/Users/何立/PycharmProjects/crawler/question/pi     c/&quot;+str(counter1)+&quot;question&quot;+str(counter)+&quot;.png&quot;
+driver.save_screenshot(fname)
+</code></pre><p>然而这是截全屏的图，如果只截取规定元素多好啊。问度娘，还真有答案。<br><a href="http://www.jianshu.com/p/7ed519854be7" target="_blank" rel="external">这是原文链接，文章写得很好</a><br>以下是这次用到的代码</p>
+<pre><code>driver = webdriver.Chrome()
+driver.get(&apos;http://stackoverflow.com/&apos;)
+driver.save_screenshot(&apos;screenshot.png&apos;)
+left = element.location[&apos;x&apos;]
+top = element.location[&apos;y&apos;]
+right = element.location[&apos;x&apos;] + element.size[&apos;width&apos;]
+bottom = element.location[&apos;y&apos;] + element.size[&apos;height&apos;]
+im = Image.open(&apos;screenshot.png&apos;) 
+im = im.crop((left, top, right, bottom))
+im.save(&apos;screenshot.png&apos;)
+</code></pre><p>问题出在定位元素（要截图的题目）上。元素的id是随机生成的，刷新后原本的id就不对了，xPath也不会对。好在最后幸运地找到了一个id不变的元素，虽然截图范围大了一些，还能接受<br>最后附上代码全文吧</p>
+<pre><code>from urllib.request import urlretrieve
+from PIL import Image
+
+from selenium import webdriver
+import time
+
+driver = webdriver.PhantomJS(executable_path=&apos;C:\\WEB\\phantomjs\\phantomjs-2.1.1-windows\\bin\\phantomjs.exe&apos;)
+
+#登录
+driver.get(&quot;http://tiku.hujiang.com/n2/&quot;)
+driver.set_window_size(1200, 900)
+
+#先点击右上方的“登录”，调用JS生成登录框
+driver.find_element_by_id(&quot;btn_denglu&quot;).click()
+login = driver.find_element_by_id(&quot;hp-login-normal&quot;)
+
+NameField = login.find_element_by_name(&quot;username&quot;)
+PasswordField = login.find_element_by_name(&quot;password&quot;)
+submitButton = login.find_element_by_class_name(&quot;hp-btn&quot;)
+
+NameField.send_keys(&quot;你的账号&quot;)
+PasswordField.send_keys(&quot;你的密码&quot;)
+submitButton.click()
+
+time.sleep(1)
+#登录成功后会弹出一个窗口，点击“跳过”按钮
+skipButton = driver.find_element_by_class_name(&quot;hp-skip&quot;)
+skipButton.click()
+
+time.sleep(1)
+
+#页面跳转至做题的网页
+driver.get(&quot;http://tiku.hujiang.com/s/93/&quot;)
+downloadList = []
+fname = &apos;&apos;
+counter = 0
+counter1 = 0
+
+#循环刷新，爬取题目
+while( counter1 &lt; 20 ):
+    driver.refresh()
+    time.sleep(0.5)
+    counter = 0
+    while ( counter &lt; 5 ):
+        next = driver.find_element_by_id(&quot;btnNext&quot;)
+        #downloadList用来存储音频文件的下载地址
+        downloadList.append(driver.find_element_by_class_name(&quot;pnl_flashPlayer&quot;).get_attribute(&quot;src&quot;))
+        #点击next切换至下一题
+        next.click()
+        time.sleep(0.2)
+
+        #文件存储地址和命名
+        fname = &quot;C:/Users/何立/PycharmProjects/crawler/question/pic/&quot;+str(counter1)+&quot;question&quot;+str(counter)+&quot;.png&quot;
+        driver.save_screenshot(fname)
+
+        element = driver.find_element_by_id(&quot;quiz_q_con&quot;)
+
+        left = element.location[&apos;x&apos;]
+        top = element.location[&apos;y&apos;]
+        right = element.location[&apos;x&apos;] + element.size[&apos;width&apos;]
+        bottom = element.location[&apos;y&apos;] + element.size[&apos;height&apos;]
+
+        #利用PIL图加工文件
+        im = Image.open(fname)
+        im = im.crop((left, top, right, bottom))
+        im.save(fname)
+        print(counter1,counter)
+        counter += 1
+    counter1 += 1
+
+#所有音频文件放在最后统一下载
+counter = 0
+for download in downloadList:
+    fname =  &quot;C:/Users/何立/PycharmProjects/crawler/question/&quot;+&quot;question&quot;+str(counter)+&quot;.mp3&quot;
+    counter += 1
+    print(counter)
+    urlretrieve(download, fname)
+
+driver.close()
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/数据结构上机题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          数据结构上机题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/为挑战世界的革命者喝彩！/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">为挑战世界的革命者喝彩！</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="日语N2听力题爬虫完整版" data-title="日语N2听力题爬虫凑合着用版" data-url="http://heli06.github.io/category/日语N2听力题爬虫完整版/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

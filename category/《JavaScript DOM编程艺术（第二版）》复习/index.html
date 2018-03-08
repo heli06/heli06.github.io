@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>《JavaScript DOM编程艺术（第二版）》复习 | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="嗯……这其实是很基本的入门书。不过自己有点久没写前端，很多内容不熟悉，便从头开始复习。现在摘录总结一下自己以前忽视的知识点。
+第4~6章 渐进增强与平稳退化第4章是做一个显示图片的网页：点击链接，图片显示在网页下方而非打开新链接。单纯地实现这个功能很容易，但如果用户的浏览器压根不支持或关闭了JavaScript呢？网页还能正常浏览吗？我收集了书上列出的几种在支持JavaScript的浏览器下能实现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《JavaScript DOM编程艺术（第二版）》复习">
+<meta property="og:url" content="http://heli06.github.io/category/《JavaScript DOM编程艺术（第二版）》复习/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="嗯……这其实是很基本的入门书。不过自己有点久没写前端，很多内容不熟悉，便从头开始复习。现在摘录总结一下自己以前忽视的知识点。
+第4~6章 渐进增强与平稳退化第4章是做一个显示图片的网页：点击链接，图片显示在网页下方而非打开新链接。单纯地实现这个功能很容易，但如果用户的浏览器压根不支持或关闭了JavaScript呢？网页还能正常浏览吗？我收集了书上列出的几种在支持JavaScript的浏览器下能实现">
+<meta property="og:updated_time" content="2018-01-01T04:18:23.802Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《JavaScript DOM编程艺术（第二版）》复习">
+<meta name="twitter:description" content="嗯……这其实是很基本的入门书。不过自己有点久没写前端，很多内容不熟悉，便从头开始复习。现在摘录总结一下自己以前忽视的知识点。
+第4~6章 渐进增强与平稳退化第4章是做一个显示图片的网页：点击链接，图片显示在网页下方而非打开新链接。单纯地实现这个功能很容易，但如果用户的浏览器压根不支持或关闭了JavaScript呢？网页还能正常浏览吗？我收集了书上列出的几种在支持JavaScript的浏览器下能实现">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-《JavaScript DOM编程艺术（第二版）》复习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/《JavaScript DOM编程艺术（第二版）》复习/" class="article-date">
+  	<time datetime="2018-01-01T02:53:17.000Z" itemprop="datePublished">2018-01-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      《JavaScript DOM编程艺术（第二版）》复习
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>嗯……这其实是很基本的入门书。不过自己有点久没写前端，很多内容不熟悉，便从头开始复习。现在摘录总结一下自己以前忽视的知识点。</p>
+<h3 id="第4-6章-渐进增强与平稳退化"><a href="#第4-6章-渐进增强与平稳退化" class="headerlink" title="第4~6章 渐进增强与平稳退化"></a>第4~6章 渐进增强与平稳退化</h3><p>第4章是做一个显示图片的网页：点击链接，图片显示在网页下方而非打开新链接。单纯地实现这个功能很容易，但如果用户的浏览器压根不支持或关闭了<code>JavaScript</code>呢？网页还能正常浏览吗？<br>我收集了书上列出的几种在支持<code>JavaScript</code>的浏览器下能实现相同功能的写法。先看<code>.html</code>文件：</p>
+<a id="more"></a>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"content-type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf-8"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Image Gallery<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"scripts/jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"scripts/showPic.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Snapshots<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:showPicAnother('images/coffee.jpg');"</span> <span class="attr">title</span>=<span class="string">"A cup of black coffee"</span>&gt;</span>Coffee<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">title</span>=<span class="string">"The famous clock"</span> <span class="attr">onclick</span>=<span class="string">"showPicAnother('images/bigben.jpg'); return false;"</span>&gt;</span>Big Ben<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"images/rose.jpg"</span> <span class="attr">id</span>=<span class="string">"special"</span> <span class="attr">title</span>=<span class="string">"A red, red rose"</span>&gt;</span>Rose<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"images/bigben.jpg"</span> <span class="attr">title</span>=<span class="string">"The famous clock"</span> <span class="attr">onclick</span>=<span class="string">"showPicAnother(this.href); return false;"</span>&gt;</span>Big Ben<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"images/fireworks.jpg"</span> <span class="attr">title</span>=<span class="string">"A fireworks display"</span> <span class="attr">onclick</span>=<span class="string">"showPic(this); return false;"</span>&gt;</span>Fireworks<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"placeholder"</span> <span class="attr">src</span>=<span class="string">"images/placeholder.gif"</span> <span class="attr">alt</span>=<span class="string">"my image gallery"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>再附上<code>.js</code>文件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showPic</span>(<span class="params">whichpic</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> source = whichpic.getAttribute(<span class="string">"href"</span>);</div><div class="line">  <span class="keyword">let</span> placeholder = <span class="built_in">document</span>.getElementById(<span class="string">"placeholder"</span>);</div><div class="line">  placeholder.setAttribute(<span class="string">"src"</span>,source);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showPicAnother</span>(<span class="params">source</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> placeholder = <span class="built_in">document</span>.getElementById(<span class="string">"placeholder"</span>);</div><div class="line">    placeholder.setAttribute(<span class="string">"src"</span>,source);</div><div class="line">&#125;</div><div class="line"></div><div class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="string">"#special"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">        event.preventDefault();</div><div class="line">        <span class="keyword">let</span> source = $(<span class="string">"#special"</span>).attr(<span class="string">"href"</span>);</div><div class="line">        <span class="keyword">let</span> placeholder = <span class="built_in">document</span>.getElementById(<span class="string">"placeholder"</span>);</div><div class="line">        placeholder.setAttribute(<span class="string">"src"</span>,source);</div><div class="line">    &#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>共五种写法，就按照<code>.html</code>文件里从上到下的顺序来讲讲他们在不支持<code>js</code>的特殊情况（下文简称“特殊情况”）下的表现吧。</p>
+<p>第一种是“伪协议”的写法，它在特殊情况下毫无用处。<br>第二种与第一种类似，它也不能起作用。<br>关于这两种写法的差异，参见<a href="http://www.runoob.com/js/js-void.html" target="_blank" rel="external">href=”#”与href=”javascript:void(0)”的区别</a><br>第三种到第五种都能在特殊情况下工作，无非是用户将在新页面而非旧页面查看图片。其中第三种使用了<code>JQuery</code>库。<br>这样就完美了吗？实际上给每个超链接添加函数的工作应该由某个js函数for循环遍历一次，而非直接写在链接里。</p>
+<p>毕竟这本书有点老了，现在做网站基本不考虑用户的浏览器不支持<code>JavaScript</code>的情况。不过技术的牛角尖，偶尔钻一钻还是挺有趣的。</p>
+<hr>
+<h3 id="原生JavaScript代码与JQuery代码对比"><a href="#原生JavaScript代码与JQuery代码对比" class="headerlink" title="原生JavaScript代码与JQuery代码对比"></a>原生JavaScript代码与JQuery代码对比</h3><p>原本的应用场景三言两语说不清楚（这本书最后的那个音乐网站的例子），直接贴代码吧：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//原生JavaScript代码</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">stripeTables</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!<span class="built_in">document</span>.getElementsByTagName) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">let</span> tables = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"table"</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; tables.length; i++) &#123;</div><div class="line">        <span class="keyword">let</span> odd = <span class="literal">false</span>;</div><div class="line">        <span class="keyword">let</span> rows = tables[i].getElementsByTagName(<span class="string">"tr"</span>);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; rows.length; j++) &#123;</div><div class="line">            <span class="keyword">if</span> (odd === <span class="literal">true</span>) &#123;</div><div class="line">                addClass(rows[j], <span class="string">"odd"</span>);</div><div class="line">                odd = <span class="literal">false</span>;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                odd = <span class="literal">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//JQuery代码</span></div><div class="line">$(<span class="string">"tr:odd"</span>).addClass(<span class="string">"odd"</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//原生JavaScript代码</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">displayAbbreviations</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!<span class="built_in">document</span>.getElementsByTagName || !<span class="built_in">document</span>.createElement</div><div class="line">        || !<span class="built_in">document</span>.createTextNode) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">let</span> abbreviations = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"abbr"</span>);</div><div class="line">    <span class="keyword">if</span> (abbreviations.length &lt; <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">let</span> defs = [];</div><div class="line">    <span class="keyword">let</span> key;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; abbreviations.length; i++) &#123;</div><div class="line">        <span class="keyword">let</span> current_abbr = abbreviations[i];</div><div class="line">        <span class="keyword">if</span> (current_abbr.childNodes.length &lt; <span class="number">1</span>) <span class="keyword">continue</span>;</div><div class="line">        <span class="keyword">let</span> definition = current_abbr.getAttribute(<span class="string">"title"</span>);</div><div class="line">        key = current_abbr.lastChild.nodeValue;</div><div class="line">        defs[key] = definition;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">let</span> dlist = <span class="built_in">document</span>.createElement(<span class="string">"dl"</span>);</div><div class="line">    <span class="keyword">for</span> (key <span class="keyword">in</span> defs) &#123;</div><div class="line">        <span class="keyword">let</span> definition = defs[key];</div><div class="line">        <span class="keyword">let</span> dtitle = <span class="built_in">document</span>.createElement(<span class="string">"dt"</span>);</div><div class="line">        <span class="keyword">let</span> dtitle_text = <span class="built_in">document</span>.createTextNode(key);</div><div class="line">        dtitle.appendChild(dtitle_text);</div><div class="line">        <span class="keyword">let</span> ddesc = <span class="built_in">document</span>.createElement(<span class="string">"dd"</span>);</div><div class="line">        <span class="keyword">let</span> ddesc_text = <span class="built_in">document</span>.createTextNode(definition);</div><div class="line">        ddesc.appendChild(ddesc_text);</div><div class="line">        dlist.appendChild(dtitle);</div><div class="line">        dlist.append(ddesc);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (dlist.childNodes.length &lt; <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">let</span> header = <span class="built_in">document</span>.createElement(<span class="string">"h3"</span>);</div><div class="line">    <span class="keyword">let</span> header_text = <span class="built_in">document</span>.createTextNode(<span class="string">"Abbreviations"</span>);</div><div class="line">    header.appendChild(header_text);</div><div class="line">    <span class="keyword">let</span> articles = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"article"</span>);</div><div class="line">    <span class="keyword">if</span> (articles.length === <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">let</span> container = articles[<span class="number">0</span>];</div><div class="line">    container.appendChild(header);</div><div class="line">    container.appendChild(dlist);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//JQuery代码</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">displayAbbreviations</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> data = $(<span class="string">'abbr'</span>).map(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            desc:$(<span class="keyword">this</span>).attr(<span class="string">'title'</span>),</div><div class="line">            term:$(<span class="keyword">this</span>).text()</div><div class="line">        &#125;;</div><div class="line">    &#125;).toArray();</div><div class="line">    $(<span class="string">'&lt;h2&gt;Abbreviations&lt;/h2&gt;'</span>).appendTo($(<span class="string">'article'</span>)).after(</div><div class="line">        $.tmpl(<span class="string">"&lt;dt&gt;$&#123;term&#125;&lt;/dt&gt;&lt;dd&gt;$&#123;desc&#125;&lt;/dd&gt;"</span>, data).wrapAll(<span class="string">"&lt;dl&gt;&lt;dl/&gt;"</span>)</div><div class="line">    );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>嗯，以上两段函数干的是完全相同的活。</p>
+<p>即使是这个<code>vue</code>、<code>react</code>等各种<code>js</code>框架百花齐放的年代，<code>JQuery</code>在中小项目里还是很值得一用的。</p>
+<h3 id="零碎知识"><a href="#零碎知识" class="headerlink" title="零碎知识"></a>零碎知识</h3><ul>
+<li><code>&lt;script&gt;</code>标签放到<code>&lt;/body&gt;</code>标签之前能使浏览器更快地加载页面</li>
+<li><code>js</code>有关联数组的写法，但不推荐使用——<code>Array</code>对象的属性最好不要随意更改</li>
+<li>尽可能使用全等操作符</li>
+<li>处理兼容性问题时，尽可能使用对象兼容而非浏览器嗅探技术</li>
+<li><code>DOM core</code>比<code>HTML-DOM</code>更冗长，但支持处理所有符合<code>DOM</code>规范的文档</li>
+<li>在<code>HTML5</code>中，<code>&lt;acronym&gt;</code>已被<code>&lt;abbr&gt;</code>标签代替</li>
+<li><code>CSS</code>样式属性的名字用连字符，<code>DOM</code>里则是驼峰命名法</li>
+<li><code>DOM</code>里样式属性的单位不总是与<code>CSS</code>样式表里的设置相同</li>
+<li>第253页<code>form</code>对象的有关描述（很长就不贴到这里了）</li>
+<li><a href="https://www.jianshu.com/p/56b64b523f10" target="_blank" rel="external">不要用return false阻止event的默认行为</a>（可参考但别认死理）</li>
+<li><a href="https://www.w3cplus.com/css/px-to-em" target="_blank" rel="external">CSS中强大的EM</a></li>
+<li><a href="https://www.zhihu.com/question/22938382" target="_blank" rel="external">html移动端页面、图片多少宽度最合适？</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/《JavaScript高级程序设计》复习（1~13章）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          《JavaScript高级程序设计》复习（1~13章）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/CentOS7.2上配置Python3+pip3+Selenium+PhantomJS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CentOS7.2上配置Python3+pip3+Selenium+PhantomJS</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="《JavaScript DOM编程艺术（第二版）》复习" data-title="《JavaScript DOM编程艺术（第二版）》复习" data-url="http://heli06.github.io/category/《JavaScript DOM编程艺术（第二版）》复习/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

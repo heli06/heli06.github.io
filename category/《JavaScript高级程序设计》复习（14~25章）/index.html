@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>《JavaScript高级程序设计》复习（14~25章） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文是我在看《JavaScript高级程序设计》时随手摘录的，打算面试前再看两眼回忆用。可能没什么逻辑，见谅~
+第十四章
+不能通过onclick事件处理程序来实现“提交表单后禁用按钮”的功能，因为不同浏览器间存在时差
+对表单value属性所作的修改，不一定会反映在DOM中。因此，在处理文本框的值时，最好不要使用DOM方法
+对于输入的文本和剪贴板，js有特别的处理方法。当然HTML5的方法更易用
+&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《JavaScript高级程序设计》复习（14~25章）">
+<meta property="og:url" content="http://heli06.github.io/category/《JavaScript高级程序设计》复习（14~25章）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="本文是我在看《JavaScript高级程序设计》时随手摘录的，打算面试前再看两眼回忆用。可能没什么逻辑，见谅~
+第十四章
+不能通过onclick事件处理程序来实现“提交表单后禁用按钮”的功能，因为不同浏览器间存在时差
+对表单value属性所作的修改，不一定会反映在DOM中。因此，在处理文本框的值时，最好不要使用DOM方法
+对于输入的文本和剪贴板，js有特别的处理方法。当然HTML5的方法更易用
+&amp;">
+<meta property="og:updated_time" content="2018-03-08T08:53:48.380Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《JavaScript高级程序设计》复习（14~25章）">
+<meta name="twitter:description" content="本文是我在看《JavaScript高级程序设计》时随手摘录的，打算面试前再看两眼回忆用。可能没什么逻辑，见谅~
+第十四章
+不能通过onclick事件处理程序来实现“提交表单后禁用按钮”的功能，因为不同浏览器间存在时差
+对表单value属性所作的修改，不一定会反映在DOM中。因此，在处理文本框的值时，最好不要使用DOM方法
+对于输入的文本和剪贴板，js有特别的处理方法。当然HTML5的方法更易用
+&amp;">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-《JavaScript高级程序设计》复习（14~25章）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/《JavaScript高级程序设计》复习（14~25章）/" class="article-date">
+  	<time datetime="2018-02-26T13:25:49.000Z" itemprop="datePublished">2018-02-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      《JavaScript高级程序设计》复习（14~25章）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文是我在看《JavaScript高级程序设计》时随手摘录的，打算面试前再看两眼回忆用。可能没什么逻辑，见谅~</p>
+<h3 id="第十四章"><a href="#第十四章" class="headerlink" title="第十四章"></a>第十四章</h3><ul>
+<li>不能通过<code>onclick</code>事件处理程序来实现“提交表单后禁用按钮”的功能，因为不同浏览器间存在时差</li>
+<li>对表单<code>value</code>属性所作的修改，不一定会反映在<code>DOM</code>中。因此，在处<br>理文本框的值时，最好不要使用<code>DOM</code>方法</li>
+<li>对于输入的文本和剪贴板，js有特别的处理方法。当然<code>HTML5</code>的方法更易用</li>
+<li><code>&lt;option&gt;</code>有特殊的选项处理方式</li>
+<li>富文本编辑好神奇，以前没接触过，值得关注</li>
+</ul>
+<hr>
+<h3 id="第十五章"><a href="#第十五章" class="headerlink" title="第十五章"></a>第十五章</h3><p>有趣但近期用不着，暂时跳过</p>
+<hr>
+<h3 id="第十六章"><a href="#第十六章" class="headerlink" title="第十六章"></a>第十六章</h3><p>跨文档消息传递、原生拖放、历史状态管理暂时跳过<br>媒体元素还挺实用</p>
+<hr>
+<h3 id="第十七章"><a href="#第十七章" class="headerlink" title="第十七章"></a>第十七章</h3><ul>
+<li>只要代码中包含<code>finally</code>子句，那么无论<code>try</code>还是<code>catch</code>语句块<br>中的<code>return</code>语句都将被忽略</li>
+<li>熟悉七种错误类型对调试有帮助</li>
+<li>错误事件……看着没啥用的样子？</li>
+<li>全等操作符、必要的类型检测、URL转换，这三条可以避免许多错误</li>
+</ul>
+<hr>
+<h3 id="第十八章"><a href="#第十八章" class="headerlink" title="第十八章"></a>第十八章</h3><p>暂时跳过</p>
+<hr>
+<h3 id="第十九章"><a href="#第十九章" class="headerlink" title="第十九章"></a>第十九章</h3><p>暂时跳过</p>
+<hr>
+<h3 id="第二十章"><a href="#第二十章" class="headerlink" title="第二十章"></a>第二十章</h3><ul>
+<li><code>JSON</code>字符串必须使用双引号</li>
+<li><code>JSON</code>对象没有声明变量（<code>JSON</code>中没有变量的概念），没有末尾的分号（因为这不是<code>JavaScript</code>语句，所以不需要分号），对象的属性必须加双引号</li>
+<li><code>JSON.stringify()</code>还可以接收另外两个参数。第一个参数是过滤器，可以是数组，或函数；第二个参数表示是否在<code>JSON</code>字符串中保留缩进</li>
+<li>可以给对象定义<code>toJSON()</code>方法，返回其自身的<code>JSON</code>数据格式</li>
+<li><code>toJSON()</code>可以作为函数过滤器的补充，因此理解序列化的内部顺序十分重要</li>
+</ul>
+<hr>
+<h3 id="第二十一章"><a href="#第二十一章" class="headerlink" title="第二十一章"></a>第二十一章</h3><ul>
+<li><code>Ajax</code>的原理挺有趣，虽然我近期不见得会用原生的js去写</li>
+<li>请求头部可以自定义</li>
+<li>默认情况下，服务器对<code>POST</code>请求和提交Web表单的请求并不会一视同仁，但可以使用<code>XHR</code>来模仿表单提交</li>
+<li>上一条也可以使用XMLHttpRequest2级规范的<code>FormData</code>类型实现，但可能用兼容问题</li>
+<li>进度事件值得关注</li>
+<li>跨院资源共享……以前打比赛时碰到过这方面问题，但解决得有点懵……</li>
+<li>其它跨域技术看得有点懵……轮询那个倒是挺原始的做法。<code>Web Sockets</code>值得关注</li>
+</ul>
+<hr>
+<h3 id="第二十二章"><a href="#第二十二章" class="headerlink" title="第二十二章"></a>第二十二章</h3><ul>
+<li>在Web开发中能够区分原生与非原生<code>JavaScript</code>对象非常重要</li>
+<li>在任何值上调用<code>Object</code>原生的<code>toString()</code>方法，都会返回一个<code>[object NativeConstructorName]</code>格式的字符串</li>
+<li>由于该<code>this</code>对象是在运行时绑定的，所以直接调用<code>Person()</code>，<code>this</code>会映射到全局对象<code>window</code>上，导致错误对象属性的意外增加</li>
+<li>惰性载入函数的优点是只在第一次执行分支代码时牺牲一点儿性能</li>
+<li><code>bind()</code>函数接受一个函数和一个环境，并返回一个在给定环境中调用给定函数的函数，并且将所有参数原封不动传递过去</li>
+<li>函数柯里化，是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术</li>
+<li>定时器里指定的时间间隔表示何时将定时器的代码添加到队列，而不是何时实际执行代码</li>
+<li>由于<code>setTimeout()</code>中用到的函数的环境总是<code>window</code>，所以有<br>必要保存<code>this</code>的引用以方便以后使用</li>
+<li><code>Yield Process</code>和函数节流很有趣</li>
+<li>自定义事件和拖放的结合能写出很强大的功能</li>
+</ul>
+<hr>
+<h3 id="第二十三章"><a href="#第二十三章" class="headerlink" title="第二十三章"></a>第二十三章</h3><ul>
+<li>离线检测、应用缓存、数据存储中的<code>Cookie</code>都应该了解一下</li>
+<li>web存储机制和IndexedDB很有使用前景</li>
+</ul>
+<hr>
+<h3 id="第二十四章"><a href="#第二十四章" class="headerlink" title="第二十四章"></a>第二十四章</h3><p>暂时跳过</p>
+<h3 id="第二十五章"><a href="#第二十五章" class="headerlink" title="第二十五章"></a>第二十五章</h3><p>近期用不着，暂时跳过</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/《你不知道的JS》复习/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          《你不知道的JS》复习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/《CSS揭秘》复习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《CSS揭秘》复习</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="《JavaScript高级程序设计》复习（14~25章）" data-title="《JavaScript高级程序设计》复习（14~25章）" data-url="http://heli06.github.io/category/《JavaScript高级程序设计》复习（14~25章）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

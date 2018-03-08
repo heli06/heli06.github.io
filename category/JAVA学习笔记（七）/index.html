@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JAVA学习笔记（七） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="零碎知识
+需要命令行的程序，在IDE中可以用run as类似的来运行。
+关于java- -X非标准参数：-Xms1024m，设置Java堆最小大小。-Xmx2000m，最大大小。-Xss256k，栈的大小。栈不用太大（不过递归层数多了最好设置得大一点）。因为Java的所有对象和局部变量都在堆中，栈中没多少（这点和C++不同）。
+System这个类值得关注。System.out是static且fin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA学习笔记（七）">
+<meta property="og:url" content="http://heli06.github.io/category/JAVA学习笔记（七）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="零碎知识
+需要命令行的程序，在IDE中可以用run as类似的来运行。
+关于java- -X非标准参数：-Xms1024m，设置Java堆最小大小。-Xmx2000m，最大大小。-Xss256k，栈的大小。栈不用太大（不过递归层数多了最好设置得大一点）。因为Java的所有对象和局部变量都在堆中，栈中没多少（这点和C++不同）。
+System这个类值得关注。System.out是static且fin">
+<meta property="og:updated_time" content="2017-07-04T03:57:45.014Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA学习笔记（七）">
+<meta name="twitter:description" content="零碎知识
+需要命令行的程序，在IDE中可以用run as类似的来运行。
+关于java- -X非标准参数：-Xms1024m，设置Java堆最小大小。-Xmx2000m，最大大小。-Xss256k，栈的大小。栈不用太大（不过递归层数多了最好设置得大一点）。因为Java的所有对象和局部变量都在堆中，栈中没多少（这点和C++不同）。
+System这个类值得关注。System.out是static且fin">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-JAVA学习笔记（七）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（七）/" class="article-date">
+  	<time datetime="2017-07-04T02:21:36.000Z" itemprop="datePublished">2017-07-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA学习笔记（七）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="零碎知识"><a href="#零碎知识" class="headerlink" title="零碎知识"></a>零碎知识</h2><ul>
+<li>需要命令行的程序，在IDE中可以用<code>run as</code>类似的来运行。</li>
+<li>关于<code>java- -X</code>非标准参数：<code>-Xms1024m</code>，设置Java堆最小大小。<code>-Xmx2000m</code>，最大大小。<code>-Xss256k</code>，栈的大小。栈不用太大（不过递归层数多了最好设置得大一点）。因为Java的所有对象和局部变量都在堆中，栈中没多少（这点和C++不同）。</li>
+<li><code>System</code>这个类值得关注。<code>System.out</code>是<code>static</code>且<code>final</code>的。</li>
+<li>软件设计有许多原则，可以百度。比较著名的有里氏替换原则等。</li>
+<li><code>user.home</code> ， <code>usr.dir</code>：程序当前目录所在路径。</li>
+</ul>
+<a id="more"></a>
+<hr>
+<h2 id="FileReader-和-FileWriter"><a href="#FileReader-和-FileWriter" class="headerlink" title="FileReader 和 FileWriter"></a>FileReader 和 FileWriter</h2><p>关于FileReader是啥，请查看上一篇笔记的流的分类。</p>
+<p>以下是一个完整的可运行的例子，可以将一个文本文件（二进制文件不行，比如<code>.jpg</code>, <code>.class</code>）的内容打印到控制台：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Type</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span>        </span></div><div class="line">        throw IOException &#123;</div><div class="line">        <span class="comment">//FileReader使用系统默认的字符集打开</span></div><div class="line">        <span class="comment">//中文系统一般是GBK，GB2312，GB18030……</span></div><div class="line">        FileReader fr = </div><div class="line">            <span class="keyword">new</span> FileReader(args[<span class="number">0</span>]);</div><div class="line">            </div><div class="line">        <span class="comment">//虽然读的字符，依然用int存</span></div><div class="line">        <span class="keyword">int</span> c = <span class="number">0</span>;</div><div class="line">        </div><div class="line">        <span class="comment">//循环这样写比较简洁</span></div><div class="line">        <span class="keyword">while</span>((c = fr.read) != -<span class="number">1</span>) &#123;</div><div class="line">            <span class="comment">//注意类型转换</span></div><div class="line">            System.out.print((<span class="keyword">char</span>)c);</div><div class="line">        &#125;</div><div class="line">        fr.close();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="InputStreamReader-和-OutputStreamWriter"><a href="#InputStreamReader-和-OutputStreamWriter" class="headerlink" title="InputStreamReader 和 OutputStreamWriter"></a>InputStreamReader 和 OutputStreamWriter</h2><p>上文中的<code>FileReader</code>，可移植性差。可以这样写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">FileInputStream fis = </div><div class="line">    <span class="keyword">new</span> FileInputStream(args[<span class="number">0</span>]);</div><div class="line">InputStreamReader isr = </div><div class="line">    <span class="function">nwe <span class="title">InputStreamReader</span><span class="params">(fis, <span class="string">"GBK"</span>)</span></span>;</div><div class="line">    </div><div class="line"><span class="comment">//Java支持大部分字符集之间的转换</span></div><div class="line"><span class="comment">//如果读的是二进制文件，那么这样：</span></div><div class="line">DataInputSteram dis = </div><div class="line">    <span class="keyword">new</span> DataInputStram(ifs);</div><div class="line"><span class="keyword">int</span> i = dis.readInt();</div><div class="line"></div><div class="line"><span class="comment">//如果非要用FileReader,这样输入命令行：</span></div><div class="line">java -Dfile.encoding=GBK Type a.txt</div></pre></td></tr></table></figure>
+<p>以下是第二次作业中读矩阵的那道题的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReadText</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">char</span>[][] read() &#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            FileInputStream fis = </div><div class="line">                <span class="keyword">new</span> FileInputStream(<span class="string">"a.txt"</span>);</div><div class="line">            InputStreamReader isr = </div><div class="line">                <span class="keyword">new</span> InputStreamReader(fis);</div><div class="line">            BufferedReader br = </div><div class="line">                <span class="keyword">new</span> BufferedReader(isr);</div><div class="line">            </div><div class="line">            String s = <span class="keyword">null</span>;</div><div class="line">            <span class="keyword">char</span>[][] data = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">8</span>][];</div><div class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">            <span class="keyword">while</span>((s = br.readLine()) != <span class="keyword">null</span>) &#123;</div><div class="line">                data[i++] = s.toCharArray();</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;&#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="PrintStream-和-PrintWriter"><a href="#PrintStream-和-PrintWriter" class="headerlink" title="PrintStream 和 PrintWriter"></a>PrintStream 和 PrintWriter</h2><p>如果用前文中提到的<code>FileWriter</code>来向文本中写数据，会很尴尬：</p>
+<pre><code>FileWriter fw = new FileWriter(&quot;a.txt&quot;);
+fw.write(3.14);//错误，只能写字符串
+fw.rite(&quot;&quot; + 3.14 + &quot;\r\n&quot;);//得这样，还得自己换行
+</code></pre><p>用<code>PrintWriter</code>就舒服多了：</p>
+<pre><code>//上文的fw接到这里的out
+PrintWriter out = new PrintWriter(fw);
+out.println(3.14);
+</code></pre><p><code>PrintStream</code>与<code>PrintWriter</code>区别很小，前者是字节流，后者是字符流。</p>
+<hr>
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><p>各种语言都有自己所支持的配置文件类型。比如<code>Python</code>，它支持 <code>.ini</code>文件。因为它内部有一个<code>ConfigParser</code>类来支持<code>.ini</code> 文件的读写，根据该类提供的方法程序员可以自由地操作<code>.ini</code> 文件。而在<code>Java</code>中，<code>Java</code>支持的是<code>.properties</code>文件的读写。 JDK内置的<code>Java.util.Properties</code>类为我们操作<code>.properties</code> 文件提供了便利。<br><code>Properties</code>本质上是名值对（<code>name-value pair</code>），它继承了<code>HashTable</code>。</p>
+<p>以下是使用范例：</p>
+<pre><code>Properties p = new Properties();
+p.setProperty(&quot;name&quot;, &quot;value&quot;);
+p.setProperty(&quot;name&quot;, &quot;value2&quot;);//覆盖前一个
+p.setProperty(&quot;name&quot;, &quot;value&quot;);//value重复没有关系
+String v = p.getProperty(&quot;name&quot;);//value2
+//文件载入方式
+p.load(new FileInputStream(&quot;config.properties&quot;));
+</code></pre><p>以下的例子可以运行，输出Java自己的一堆属性：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListProps</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span> </span>&#123;</div><div class="line">        <span class="comment">//输出全部</span></div><div class="line">        System.getProperties().list(System.out);</div><div class="line">        </div><div class="line">        <span class="comment">//输出user.dir属性</span></div><div class="line">        System.getProperties().getProperty(<span class="string">"user.dir"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以下是网络通信的不完整的例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListProps</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Properties p = <span class="keyword">new</span> Properties();</div><div class="line">        p.setProperty(<span class="string">"server"</span>, <span class="string">"192.168.4.1"</span>);</div><div class="line">        p.setProperty(<span class="string">"port"</span>, <span class="string">"4444"</span>);</div><div class="line">        </div><div class="line">        p.store(<span class="string">""</span>, </div><div class="line">        <span class="keyword">new</span> FileOutputStream(<span class="string">"config.properties"</span>));</div><div class="line">        ………………</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="多线程编程和匿名类"><a href="#多线程编程和匿名类" class="headerlink" title="多线程编程和匿名类"></a>多线程编程和匿名类</h2><h4 id="多线程编程"><a href="#多线程编程" class="headerlink" title="多线程编程"></a>多线程编程</h4><p>多线程编程的概念和意义在此不必赘言。早期的多线程通过“分时”技术制造假象，现在的多核处理器“并行”是货真价实的。</p>
+<p>以下是线程大概的样子和不完整的使用样例：</p>
+<pre><code>public interface Runnable {
+    public void run();
+}
+
+public class Thread implements Runnable {
+    private Runnable r;
+    public Thread(Runnable r) {
+        this.r = r;
+    }
+    public void run() {
+    //空函数
+    }
+}
+
+//运行任务的两种办法
+//第一种：创建一个实现Runnable接口的类
+class A implements Runnable {
+    public void run() {
+    //一种实现
+    }
+}
+class B implements Runnable {
+    public void run() {
+    //另一种实现
+    }
+}
+
+//第二种：继承Thread，实现run方法
+public class MyThread extends Thread {
+    public void run() {
+        //可以自己实现
+    }
+}
+</code></pre><p>注意，在接下里的例子中，调用start()并不意味着线程马上运行，t1也不一定先于t2。线程具体的调度程序猿无权干预，这得看系统。详细知识请复习操作系统课程。</p>
+<pre><code>Thread t1 = new Thread(new A());
+t1.start();
+Thread t2 = new Thread(new B());
+t2.start();
+t3.start();
+…………
+t2.stop();//强行终止
+//如果run()执行完毕，自然终止
+
+t2.suspend();//挂起
+t2.resume();//恢复
+
+Thread.sleep(1000);//暂停1秒。
+//实际上停止时间更长一点，因为停止和恢复执行是有代价的。
+
+Thread.yield();//让步，停多久得看调度。
+</code></pre><p>线程的状态划分：</p>
+<ol>
+<li>dead//线程死过一次后不能再运行</li>
+<li>ready</li>
+<li>running</li>
+</ol>
+<hr>
+<p>#####关于匿名类</p>
+<p>对应于运行任务的两种方法，匿名类也有两种用法：</p>
+<pre><code>public class Test {
+    public static void main(String [] args) {
+        Thread t1 = new Thread(
+            //匿名类，实现Runnable接口
+            new Runnable() {
+                public void run() {
+
+            }
+        }
+    );
+        Thread t2 = new Thread() {
+            //匿名类的类体，继承Thread
+            public void run() {
+
+            }
+        }
+    }
+}
+</code></pre><p>以下是匿名类的不完整例子：</p>
+<pre><code>//一个继承了A类的匿名类
+//匿名类必须显式调用父类的构造函数
+A a = new A(0) {
+    //初始化代码，优先于构造函数
+    //这里当作构造函数使用
+    {
+        …………//初始化代码
+    }
+        …………
+};
+</code></pre><hr>
+<h4 id="多线程的风险"><a href="#多线程的风险" class="headerlink" title="多线程的风险"></a>多线程的风险</h4><p>对于临界区，要将并发转为串行。比方说某个栈可能同时被两个进程访问，那么这个栈的<code>push()</code>和<code>pop()</code>要用<code>synchronized</code>修饰：</p>
+<pre><code>synchronized public void push() {}
+synchronized public void pop() {}
+</code></pre><p>原理：加了锁，请回忆操作系统相关内容。</p>
+<p>到结尾了，吐个槽：今天上课讲的内容有点乱啊……</p>
+<hr>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/JAVA学习笔记（八）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JAVA学习笔记（八）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/JAVA学习笔记（六）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA学习笔记（六）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JAVA学习笔记（七）" data-title="JAVA学习笔记（七）" data-url="http://heli06.github.io/category/JAVA学习笔记（七）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

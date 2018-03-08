@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JAVA学习笔记（三） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="零碎知识
+移位运算向下取整，普通运算向零取整
+如果不想让其它人或程序调用对象，用abstract修饰类,或用privat    e修饰构造函数。详见单例模式的例子。
+元素之间可以byte-&amp;gt;int,但是数组之间不可以，详见数组的例子。
+覆盖函数的访问权限不能低于被覆盖函数的访问权限
+java容易被反编译，找到序列号的类后可以破解或用新写的类代替。可以用混淆程序处理来防止被破解。
+
+单例模式的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA学习笔记（三）">
+<meta property="og:url" content="http://heli06.github.io/category/JAVA学习笔记（三）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="零碎知识
+移位运算向下取整，普通运算向零取整
+如果不想让其它人或程序调用对象，用abstract修饰类,或用privat    e修饰构造函数。详见单例模式的例子。
+元素之间可以byte-&amp;gt;int,但是数组之间不可以，详见数组的例子。
+覆盖函数的访问权限不能低于被覆盖函数的访问权限
+java容易被反编译，找到序列号的类后可以破解或用新写的类代替。可以用混淆程序处理来防止被破解。
+
+单例模式的">
+<meta property="og:updated_time" content="2017-06-28T04:27:53.596Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA学习笔记（三）">
+<meta name="twitter:description" content="零碎知识
+移位运算向下取整，普通运算向零取整
+如果不想让其它人或程序调用对象，用abstract修饰类,或用privat    e修饰构造函数。详见单例模式的例子。
+元素之间可以byte-&amp;gt;int,但是数组之间不可以，详见数组的例子。
+覆盖函数的访问权限不能低于被覆盖函数的访问权限
+java容易被反编译，找到序列号的类后可以破解或用新写的类代替。可以用混淆程序处理来防止被破解。
+
+单例模式的">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-JAVA学习笔记（三）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（三）/" class="article-date">
+  	<time datetime="2017-06-28T03:07:47.000Z" itemprop="datePublished">2017-06-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA学习笔记（三）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="零碎知识"><a href="#零碎知识" class="headerlink" title="零碎知识"></a>零碎知识</h3><ol>
+<li>移位运算向下取整，普通运算向零取整</li>
+<li>如果不想让其它人或程序调用对象，用abstract修饰类,或用privat    e修饰构造函数。详见单例模式的例子。</li>
+<li>元素之间可以byte-&gt;int,但是数组之间不可以，详见数组的例子。</li>
+<li>覆盖函数的访问权限不能低于被覆盖函数的访问权限</li>
+<li>java容易被反编译，找到序列号的类后可以破解或用新写的类代替。可以用混淆程序处理来防止被破解。</li>
+</ol>
+<p>单例模式的例子。这点老师上课时只是顺带一提，想深入了解还是百度吧。</p>
+<pre><code>class A {
+    static int i = 0;
+    static {}
+    private static A a = new A();
+    private A(){}
+    public static A getA() {
+        retuen new A();
+    }
+}
+</code></pre><a id="more"></a>
+<p>数组的例子</p>
+<pre><code>//假设B继承了A
+byte[] ba;int[] ia; ba = ia；//错误
+A[] a;
+B[] b;
+a = b;
+b = a;//错误
+b = (B[]) a;//正确
+</code></pre><hr>
+<h3 id="对象初始化"><a href="#对象初始化" class="headerlink" title="对象初始化"></a>对象初始化</h3><pre><code>class A {
+    //若不赋值，内存分配后int,double……赋值为0,0.0……
+    int j = 5;//变量的初始化优先于构造函数
+    double d = 9;//顺序从上往下
+
+    //初始化代码执行的顺序是书写顺序
+    {
+        …………
+    }
+
+    String id;
+
+    //初始化代码，执行顺序优先于构造函数
+    {
+        …………
+    }
+    public A(){
+        j = 0; d = 0.0; id = null;
+    }
+    public A(int j, double d, String id){
+        this.j = j;
+        this.d = d;
+        this.id = id;
+    }
+}                                                                                                                  
+</code></pre><p>接下来是一道很重要很经典的题目</p>
+<pre><code>//问以下程序运行后输出什么
+//答案: 0, p, 5
+//解析见以下注释，按序号顺序查看
+class A {
+    A() {this.init(); }
+    public void init() {// 3.该函数被覆盖
+        System.out.println(&quot;q&quot;);
+    }
+}
+class B extends A {
+    public int i = 4;
+    B(int i) { // 2.A构造函数先于B构造函数运行
+        System.out.println(&quot;p&quot;);// 6.输出p
+        this.i = i; // 7. i被赋值为5
+    }
+    public void init() {// 4.实际执行的函数
+        // 5.此时 i 尚未初始化，为0
+        System.out.println(i);
+    }
+    public static void main(String[] args) {
+        // 1.程序开始运行
+        System.out.println(new B(5).i);
+        // 8.输出
+    }       
+}
+</code></pre><hr>
+<h3 id="抽象函数和抽象类"><a href="#抽象函数和抽象类" class="headerlink" title="抽象函数和抽象类"></a>抽象函数和抽象类</h3><p>在系统早期设计阶段，用抽象函数勾勒出大概框架，不关注实现</p>
+<pre><code>abstract class Shape {//有抽象函数的类肯定是抽象类
+    abstract public double area();//抽象函数
+}
+private double w, h;
+class Rectangle extends Shape {
+    public double area(){
+        return w*h;
+    }
+}
+class Circle extends Shape {
+    private double r;
+    public double area() {
+        return Math.PI * r * r;
+    }
+}
+</code></pre><hr>
+<h3 id="接口-interface"><a href="#接口-interface" class="headerlink" title="接口(interface)"></a>接口(interface)</h3><p>interface是一个类型，也能用来描述对象</p>
+<pre><code>//接口中的函数不能有实现，都是公开的、抽象的
+//接口类似于抽象类，但两者是不同的概念
+//接口中可以定义数据（必须是常量），但不鼓励
+public interface K {
+    int i = 7;//相当于public static final int i = 7;
+    abstract void a();//加不加abstract都一样
+    void b();
+}
+
+//类中必须实现接口K的所有函数，否则为抽象类
+class B extends Object implements K {
+    public void a() {}
+    public void b() {}
+    public void c() {}
+}
+
+K k = new B();
+k.a();//正确
+k.b();//正确
+k.c();//错误，接口没有c函数
+(B)k.c();//错误，注意优先级
+((B)k).c();//正确
+
+//接口支持多继承
+public interface K extends M,N {
+    …………
+}
+class B extends Object implements K, M {
+    …………
+}
+
+//一个接口的引用变量可以轻易转换为其它的类、接口
+Object o = new A();
+if(o instanceof K) {
+    K k = (K)0;
+}
+</code></pre><hr>
+<h3 id="包及打包命令"><a href="#包及打包命令" class="headerlink" title="包及打包命令"></a>包及打包命令</h3><p>命名空间：为了防止命名冲突</p>
+<pre><code>//类A在包a中
+package a;
+class A {
+
+}
+//其它程序里通过 a.A a1;或者 import a.*;来访问
+//*是通配符。
+
+//但如果发生以下情况
+import java.sql.*;//有Date
+import java.util.*;//也有Date
+class Hello {
+    java.util.Date d1;//只能用全名
+}
+//注意以上的import中，包也有层次结构和命名规范。
+//通配符只能导入包中的类，不能导入包中的包。
+//在一个包中只能有一个公开类。文件名和公开类名相同。
+</code></pre><p>有关的命令</p>
+<pre><code>//没有使用别的包时
+javac -d d:\ HelloWord.java
+java -classpath d:\ HelloWord
+// 以下命令会依次搜寻列举的文件夹
+java -classpath d:\;c:\;d:\java HelloWord
+
+//使用了别的包时，计算器的例子
+//假设文件里写有package com.abc.calc，
+//那么执行以下命令时自动映射成文件夹 com/abc/calc
+javac -d . Calc.java
+
+//引用了别的包，所以名字和classpath都不能省略
+java -classpath d:\java com.abc.test.Test
+</code></pre><p>打包命令: jar</p>
+<pre><code>//cvf: 创建一个归档文件
+//a.jar 文件名
+//com\*  要打包的东西
+//要在JAVA目录下运行
+jar cvf a.jar com\*  //报错，文件夹丢失导致包名信息丢失
+jar cvf a.jar -C d:\java com\*  //正确
+java -classpath a.jar com.abc.test.Test //正确
+
+java -jar a.jar//要有图形界面，否则不运行
+            //可以指定主类（Main-Class）
+</code></pre><hr>
+<h3 id="几个关键对象"><a href="#几个关键对象" class="headerlink" title="几个关键对象"></a>几个关键对象</h3><ol>
+<li>Object</li>
+<li>String</li>
+</ol>
+<p>这个只好自学了……</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/JAVA学习笔记（四）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JAVA学习笔记（四）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/JAVA学习笔记（一）（二）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA学习笔记（一）（二）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JAVA学习笔记（三）" data-title="JAVA学习笔记（三）" data-url="http://heli06.github.io/category/JAVA学习笔记（三）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

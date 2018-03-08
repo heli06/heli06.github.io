@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JAVA学习笔记（五） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Object函数：protected Object clone()
+//这个Student的例子后面还用
+//若没有implement，运行时会抛出异常
+public calss Student implement Cloneable{
+    String id, name;
+    int age;
+    boolean gender;
+
+    public static void mai">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA学习笔记（五）">
+<meta property="og:url" content="http://heli06.github.io/category/JAVA学习笔记（五）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="Object函数：protected Object clone()
+//这个Student的例子后面还用
+//若没有implement，运行时会抛出异常
+public calss Student implement Cloneable{
+    String id, name;
+    int age;
+    boolean gender;
+
+    public static void mai">
+<meta property="og:updated_time" content="2017-06-30T11:26:50.994Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA学习笔记（五）">
+<meta name="twitter:description" content="Object函数：protected Object clone()
+//这个Student的例子后面还用
+//若没有implement，运行时会抛出异常
+public calss Student implement Cloneable{
+    String id, name;
+    int age;
+    boolean gender;
+
+    public static void mai">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-JAVA学习笔记（五）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（五）/" class="article-date">
+  	<time datetime="2017-06-30T04:21:03.000Z" itemprop="datePublished">2017-06-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA学习笔记（五）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h2><p>函数：protected Object clone()</p>
+<pre><code>//这个Student的例子后面还用
+//若没有implement，运行时会抛出异常
+public calss Student implement Cloneable{
+    String id, name;
+    int age;
+    boolean gender;
+
+    public static void main(String[] a) {
+        Student s1 = new Student();
+        s1.id = new String(&quot;001&quot;);
+        s1.name = new String(&quot;zs&quot;);
+        s1.age = 18;
+        s1.gender = true;
+
+        //(Student)不可少, clone是protected
+        //clone实现的是浅复制
+        Student s2 = (Student) s1.clone();
+
+    }
+}
+</code></pre><a id="more"></a>
+<p>函数：boolean equals(Object o)</p>
+<pre><code>//这是原本自带的实现，但很鸡肋
+public boolean equals(Object o) {
+    return this == o;
+}
+//所以要这样覆盖：
+public boolean equals(Object o) {
+    if(o instanceof Student) {
+        Student s = (Student) = o;
+        return this.age == s.age &amp;&amp;
+            this.gender == s.gender &amp;&amp;
+            this.name.equals(s.name) &amp;&amp;
+            this.id.equals(s.id);
+    }
+}
+</code></pre><p>函数：protected void finalize()<br>析构函数，垃圾回收用，了解就好，不要轻易覆盖</p>
+<p>函数：String toString()<br>转为字符串</p>
+<pre><code>//自带的实现只能输出内存地址，鸡肋
+//所以要这样覆盖
+public String toString() {
+    return &quot;id = &quot; + id + &quot;, name = &quot; + name;
+}
+</code></pre><p>函数：Class&lt;?&gt; getClass()<br>获取类类型</p>
+<pre><code>//这个类的名字就叫做Class
+//自带的实现如下：
+class Class {
+    private String className;
+    public Method[] methods;
+    public Field[] fields;
+    ………………
+}
+</code></pre><p>Class相关的函数可以这样用：</p>
+<pre><code>//常用于动态调用对象, 有时不知道类名和函数名
+//常用于开发通用程序
+void a(Object o) {
+    //不知道o的类名，可这样获取
+    Class c = o.getClass();
+    String s = c.getName();
+
+    c.add(5, 6);
+    //若不知道函数名，可以这样做
+    m1.invoke(c, new Integer(5), new Integer(6));
+}
+</code></pre><p>函数：int hashCode()<br>返回对象在内存中的地址。通常不直接用，要覆盖。<br>用于迅速查找对象（比如10000个学生）</p>
+<hr>
+<h2 id="String和StringBuffer"><a href="#String和StringBuffer" class="headerlink" title="String和StringBuffer"></a>String和StringBuffer</h2><p>String类的构造函数很多，常用这种：<br>String(byte[] bytes, String charsetName),可以根据编码字符集生成字符串</p>
+<p>常用函数：<br>charAt(……)，compareTo(……)，equal(……)，endsWidth(……)，indexOf(……)，matches(……)，replace(……)，split(……)，subString(……),toCharArray()，toUpperCase()，valueOf(……)<br>详细用法请百度或去查文档</p>
+<pre><code>String s1 = &quot;ab&quot;;
+String s2 = &quot;abc&quot;;
+Stirng s3 = &quot;b&quot;;
+
+s1.compareTo(s2);//s2大
+s1.compareTo(s2);//s3大
+
+s1.endsWidth(s2);//正确
+
+//s0为&quot;el&quot;
+String s0 = &quot;hello&quot;.substring(1,3);
+
+//s10为&quot;54&quot;
+String s10 = String.valueOf(54);
+
+String s4 = &quot;中国梦&quot;;
+//以下函数返回编码，和系统、虚拟机默认字符集有关
+byte[] ba = s4.getBytes();
+//以上程序在英文系统会出错
+byte[] ba = s.getBytes(&quot;UNICODE&quot;);
+//以上就对了
+
+//s5和s4指向一致（JAVA节约空间的设计）
+String s5 = &quot;中国梦&quot;;
+//s6指向的不一致
+String s6 = new String(s4);
+
+//s6和s5,s4指向一致
+s6 = s6.intern();
+
+//concat产生新字符串
+s1.concat(s2);//错误，String不可修改
+s1 = s1.concat(s2);//正确，旧s1被抛弃
+</code></pre><p>用String进行字符串修改操作性能差，可以用StringBuffer</p>
+<hr>
+<h2 id="包装类（wrapper-class）"><a href="#包装类（wrapper-class）" class="headerlink" title="包装类（wrapper class）"></a>包装类（wrapper class）</h2><p>基本数据结构其实也有自己的类，某些时候很方便<br>接下来以Integer类(int对应的类)为例：</p>
+<pre><code>Integer i = new Integer(5);
+Integer i2 = new Integer(&quot;5&quot;);
+int j = intValue();
+String s = i.toString();//转为字符串
+String s = i.toBinaryString();//转为二进制字符串
+String s = i.toOctalString();//转为八进制字符串
+
+String s = &quot;56&quot;;
+int i = Integer.parseInt(s);//字符串转数字
+</code></pre><hr>
+<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><pre><code>class Node&lt;T&gt; {
+    T data;
+    Node next;
+    T get(int index) {
+
+    }
+}
+Node&lt;int&gt; n = new Node&lt;int&gt;();//错误，Node为Object
+NOde&lt;Object&gt; n = new Node&lt;Integer&gt;();//错误，不同类型
+Node&lt;Integer&gt; n = new Node&lt;Integer&gt;();//正确
+
+interface M&lt;K, V&gt; {
+    K a(K k, V v);
+}
+</code></pre><hr>
+<h2 id="泛型的应用与Collection接口"><a href="#泛型的应用与Collection接口" class="headerlink" title="泛型的应用与Collection接口"></a>泛型的应用与Collection接口</h2><p>Collection接口为线性表、向量、栈、队列、优先队列以及集合定义了共同的操作。也就是说，接口List、Set、Map均继承了Collection接口<br>函数极多，多练多记</p>
+<pre><code>//Collection是对象集合
+Collection c = …………………………;
+
+c.add(new Integer(5));//正确
+
+//早期JDK错误，5不是对象
+//更新的版本能自动封箱
+c.add(5);
+
+c.add(&quot;5&quot;);
+
+c.contains(&quot;5&quot;);//正确
+c.contains(new Integer(5));//正确
+
+//c的一切操作都是按值比对
+c.remove(new Integer(5));//正确
+
+//[0],则有多少个元素就创建多长的数组
+//若超长（大于c的容量）则补充null
+Integer[] ia = (Integer[])c.toArray(new Integer[0]);
+</code></pre><p>toArray函数可以返回Object数组，也能按要求返回一定类型的数组</p>
+<pre><code>class A&lt;T&gt; {
+    Collection c;
+    c.add(new String());
+    c.add(new Integer());
+
+List list = new ArrayList();//没有指定类型，默认Object
+list.add(&quot;nihao&quot;);
+String s = (String) list.get(0);//原本返回的是Object
+List &lt;Student&gt; list = new ArrayList&lt;Student&gt;();
+list.add(&quot;&quot;);
+Students = list.get(1);//不用类型转换了
+
+}
+</code></pre><p>泛型提高了精确性，却不够灵活</p>
+<pre><code>//传什么都可以，但灵活过头
+void a(List list) {
+
+}
+
+//只能传Object,Student不可以
+void a(List&lt;Object&gt; list) {
+
+}
+//适配所有，却倒退了
+void a(List&lt;?&gt; list) {
+
+}
+//受限通配，在精确与灵活间平衡
+void a(List&lt;? extends A&gt; list) {
+
+}
+//下限通配，在精确与灵活间平衡
+void a(List&lt;? super A&gt; list) {
+
+}
+</code></pre><hr>
+<h2 id="Comparable接口"><a href="#Comparable接口" class="headerlink" title="Comparable接口"></a>Comparable接口</h2><p>Comparable接口定义了compareTo方法，用于比较对象。所有基本类型的封装类以及String、Date等常用类都实现了该接口。<br>以下是Student类实现Comparable接口的例子：</p>
+<pre><code>public class student implements Comparable {
+    String id;
+    int age;
+
+    public int compareTo(Object o) {
+        Student s = (Studnet) o;
+        return this.id.compareTo(s.id);
+        //return age = s.age;
+    }
+}
+</code></pre><hr>
+<h2 id="线性表（List）"><a href="#线性表（List）" class="headerlink" title="线性表（List）"></a>线性表（List）</h2><p>List接口有两个具体类：ListLinkedList, ArrayList。<br>老师上课还提到了Vector，我没听清属于哪个接口。<br>以下是ArrayList的例子：</p>
+<pre><code>List&lt;String&gt; list = new ArrayList&lt;String&gt;;
+
+list.add(&quot;nihao&quot;);
+list.add(&quot;xz&quot;);
+list.add(0, &quot;morning&quot;);
+//此时输出，顺序为 morning nihao xz
+
+list.get(1);//morning
+list.set(8, &quot;hello&quot;);//之前空缺的由null填补
+List list2 = list.subList(1, 3);//el
+</code></pre><hr>
+<h2 id="集合（Set）"><a href="#集合（Set）" class="headerlink" title="集合（Set）"></a>集合（Set）</h2><p>Set有HashSet、LinkedHashSet、TreeSet来创建集合<br>Set中的方法与常量与Collection一样，但规定Set的实例不包含重复元素（Set在概念上接近数学中的集合）<br>HashSet不能排序，LinkedHashSet支持排序，TreeSet是升序的</p>
+<pre><code>Set set = new TreeSet();
+set.add(new Long(5));
+set.add(new Integer(6));//报错，不同类型无法排序
+System.out.println(set.size());
+</code></pre><hr>
+<h2 id="映射表（Map）"><a href="#映射表（Map）" class="headerlink" title="映射表（Map）"></a>映射表（Map）</h2><p>Map，映射集合，是依照键值对（key-value pair）存储元素的容器。<br>有三个具体类：HashMap, TreeMap, Hashtable(拒绝null值)<br>以下是HashMap的例子：</p>
+<pre><code>Map map = new HashMap();
+map.put(&quot;001&quot;, new Integer(5));
+map.put(&quot;002&quot;, newa Integer(5));
+map.put(&quot;001&quot;, &quot;nihao&quot;);//若key重复，覆盖之前的
+
+map.size();//返回值为2
+map.get(&quot;001&quot;);//返回&quot;nihao&quot;的引用
+map.get(&quot;007&quot;);//返回null
+</code></pre><hr>
+<h2 id="iterator-迭代器"><a href="#iterator-迭代器" class="headerlink" title="iterator(迭代器)"></a>iterator(迭代器)</h2><p>Iterator是一种经典的设计模式，用于在不需要暴露数据是如何保存在数据结构的细节的情况下，来便利一个数据结构。<br>常用方法：hasNext(),next()</p>
+<pre><code>Collection c;
+Iterator it = c.iterator();
+while(it.hasNext()){
+    Object e = it.next();
+}
+</code></pre><p>以下是遍历Set的例子</p>
+<pre><code>Set set = new HashSet();
+
+//如果这样写，遍历时不需要进行强制类型转换
+//Set&lt;String&gt; set = new HashSet&lt;String&gt;();
+
+set.add(&quot;hello&quot;);
+set.add(&quot;hello&quot;);
+set.add(&quot;nihao&quot;);
+Iterator it = set.iterator();
+while(it.hasNext()){
+    String s = (String) it.next();
+
+    //若之前指定了String，则不需要转换
+    //String s =  it.next();
+
+    System.out.println(s);
+}
+//以下是更简洁的遍历写法
+for(Iterator&lt;String&gt; it = set.iterator;;it.hasNext();)
+    System.out.println(it.next());
+</code></pre><p>以下是遍历Map的例子</p>
+<pre><code>Map&lt;String, Integer&gt; map = new HashMap&lt;String, Integer&gt;();
+
+map.put(&quot;001&quot;, new Integer());
+
+Set&lt;String&gt; set = map.keySet();//获取“键”的集合
+for(Iterator&lt;String&gt; it = set.iterator();it.hasNext();){
+    String key = it.next();//获取键
+    Integer value = map.get(key);//根据键获取值
+    System.out.println(value);//输出值
+}
+</code></pre><hr>
+<h2 id="综合示例：彩票35选7的两种实现方法"><a href="#综合示例：彩票35选7的两种实现方法" class="headerlink" title="综合示例：彩票35选7的两种实现方法"></a>综合示例：彩票35选7的两种实现方法</h2><pre><code>public class R35_7 {
+    //链表实现：
+    public void a() {
+        List list = new LinkedList();
+        for(int i = 1; i &lt;= 35; i++) {
+            list.add(new Integer(i));
+        }
+        List select = new LinkedList();
+        for(int i = 0; i &lt; 7; i++) {
+            Collections.shuffle(list);//打乱顺序
+            select.add(list.remove());
+        }
+        Collections.sort(select);
+        for(int i = 0; i &lt; 7; i++) {
+            if(i &lt; 6) {//规范输出格式
+                System.out.print(select.get(i) + &quot;,&quot;);
+            }else{
+                System.out.println(select.get(i));
+            }
+        }
+    }
+    //集合实现：
+    public void b() {
+        Set set = new TreeSet();//升序排列
+        //产生7个不重复的1~35随机数
+        while(set.size() &lt; 7) {
+            set.add(new Integer(
+            (int) (Math.random() * 35 +１))
+            );
+        }
+        System.out.println(set);
+    }
+    public static void main(String[] args) {
+        R35_7 r = new R35_7();
+        r.a();
+        r.b();
+    }
+}
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/JAVA学习笔记（六）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JAVA学习笔记（六）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/JAVA学习笔记（四）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA学习笔记（四）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JAVA学习笔记（五）" data-title="JAVA学习笔记（五）" data-url="http://heli06.github.io/category/JAVA学习笔记（五）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>小议防XSS跨站脚本攻击 | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="闲话本来我以为“防XSS跨站脚本攻击”离我这个渣渣还有很远的距离，没想到做“表白墙”这个项目时具体接触了。在此感谢EDA实验室的大神学长给予的教导。
+正题本来ejs模板引擎自带XSS过滤功能，字符串输出时默认是经过escape转义编码的：
+// 用=号输出,就会被escapge转义编码 
+&amp;lt;%= VARIABLE_NAME %&amp;gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小议防XSS跨站脚本攻击">
+<meta property="og:url" content="http://heli06.github.io/category/小议防XSS跨站脚本攻击/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="闲话本来我以为“防XSS跨站脚本攻击”离我这个渣渣还有很远的距离，没想到做“表白墙”这个项目时具体接触了。在此感谢EDA实验室的大神学长给予的教导。
+正题本来ejs模板引擎自带XSS过滤功能，字符串输出时默认是经过escape转义编码的：
+// 用=号输出,就会被escapge转义编码 
+&amp;lt;%= VARIABLE_NAME %&amp;gt;">
+<meta property="og:updated_time" content="2017-06-28T04:24:41.445Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小议防XSS跨站脚本攻击">
+<meta name="twitter:description" content="闲话本来我以为“防XSS跨站脚本攻击”离我这个渣渣还有很远的距离，没想到做“表白墙”这个项目时具体接触了。在此感谢EDA实验室的大神学长给予的教导。
+正题本来ejs模板引擎自带XSS过滤功能，字符串输出时默认是经过escape转义编码的：
+// 用=号输出,就会被escapge转义编码 
+&amp;lt;%= VARIABLE_NAME %&amp;gt;">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-小议防XSS跨站脚本攻击" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/小议防XSS跨站脚本攻击/" class="article-date">
+  	<time datetime="2016-12-03T13:03:06.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      小议防XSS跨站脚本攻击
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="闲话"><a href="#闲话" class="headerlink" title="闲话"></a>闲话</h3><p>本来我以为“防XSS跨站脚本攻击”离我这个渣渣还有很远的距离，没想到做“表白墙”这个项目时具体接触了。在此感谢EDA实验室的大神学长给予的教导。</p>
+<h3 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h3><p>本来ejs模板引擎自带XSS过滤功能，字符串输出时默认是经过escape转义编码的：</p>
+<pre><code>// 用=号输出,就会被escapge转义编码 
+&lt;%= VARIABLE_NAME %&gt;
+</code></pre><a id="more"></a>
+<p>表白墙的后端是原本的微博改的，微博里保存推文的Post对象是这样写的：</p>
+<pre><code>function Post(username, post, time) {
+    this.user = username;
+    this.post = post;
+   ………………
+}
+</code></pre><p>然而表白贴的提交表单要包含 被告白方，正文，告白方 三个内容，咋存呢？<br>按照常人的思路肯定是改Post对象：</p>
+<pre><code>function Post(username, to, from, post, time) {
+    this.user = username;
+    this.post = post;
+   ………………
+}
+</code></pre><p>然而本天（dou）才（bi）不想（gan）改后端，想用前端来生成告白贴的格式。于是在后端只改了：</p>
+<pre><code>exports.post = function(req, res) {
+…………
+var post = new Post(currentUser.name,
+&quot;To:#&quot; + req.body.lovername + &apos;#&apos; + req.body.post + &quot;#From:#&quot; + req.body.yourname);
+…………
+</code></pre><p>为啥要加“#”呢？本天（dou）才（bi）写了这样的script生成告白贴的格式：</p>
+<pre><code>//使用字符串切割函数分出from,post,to，再拼接字符串
+newtext = posttext[i].textContent.split(&apos;#&apos;);
+    if( newtext[4].indexOf(&quot;匿名&quot;) &gt; -1 ) {
+            …………
+    }else{
+    //强行拼接出告白贴
+         posttext[i].innerHTML = &quot;&lt;h3&gt;&quot; + &quot;TO:&quot; +                     newtext[1] + &quot;&lt;/h3&gt;&lt;p&gt;&quot; + newtext[2] + &quot;&lt;/p&gt;&lt;h3             style=&apos;text-align: right&apos;&gt;&quot; + &quot;FROM:&quot;  + newtext[4]             + &quot;&lt;/h3&gt;&quot;;}
+</code></pre><p>看起来很有趣，是吧？<br>然而这样相当于把ejs已经转义并输出的的东西又通过不安全的方式再输出一次。然后学长就用了10秒钟给我演示了一次XSS攻击。<br>耻辱啊。<br>不过学长输入的代码虽然留在了网页上，但没有运行，为何呢？这个问题值得探讨。先留一个坑。</p>
+<p>目前我暂时在上文代码里加了两行代码：</p>
+<pre><code>posttext[i].textContent = posttext[i].textContent.replace(/\&lt;/g, &quot;&amp;lt&quot;);
+        posttext[i].textContent = posttext[i].textContent.replace(/\&gt;/g, &quot;&amp;gt&quot;);
+</code></pre><p>也就是把尖括号转义了。但这样就一劳永逸了吗？并不！<br><a href="http://www.cnblogs.com/milantgh/p/3593888.html" target="_blank" rel="external">这篇博文里介绍了绕过防御措施的方法</a><br>用八进制/十六进制字符串绕过检测，这方法太牛了……</p>
+<p>在实际投入使用的网站中，会有黑名单字段检测系统来保障用户输入的东西没有问题（ejs的转义应该也是类似这样的东西）。但真正能保证安全的还是改后端。<br>后端我也不是不会改，只是每次改完都要清一下数据库再运行不然会莫名其妙地报错，为了偷一个懒惹来了这么一大串麻烦，这才是真正的教训啊…………以后做项目绝对不能有投机取巧的心理。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/前端小技巧：利用cookie完成换肤功能-使用在线字体库/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          前端小技巧：利用cookie完成换肤功能/使用在线字体库
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/表白墙/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">表白墙</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="小议防XSS跨站脚本攻击" data-title="小议防XSS跨站脚本攻击" data-url="http://heli06.github.io/category/小议防XSS跨站脚本攻击/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

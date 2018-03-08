@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>“J2EE高级编程”笔记（六） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Filter一个检测用户是否登录的过滤器：
+1234567891011121314151617181920212223242526272829import java.io.*;import java.servlet.*;import java.servlet.http.*;public class FirstFilter implements Filter &amp;#123;    private Fi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“J2EE高级编程”笔记（六）">
+<meta property="og:url" content="http://heli06.github.io/category/“J2EE高级编程“笔记（六）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="Filter一个检测用户是否登录的过滤器：
+1234567891011121314151617181920212223242526272829import java.io.*;import java.servlet.*;import java.servlet.http.*;public class FirstFilter implements Filter &amp;#123;    private Fi">
+<meta property="og:updated_time" content="2017-11-27T12:25:33.090Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="“J2EE高级编程”笔记（六）">
+<meta name="twitter:description" content="Filter一个检测用户是否登录的过滤器：
+1234567891011121314151617181920212223242526272829import java.io.*;import java.servlet.*;import java.servlet.http.*;public class FirstFilter implements Filter &amp;#123;    private Fi">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-“J2EE高级编程“笔记（六）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/“J2EE高级编程“笔记（六）/" class="article-date">
+  	<time datetime="2017-11-23T00:17:00.000Z" itemprop="datePublished">2017-11-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      “J2EE高级编程”笔记（六）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h3><p>一个检测用户是否登录的过滤器：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"><span class="keyword">import</span> java.servlet.*;</div><div class="line"><span class="keyword">import</span> java.servlet.http.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FirstFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> FilterConfig config;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig config)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//主要操作都在这里进行</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest arg0, </span></span></div><div class="line">        ServletRespond arg1, FilterChain arg2) </div><div class="line">        <span class="keyword">throws</span> ServletException, IOException &#123;</div><div class="line">        HttpServletRequest request = </div><div class="line">            (HttpServletRequest) arg0;</div><div class="line">        <span class="comment">//会话</span></div><div class="line">        HttpSession session = request.getSession();</div><div class="line">        String s = (String) session.getAttrible(<span class="string">"login"</span>);</div><div class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span>) &#123;</div><div class="line">            request.getRequsetDispatcher(<span class="string">"/login.html"</span>);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125; </div><div class="line">        <span class="keyword">if</span> (s.equals(<span class="string">"true"</span>)) &#123;</div><div class="line">            arg2.doFilter(arg0, arg1);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            request.getRequestDispatcher(<span class="string">"/login.html"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>一个用于检测程序运行时间的过滤器：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">…………</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest req, ServletRequest res,</span></span></div><div class="line">    FilterChain chain) <span class="keyword">throws</span> ... &#123;</div><div class="line">    <span class="keyword">long</span> start = System.currentTimeMillis();</div><div class="line">    chain.doFilter(req, res);</div><div class="line">    <span class="keyword">long</span> end = System.currentTimeMillis();</div><div class="line">    System.out.println(<span class="string">"cost:"</span> + (end-start));</div><div class="line">&#125;</div><div class="line">…………</div></pre></td></tr></table></figure>
+<p>注意过滤器也要在web.xml里注册：</p>
+<pre><code>&lt;filter-mapping&gt;
+&lt;filter-name&gt;f4&lt;/filter-name&gt;
+&lt;servlet-name&gt;DownloadServlet&lt;/servlet-name&gt;
+&lt;/filter-mapping&gt;
+
+&lt;filter-mapping&gt;
+&lt;filter-name&gt;f4&lt;/filter-name&gt;
+&lt;url-pattern&gt;/servlet/*&lt;/url-pattern&gt;
+&lt;dispatcher&gt;REQUEST&lt;/dispatcher&gt;
+&lt;dispatcher&gt;FORWARD&lt;/dispatcher&gt;
+&lt;/filter-mapping&gt;
+</code></pre><p><code>DispatcherType</code>共有五种：<code>ASYNC</code>, <code>ERROR</code>, <code>FORWARD</code>, <code>INCLUDE</code>, <code>REQUEST</code>。各个Type的含义请参考文档。</p>
+<p>关于<code>web.xml</code>里各节点的含义，可以参考<a href="http://www.runoob.com/servlet/servlet-writing-filters.html" target="_blank" rel="external">菜鸟教程-Servlet编写过滤器</a></p>
+<hr>
+<h3 id="Listener"><a href="#Listener" class="headerlink" title="Listener"></a>Listener</h3><p>每个Listener对应一个Event。</p>
+<p>以下是一个访问数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//监听Context的创建与销毁</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InitConnectionListener</span> </span></div><div class="line">    <span class="keyword">implements</span> <span class="title">ServletContextListener</span> &#123;</div><div class="line">    <span class="comment">//初始化context时调用。在这里用来建立数据库连接</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextInitialized</span><span class="params">(ServletContextEvent e)</span> </span>&#123;</div><div class="line">        <span class="comment">//以下代码属于JavaSE的内容。</span></div><div class="line">        Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</div><div class="line">        Connection con = DriverManager.getConnection(</div><div class="line">            <span class="string">"jdbc:mysql://localhost/test"</span>,</div><div class="line">            <span class="string">"java"</span>,</div><div class="line">            <span class="string">"java12345"</span></div><div class="line">        );</div><div class="line">        </div><div class="line">        ServletContext context = e.getServletContext();</div><div class="line">        <span class="comment">//设置connextion，这样才能再销毁时获取连接</span></div><div class="line">        context.setAttribute(<span class="string">"connection"</span>, con);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//销毁context时调用</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextDestroyed</span><span class="params">(ServletContextEvent e)</span> </span>&#123;</div><div class="line">        <span class="comment">//销毁数据库连接</span></div><div class="line">        Connection con = (Connection) e.getServletContext</div><div class="line">            .getAttribute(<span class="string">"connection"</span>);</div><div class="line">        con.close();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这一节老师讲得并不完整，更详细的内容可以参见<a href="http://blog.csdn.net/u012228718/article/details/41730799" target="_blank" rel="external">监听器Listener详解</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/数据结构上机题（C++语言）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          数据结构上机题（C++语言）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/“J2EE高级编程”笔记（五）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">“J2EE高级编程”笔记（五）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="“J2EE高级编程“笔记（六）" data-title="“J2EE高级编程”笔记（六）" data-url="http://heli06.github.io/category/“J2EE高级编程“笔记（六）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

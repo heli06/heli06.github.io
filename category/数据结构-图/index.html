@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>数据结构-图 | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="数据结构的上机真是太没人性了，最近一周关于图的题更是恼人。代码量600+还在其次，主要是算法这东西真的很费脑子啊。拼了老命终于在周末两天写出来这玩意儿。写完这玩意儿我就生病了。直接把代码贴上来吧，注释应该够详细了。代码里包含图的邻接表写法、DFS、BFS、Prim算法、克鲁斯卡尔算法、迪杰斯特拉算法、弗洛伊德算法、寻找回路算法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构-图">
+<meta property="og:url" content="http://heli06.github.io/category/数据结构-图/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="数据结构的上机真是太没人性了，最近一周关于图的题更是恼人。代码量600+还在其次，主要是算法这东西真的很费脑子啊。拼了老命终于在周末两天写出来这玩意儿。写完这玩意儿我就生病了。直接把代码贴上来吧，注释应该够详细了。代码里包含图的邻接表写法、DFS、BFS、Prim算法、克鲁斯卡尔算法、迪杰斯特拉算法、弗洛伊德算法、寻找回路算法。">
+<meta property="og:updated_time" content="2016-12-23T14:53:47.445Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构-图">
+<meta name="twitter:description" content="数据结构的上机真是太没人性了，最近一周关于图的题更是恼人。代码量600+还在其次，主要是算法这东西真的很费脑子啊。拼了老命终于在周末两天写出来这玩意儿。写完这玩意儿我就生病了。直接把代码贴上来吧，注释应该够详细了。代码里包含图的邻接表写法、DFS、BFS、Prim算法、克鲁斯卡尔算法、迪杰斯特拉算法、弗洛伊德算法、寻找回路算法。">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-数据结构-图" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/数据结构-图/" class="article-date">
+  	<time datetime="2016-12-23T14:44:45.000Z" itemprop="datePublished">2016-12-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据结构-图
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>数据结构的上机真是太没人性了，最近一周关于图的题更是恼人。代码量600+还在其次，主要是算法这东西真的很费脑子啊。<br>拼了老命终于在周末两天写出来这玩意儿。写完这玩意儿我就生病了。<br>直接把代码贴上来吧，注释应该够详细了。<br>代码里包含图的邻接表写法、DFS、BFS、Prim算法、克鲁斯卡尔算法、迪杰斯特拉算法、弗洛伊德算法、寻找回路算法。<br><a id="more"></a></p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#define VISITED 1
+#define UNVISITED 0
+#define AFFINITY 10000
+#define INFINITY 10000
+
+using namespace std;
+
+class UFSets{
+private:
+    int n;          //等价类中元素个数
+    int * root;     //root[i]表示元素i所在的等价类的代表元素编号
+    int * next;     //next[i]表示在等价类中，i的后面元素编号
+    int * length;   //length[i]表示i所代表的等价类的元素个数
+public:
+    UFSets(int size){       //初始size个元素的等价类
+        n = size;
+        root = new int[n];
+        next = new int[n];
+        length = new int[n];
+        for(int i = 0; i &lt; n; i++){
+            root[i] = next[i] = i;
+            length[i] = 1;
+        }
+    }
+    int Find(int v){
+        return root[v];
+    }
+    void Union(int v, int u){   //合并v和u所在的等价类，将元素多的合并到元素少的等价类中
+        int rt;
+        if(root[u] == root[v])
+            return;
+        else if(length[root[v]] &lt; length[root[u]]){  //将v并到u内，让u成为代表
+            rt = root[v];
+            length[root[u]] += length[rt];
+            root[rt] = root[u];
+            for(int j = next[rt]; j != rt; j = next[j]){
+                root[j] = root[u];
+            }
+            swap(next[rt], next[root[u]]);
+        }else{
+            rt = root[u];
+            length[root[v]] += length[rt];
+            root[rt] = root[v];
+            for(int j = next[rt]; j != rt; j = next[j]){
+                root[j] = root[u];
+            }
+            swap(next[rt], next[root[v]]);
+        }
+    }
+};
+
+template&lt;class EdgeType&gt;
+class Edge{
+public:
+    int start,end;
+    EdgeType weight;
+
+    Edge(){
+
+    }
+    Edge(int st, int en, EdgeType wei){
+        start = st;
+        end = en;
+        weight = wei;
+    }
+};
+
+template&lt;class EdgeType&gt;
+class Graph{
+public:
+    int vertexNum;
+    int edgeNum;
+    int *Mark;
+
+    Graph(int verticesNum){
+        vertexNum = verticesNum;
+        edgeNum = 0;
+        Mark = new int[vertexNum];
+        for(int i = 0; i &lt; vertexNum; i++){
+            Mark[i] = UNVISITED;
+        }
+    }
+    ~Graph(){
+        delete [] Mark;
+    }
+    int StartVertex(Edge&lt;EdgeType&gt; oneEdge){
+        return oneEdge.start;
+    }
+    int EndVertex(Edge&lt;EdgeType&gt; oneEdge){
+        return oneEdge.end;
+    }
+    bool IsEdge(Edge&lt;EdgeType&gt; oneEdge){
+        if(oneEdge.end &gt; -1)
+            return true;
+        else
+            return false;
+    }
+    virtual Edge&lt;EdgeType&gt; FirstEdge(int oneVertex) = 0;
+    virtual Edge&lt;EdgeType&gt; NextEdge(Edge&lt;EdgeType&gt; oneEdge) = 0;
+    virtual void setEdge(int start, int end, int weight) = 0;
+    //virtual void delEdge(int start, int end) = 0;
+};
+
+template&lt;class EdgeType&gt;
+class listData{
+public:
+    int vertex;
+    EdgeType weight;
+};
+
+template&lt;class Elem&gt;
+class ListNode{
+public:
+    Elem element;
+    ListNode&lt;Elem&gt; *next;
+
+ListNode(const Elem&amp; elemval, ListNode&lt;Elem&gt; *nextVal = NULL){
+    element = elemval;
+    next = nextVal;
+}
+ListNode(ListNode&lt;Elem&gt; *nextVal = NULL){
+    next = nextVal;
+}
+};
+
+template&lt;class Elem&gt;
+class EdgeList{
+public:
+    char data;
+    ListNode&lt;Elem&gt;* head;
+
+EdgeList(){
+    head = new ListNode&lt;Elem&gt;;
+}
+void removeAll(){
+    ListNode&lt;Elem&gt; *tmp;
+    while(head != NULL){
+        tmp = head;
+        head = head-&gt;next;
+        delete tmp;
+    }
+}
+~EdgeList(){
+    removeAll();
+}
+};
+
+
+template&lt;class EdgeType&gt;
+class ListGraph:public Graph&lt;EdgeType&gt;{
+public:
+    EdgeList&lt;listData&lt;EdgeType&gt; &gt; *graList;
+
+ListGraph(int verticesNum):Graph&lt;EdgeType&gt;(verticesNum){
+    graList = new EdgeList&lt;listData&lt;EdgeType&gt; &gt;[verticesNum];
+    for(int i = 0; i &lt; verticesNum; i++){
+        int start, end, weight;
+        ListNode&lt;listData&lt;EdgeType&gt; &gt;* temp = graList[i].head;
+
+        cout&lt;&lt;&quot;请输入该顶点的数据：&quot;&lt;&lt;endl;
+        cin&gt;&gt;graList[i].data;
+        cout&lt;&lt;&quot;请输入边的数据，包含end, weight。当end输入-1时结束：&quot;&lt;&lt;endl;
+        cin&gt;&gt;end&gt;&gt;weight;
+        if(end &lt; 0){
+            graList[i].head-&gt;next = NULL;
+        }
+        while(end &gt; -1){
+            setEdge(i, end, weight);
+            cin&gt;&gt;end&gt;&gt;weight;
+        }
+    }
+}
+~ListGraph(){
+    delete [] graList;
+}
+Edge&lt;EdgeType&gt; FirstEdge(int oneVertex){
+    Edge&lt;EdgeType&gt; tmpEdge;
+    tmpEdge.start = oneVertex;
+    ListNode&lt;listData&lt;EdgeType&gt; &gt; *temp = graList[oneVertex].head;
+    if(temp-&gt;next != NULL){
+        tmpEdge.end = temp-&gt;next-&gt;element.vertex;
+        tmpEdge.weight = temp-&gt;next-&gt;element.weight;
+    }else{
+        tmpEdge.end = -1;
+        tmpEdge.weight = -1;
+    }
+    return tmpEdge;
+}
+Edge&lt;EdgeType&gt; NextEdge(Edge&lt;EdgeType&gt; oneEdge){
+    Edge&lt;EdgeType&gt; tmpEdge;
+    tmpEdge.start = oneEdge.start;
+    ListNode&lt;listData&lt;EdgeType&gt; &gt; *temp = graList[oneEdge.start].head;
+    while(temp-&gt;next!= NULL &amp;&amp; temp-&gt;next-&gt;element.vertex &lt;= oneEdge.end){
+        temp = temp-&gt;next;
+    }
+    if(temp-&gt;next != NULL){
+        tmpEdge.end = temp-&gt;next-&gt;element.vertex;
+        tmpEdge.weight = temp-&gt;next-&gt;element.weight;
+    }else{
+        tmpEdge.end = -1;
+        tmpEdge.weight = -1;
+    }
+    return tmpEdge;
+}
+void setEdge(int start, int end, EdgeType weight){
+    ListNode&lt;listData&lt;EdgeType&gt; &gt; *temp = graList[start].head;
+    while(temp-&gt;next != NULL &amp;&amp; temp-&gt;next-&gt;element.vertex &lt; end){
+        temp = temp-&gt;next;
+    }
+    if(temp-&gt;next == NULL){
+        temp-&gt;next = new ListNode&lt;listData&lt;EdgeType&gt; &gt;;
+        temp-&gt;next-&gt;element.vertex = end;
+        temp-&gt;next-&gt;element.weight = weight;
+        temp-&gt;next-&gt;next = NULL;
+        this-&gt;edgeNum++;
+        return;
+    }
+    if(temp-&gt;next-&gt;element.vertex == end){
+        temp-&gt;next-&gt;element.weight = weight;
+        return;
+    }
+    if(temp-&gt;next-&gt;element.vertex &gt; end){
+        ListNode&lt;listData&lt;EdgeType&gt; &gt; *other = temp-&gt;next;
+        temp-&gt;next = new ListNode&lt;listData&lt;EdgeType&gt; &gt;;
+        temp-&gt;next-&gt;element.vertex = end;
+        temp-&gt;next-&gt;element.weight = weight;
+        temp-&gt;next-&gt;next = other;
+        this-&gt;edgeNum++;
+    }
+}
+/*void delEdge(int start, int end){
+    ListNode&lt;listData&lt;EdgeType&gt; &gt; *temp = graList[start].end;
+    while(temp-&gt;next != NULL &amp;&amp; temp-&gt;next-&gt;element.vertex &lt; end){
+        temp = temp-&gt;next;
+    }
+    if(temp-&gt;next == NULL){
+        return;
+    }
+    if(temp-&gt;next-&gt;element.vertex == end){
+        ListNode&lt;listData&lt;EdgeType&gt; &gt; *other = temp-&gt;next-&gt;next;
+        delete temp-&gt;next;
+        temp-&gt;next = other;
+        this-&gt;edgeNum--;
+    }
+}*/
+void print(){
+    for(int i = 0; i &lt; this-&gt;vertexNum; i++){
+        cout&lt;&lt;i&lt;&lt;graList[i].data&lt;&lt;endl;
+        ListNode&lt;listData&lt;EdgeType&gt; &gt;* temp = graList[i].head;
+        while(temp-&gt;next != NULL){
+            cout&lt;&lt;temp-&gt;next-&gt;element.vertex&lt;&lt;&apos; &apos;&lt;&lt;temp-&gt;next-&gt;element.weight&lt;&lt;endl;
+            temp = temp-&gt;next;
+        }
+    }
+}
+void visit(int ver){
+    cout&lt;&lt;graList[ver].data&lt;&lt;&apos; &apos;;
+}
+void DFS(int ver){
+    this-&gt;Mark[ver] = VISITED;
+    //cout&lt;&lt;graList[ver].data&lt;&lt;endl;
+    visit(ver);
+    for(Edge&lt;EdgeType&gt; e = FirstEdge(ver); this-&gt;IsEdge(e); e = NextEdge(e)){
+        //cout&lt;&lt;e.start&lt;&lt;&apos; &apos;&lt;&lt;e.end&lt;&lt;&apos; &apos;&lt;&lt;e.weight&lt;&lt;endl;
+        if(this-&gt;Mark[this-&gt;EndVertex(e)] == UNVISITED){
+            DFS(this-&gt;EndVertex(e));
+        }
+    }
+}
+void BFS(int ver){
+    queue&lt;int&gt; aQueue;
+    int tmp;
+    this-&gt;Mark[ver] = VISITED;
+    visit(ver);
+    aQueue.push(ver);
+    while(!aQueue.empty()){
+        ver = aQueue.front();
+        aQueue.pop();
+        for(Edge&lt;EdgeType&gt; e = FirstEdge(ver); this-&gt;IsEdge(e); e = NextEdge(e)){
+            tmp = this-&gt;EndVertex(e);
+            if(this-&gt;Mark[this-&gt;EndVertex(e)] == UNVISITED){
+                visit(tmp);
+                this-&gt;Mark[this-&gt;EndVertex(e)] = VISITED;
+                aQueue.push(tmp);
+            }
+        }
+    }
+    for(int i = 0; i &lt; this-&gt;vertexNum; i++){
+        this-&gt;Mark[i] = UNVISITED;
+    }
+}
+Edge&lt;EdgeType&gt; * Prim(Graph&lt;EdgeType&gt;&amp; G, int s){   //应用Prim算法从s顶点出发得到的最小生成树
+    int i,j;
+    Edge&lt;EdgeType&gt; *MST;    //存储最小生成树的边
+    //各个顶点到生成树中的各个顶点的最短的边
+    EdgeType *nearest;      //nearest[i]表示生成树中点到i点的最小边权值
+    int *neighbor;          //neighbor[i]表示生成树中与i点最近的点编号，-1表示i点已经在生成树集合中
+    int n = G.vertexNum;    //图的顶点个数
+    nearest = new EdgeType[n];
+    neighbor = new int[n];
+    MST = new Edge&lt;EdgeType&gt;[n-1];
+    for(int i = 0; i &lt; n; i++){ //初始化neighbor数组和nearest数组
+        neighbor[i] = s;
+        nearest[i] = AFFINITY;
+    }
+
+    for(Edge&lt;EdgeType&gt; e = G.FirstEdge(s); G.IsEdge(e);e = G.NextEdge(e)){  //与s相邻接的顶点的边权值作为这些点距离生成树集合的最短边长
+        nearest[e.end] = e.weight;
+    }
+    neighbor[s] = -1;
+    for(i = 1; i &lt; n; i++){     //i标记已经加入到生成树中的点的个数
+        EdgeType min = AFFINITY;
+        int v = -1;
+        for(j = 0; j &lt; n; j++){     //确定一个顶点在生成树集合，另一个点不在生成树集合，且权值最小的边所关联的顶点
+            if(nearest[j] &lt; min &amp;&amp; neighbor[j] &gt; -1){
+                min = nearest[j];
+                v = j;
+            }
+            //cout&lt;&lt;i&lt;&lt;&quot;: &quot;&lt;&lt;nearest[j]&lt;&lt;endl;
+        }//for(j)
+        //cout&lt;&lt;&quot;v: &quot;&lt;&lt;v&lt;&lt;endl;
+        if(v &gt;= 0){     //将v加入到生成树结合中，更新到生成树外的各个点最小权值的边信息
+            Edge&lt;EdgeType&gt; tempEdge(neighbor[v], v, nearest[v]);
+            neighbor[v] = -1;
+            MST[i] = tempEdge;  //将边加入到生成树集合中
+            for(Edge&lt;EdgeType&gt; e = G.FirstEdge(v); G.IsEdge(e); e = G.NextEdge(e)){
+                int u = e.end;
+                if(neighbor[u] != -1 &amp;&amp; nearest[u] &gt; e.weight &amp;&amp; e.weight &gt; -1){     //用与v关联的边更新生成树之外顶点到生成树集合的最小边权值的边
+                    neighbor[u] = v;
+                    nearest[u] = e.weight;
+                }
+            }//for(e)
+        }//if(v &gt;= 0)
+    }//for(i)
+    delete []neighbor;
+    delete []nearest;
+    return MST;
+}
+Edge&lt;EdgeType&gt; * Kruskal(Graph&lt;EdgeType&gt; &amp; G){      //求含有n个顶点、e条边的连通图G的最小生成树
+    //cout&lt;&lt;&quot;test0&quot;&lt;&lt;endl;
+    int n = G.vertexNum;
+    //cout&lt;&lt;&quot;ddd&quot;&lt;&lt;endl;
+    UFSets set(n);
+    //cout&lt;&lt;&quot;aaa&quot;&lt;&lt;endl;
+    Edge&lt;EdgeType&gt; *MST = new Edge&lt;EdgeType&gt;[n-1];  //记录最小生成树的边
+    Edge&lt;EdgeType&gt; Heap[20];//最小堆
+    //cout&lt;&lt;&quot;bbb&quot;&lt;&lt;endl;
+    int Hcount = 0;
+    Edge&lt;EdgeType&gt; edge;
+    //cout&lt;&lt;&quot;test1&quot;&lt;&lt;endl;
+    for(int i = 0; i &lt; G.vertexNum; i++){   //将图的所有边记录在数组e中
+        for( edge = G.FirstEdge(i); G.IsEdge(edge); edge = G.NextEdge(edge)){
+            //if(G.StartVertex(edge) &lt; G.EndVertex(edge)){    //避免无向图中的边被重复考察
+                Heap[Hcount++] = edge;
+                //cout&lt;&lt;&quot;edge: &quot;&lt;&lt;edge.start&lt;&lt;&apos; &apos;&lt;&lt;edge.end&lt;&lt;&apos; &apos;&lt;&lt;edge.weight&lt;&lt;endl;
+            //}
+        }
+    }
+    //cout&lt;&lt;&quot;test2&quot;&lt;&lt;endl;
+    int edgeNum = 0;
+    Edge&lt;EdgeType&gt; min;
+    int minNum = 0;
+    //cout&lt;&lt;&quot;test3&quot;&lt;&lt;endl;
+    while(edgeNum &lt; n-1){
+        int noEmpty = 0;
+        for(int l = 0; l &lt; Hcount; l++){
+            if(Heap[l].weight &gt; -1){
+                noEmpty++;
+            }
+        }
+        //cout&lt;&lt;noEmpty&lt;&lt;endl;
+        if(noEmpty){
+            for(int i = 0; i &lt; Hcount; i++){
+                if(Heap[i].weight != -1){
+                    min = Heap[i];
+                    break;
+                }
+            }
+            for(int i = 0; i &lt; Hcount; i++){
+                if(Heap[i].weight &lt; min.weight &amp;&amp; Heap[i].weight != -1){
+                    min = Heap[i];
+                    //cout&lt;&lt;&quot;min: &quot;&lt;&lt;min.start&lt;&lt;&apos; &apos;&lt;&lt;min.end&lt;&lt;&apos; &apos;&lt;&lt;min.weight&lt;&lt;endl;
+                    minNum = i;
+                }
+            }
+            edge = min;     //找到权重最小的未处理的边
+            //cout&lt;&lt;&quot;edge1: &quot;&lt;&lt;edge.start&lt;&lt;&apos; &apos;&lt;&lt;edge.end&lt;&lt;&apos; &apos;&lt;&lt;edge.weight&lt;&lt;endl;
+            Heap[minNum].weight = -1;
+            for(int i = 0; i &lt; Hcount; i++){
+                if(Heap[i].weight &lt; min.weight &amp;&amp; Heap[i].weight != -1){
+                    min = Heap[i];
+                    minNum = i;
+                }
+            }
+            int v = edge.start;
+            int u = edge.end;
+            //cout&lt;&lt;&quot;edge2: &quot;&lt;&lt;edge.start&lt;&lt;&apos; &apos;&lt;&lt;edge.end&lt;&lt;&apos; &apos;&lt;&lt;edge.weight&lt;&lt;endl;
+            if(set.Find(v) != set.Find(u)){     //判断该边关联的顶点是否在一个连通分量
+                set.Union(v,u);
+                MST[edgeNum++] = edge;
+                //cout&lt;&lt;&quot;MST: &quot;&lt;&lt;MST[0].start&lt;&lt;&apos; &apos;&lt;&lt;MST[0].end&lt;&lt;&apos; &apos;&lt;&lt;MST[0].weight&lt;&lt;endl;
+            }
+        }else{
+            cout&lt;&lt;&quot;不存在最小生成树&quot;&lt;&lt;endl;
+            return NULL;
+        }
+    }
+    //cout&lt;&lt;&quot;test4&quot;&lt;&lt;endl;
+    return MST;
+}
+void Dijkstra(Graph&lt;EdgeType&gt; &amp;G, int s, EdgeType D[], int Path[]){
+    int n = G.vertexNum;
+    int i, j;
+    //cout&lt;&lt;&quot;test1&quot;&lt;&lt;endl;
+    for(i = 0; i &lt; n; i++){
+        G.Mark[i] = UNVISITED;
+        D[i] = INFINITY;
+        Path[i] = -1; //标记此时不存在从s到i的路径
+    }
+    //cout&lt;&lt;&quot;test2&quot;&lt;&lt;endl;
+    G.Mark[s] = VISITED;
+    D[s] = 0;
+    Path[s] = s;
+    //cout&lt;&lt;&quot;test3&quot;&lt;&lt;endl;
+    for(i = 0; i &lt; n; i++){
+        //找到一条最短特殊路径，即min{D[j]|G.Mark[j]==UNVISITED,0&lt;=j&lt;n}
+        EdgeType min = INFINITY;
+        //cout&lt;&lt;&quot;test4&quot;&lt;&lt;i&lt;&lt;endl;
+        int k = 0;
+        for(j = 1; j &lt; n; j++){
+            if(G.Mark[j] == UNVISITED &amp;&amp; min&gt;D[j]){
+                min = D[j];
+                k = j;
+            }
+        }
+        //cout&lt;&lt;&quot;test5&quot;&lt;&lt;endl;
+        G.Mark[k] = VISITED;    //已确定从s到k的最短路径
+        for(Edge&lt;EdgeType&gt; e = G.FirstEdge(k); G.IsEdge(e); e = G.NextEdge(e)){ //利用k点更新到其余未访问顶点的最短特殊路径
+            int endVertex = e.end;
+            if(G.Mark[endVertex] == UNVISITED &amp;&amp; D[endVertex] &gt; (D[k] + e.weight)){ //更新到endVertex的最短特殊路径
+                D[endVertex] = D[k] + e.weight;
+                Path[endVertex] = k;
+            }
+        }
+        //cout&lt;&lt;&quot;test6&quot;&lt;&lt;endl;
+    }
+}
+void Floyd(Graph&lt;EdgeType&gt;&amp; G,EdgeType Adj[20][20], int Path[20][20]){
+    int i, j, v;        //i,j是计数器，v记录相应顶点
+    int n = G.vertexNum;
+    for(i = 0; i &lt; n; i++){     //初始化D数组和Path数组
+        for(j = 0; j &lt; n; j++){
+            if(i == j){
+                Adj[i][j] = 0;
+                Path[i][j] = i;
+            }else{
+                Adj[i][j] = INFINITY;
+                Path[i][j] = -1;
+            }
+        }//for(j)
+    }//for(i)
+    for(v = 0; v &lt; n; v++){     //检查各条边，将边（v, u）的值作为Adj[v,u]的值，将v作为Path[u]的值
+        for(Edge&lt;EdgeType&gt; e = G.FirstEdge(v); G.IsEdge(e); e = G.NextEdge(e)){
+            Adj[v][e.end] = e.weight;
+        }
+    }
+    //如果两个顶点i,j间的最短路径经过顶点v，
+    //且有Adj[i][j]&gt;(Adj[i][v]+Adj[v][j]，则更新Adj[i][j]，Path[i][j])
+    for(v = 0; v &lt; n; v++)
+        for(i = 0; i &lt; n; i++)
+            for(j = 0; j &lt; n; j++){
+                if( Adj[i][j]&gt;(Adj[i][v]+Adj[v][j]) ){
+                    Adj[i][j] = Adj[i][v] + Adj[v][j];      //更新i,j之间经过的点编号不超过v的最短路径长度
+                    Path[i][j] = v;     //更新i,j之间经过的点编号不超过v的最短路径上j的前去
+                }
+            }
+
+}
+bool DFL(int ver,int arr[],int &amp;counter){
+    this-&gt;Mark[ver] = VISITED;
+    arr[counter++] = ver;
+    for(Edge&lt;EdgeType&gt; e = FirstEdge(ver); this-&gt;IsEdge(e); e = NextEdge(e)){
+        if(this-&gt;Mark[this-&gt;EndVertex(e)] == VISITED){
+            arr[counter++] = ver;
+            return true;
+        }else if(this-&gt;Mark[this-&gt;EndVertex(e)] == UNVISITED){
+            DFL(this-&gt;EndVertex(e), arr, counter);
+        }
+    }
+    counter--;
+    return false;
+}
+
+void isLoop(){
+    for(int i = 0; i &lt; this-&gt;vertexNum; i++){
+        this-&gt;Mark[i] = UNVISITED;
+    }
+    int arr[10],counter = 0;
+    for(int v = 0; v &lt; this-&gt;vertexNum; v++){
+        if(DFL(v, arr, counter)){
+            cout&lt;&lt;endl;
+            for(int i = 0; i &lt; counter; i++){
+                cout&lt;&lt;arr[i]&lt;&lt;&apos; &apos;;
+            }
+            return;
+        }
+        for(int i = 0; i &lt; this-&gt;vertexNum; i++){
+            this-&gt;Mark[i] = UNVISITED;
+        }
+        counter = 0;
+    }
+}
+void deLoop(){
+    for(int i = 0; i &lt; this-&gt;vertexNum; i++){
+        this-&gt;Mark[i] = UNVISITED;
+    }
+    int arr[10],counter = 0;
+    for(int v = 0; v &lt; this-&gt;vertexNum; v++){
+        if(DFL(v, arr, counter)){
+            cout&lt;&lt;endl;
+            for(int i = 0; i &lt; counter; i++){
+                cout&lt;&lt;arr[i]&lt;&lt;&apos; &apos;;
+            }
+            return;
+        }
+        for(int i = 0; i &lt; this-&gt;vertexNum; i++){
+            this-&gt;Mark[i] = UNVISITED;
+        }
+        counter = 0;
+    }
+}
+</code></pre><p>};</p>
+<pre><code>int main(){
+    ListGraph&lt;int&gt; graph(4);
+    //graph.print();
+    //cout&lt;&lt;&quot;----------------&quot;&lt;&lt;endl;
+    cout&lt;&lt;&quot;深度优先搜索：&quot;;
+    graph.DFS(0);
+    for(int i = 0; i &lt; graph.vertexNum; i++){
+            graph.Mark[i] = UNVISITED;
+    }
+    cout&lt;&lt;&quot;\n----------------&quot;&lt;&lt;endl;
+    cout&lt;&lt;&quot;广度优先搜索：&quot;;
+    graph.BFS(0);
+    cout&lt;&lt;&quot;\n----------------&quot;&lt;&lt;endl;
+    Edge&lt;int&gt; * MST = graph.Prim(graph, 3);     //运行正常
+    //cout&lt;&lt;endl&lt;&lt;graph.vertexNum&lt;&lt;endl;
+    cout&lt;&lt;&quot;Prim算法：&quot;&lt;&lt;endl;
+    for(int i = 1; i &lt; graph.vertexNum; i++){
+        cout&lt;&lt;MST[i].start&lt;&lt;&apos; &apos;&lt;&lt;MST[i].end&lt;&lt;&apos; &apos;&lt;&lt;MST[i].weight&lt;&lt;endl;
+    }
+    cout&lt;&lt;&quot;\n----------------&quot;&lt;&lt;endl;
+    cout&lt;&lt;&quot;Kruskal算法：&quot;&lt;&lt;endl;
+    MST = graph.Kruskal(graph);                 //运行正常
+    for(int i = 0; i &lt; graph.vertexNum-1; i++){
+        cout&lt;&lt;MST[i].start&lt;&lt;&apos; &apos;&lt;&lt;MST[i].end&lt;&lt;&apos; &apos;&lt;&lt;MST[i].weight&lt;&lt;endl;
+    }
+    cout&lt;&lt;&quot;\n----------------&quot;&lt;&lt;endl;
+    int D[100];
+    int Path[100];
+    graph.Dijkstra(graph, 0, D, Path);
+    cout&lt;&lt;&quot;从0到各点的最短路径长度：&quot;&lt;&lt;endl;      //运行正常
+    for(int i = 0; i &lt; graph.vertexNum; i++){
+        cout&lt;&lt;i&lt;&lt;&quot;:&quot;&lt;&lt;D[i]&lt;&lt;&apos; &apos;;
+    }
+    cout&lt;&lt;&quot;\n----------------&quot;&lt;&lt;endl;
+    //int(**p)[2]=new (int(*[3])[2]);
+    int adj[20][20];
+    int path[20][20];
+    graph.Floyd(graph, adj, path);
+    cout&lt;&lt;&quot;各顶点对之间最短路径长度：&quot;&lt;&lt;endl;
+    for(int i = 0; i &lt; graph.vertexNum; i++){
+        for(int j = 0; j &lt; graph.vertexNum; j++){
+            if(adj[i][j] != INFINITY)
+                cout&lt;&lt;adj[i][j]&lt;&lt;&apos; &apos;;
+            else{
+                cout&lt;&lt;&apos;#&apos;&lt;&lt;&apos; &apos;;
+            }
+        }
+        cout&lt;&lt;endl;
+    }
+    cout&lt;&lt;&quot;--------------&quot;&lt;&lt;endl;
+    cout&lt;&lt;&quot;若存在回路，输出任一回路的顶点序列：&quot;;
+    graph.isLoop();
+    cout&lt;&lt;&quot;\n--------------&quot;&lt;&lt;endl;
+
+return 0;
+}
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/数据结构-排序算法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          数据结构-排序算法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/表白墙项目中其它一些零碎经验/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">表白墙项目中其它一些零碎经验</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="数据结构-图" data-title="数据结构-图" data-url="http://heli06.github.io/category/数据结构-图/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
