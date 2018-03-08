@@ -156,131 +156,6 @@
 
       <div class="body-wrap">
   
-    <article id="post-“J2EE高级编程”笔记（三）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/“J2EE高级编程”笔记（三）/" class="article-date">
-  	<time datetime="2017-11-14T05:31:26.000Z" itemprop="datePublished">2017-11-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/“J2EE高级编程”笔记（三）/">“J2EE高级编程”笔记（三）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="上节回顾和零碎知识"><a href="#上节回顾和零碎知识" class="headerlink" title="上节回顾和零碎知识"></a>上节回顾和零碎知识</h3><p><code>Servlet</code>和<code>HttpServlet</code>的几个重要函数：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Servlet</span> </span>&#123;</div><div class="line">    init()</div><div class="line">    destroy()</div><div class="line">    getServletConfig()</div><div class="line">    service(ServletRequest req, ServletResponse res)</div><div class="line">    <span class="keyword">throws</span> ServletException, IOException()</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HttpServlet</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest req, HttpServletResonpse res)</span></div><div class="line">        <span class="keyword">throws</span> IOException, ServletException </span>&#123;</div><div class="line">            String method = req.getMethod();</div><div class="line">            <span class="keyword">if</span>(<span class="string">"POST"</span>.equals(method)) &#123;</div><div class="line">                doPost(req, res);</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">"GET"</span>.equals(method)) &#123;</div><div class="line">                doGet(req, res);</div><div class="line">            &#125;</div><div class="line">            ......</div><div class="line">            <span class="comment">//若不指定ContentType，默认为 text/plain，即纯文本</span></div><div class="line">            res.setContentType(<span class="string">"text/html"</span>);</div><div class="line">            ......</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>有关MIME：<a href="https://baike.baidu.com/item/MIME/2900607?fr=aladdin">点击查看</a></p>
-<p><code>get</code>默认缓存，<code>post</code>默认不缓存，但客户端和服务端都可以设置。</p>
-<p>迭代器要好好复习一下。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/“J2EE高级编程”笔记（三）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-“J2EE高级编程”笔记（二）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/“J2EE高级编程”笔记（二）/" class="article-date">
-  	<time datetime="2017-11-09T00:29:31.000Z" itemprop="datePublished">2017-11-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/“J2EE高级编程”笔记（二）/">“J2EE高级编程”笔记（二）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="HttpServlet深入"><a href="#HttpServlet深入" class="headerlink" title="HttpServlet深入"></a>HttpServlet深入</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"><span class="keyword">import</span> javax.servlet.*;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//若有需要，修改这个init</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig sc)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.sc = sc;</div><div class="line">        <span class="comment">//然后在这里调用。尽量不要重写该带参数的init函数</span></div><div class="line">        <span class="keyword">this</span>.init();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest req,</div><div class="line">        HttpServletResponse res)</span> <span class="keyword">throws</span> ServletException,</div><div class="line">            IOException </span>&#123;</div><div class="line">            ……………………</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在<code>webapp</code>下建立子文件夹（如<code>first</code>），<code>first</code>下建立<code>WEB-INF</code>文件夹（在旧标准中是必须的，新标准已改为非必须），<code>WEB-INF</code>下有<code>lib</code>和<code>classes</code>文件夹，以及文件<code>web.xml</code>（此为配置文件）</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/“J2EE高级编程”笔记（二）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-“J2EE高级编程“笔记（一）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -778,6 +653,136 @@ javac -version
       
         <p class="article-more-link">
           <a  href="/category/JAVA学习笔记（十四）/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JAVA学习笔记（十三）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（十三）/" class="article-date">
+  	<time datetime="2017-07-13T02:12:29.000Z" itemprop="datePublished">2017-07-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/JAVA学习笔记（十三）/">JAVA学习笔记（十三）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="session（会话）"><a href="#session（会话）" class="headerlink" title="session（会话）"></a>session（会话）</h2><p>这里有两篇关于<code>session</code>的博文：<a href="http://blog.jobbole.com/108192/">第一篇</a>，<a href="http://www.cnblogs.com/xdp-gacl/p/3855702.html">第二篇</a><br>以下讲的内容基于<code>javax.servlet.http</code>中的<code>HttpSession</code>接口。</p>
+<p>保存<code>session</code>的方法：<code>Cookie</code>，URL重写，<code>form</code>表单中的隐藏域等。这在上面那篇博文中均有不同程度地提到，但<code>Cookie</code>是最常用的手段。</p>
+<p><code>HttpSession</code>有两个<code>getSession</code>函数。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/category/JAVA学习笔记（十三）/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JAVA学习笔记（十二）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（十二）/" class="article-date">
+  	<time datetime="2017-07-12T03:02:52.000Z" itemprop="datePublished">2017-07-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/JAVA学习笔记（十二）/">JAVA学习笔记（十二）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="零碎知识"><a href="#零碎知识" class="headerlink" title="零碎知识"></a>零碎知识</h2><ul>
+<li><code>Set</code>、<code>List</code>、<code>Map</code>的实现值得关注</li>
+<li><code>Java Application</code>，<code>Java Applet</code>（小程序）值得关注</li>
+<li><code>J2EE</code>全都是抽象类或接口，没有实现。它只是一套标准，需要其他人去遵守、实现它。<code>Tomcat</code>、<code>TomcatEE</code>、<code>JBox</code>等部分或完整实现了<code>J2EE</code>。以下课程使用<code>Tomcat</code>进行教学。最好下载Zip包</li>
+<li>“日志处理程序”值得关注</li>
+<li><code>JavaEE</code>的API要仔细阅读</li>
+<li><code>HTTP</code>协议需要仔细学习</li>
+<li>之前所学内容属于<code>JavaSE</code>，接下来的内容属于<code>JavaEE</code></li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/category/JAVA学习笔记（十二）/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

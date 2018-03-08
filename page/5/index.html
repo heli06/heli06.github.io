@@ -156,152 +156,6 @@
 
       <div class="body-wrap">
   
-    <article id="post-JAVA学习笔记（三）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/JAVA学习笔记（三）/" class="article-date">
-  	<time datetime="2017-06-28T03:07:47.000Z" itemprop="datePublished">2017-06-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/JAVA学习笔记（三）/">JAVA学习笔记（三）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="零碎知识"><a href="#零碎知识" class="headerlink" title="零碎知识"></a>零碎知识</h3><ol>
-<li>移位运算向下取整，普通运算向零取整</li>
-<li>如果不想让其它人或程序调用对象，用abstract修饰类,或用privat    e修饰构造函数。详见单例模式的例子。</li>
-<li>元素之间可以byte-&gt;int,但是数组之间不可以，详见数组的例子。</li>
-<li>覆盖函数的访问权限不能低于被覆盖函数的访问权限</li>
-<li>java容易被反编译，找到序列号的类后可以破解或用新写的类代替。可以用混淆程序处理来防止被破解。</li>
-</ol>
-<p>单例模式的例子。这点老师上课时只是顺带一提，想深入了解还是百度吧。</p>
-<pre><code>class A {
-    static int i = 0;
-    static {}
-    private static A a = new A();
-    private A(){}
-    public static A getA() {
-        retuen new A();
-    }
-}
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/JAVA学习笔记（三）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JAVA学习笔记（一）（二）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/JAVA学习笔记（一）（二）/" class="article-date">
-  	<time datetime="2017-06-20T03:59:59.000Z" itemprop="datePublished">2017-06-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/JAVA学习笔记（一）（二）/">JAVA学习笔记（一）（二）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="（一）组合、封装、多态与继承"><a href="#（一）组合、封装、多态与继承" class="headerlink" title="（一）组合、封装、多态与继承"></a>（一）组合、封装、多态与继承</h2><p>先说继承。</p>
-<pre><code>class person{
-string name;
-int age;
-}
-class Student extends Person{
-string student_id;
-}
-</code></pre><p>JAVA的类只支持单继承，但接口支持多继承（以后的课会提到）。<br>以下的内容都与继承联系紧密。</p>
-<h4 id="1-组合与聚合"><a href="#1-组合与聚合" class="headerlink" title="1.组合与聚合"></a>1.组合与聚合</h4><p>“组合”与“聚合”这两个词都用于描述类与类之间的关系。<br>聚合(aggregation)关系: 聚合是整体和个体之间的关系,即has-a的关系，此时整体与部分之间是可分离的，他们可以具有各自的生命周期，部分可以属于多个整体对象，也可以为多个整体对象共享；比如人与他买的汽车、公司与员工的关系等。<br>组合(合成)关系(composition): 他体现的是一种contains-a的关系，这种关系比聚合更强，也称为强聚合；他同样体现整体与部分间的关系，但此时整体与部分是不可分的，整体的生命周期结束也就意味着部分的生命周期结束；比如你和你的大脑。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/JAVA学习笔记（一）（二）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-几个基于Jquey和Bootstrap的实用组件" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -796,6 +650,130 @@ string student_id;
       
         <p class="article-more-link">
           <a  href="/category/前端小技巧：利用cookie完成换肤功能-使用在线字体库/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-小议防XSS跨站脚本攻击" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/小议防XSS跨站脚本攻击/" class="article-date">
+  	<time datetime="2016-12-03T13:03:06.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/小议防XSS跨站脚本攻击/">小议防XSS跨站脚本攻击</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="闲话"><a href="#闲话" class="headerlink" title="闲话"></a>闲话</h3><p>本来我以为“防XSS跨站脚本攻击”离我这个渣渣还有很远的距离，没想到做“表白墙”这个项目时具体接触了。在此感谢EDA实验室的大神学长给予的教导。</p>
+<h3 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h3><p>本来ejs模板引擎自带XSS过滤功能，字符串输出时默认是经过escape转义编码的：</p>
+<pre><code>// 用=号输出,就会被escapge转义编码 
+&lt;%= VARIABLE_NAME %&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/category/小议防XSS跨站脚本攻击/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-表白墙" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/表白墙/" class="article-date">
+  	<time datetime="2016-12-01T12:23:42.000Z" itemprop="datePublished">2016-12-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/表白墙/">表白墙</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一些闲话"><a href="#一些闲话" class="headerlink" title="一些闲话"></a>一些闲话</h3><p>本学期初的科技文化艺术节有“网页设计大赛”和各种创业创新比赛，最初我只打算用先前按《Node.js开发指南》做的微博，带我的小儿子去水一水。然而创业创新比赛的各种文档我根本不会写， 于是拉了个同班懂得产品和运营的妹子进来。妹子给了个好点子：把微博改成表白墙，这样既避免抄袭之嫌，又显得更有新意，能吸引眼球。<br>出于种种原因，最终只参加网页设计大赛。结果还没出来。<br>获奖不是目的，能锻炼技术才是实实在在的。<br>开始说正事。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/category/表白墙/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
