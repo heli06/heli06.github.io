@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>网页动画初探（一） | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="其实这是两个月以前折腾的玩意儿。这阵子忙着找实习没空写博文，现在算是尘埃落定了。
+本文的灵感来自汇智网的相关js动画课程，动画所依赖的页面也是从相关课程里摘出来的。如果侵权请告知。
+我们要写的动画是一个隐藏的菜单，点击屏幕边缘露出的按钮，菜单就会拉出。再次点击则收回。
+页面如下。
+12345678910111213141516171819202122232425262728293031&amp;lt;!D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网页动画初探（一）">
+<meta property="og:url" content="http://heli06.github.io/category/网页动画初探（一）/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="其实这是两个月以前折腾的玩意儿。这阵子忙着找实习没空写博文，现在算是尘埃落定了。
+本文的灵感来自汇智网的相关js动画课程，动画所依赖的页面也是从相关课程里摘出来的。如果侵权请告知。
+我们要写的动画是一个隐藏的菜单，点击屏幕边缘露出的按钮，菜单就会拉出。再次点击则收回。
+页面如下。
+12345678910111213141516171819202122232425262728293031&amp;lt;!D">
+<meta property="og:updated_time" content="2018-04-19T15:35:58.798Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网页动画初探（一）">
+<meta name="twitter:description" content="其实这是两个月以前折腾的玩意儿。这阵子忙着找实习没空写博文，现在算是尘埃落定了。
+本文的灵感来自汇智网的相关js动画课程，动画所依赖的页面也是从相关课程里摘出来的。如果侵权请告知。
+我们要写的动画是一个隐藏的菜单，点击屏幕边缘露出的按钮，菜单就会拉出。再次点击则收回。
+页面如下。
+12345678910111213141516171819202122232425262728293031&amp;lt;!D">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-网页动画初探（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/网页动画初探（一）/" class="article-date">
+  	<time datetime="2018-04-19T14:38:36.000Z" itemprop="datePublished">2018-04-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      网页动画初探（一）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>其实这是两个月以前折腾的玩意儿。这阵子忙着找实习没空写博文，现在算是尘埃落定了。</p>
+<p>本文的灵感来自<a href="http://www.hubwiz.com/" target="_blank" rel="external">汇智网</a>的相关js动画课程，动画所依赖的页面也是从相关课程里摘出来的。如果侵权请告知。</p>
+<p>我们要写的动画是一个隐藏的菜单，点击屏幕边缘露出的按钮，菜单就会拉出。再次点击则收回。</p>
+<p>页面如下。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE HTML&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">        *&#123;</div><div class="line">            margin: 0;</div><div class="line">            padding: 0;</div><div class="line">        &#125;</div><div class="line">        #container&#123;</div><div class="line">            height: 200px;</div><div class="line">            width: 200px;</div><div class="line">            position: relative;</div><div class="line">            left: -200px;</div><div class="line">            background-color: #6effcd;</div><div class="line">        &#125;</div><div class="line">        #btn&#123;</div><div class="line">            height: 60px;</div><div class="line">            width: 30px;</div><div class="line">            position: absolute;</div><div class="line">            left: 200px;</div><div class="line">            top: 75px;</div><div class="line">            background-color: #73eeff;</div><div class="line">        &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"btn"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在很久很久以前，前端是靠<code>setTimeout()</code>或<code>setInterval()</code>来实现动画的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">let</span> container = <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>);</div><div class="line"><span class="keyword">let</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>);</div><div class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(container.offsetLeft === <span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">        moveStart(<span class="number">-200</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">        moveStart(<span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">let</span> timer = <span class="literal">null</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">moveStart</span>(<span class="params">Target</span>)</span></div><div class="line">&#123;</div><div class="line">    clearInterval(timer);</div><div class="line">    timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">let</span> speed=(Target-container.offsetLeft)/<span class="number">5</span>;</div><div class="line">        speed=speed&gt;<span class="number">0</span>?<span class="built_in">Math</span>.ceil(speed):<span class="built_in">Math</span>.floor(speed);</div><div class="line">        <span class="keyword">if</span>(container.offsetLeft === Target) &#123;</div><div class="line">            clearInterval(timer);</div><div class="line">        &#125;<span class="keyword">else</span> &#123;</div><div class="line">            container.style.left =</div><div class="line">                container.offsetLeft + speed + <span class="string">'px'</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;,<span class="number">30</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>后来出现了<code>CSS3</code>动画。它用法简单且功能强大。相同的动画效果可以这样实现：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">keyframes</span> moveOut &#123;</div><div class="line">    <span class="selector-tag">from</span> &#123;<span class="attribute">left</span>: -<span class="number">200px</span>;&#125;</div><div class="line">    <span class="selector-tag">to</span> &#123;<span class="attribute">left</span>: <span class="number">0</span>;&#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> moveBack &#123;</div><div class="line">    <span class="selector-tag">from</span> &#123;<span class="attribute">left</span>: <span class="number">0</span>;&#125;</div><div class="line">    <span class="selector-tag">to</span> &#123;<span class="attribute">left</span>: -<span class="number">200px</span>;&#125;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">    <span class="attribute">animation</span>: moveOut <span class="number">3s</span> ease alternate paused forwards;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在js里要这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>);</div><div class="line"><span class="keyword">let</span> container = <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>);</div><div class="line">btn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(container.offsetLeft === <span class="number">-200</span>) &#123;</div><div class="line">        container.style.animationName = <span class="string">'moveOut'</span>;</div><div class="line">        container.style.animationPlayState = <span class="string">'running'</span>;</div><div class="line">    &#125;<span class="keyword">else</span> &#123;</div><div class="line">        container.style.animationName = <span class="string">'moveBack'</span>;</div><div class="line">        container.style.animationPlayState = <span class="string">'running'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>是不是明了很多？</p>
+<p>除去以上两则，还有一个叫<code>requestAnimationFrame()</code>的东西。它有什么优点呢？可以参看此文：<a href="http://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/" target="_blank" rel="external">requestAnimationFrame()的意义</a>。简单概括一下，它能解决<code>setTimeout()</code>过度绘制的问题，性能上也特别优化过。而且它的用法和<code>setTimeout()</code>极其相似，不像<code>CSS3</code>动画要另起炉灶。这样能解决浏览器兼容性的问题，还能写出<code>CSS3</code>写不出来的动画。</p>
+<p>代码如下。整体结构和<code>setTimeout()</code>的写法差别不大。读者可以试试把前文用<code>setInterval()</code>的写法改写成<code>setTimeout()</code>的写法，再观察一下它们的异同。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> container = <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>);</div><div class="line"><span class="keyword">let</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>);</div><div class="line">    btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(container.offsetLeft === <span class="number">-200</span>)</div><div class="line">        &#123;</div><div class="line">            requestAnimationFrame(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                move(<span class="number">0</span>);</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            requestAnimationFrame(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                move(<span class="number">-200</span>);</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">target</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span>(container.offsetLeft !== target) &#123;</div><div class="line">            speed = (target - container.offsetLeft)/<span class="number">5</span>;</div><div class="line">            speed = speed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(speed) : <span class="built_in">Math</span>.floor(speed);</div><div class="line">            container.style.left = container.offsetLeft + speed + <span class="string">'px'</span>;</div><div class="line">            requestAnimationFrame(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                move(target);</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>除去以上三种，动画还有<code>transition</code>和<code>canvas</code>的写法。本人写文至此夜已深，颇感困倦，还是以后再叙吧。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/category/《数学之美》读书笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          《数学之美》读书笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/category/新手前端的找实习经验总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">新手前端的找实习经验总结</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="网页动画初探（一）" data-title="网页动画初探（一）" data-url="http://heli06.github.io/category/网页动画初探（一）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

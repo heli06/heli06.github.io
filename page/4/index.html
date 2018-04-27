@@ -156,6 +156,340 @@
 
       <div class="body-wrap">
   
+    <article id="post-“Java分布式文件存储系统”的经验总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/“Java分布式文件存储系统”的经验总结/" class="article-date">
+  	<time datetime="2017-07-25T06:49:08.000Z" itemprop="datePublished">2017-07-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/“Java分布式文件存储系统”的经验总结/">“Java分布式文件存储系统”的经验总结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以下每一块内容先贴有关博文的链接，博文里没提到的再用自己的文字叙述。</p>
+<h4 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h4><ul>
+<li><a href="http://www.cnblogs.com/moonpool/p/5488463.html">Java IO流体系中常用的流分类</a></li>
+</ul>
+<p>以及推荐使用<code>try-with-resources</code>语法来保证流在用完以后会关闭。手动<code>close</code>太不靠谱了。 </p>
+<h4 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h4><ul>
+<li><a href="http://www.blogjava.net/sterning/archive/2007/10/13/152508.html">Java基于Socket文件传输示例</a></li>
+<li><a href="http://blog.csdn.net/wintys/article/details/3525643/">Java UDP网络编程 - 最简单示例</a></li>
+<li><a href="http://blog.csdn.net/woshisap/article/details/6846656"> java使用UDP来进行客户端和服务器端通信的简单例子</a></li>
+</ul>
+<p>发送完信息后一定要<code>flush()</code>，不然程序可能卡在那儿不动了。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/category/“Java分布式文件存储系统”的经验总结/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Java分布式文件存储系统" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/Java分布式文件存储系统/" class="article-date">
+  	<time datetime="2017-07-25T00:14:00.000Z" itemprop="datePublished">2017-07-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/Java分布式文件存储系统/">Java分布式文件存储系统</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一些闲话"><a href="#一些闲话" class="headerlink" title="一些闲话"></a>一些闲话</h2><p>我在大二小学期选择了“Java编程与运用”这门课。大作业就是这个Java分布式文件存储系统。这个作业对初学Java一个月的我还是颇有难度的，还好绝大部分功能都实现了。</p>
+<p>授课老师姜国海是一位亲切温和又负责任的老师，下学期他的“J2EE高级编程”我一定要学。</p>
+<hr>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>先贴上项目代码，都传到码云上了。这个存储系统由FileServer、StorageNode、FileClient、Monitor四部分组成，代码也分为四个部分。</p>
+<ul>
+<li><a href="http://git.oschina.net/yuezhuo/FileServer">FileServer</a></li>
+<li><a href="http://git.oschina.net/yuezhuo/StorageNode">StorageNode</a></li>
+<li><a href="http://git.oschina.net/yuezhuo/FileClient">FileClient</a></li>
+<li><a href="http://git.oschina.net/yuezhuo/Monitor">Monitor</a></li>
+</ul>
+<p>接下来是项目介绍，我直接贴老师的第二次大作业要求吧。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/category/Java分布式文件存储系统/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JAVA学习笔记（十四）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（十四）/" class="article-date">
+  	<time datetime="2017-07-14T02:16:49.000Z" itemprop="datePublished">2017-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/JAVA学习笔记（十四）/">JAVA学习笔记（十四）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Web编程（回顾）"><a href="#Web编程（回顾）" class="headerlink" title="Web编程（回顾）"></a>Web编程（回顾）</h2><p>在老师发的代码的servlet路径底下有传输验证码图片和验证登录的示例程序。</p>
+<p><code>Tomcat</code>自带的网页访问8080端口，会有<code>JSP</code>的各种示例与游戏，值得好好研究。</p>
+<p>Guess Number 游戏的示例代码。其实老师发的或是<code>Tomcat</code>的示例程序里都有，这里蛮贴一下。</p>
+<p>这是 Model 部分的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> a;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NumberGuessBean</span> </span>&#123;</div><div class="line">    <span class="keyword">boolean</span> success;</div><div class="line">    <span class="keyword">int</span> answer;</div><div class="line">    <span class="keyword">int</span> count;</div><div class="line">    String hint;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NumberGuessBean</span><span class="params">()</span> </span>&#123;</div><div class="line">        reset();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reset</span><span class="params">()</span> </span>&#123;</div><div class="line">        answer = (<span class="keyword">int</span>)(Math.random() * <span class="number">100</span> + <span class="number">1</span>);</div><div class="line">        count = <span class="number">0</span>;</div><div class="line">        success = <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setGuess</span><span class="params">(String guess)</span> </span>&#123;</div><div class="line">        count++;</div><div class="line">        <span class="keyword">int</span> g = Integer.parseInt(guess);</div><div class="line">        <span class="keyword">if</span>(g &gt; answer) &#123;</div><div class="line">            hint = <span class="string">"lower"</span>;</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(g &lt; anwer) &#123;</div><div class="line">            hint = <span class="string">"higher"</span>;</div><div class="line">        &#125;<span class="keyword">else</span> &#123;</div><div class="line">            success = <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/category/JAVA学习笔记（十四）/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JAVA学习笔记（十三）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（十三）/" class="article-date">
+  	<time datetime="2017-07-13T02:12:29.000Z" itemprop="datePublished">2017-07-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/JAVA学习笔记（十三）/">JAVA学习笔记（十三）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="session（会话）"><a href="#session（会话）" class="headerlink" title="session（会话）"></a>session（会话）</h2><p>这里有两篇关于<code>session</code>的博文：<a href="http://blog.jobbole.com/108192/">第一篇</a>，<a href="http://www.cnblogs.com/xdp-gacl/p/3855702.html">第二篇</a><br>以下讲的内容基于<code>javax.servlet.http</code>中的<code>HttpSession</code>接口。</p>
+<p>保存<code>session</code>的方法：<code>Cookie</code>，URL重写，<code>form</code>表单中的隐藏域等。这在上面那篇博文中均有不同程度地提到，但<code>Cookie</code>是最常用的手段。</p>
+<p><code>HttpSession</code>有两个<code>getSession</code>函数。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/category/JAVA学习笔记（十三）/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JAVA学习笔记（十二）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（十二）/" class="article-date">
+  	<time datetime="2017-07-12T03:02:52.000Z" itemprop="datePublished">2017-07-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/JAVA学习笔记（十二）/">JAVA学习笔记（十二）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="零碎知识"><a href="#零碎知识" class="headerlink" title="零碎知识"></a>零碎知识</h2><ul>
+<li><code>Set</code>、<code>List</code>、<code>Map</code>的实现值得关注</li>
+<li><code>Java Application</code>，<code>Java Applet</code>（小程序）值得关注</li>
+<li><code>J2EE</code>全都是抽象类或接口，没有实现。它只是一套标准，需要其他人去遵守、实现它。<code>Tomcat</code>、<code>TomcatEE</code>、<code>JBox</code>等部分或完整实现了<code>J2EE</code>。以下课程使用<code>Tomcat</code>进行教学。最好下载Zip包</li>
+<li>“日志处理程序”值得关注</li>
+<li><code>JavaEE</code>的API要仔细阅读</li>
+<li><code>HTTP</code>协议需要仔细学习</li>
+<li>之前所学内容属于<code>JavaSE</code>，接下来的内容属于<code>JavaEE</code></li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/category/JAVA学习笔记（十二）/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-JAVA学习笔记（十一）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -458,366 +792,6 @@
       
         <p class="article-more-link">
           <a  href="/category/JAVA学习笔记（七）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JAVA学习笔记（六）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/JAVA学习笔记（六）/" class="article-date">
-  	<time datetime="2017-07-03T04:01:34.000Z" itemprop="datePublished">2017-07-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/JAVA学习笔记（六）/">JAVA学习笔记（六）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="预备和零碎知识"><a href="#预备和零碎知识" class="headerlink" title="预备和零碎知识"></a>预备和零碎知识</h2><ul>
-<li>文件访问方式分为两种：顺序访问方式和随机访问方式。区别从名字就能看出来。</li>
-<li>路径分为相对路径与绝对路径。写程序时相对路径更为常用。</li>
-<li><code>..</code>代表父目录，<code>.</code>代表当前目录。</li>
-</ul>
-<hr>
-<h2 id="java-io包"><a href="#java-io包" class="headerlink" title="java.io包"></a>java.io包</h2><p>之后的小标题都是这个包里的类。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/JAVA学习笔记（六）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JAVA学习笔记（五）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/JAVA学习笔记（五）/" class="article-date">
-  	<time datetime="2017-06-30T04:21:03.000Z" itemprop="datePublished">2017-06-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/JAVA学习笔记（五）/">JAVA学习笔记（五）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h2><p>函数：protected Object clone()</p>
-<pre><code>//这个Student的例子后面还用
-//若没有implement，运行时会抛出异常
-public calss Student implement Cloneable{
-    String id, name;
-    int age;
-    boolean gender;
-
-    public static void main(String[] a) {
-        Student s1 = new Student();
-        s1.id = new String(&quot;001&quot;);
-        s1.name = new String(&quot;zs&quot;);
-        s1.age = 18;
-        s1.gender = true;
-
-        //(Student)不可少, clone是protected
-        //clone实现的是浅复制
-        Student s2 = (Student) s1.clone();
-
-    }
-}
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/JAVA学习笔记（五）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JAVA学习笔记（四）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/JAVA学习笔记（四）/" class="article-date">
-  	<time datetime="2017-06-29T02:47:35.000Z" itemprop="datePublished">2017-06-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/JAVA学习笔记（四）/">JAVA学习笔记（四）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="零碎知识"><a href="#零碎知识" class="headerlink" title="零碎知识"></a>零碎知识</h3><ol>
-<li>Base64的原理、编码解码方式和应用（邮箱、图片转Base64、URL等）。老师说得零散，百度吧，百度百科解释得还不错。</li>
-<li>文件相关函数：seek()等。</li>
-<li>Java有很好的API文档，记得下载</li>
-<li>在JAVA里，return,break等后接顺序执行语句，会报错（unreachable statement，无法到达的语句）</li>
-<li>抛出的异常尽可能精确，提高代码可读性</li>
-<li>覆盖函数的访问权限不能比被覆盖函数的访问权限低</li>
-</ol>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/JAVA学习笔记（四）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JAVA学习笔记（三）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/JAVA学习笔记（三）/" class="article-date">
-  	<time datetime="2017-06-28T03:07:47.000Z" itemprop="datePublished">2017-06-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/JAVA学习笔记（三）/">JAVA学习笔记（三）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="零碎知识"><a href="#零碎知识" class="headerlink" title="零碎知识"></a>零碎知识</h3><ol>
-<li>移位运算向下取整，普通运算向零取整</li>
-<li>如果不想让其它人或程序调用对象，用abstract修饰类,或用privat    e修饰构造函数。详见单例模式的例子。</li>
-<li>元素之间可以byte-&gt;int,但是数组之间不可以，详见数组的例子。</li>
-<li>覆盖函数的访问权限不能低于被覆盖函数的访问权限</li>
-<li>java容易被反编译，找到序列号的类后可以破解或用新写的类代替。可以用混淆程序处理来防止被破解。</li>
-</ol>
-<p>单例模式的例子。这点老师上课时只是顺带一提，想深入了解还是百度吧。</p>
-<pre><code>class A {
-    static int i = 0;
-    static {}
-    private static A a = new A();
-    private A(){}
-    public static A getA() {
-        retuen new A();
-    }
-}
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/JAVA学习笔记（三）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JAVA学习笔记（一）（二）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/JAVA学习笔记（一）（二）/" class="article-date">
-  	<time datetime="2017-06-20T03:59:59.000Z" itemprop="datePublished">2017-06-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/JAVA学习笔记（一）（二）/">JAVA学习笔记（一）（二）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="（一）组合、封装、多态与继承"><a href="#（一）组合、封装、多态与继承" class="headerlink" title="（一）组合、封装、多态与继承"></a>（一）组合、封装、多态与继承</h2><p>先说继承。</p>
-<pre><code>class person{
-string name;
-int age;
-}
-class Student extends Person{
-string student_id;
-}
-</code></pre><p>JAVA的类只支持单继承，但接口支持多继承（以后的课会提到）。<br>以下的内容都与继承联系紧密。</p>
-<h4 id="1-组合与聚合"><a href="#1-组合与聚合" class="headerlink" title="1.组合与聚合"></a>1.组合与聚合</h4><p>“组合”与“聚合”这两个词都用于描述类与类之间的关系。<br>聚合(aggregation)关系: 聚合是整体和个体之间的关系,即has-a的关系，此时整体与部分之间是可分离的，他们可以具有各自的生命周期，部分可以属于多个整体对象，也可以为多个整体对象共享；比如人与他买的汽车、公司与员工的关系等。<br>组合(合成)关系(composition): 他体现的是一种contains-a的关系，这种关系比聚合更强，也称为强聚合；他同样体现整体与部分间的关系，但此时整体与部分是不可分的，整体的生命周期结束也就意味着部分的生命周期结束；比如你和你的大脑。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/JAVA学习笔记（一）（二）/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

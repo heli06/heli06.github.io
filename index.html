@@ -156,6 +156,622 @@
 
       <div class="body-wrap">
   
+    <article id="post-《数学之美》读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/《数学之美》读书笔记/" class="article-date">
+  	<time datetime="2018-04-25T09:23:31.000Z" itemprop="datePublished">2018-04-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/《数学之美》读书笔记/">《数学之美》读书笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如果我早点看到这本书，当年学高数、现代、离散、概率时就会更认真些，也说不定因此去搞人工智能而不是搞前端了。</p>
+<p>以下的总结更侧重概念和定性的了解，我个人不太喜欢数学公式（不多实践也记不住），真用的时候再查吧~</p>
+<p>进入正题~</p>
+<h3 id="第一章-文字和语言-vs-数字和信息"><a href="#第一章-文字和语言-vs-数字和信息" class="headerlink" title="第一章 文字和语言 vs 数字和信息"></a>第一章 文字和语言 vs 数字和信息</h3><p>数字、文字和自然语言一样，都是信息的载体。从最简单的人们之间的交谈来说，说话人就是信息源，TA所要传递的信息被编码成声波（另一种信息），通过空气这一信道传到接受者的耳朵，再经过一系列复杂的生理过程被解码为信息。文字和数字也是最原始的编码。</p>
+<p>想表达更多的信息量，可以增加文字的数量。但因为人类的记忆力有限，一味增加数量不可取。于是概念的第一次概括和归类就开始了，也就有了多义字。这便是“聚类”。要想解决多义字的歧义，可以依赖上下文。</p>
+<p>进位制的出现表明人类已经懂得“编码”，从象形文字到拼音文字的飞跃表明人类懂得了抽象。许多文明的文字，常用字简单，生僻字长，这也符合最短编码原理。</p>
+<p>由于书写用具的简陋和短缺，文言文出现了。它实际上是对信息的压缩。犹太人为了保证《圣经》的传抄没有错误，发明了校验码。</p>
+<p>字母到词的构词法是词的编码规则，语法是语言的编码和解码规则。但前者是有限而封闭的集合，语言是无限而开放的集合，前者可以有完备的编解码规则，而后者不具备这个特性。</p>
+<p>记住“罗塞塔石碑”。</p>
+<h3 id="第二章-自然语言处理-从规则到统计"><a href="#第二章-自然语言处理-从规则到统计" class="headerlink" title="第二章 自然语言处理 从规则到统计"></a>第二章 自然语言处理 从规则到统计</h3><p>早期的自然语言处理陷入了误区————试图概括自然语言文法规则，来使计算机理解人类的语言。很久人们才搞明白，通过规则和统计总结得到的文法规则显然更好用。</p>
+<h3 id="第三章-统计语言模型"><a href="#第三章-统计语言模型" class="headerlink" title="第三章 统计语言模型"></a>第三章 统计语言模型</h3><p>一个句子是否合理，看它的可能性大小如何。一个句子由一串有序词组成，该句子出现的概率等于每一个词出现的概率相乘。</p>
+<p>马尔科夫假设是一种偷懒但有效的假设——任意一个词出现的概率只与它前面的词有关。对应的统计语言模型为二元模型。当然也有三元、四元等高阶语言模型，它们更精确但更耗资源。</p>
+<h3 id="第四章-谈谈分词"><a href="#第四章-谈谈分词" class="headerlink" title="第四章 谈谈分词"></a>第四章 谈谈分词</h3><p>查字典+最长匹配的方法能解决七八成的分词问题，但从概率来判断的统计语言模型更为优越。</p>
+<p>不同的场景下应该选择不同的分词颗粒度。机器翻译选大些的，网页搜索选小些的。可以让一个分词器支持不同层次的词的划分，这需要基本词表和复合词表。</p>
+<h3 id="第五章-隐含马尔科夫模型"><a href="#第五章-隐含马尔科夫模型" class="headerlink" title="第五章 隐含马尔科夫模型"></a>第五章 隐含马尔科夫模型</h3><p>隐含马尔可夫模型是连接自然语言处理和通信的桥梁。</p>
+<h3 id="第六章-信息的度量和作用"><a href="#第六章-信息的度量和作用" class="headerlink" title="第六章 信息的度量和作用"></a>第六章 信息的度量和作用</h3><p>信息量可以用比特来度量。变量的不确定越大，熵也就越大，为了搞清问题所需的信息量也越大。</p>
+<p>汉语在所有语言中冗余度是相对小的，通俗地说它比较简洁。</p>
+<p>互信息用于度量两个随机事件“相关性”。</p>
+<h3 id="第七章-贾里尼克和现代语言处理"><a href="#第七章-贾里尼克和现代语言处理" class="headerlink" title="第七章 贾里尼克和现代语言处理"></a>第七章 贾里尼克和现代语言处理</h3><p>向伟大的科学家致敬！</p>
+<h3 id="第八章-简单之美——布尔代数和搜索引擎"><a href="#第八章-简单之美——布尔代数和搜索引擎" class="headerlink" title="第八章 简单之美——布尔代数和搜索引擎"></a>第八章 简单之美——布尔代数和搜索引擎</h3><p>搜索引擎做的事：下载、索引、排序。下载和索引由爬虫来做，排序由网页排名技术和关键词权重来做。</p>
+<p>索引是一张表，表的每一行对应一个关键词，后面跟着一组包含该关键词的文献序号。</p>
+<p>庞大的索引可以分为多份，还可以建立常用和非常用索引。</p>
+<h3 id="第九章-图论和网络爬虫"><a href="#第九章-图论和网络爬虫" class="headerlink" title="第九章 图论和网络爬虫"></a>第九章 图论和网络爬虫</h3><p>网络就是一个图。遍历图的算法有深度优先搜索（DFS）和广度优先搜索（BFS）。人们使用“散列表”来记录网页是否下载过。</p>
+<p>搜索引擎主要使用BFS（先爬每个网站的主页），但也结合使用DFS来减少DNS查询。目前脚本语言生成的网页比较难爬取信息。</p>
+<h3 id="第十章-Google的民主表决式网页排名技术"><a href="#第十章-Google的民主表决式网页排名技术" class="headerlink" title="第十章 Google的民主表决式网页排名技术"></a>第十章 Google的民主表决式网页排名技术</h3><p>Google之前的网页排名是通过使用目录分类或分析锚文本的方式实现的。Google的技术其实是这样的公式——某网页的排名等于指向它的其它网页的权重之和。具体的数学实现是二维矩阵相乘再迭代。</p>
+<h3 id="第十一章-如何确定网页和查询的相关性"><a href="#第十一章-如何确定网页和查询的相关性" class="headerlink" title="第十一章 如何确定网页和查询的相关性"></a>第十一章 如何确定网页和查询的相关性</h3><p>网页和用户搜索的相关性等于单文本词频乘词语权重再求和（TF-IDF）。停止词的权重为零。</p>
+<h3 id="第十二章-有限状态机和动态规划-地图与本地搜索的核心技术"><a href="#第十二章-有限状态机和动态规划-地图与本地搜索的核心技术" class="headerlink" title="第十二章 有限状态机和动态规划 地图与本地搜索的核心技术"></a>第十二章 有限状态机和动态规划 地图与本地搜索的核心技术</h3><p>识别地址可以通过基于概率的有限状态机来实现。导航通过动态规划实现。</p>
+<h3 id="第十三章-Google-AK-47的设计者-阿米特·辛格博士"><a href="#第十三章-Google-AK-47的设计者-阿米特·辛格博士" class="headerlink" title="第十三章 Google AK-47的设计者 阿米特·辛格博士"></a>第十三章 Google AK-47的设计者 阿米特·辛格博士</h3><p>再次向伟大的科学家致敬！</p>
+<h3 id="第十四章-余弦定理和新闻的分类"><a href="#第十四章-余弦定理和新闻的分类" class="headerlink" title="第十四章 余弦定理和新闻的分类"></a>第十四章 余弦定理和新闻的分类</h3><p>一篇新闻里出现的实词的TF-IDF按词汇表顺序排列，得到一个向量。两篇新闻是否相近，可以求两向量的夹角。对于大量新闻的分类，可以通过自底向上不断合并的方法。</p>
+<p>大数据计算时，存储向量的长度、只考虑向量的非零元素、删除虚词、位置加权都是降低算法复杂度、提高分类准确度的好办法。</p>
+<h3 id="第十五章-矩阵运算和文本处理中的两个分类问题"><a href="#第十五章-矩阵运算和文本处理中的两个分类问题" class="headerlink" title="第十五章 矩阵运算和文本处理中的两个分类问题"></a>第十五章 矩阵运算和文本处理中的两个分类问题</h3><p>分类还可以通过奇异值分解的方法实现。一个大矩阵可以分为三个小矩阵，存储量和计算量减少三个数量级。但这种分类方法略显粗糙。</p>
+<h3 id="第十六章-信息指纹及其应用"><a href="#第十六章-信息指纹及其应用" class="headerlink" title="第十六章 信息指纹及其应用"></a>第十六章 信息指纹及其应用</h3><p>信息指纹，可以简单理解为将一段信息（文字、图片等）随机地映射成一个二进制数字。它能减少散列表的内存需求量，也具有不可逆性。</p>
+<p>信息指纹也用于判断集合是否相同（反盗版、反垃圾邮件等）。</p>
+<h3 id="第十七章-由电视剧《暗算》想到的-谈谈密码学的数学原理"><a href="#第十七章-由电视剧《暗算》想到的-谈谈密码学的数学原理" class="headerlink" title="第十七章 由电视剧《暗算》想到的 谈谈密码学的数学原理"></a>第十七章 由电视剧《暗算》想到的 谈谈密码学的数学原理</h3><p>好的密码，它的加密函数应该很难推算。目前大部分算法都是找几个大素数做一些乘除和乘方运算。</p>
+<p>密码学的最高境界是，无论敌方获取多少密文，也无法消除己方情报系统的不确定性。说到底还是信息论。</p>
+<h3 id="第十八章-闪光的不一定是金子-谈谈搜索引擎反作弊问题和搜索结果的权威性问题"><a href="#第十八章-闪光的不一定是金子-谈谈搜索引擎反作弊问题和搜索结果的权威性问题" class="headerlink" title="第十八章 闪光的不一定是金子 谈谈搜索引擎反作弊问题和搜索结果的权威性问题"></a>第十八章 闪光的不一定是金子 谈谈搜索引擎反作弊问题和搜索结果的权威性问题</h3><p>反作弊的本质是消除通信中的噪声干扰。基本思路有两条：从信息源出发，加强编码的抗干扰能力；从传输来看，过滤掉噪音，还原信息。</p>
+<p>作弊者的卖链接的网站有大量的出链，这和正常网站不同。可以用余弦定理计算这些网站之间的余弦距离。另外作弊网站之间经常互相链接，形成节点之间都两两连接的图。可以使用图论的方法搜寻这些图。</p>
+<p>计算权威度要经过五个步骤。一，对网页里的句子进行句法分析，找出主题短语和对信息源的描述。二，利用互信息，找到主题短语和信息源的相关性。三，对近义的主题短语聚类。四，对一个网站中的网页聚类，因为权威网站下的子域未必权威。到这步可得到一个权威性的关联矩阵。五，使用民主表决技术得出最终结果。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-网页动画初探（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/网页动画初探（一）/" class="article-date">
+  	<time datetime="2018-04-19T14:38:36.000Z" itemprop="datePublished">2018-04-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/网页动画初探（一）/">网页动画初探（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>其实这是两个月以前折腾的玩意儿。这阵子忙着找实习没空写博文，现在算是尘埃落定了。</p>
+<p>本文的灵感来自<a href="http://www.hubwiz.com/" target="_blank" rel="external">汇智网</a>的相关js动画课程，动画所依赖的页面也是从相关课程里摘出来的。如果侵权请告知。</p>
+<p>我们要写的动画是一个隐藏的菜单，点击屏幕边缘露出的按钮，菜单就会拉出。再次点击则收回。</p>
+<p>页面如下。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE HTML&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">        *&#123;</div><div class="line">            margin: 0;</div><div class="line">            padding: 0;</div><div class="line">        &#125;</div><div class="line">        #container&#123;</div><div class="line">            height: 200px;</div><div class="line">            width: 200px;</div><div class="line">            position: relative;</div><div class="line">            left: -200px;</div><div class="line">            background-color: #6effcd;</div><div class="line">        &#125;</div><div class="line">        #btn&#123;</div><div class="line">            height: 60px;</div><div class="line">            width: 30px;</div><div class="line">            position: absolute;</div><div class="line">            left: 200px;</div><div class="line">            top: 75px;</div><div class="line">            background-color: #73eeff;</div><div class="line">        &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"btn"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在很久很久以前，前端是靠<code>setTimeout()</code>或<code>setInterval()</code>来实现动画的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">let</span> container = <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>);</div><div class="line"><span class="keyword">let</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>);</div><div class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(container.offsetLeft === <span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">        moveStart(<span class="number">-200</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">        moveStart(<span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">let</span> timer = <span class="literal">null</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">moveStart</span>(<span class="params">Target</span>)</span></div><div class="line">&#123;</div><div class="line">    clearInterval(timer);</div><div class="line">    timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">let</span> speed=(Target-container.offsetLeft)/<span class="number">5</span>;</div><div class="line">        speed=speed&gt;<span class="number">0</span>?<span class="built_in">Math</span>.ceil(speed):<span class="built_in">Math</span>.floor(speed);</div><div class="line">        <span class="keyword">if</span>(container.offsetLeft === Target) &#123;</div><div class="line">            clearInterval(timer);</div><div class="line">        &#125;<span class="keyword">else</span> &#123;</div><div class="line">            container.style.left =</div><div class="line">                container.offsetLeft + speed + <span class="string">'px'</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;,<span class="number">30</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>后来出现了<code>CSS3</code>动画。它用法简单且功能强大。相同的动画效果可以这样实现：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">keyframes</span> moveOut &#123;</div><div class="line">    <span class="selector-tag">from</span> &#123;<span class="attribute">left</span>: -<span class="number">200px</span>;&#125;</div><div class="line">    <span class="selector-tag">to</span> &#123;<span class="attribute">left</span>: <span class="number">0</span>;&#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> moveBack &#123;</div><div class="line">    <span class="selector-tag">from</span> &#123;<span class="attribute">left</span>: <span class="number">0</span>;&#125;</div><div class="line">    <span class="selector-tag">to</span> &#123;<span class="attribute">left</span>: -<span class="number">200px</span>;&#125;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">    <span class="attribute">animation</span>: moveOut <span class="number">3s</span> ease alternate paused forwards;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在js里要这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>);</div><div class="line"><span class="keyword">let</span> container = <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>);</div><div class="line">btn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(container.offsetLeft === <span class="number">-200</span>) &#123;</div><div class="line">        container.style.animationName = <span class="string">'moveOut'</span>;</div><div class="line">        container.style.animationPlayState = <span class="string">'running'</span>;</div><div class="line">    &#125;<span class="keyword">else</span> &#123;</div><div class="line">        container.style.animationName = <span class="string">'moveBack'</span>;</div><div class="line">        container.style.animationPlayState = <span class="string">'running'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>是不是明了很多？</p>
+<p>除去以上两则，还有一个叫<code>requestAnimationFrame()</code>的东西。它有什么优点呢？可以参看此文：<a href="http://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/" target="_blank" rel="external">requestAnimationFrame()的意义</a>。简单概括一下，它能解决<code>setTimeout()</code>过度绘制的问题，性能上也特别优化过。而且它的用法和<code>setTimeout()</code>极其相似，不像<code>CSS3</code>动画要另起炉灶。这样能解决浏览器兼容性的问题，还能写出<code>CSS3</code>写不出来的动画。</p>
+<p>代码如下。整体结构和<code>setTimeout()</code>的写法差别不大。读者可以试试把前文用<code>setInterval()</code>的写法改写成<code>setTimeout()</code>的写法，再观察一下它们的异同。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> container = <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>);</div><div class="line"><span class="keyword">let</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>);</div><div class="line">    btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(container.offsetLeft === <span class="number">-200</span>)</div><div class="line">        &#123;</div><div class="line">            requestAnimationFrame(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                move(<span class="number">0</span>);</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            requestAnimationFrame(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                move(<span class="number">-200</span>);</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">target</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span>(container.offsetLeft !== target) &#123;</div><div class="line">            speed = (target - container.offsetLeft)/<span class="number">5</span>;</div><div class="line">            speed = speed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(speed) : <span class="built_in">Math</span>.floor(speed);</div><div class="line">            container.style.left = container.offsetLeft + speed + <span class="string">'px'</span>;</div><div class="line">            requestAnimationFrame(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                move(target);</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>除去以上三种，动画还有<code>transition</code>和<code>canvas</code>的写法。本人写文至此夜已深，颇感困倦，还是以后再叙吧。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-新手前端的找实习经验总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/新手前端的找实习经验总结/" class="article-date">
+  	<time datetime="2018-04-19T05:45:07.000Z" itemprop="datePublished">2018-04-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/新手前端的找实习经验总结/">新手前端的找实习经验总结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>4月19日，本人拿到了网易的口头offer。已经决定去网易-杭研院实习。精神紧绷了一个半月，现在可以好好放松了~</p>
+<p>接下来与大家分享一下本人找实习的经验。虽说是找实习，相关经验在秋招时也应该是适用的。</p>
+<p>以下经验主要偏向技术岗，且更多地侧重于前端。</p>
+<hr>
+<h2 id="简历"><a href="#简历" class="headerlink" title="简历"></a>简历</h2><p>分享两个简历模板：</p>
+<ul>
+<li><a href="https://www.wondercv.com/" target="_blank" rel="external">超级简历</a></li>
+<li><a href="https://github.com/geekcompany/ResumeSample" target="_blank" rel="external">程序猿简历通用模板</a>（请自学Markdown语法）</li>
+</ul>
+<p>关于怎么写简历，知乎上有许多宝贵经验，我就强调以下几点：</p>
+<ul>
+<li>实事求是，不怎么了解的东西别往简历上写。</li>
+<li>项目经历、学生工作、兴趣爱好等最好有详实的数据和论据支撑，如“该项目后期经过XX方面的性能优化，效率提升22.7%”、“举办XX活动，参加人数XX人，持续XX天”、“爱好唱歌，校园十佳歌手三等奖”。而且一定要体现你起了哪些作用。</li>
+</ul>
+<hr>
+<h2 id="网申和内推"><a href="#网申和内推" class="headerlink" title="网申和内推"></a>网申和内推</h2><p>简历写好后就进入这个阶段啦。建议大家关注以下几个微信公众号：</p>
+<ul>
+<li>校招导师</li>
+<li>内推军</li>
+<li>互联伴</li>
+</ul>
+<p>和这几个网站：</p>
+<ul>
+<li><a href="https://www.shixiseng.com/" target="_blank" rel="external">实习僧</a></li>
+<li><a href="https://www.nowcoder.com/5779293" target="_blank" rel="external">牛客网</a></li>
+<li><a href="http://ssdut.dlut.edu.cn/bkspy/bksgl/zsjy/sxjy/jyzd.htm" target="_blank" rel="external">软院官网-招生就业</a></li>
+</ul>
+<p>注意，部分公众号和网站提供收费服务，我觉得<strong>毫无必要</strong>。不要在这方面浪费钱，网上免费的资源已经多到眼花缭乱，像我这样善良的主动分享经验的网友也挺多。</p>
+<p>这个阶段我犯了一个大错误。内推找得太早，导致复习得还不够充分就接到了阿里和腾讯的电话，头几次电话面试缺乏经验发挥失常，浪费了这两家公司的内推机会。现在想起来都捶胸顿足……可以考虑在各大公司内推/网申截止日期前几天再投递。</p>
+<p>邮箱最好用163、gmail等邮箱，但京东、美团、腾讯等公司建议使用QQ邮箱。每天都要注意有没有收到新邮件，注意要翻一翻垃圾邮件，可能被误识别。</p>
+<p>除非有很明确的目标，我建议大多数同学还是海投。我自己就投了三十多家，叫得上名字的公司几乎都投了。笔试、面试也是很宝贵的经验，哪怕倒贴钱我也要多尝试，何况投简历、笔试和远程面试根本就不要钱呢？</p>
+<hr>
+<h2 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h2><p>非技术岗的笔试喜欢考智力题，这点类似公务员考试。牛客网上可以刷题，或者买公务员考试的资料也行。至于具体的产品经理、策划等还考些别的什么，我不太了解。</p>
+<p>大多数公司技术岗笔试的套路差不多，选择题+编程题，有时候还会有问答题。选择题的考点，除了根据你选择的岗位有所侧重，更多地还是考察基础知识。C/C++/Java基础、数据结构、操作系统、计算机网络一定要重点复习（用学校的教材即可），如果有多余时间，最好再看看编译原理。牛客网上也可以做对应的专项练习。</p>
+<p>至于编程题……这也是我心中的痛啊……羡慕学ACM的同学，在这方面优势就很大了。LeetCode、<a href="http://www.lintcode.com/problem/" target="_blank" rel="external">LintCode</a>都可以刷刷。书籍推荐《剑指offer》，图书馆有旧版的。LintCode的阶梯训练-书籍里也有《剑指offer》的全套练习题，<a href="https://www.jiuzhang.com/solution/" target="_blank" rel="external">九章算法</a>上也可以搜每道题的题解。刷通了《剑指offer》，除去头条笔试以外的编程题，做出一半还是比较轻松的。</p>
+<p>大多数公司的编程题支持多门语言。你可以挑选自己喜欢的语言，熟悉相关的API，免得到时候要自己实现一些原本就有的函数。但最好还是练一练C/C++，面试的时候面试官不一定会你掌握的语言，但多少懂点C/C++。</p>
+<p>如果是在牛客网笔试，“校招小管家”微信公众号会在笔试前提醒你。吐槽一下赛码网，没有牛客网好用。</p>
+<hr>
+<h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h2><p>面试有电话面试、视频面试、现场面试。电话面试更多地会考察你的知识点、谈谈你过去做过的项目，很少会问你复杂的算法题，即使问了也是让你讲讲思路。视频面试和现场面试就会让你写比较细致的代码了，到时候要仔细考虑边界情况和特别用例。不过我还没见到要求你一定要把代码跑起来的面试官。</p>
+<p>面试会有自我介绍环节，稍微准备一下就好。我的自我介绍通常就半分钟。</p>
+<p>面试的时候一定要放松，语速尽可能平缓。遇到不会的知识点请大方地说你不会（或者像我这样说：“这个知识点我不了解，以下是我的一些猜测……”或者“您能给一些提示吗？”）。硬着头皮回答只是在浪费双方的时间。</p>
+<p>面试通常有好几轮，一般是若干轮技术面加上最后一轮的HR面。阿里的HR面很玄学，其他公司还好。但我至今也想不通为啥链家的HR面把我刷掉了……</p>
+<p>去大公司面试就像追女孩子，如果面完试很久都没回你消息，你也别多问，免得两边都不愉快。如果是小公司可以冒险尝试一下，因为小公司的流程不那么正规，有周旋的余地。</p>
+<p>以下是我有印象的各大公司的<strong>前端</strong>面试题。括号内为答案和吐槽。</p>
+<h3 id="阿里"><a href="#阿里" class="headerlink" title="阿里"></a>阿里</h3><p>阿里内推和网申都开始得比较早，但如前文所说，大家可以不急着投，等准备充分了再去试试运气。</p>
+<p>可以在网站的个人中心里查看自己的面试进度。希望大家不会看到“已回绝”三个字。</p>
+<p>简历面，电话（太紧张+没睡醒的缘故，我在这里挂了）</p>
+<ul>
+<li>简述 Vue 的生存周期（创建，挂载，更新，销毁）</li>
+<li>你用过 Bootstrap 写过库吗？让你用 Bootstrap 设计一个系统，怎么设计？（这问题我现在都不知道怎么答）</li>
+<li>Express 和 Koa 框架的区别、优缺点（<a href="https://www.zhihu.com/question/38879363" target="_blank" rel="external">参见知乎</a>）</li>
+<li>Node.js 的优缺点（擅长I/O密集、不擅长计算密集……）</li>
+</ul>
+<hr>
+<h3 id="腾讯"><a href="#腾讯" class="headerlink" title="腾讯"></a>腾讯</h3><p>腾讯和阿里都喜欢电话突然袭击，这一点很不友好……</p>
+<p>腾讯的面试进度可以在微信公众号里查看。</p>
+<p>一面，电话</p>
+<ul>
+<li>ES6 里 let 和 var 的区别（前者块作用域，后者函数作用域；后者有声明提升，前者没有）</li>
+<li>系统优化方案？简述一下 CDN 加速服务？（<a href="https://www.zhihu.com/question/36514327" target="_blank" rel="external">知乎-CDN服务</a>）</li>
+<li>简述事件委托机制（事件捕获、冒泡，父元素监听）</li>
+<li>HTTP 里的304状态码了解吗？（<a href="http://hpoenixf.com/%E9%9D%A2%E8%AF%95%E5%BF%85%E8%80%83%E4%B9%8Bhttp%E7%8A%B6%E6%80%81%E7%A0%81%E6%9C%89%E5%93%AA%E4%BA%9B.html" target="_blank" rel="external">面试-状态码</a>）</li>
+<li>简述 ES7 里的 async 和 await （<a href="https://github.com/JoeHetfield/You-Dont-Know-JS/blob/master/es6%20&amp;%20beyond/ch8.md" target="_blank" rel="external">你不知道的JS</a>）</li>
+<li>谈谈你印象最深的一个项目（照实说）</li>
+</ul>
+<p>二面，电话（挂了）</p>
+<ul>
+<li>你觉得要怎样成为一名优秀的前端工程师？（快速学习、善于沟通）</li>
+<li>HTTP 、 HTTPS 、 HTTP2 的区别？（<a href="http://www.alloyteam.com/2016/07/httphttp2-0spdyhttps-reading-this-is-enough/" target="_blank" rel="external">关于HTTP你该知道的</a>）</li>
+<li>简述一下用户访问网站的过程（缓存，DNS查询，建立链接，请求，响应，收到页面，解析DOM树，显示内容，首屏加载完成，可交互）</li>
+<li>你有什么要问我的吗？（见后文小结里的HR相关文章）</li>
+</ul>
+<p>笔试后北京一面。体验极差！不能一次面完嘛！复试还是改电话吧……</p>
+<ul>
+<li>问项目（照实说）</li>
+<li>列举数组的用法（建议分类列举，栈、队列、映射、删除等）</li>
+<li>数组去重（直接倒进集合再倒出来）</li>
+<li>跨域（图像ping， JSONP ， CORS ， webSocket 等）</li>
+<li>本地存储（ cookie ， localStorage ， sessionStorage 等）</li>
+<li>HTTP ， TCP ， UDP ， IP （参看计算机网络教材）</li>
+<li>进程通信，有名和匿名管道（<a href="https://blog.csdn.net/zm1_1zm/article/details/52987310" target="_blank" rel="external">有名管道和无名管道</a>）</li>
+<li>你有什么要问我的吗？（见后文小结里的HR相关文章）</li>
+</ul>
+<hr>
+<h3 id="头条"><a href="#头条" class="headerlink" title="头条"></a>头条</h3><p>头条面试问的算法题比起笔试题简单多了。</p>
+<p>面试前会有小姐姐和你约时间。</p>
+<p>一般是在牛客网上视频面试，会让你在在线编译器里写代码。顺利的话一次三面。头条回绝人倒是干脆，面完试十五分钟内就会给你打电话。像我这样被挂起来的倒是挺少见……</p>
+<p>一面，视频</p>
+<ul>
+<li>简述 CSRF （跨站请求伪造）的攻击和防御措施（<a href="https://blog.csdn.net/stpeace/article/details/53512283" target="_blank" rel="external">CSDN博客-CSRF</a>）</li>
+<li>在线写代码，给定一个数组和一个正整数N，求一个和小于N的最长连续子数组（我两层for循环暴力解了，在面试官引导下做出了一定的优化）</li>
+<li>在线写代码， CSS 的单行和多行截断？（ overflow ， text-overflow ）</li>
+<li>Vue 的双向绑定原理（事件监听， getter 和 setter ）</li>
+</ul>
+<p>别的记不清了……当时网不好</p>
+<p>二面，视频（三面还没给我消息，估计凉了）</p>
+<ul>
+<li>在线写代码，给定一个二叉树，求根节点到叶子节点的路径上所有节点值之和（DFS，先序遍历，递归）</li>
+<li>在线写代码，给定两个有序数组，合并为一个有序数组。不许使用 js 的 concat 和 sort 方法（两个指针）</li>
+<li>在线写代码，两栏布局，左边定宽右边自适应，等高（ flex ， grid ， float ， position ，方法很多随便说几个）</li>
+<li>简述自定义事件实现方法（参看红宝书）</li>
+<li>简述 getter 和 setter 写法（参看红宝书）</li>
+<li>TCP 三次握手和四次挥手，拥塞控制（参看计算机网络教材）</li>
+<li>你有什么要问我的吗？（见后文小结里的HR相关文章）</li>
+</ul>
+<hr>
+<h3 id="链家"><a href="#链家" class="headerlink" title="链家"></a>链家</h3><p>我也不知道我为啥挂了……</p>
+<p>当时面试地点在凯伦饭店。环境舒适，面试官也挺温和。</p>
+<p>技术面难度不大，但问得比较细。我印象不深，一二面合起来写吧。</p>
+<p>技术面</p>
+<ul>
+<li>跨域方式（ JSONP ,  webSocket 等，但原理要搞懂）</li>
+<li>Web 本地存储（ Cookie ， localStorage ， sessionStorage 等）</li>
+<li>Cookie 相关的头字段和格式（ Set-Cookie：name1=value1, expires=’…’,expires=’…’ ）</li>
+<li>document.cookie 的格式，写一个封装后的函数（格式同上，函数就是花式处理字符串）</li>
+<li>session 原理（基于 Cookie ，或查询字符串，或 ETag ）</li>
+<li>手写代码，不产生新数组，删除数组里的重复元素（排序， splice() ）</li>
+<li>项目细节（问了我一堆后端，还好杨教授的源码我还有印象）</li>
+<li>你有什么要问我的吗？（见后文小结里的HR相关文章）</li>
+</ul>
+<p>二面面试官对我的评价：动手能力强，能解决问题，但所学知识杂而不精，不过学生都这样。</p>
+<p>HR面</p>
+<p>基本是天南海北地侃大山，家庭住址、经济条件、寝室关系、参加过的竞赛、做过的项目、职业规划等都会关联到……我可能在这个环节说错话了。言多必失，不要太实诚，也不要撒谎。</p>
+<hr>
+<h3 id="网易"><a href="#网易" class="headerlink" title="网易"></a>网易</h3><p>网易的面试体验挺不错。它的微信公众号会给你叫号，前台小姐姐也会提醒你，每一面结束后都可以找前台小姐姐查询面试结果。而且食堂超级好吃！还可以边吃饭边吸猫！</p>
+<p>面试地点在杭州研究院一楼大厅。环境舒适，就是座位有点不够用。</p>
+<p>一面</p>
+<ul>
+<li>6道基本技术问题，居中、闭包、块级元素和行内元素等（答案略）</li>
+<li>某个项目的页面布局方式，缓存的设计和优化方式（本地存储和协议相关的）</li>
+<li>ajax 的原生写法（创建 XHR 对象， open() ， setRequestHeader() ， send() ， onreadystatechange ）</li>
+<li>vue-router 的原理（ hash ， HTML5 新增的 pageState ）</li>
+</ul>
+<p>关于 ajax ,我再强调以下方面。</p>
+<p>//open()接受3个参数：请求类型、 URL 和是否异步的布尔值<br>//GET方式通常这样发：<br>xhr.open(“get”, “example.php?name1=value1&amp;name2=value2”, true)</p>
+<p>//可以设定请求头，包括自定义请求头，比方说这样：<br>xhr.setRequestHeader(“MyHeader”, “MyValue”)；</p>
+<p>//可以这样取得一个包含所有头部信息的长字符串：<br>var myHeader = xhr.getResponseHeader(“MyHeader”);<br>var allHeaders = xhr.getAllResponseHeaders();</p>
+<p>//POST方式有这几个地方要改：<br>//请求头要重设，数据会以key1=value1&amp;key2=value2的方式发送到服务器<br>xhr.setRequestHeader(“Content-Type”, “application/x-www-form-urlencoded”);<br>//获取表单<br>var form = document.getElementById(“user-info”);<br>//序列化表单，发送的内容传入send()<br>xhr.send(serialize(form));</p>
+<p>//也可以这样传值：<br>var data = new FormData(form);<br>//再传一点别的<br>data.append(“name”, “Nicholas”)<br>xhr.send(data);</p>
+<p>别的不记得了……</p>
+<p>二面</p>
+<p>面试官：“你觉得你擅长CSS还是JS？”<br>我：“JS。”<br>面试官：“好，那我问你一道CSS的问题。”<br>我：“？？？”</p>
+<ul>
+<li>CSS 三栏布局，左右定宽，中间自适应（ flex ， grid 等）</li>
+<li>解释构造函数、对象、原型链之间的关系（看红宝书）</li>
+<li>手写代码，实现原型式继承（看红宝书）</li>
+<li>手写代码，实现借用构造函数（看红宝书）</li>
+<li>Vue 双向绑定原理（事件监听， getter 和 setter ）</li>
+<li>Virtual DOM 和 diff 算法（ DOM 树，分层比较， key ， DocumentFragment ）</li>
+<li>jQuery 链式调用的原理（<a href="https://www.zhihu.com/question/30639336" target="_blank" rel="external">知乎-jQuery链式调用</a>）</li>
+<li>最近碰到的技术难题，不一定是前端（我答了B站的爬虫与反爬虫）</li>
+</ul>
+<p>关于反爬虫，请求头中的这两个字段要修改。</p>
+<ul>
+<li>Host ：发出请求的页面所在的域。</li>
+<li>Referer ：发出请求的页面的 URI 。注意， HTTP 规范将这个头部字段拼写错了，而为保证与规范一致，也只能将错就错了（这个英文单词的正确拼法应该是  referrer ）。</li>
+</ul>
+<p>HR面</p>
+<p>HR小姐姐似乎对我们学校挺熟悉的，但好像不是校友……</p>
+<ul>
+<li>谈一谈过去做过的项目、面对的难题（和UI的沟通问题，顺便引出我后来自学了平面设计。又提了提爬虫）</li>
+<li>家在哪里（照实回答就行）</li>
+<li>未来职业规划（表示出你想在公司长久待下去，继续进步就行）</li>
+<li>具体的技术发展方向（我答的是“能支持上亿用户使用的前端架构”）</li>
+<li>为了往这个方向发展，你所做的努力（我答的是“在看《高性能网站建设》、自学后端，顺便提了一下‘东北Java第一人’姜国海老师”）</li>
+<li>预测一下前端未来的发展趋势（我答的是“自动化”）</li>
+<li>拿了哪家的offer？（……还是照实回答吧）</li>
+<li>实习时间（我建议把时间段说得宽松一些，到时候真的冲突再商量）</li>
+</ul>
+<hr>
+<h3 id="京东"><a href="#京东" class="headerlink" title="京东"></a>京东</h3><p>京东的面试小哥哥有点逗。因为是临时改成电话面试，过程不太正规，题目直接用手机的摄像头传给我……</p>
+<p>初面已过，复试待安排。</p>
+<p>一面</p>
+<ul>
+<li>列举块级元素和行内元素（ div 等， span 等）</li>
+<li>absolute 依据的定位元素是？（非 static 的祖先元素）</li>
+<li>几道 js 基础题（多去牛客网刷题）</li>
+<li>Vue 里 v-if 和 v-show 的区别？（<a href="https://cn.vuejs.org/v2/guide/conditional.html#v-if-vs-v-show" target="_blank" rel="external">文档</a>）</li>
+<li>parseInt() 和 array 的 map 方法的参数？（看红宝书）</li>
+</ul>
+<p>面试官对我的评价：基础还可以，做项目的能力是有的，但缺乏深度，要多关注一些细节</p>
+<hr>
+<h3 id="去哪儿网"><a href="#去哪儿网" class="headerlink" title="去哪儿网"></a>去哪儿网</h3><p>距离去哪儿网笔试快一个月了，我都以为我凉了，结果在北京面腾讯的当天下午连续接到三个电话……只有一轮技术面+一轮HR面，然后就给我发了口头offer，相当地干脆利落……</p>
+<p>去哪儿网好像更注重考察你对框架、工具的应用，对于基础考得反而不多。而且还考了我 jQuery ,别的公司都不怎么考的……</p>
+<p>一面</p>
+<ul>
+<li>webpack 用过吗？如何处理图片、 CSS 文件？（各种 loader ）</li>
+<li>使用 flex 布局写移动端布局（注意 flex-direction 要改）</li>
+<li>jQuery 的 delegate 原理（事件冒泡与捕获）</li>
+</ul>
+<p>不止这些，但别的忘了……</p>
+<p>HR面</p>
+<ul>
+<li>薪资（一天150，房补一天75）</li>
+<li>可实习时间（我说了7~9月）</li>
+<li>职业发展规划（有节制地胡说八道）</li>
+</ul>
+<p>别的不记得了……因为整个过程速度太快，来不及记忆……</p>
+<hr>
+<h3 id="搜狐"><a href="#搜狐" class="headerlink" title="搜狐"></a>搜狐</h3><p>我投了三份简历给搜狐，结果三份全被刷了……但4月18日早上搜狐面试官突然加我微信好友！于是当天晚上十点视频面试。</p>
+<p>一面</p>
+<ul>
+<li>HTML5 的语义化标签（ header ， footer ， main 等）</li>
+<li>position 的取值和含义（<a href="http://www.w3school.com.cn/cssref/pr_class_position.asp" target="_blank" rel="external">W3Cschool-position属性</a>）</li>
+<li>z-index 的蜜汁用法（这是一个“拼爹”的属性）</li>
+<li>CORS 跨域文件共享的请求头（询问允许的方法和域）</li>
+<li>获取页面滚动高度（ window.pageYOffset ）</li>
+<li>函数节流和去抖，写滚动监听函数（<a href="https://www.cnblogs.com/caizhenbo/p/6378202.html" target="_blank" rel="external">函数节流和去抖</a>）</li>
+<li>你有什么要问我的吗？（见后文小结里的HR相关文章）</li>
+</ul>
+<hr>
+<h3 id="百度"><a href="#百度" class="headerlink" title="百度"></a>百度</h3><p>虽然百度这几年发展势头落后于AT，甚至快被京东赶上了，毕竟瘦死的骆驼比马大，面试还是相当有难度和水准的。本人很遗憾地挂在了二面。看来只能投奔网易的怀抱了~</p>
+<p>百度也是在牛客网上进行远程视频，流程和头条差不多。</p>
+<p>一面</p>
+<ul>
+<li>询问你的项目经验、学习经历、主修语言（照实答）</li>
+<li>解释ES6的暂时性死区（ let 和 var 的区别）</li>
+<li>箭头函数、闭包、异步（老生常谈，参见上文）</li>
+<li>高阶函数（呃……我真不太清楚这是啥，听起来挺像闭包的）</li>
+<li>求N的阶乘末尾有多少个0，在线码代码或讲思路（求因数，统计2、5、10的个数）</li>
+<li>给一个小于一百万的数，求和它最接近的 Fibo 数（我的思路是简单地求数列然后求差，面试官说 Fibo 数超过34个以后就超过一百万，可以把34个数都求出来然后研究状态转换……）</li>
+</ul>
+<p>一面面试官给我的评价：“基础扎实，逻辑还可以，但代码风格不太好（ES5和ES6混用，封装不好），未来发展方向不明确。可以进入第二轮面试。”</p>
+<p>二面</p>
+<p>二面面试官说话不太清晰且声音太小，对面环境也比较嘈杂（好像也在面试？），这点不如头条。头条是在独立的小隔间里。</p>
+<ul>
+<li>CSS布局（ Grid 和 flex 都考且考察细致）</li>
+<li>数组的随机排序（我懵了个答案，好像还算对。<a href="http://www.jb51.net/article/81363.htm" target="_blank" rel="external">打乱数组</a>）</li>
+<li>JSON 对象的深度克隆（遍历递归，或者序列化和反序列化）</li>
+<li>简述动画写法（ setTimeout ， requestAnimationFrame ， CSS3 ……）</li>
+<li>列举“传统”的异步（……这题啥意思？不会）</li>
+<li>Node 的多线程，高并发，安全（我都不会……问后端大佬吧）</li>
+<li>听说过 PWA 吗？（没听说过，不会……）</li>
+<li>解释 event loop （听过，不太会）</li>
+<li>服务端渲染，计算首屏和白屏时间（不太会……<a href="http://www.bubuko.com/infodetail-2265464.html" target="_blank" rel="external">首屏白屏</a>）</li>
+<li>服务器如何强制更新后的文件替代客户端缓存的文件（不太会……好像和MD5有关？）</li>
+</ul>
+<p>还有很多不太记得了，反正我都不会…………</p>
+<p>二面面试官给我的评价：“二面failed。学习能力不错，反应快，知识的广度有，但缺乏深度，不够系统。建议研读V8引擎源码，Node源码，花半年时间。”原来我已经进步到可以看源码的程度啦？虽然挂了，但听面试官这么说还有点开心~~</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>看到这里，相信读者也已经感觉到，许多面试题是有套路和重点难点的。我分享几篇总结这些套路的文章。</p>
+<ul>
+<li><a href="http://hpoenixf.com/%E5%A4%A7%E5%8E%82%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E8%80%83%E4%BB%80%E4%B9%88.html" target="_blank" rel="external">大厂前端面试考什么？</a></li>
+<li><a href="http://hpoenixf.com/%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97-%E7%9B%AE%E5%BD%95.html" target="_blank" rel="external">前端进阶系列</a></li>
+<li><a href="https://www.nowcoder.com/discuss/29890?type=2&amp;order=0&amp;pos=16&amp;page=7" target="_blank" rel="external">这可能不只是一篇面经</a></li>
+<li><a href="http://www.infoq.com/cn/articles/react-dom-diff" target="_blank" rel="external">diff算法</a></li>
+<li><a href="http://www.cnblogs.com/syfwhu/p/4431143.html" target="_blank" rel="external">最后一面-HR面</a></li>
+</ul>
+<p>都是前辈们留下的宝贵经验，值得好好吸收。</p>
+<p>我的找实习总结就写到这里，感谢大家阅读。祝愿大家能找到满意的实习。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Node.js" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/Node.js/" class="article-date">
+  	<time datetime="2018-03-15T06:23:33.230Z" itemprop="datePublished">2018-03-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="在此处输入标题"><a href="#在此处输入标题" class="headerlink" title="在此处输入标题"></a>在此处输入标题</h1><p>标签（空格分隔）： 未分类</p>
+<hr>
+<ul>
+<li><code>Node.js</code>摒弃了传统平台依靠多线程来实现高并发的设计思路，而采用了单线程、异步式I/O、事件驱动式的程序设计模型。这些特性不仅带来了巨大的性能提升，还减少了多线程程序设计的复杂性，进而提高了开发效率</li>
+<li>包管理器</li>
+<li><code>Node.js</code>内建了<code>HTTP</code>服务器支持</li>
+<li>当操作系统完成<code>I/O</code>操作时，以事件的形式通知执行<code>I/O</code>操作的线程，线程会在特定时候处理这个事件</li>
+<li>事件处理</li>
+<li><code>exports</code>本身仅仅是一个普通的空对象，即{}，它专门用来声明接口，本质上是通过它为模块闭包的内部建立了一个有限的访问接口</li>
+<li>模块与文件是一一对应的。文件不仅可以是<code>JavaScript</code>代码或二进制代码，还可以是一个文件夹。最简单的包，就是一个作为文件夹的模块</li>
+<li>我们在<code>Node.js</code>中能够直接访问到对象通常都是<code>global</code>的属性，如<code>console</code>、<code>process</code>等</li>
+<li>当你定义一个全局变量时，这个变量同时也会成为全局对象的属性，反之亦然。需要注意的是，在<code>Node.js</code>中你不可能在最外层定义变量，因为所有用户代码都是属于当前模块的，而模块本身不是最外层上下文</li>
+<li><code>process.argv</code>是命令行参数数组，第一个元素是<code>node</code>，第二个元素是脚本文件名，从第三个元素开始每个元素是一个运行参数</li>
+<li><code>util.inherits</code></li>
+<li>特殊的事件<code>error</code>，它包含了“错误”的语义</li>
+<li><code>http.Server</code>是一个基于事件的<code>HTTP</code>服务器，它的核心由<code>Node.js</code>下层<code>C++</code>部分实现，而接口由<code>JavaScript</code>封装，兼顾了高性能与简易性。<code>http.request</code>则是一个<code>HTTP</code>客户端工具，用于向<code>HTTP</code>服务器发起请求</li>
+<li><code>http.Server</code>是一个基于事件的<code>HTTP</code>服务器，所有的请求都被封装为独立的事件，开发者只需要对它的事件编写响应函数即可实现<code>HTTP</code>服务器的所有功能。它继承自<code>EventEmitter</code>，提供了以下几个事件<br><code>request</code>：当客户端请求到来时，该事件被触发，提供两个参数<code>req</code>和<code>res</code>，分别是<code>http.ServerRequest</code>和<code>http.ServerResponse</code>的实例，表示请求和响应信息。<code>onnection</code>：当<code>TCP</code>连接建立时，该事件被触发，提供一个参数<code>socket</code>，为<code>net.Socket</code>的实例。<code>connection</code>事件的粒度要大于<code>request</code>，因为客户端在<code>Keep-Alive</code>模式下可能会在同一个连接内发送多次请求。<code>close</code>：当服务器关闭时，该事件被触发。注意不是在用户连接断开时。当使用<code>Keep-Alive</code>模式（又称持久连接、连接重用）时，<code>Keep-Alive</code>功能使客户端到服务器端的连接持续有效，当出现对服务器的后继请求时，<code>Keep-Alive</code>功能避免了建立或者重新建立连接</li>
+<li><code>Express</code>在处理路由规则时，会优先匹配先定义的路由规则，因此后面相同的规则被屏蔽。<code>Express</code>提供了路由控制权转移的方法，即回调函数的第三个参数<code>next</code>，通过调用<code>next()</code>，会将路由控制权转移给后面的规则</li>
+<li><code>Express</code>提供了一种叫做视图助手的工具，它的功能是允许在视图中访问一个全局的函数或对象，不用每次调用视图解析的时候单独传入</li>
+<li><code>Node.js</code>不适合做什么：计算密集型的程序，单用户多任务型应用，逻辑十分复杂的事务，<code>Unicode</code>与国际化</li>
+<li><code>JavaScript</code>的作用域是静态作用域，又叫词法作用域</li>
+<li>当一个函数返回它内部定义的一个函数时，就产生了一个闭包，闭包不但包括被返回的函数，还包括这个函数的定义环境</li>
+<li><code>counter1</code>和<code>counter2</code>分别调用了<code>generateClosure()</code>函数，生成了两个闭包的实例</li>
+<li><code>bind</code>方法还有一个重要的功能：绑定参数表</li>
+<li><p>两次<code>bind</code>是没有效果的</p>
+</li>
+<li><p>子进程，进程间消息传递</p>
+</li>
+<li>模块加载：核心模块快于文件模块，优先级：缓存&gt;模块路径向上递归</li>
+<li>文件模块也是一个对象，见18页</li>
+<li>编译的过程中，<code>Node</code>对获取的<code>JavaScript</code>文件内容进行了头尾包装</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Vue" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/Vue/" class="article-date">
+  	<time datetime="2018-03-14T08:57:34.877Z" itemprop="datePublished">2018-03-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="在此处输入标题"><a href="#在此处输入标题" class="headerlink" title="在此处输入标题"></a>在此处输入标题</h1><p>标签（空格分隔）： 未分类</p>
+<hr>
+<ul>
+<li>只有当实例被创建时<code>data</code>中存在的属性是响应式的</li>
+<li><code>mustache</code>语法不能作用在<code>HTML</code>特性上</li>
+<li>对于任何复杂逻辑，应当使用计算属性</li>
+<li>计算属性是基于它们的依赖进行缓存的。计算属性只有在它的相关依赖发生改变时才会重新求值。这就意味着只要<code>message</code>还没有发生改变，多次访问<code>reversedMessage</code>计算属性会立即返回之前的计算结果，而不必再次执行函数</li>
+<li>计算属性默认只有<code>getter</code>，不过在需要时你也可以提供一个<code>setter</code></li>
+<li>数据绑定一个常见需求是操作元素的<code>class</code> 列表和它的内联样式。因为它们都是属性，我们可以用<code>v-bind</code>处理它们：只需要计算出表达式最终的字符串。不过，字符串拼接麻烦又易错。因此，在<code>v-bind</code>用于<code>class</code>和<code>style</code>时，<code>Vue.js</code>专门增强了它。表达式的结果类型除了字符串之外，还可以是对象或数组。</li>
+<li><code>Vue</code>会尽可能高效地渲染元素，通常会复用已有元素而不是从头开始渲染</li>
+<li><code>Vue</code>为你提供了一种方式来声明“这两个元素是完全独立的——不要复用它们”。只需添加一个具有唯一值的<code>key</code>属性即可</li>
+<li>一般来说，<code>v-if</code>有更高的切换开销，而<code>v-show</code>有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用<code>v-show</code>较好；如果在运行时条件不太可能改变，则使用<code>v-if</code>较好</li>
+<li>由于<code>JavaScript</code>的限制，<code>Vue</code>不能检测以下变动的数组：当你利用索引直接设置一个项时，例如：<code>vm.items[indexOfItem] = newValue</code>。当你修改数组的长度时，例如：<code>vm.items.length = newLength</code></li>
+<li>可以使用<code>Vue.set(object,key,value)</code>方法向嵌套对象添加响应式属性</li>
+<li><code>v-for</code>也可以取整数</li>
+<li><code>v-model</code>会忽略所有表单元素的<code>value</code>、<code>checked</code>、<code>selected</code> 特性的初始值。因为它会选择<code>Vue</code>实例数据来作为具体的值</li>
+<li>但是有时我们想绑定<code>value</code>到<code>Vue</code>实例的一个动态属性上，这时可以用<code>v-bind</code>实现，并且这个属性的值可以不是字符串</li>
+<li><code>HTML</code>特性是不区分大小写的。所以，当使用的不是字符串模板，<code>camelCased</code>(驼峰式)命名的<code>prop</code>需要转换为相对应的<code>kebab-case</code>(短横线隔开式) 命名</li>
+<li>字面量语法、动态语法</li>
+<li><code>slot</code></li>
+<li>通过使用保留的<code>&lt;component&gt;</code>元素，动态地绑定到它的<code>is</code>特性，我们让多个组件可以使用同一个挂载点，并动态切换</li>
+<li>有时仍然需要在<code>JavaScript</code>中直接访问子组件。为此可以使用<code>ref</code>为子组件指定一个索引<code>ID</code></li>
+<li>组件命名约定当注册组件(或者<code>props</code>)时，可以使用<code>kebab-case</code>，<code>camelCase</code>，或<code>PascalCase</code></li>
+<li><code>X-templates</code></li>
+<li><code>v-once</code></li>
+<li>混合 (<code>mixins</code>)是一种分发<code>Vue</code>组件中可复用功能的非常灵活的方式</li>
+<li>当组件和混合对象含有同名选项时，这些选项将以恰当的方式混合</li>
+<li>值为对象的选项，例如<code>methods</code>,<code>components</code>和<code>directives</code>，将被混合为同一个对象。两个对象键名冲突时，取组件对象的键值对</li>
+<li>也可以全局注册混合对象</li>
+<li>自定义指令</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-《你不知道的JS》复习" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -473,330 +1089,6 @@ pip3 -V
       
         <p class="article-more-link">
           <a  href="/category/CentOS7.2上配置Python3+pip3+Selenium+PhantomJS/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-bilibili多进程爬虫" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/bilibili多进程爬虫/" class="article-date">
-  	<time datetime="2017-12-31T06:56:37.000Z" itemprop="datePublished">2017-12-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/bilibili多进程爬虫/">bilibili多进程爬虫</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一些闲话"><a href="#一些闲话" class="headerlink" title="一些闲话"></a>一些闲话</h2><p>接下来将近两周没有课，我就帮一位同学写了个bilibili爬虫爬取十万条用户数据，来完成TA的大数据分析作业。原本以为用以前的日语听力习题爬虫改一改就能用，结果……B站果然是B站啊，反爬虫的本事还是相当高的。</p>
-<p>先上最终完成版的源代码，注释应该够详细了：</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/bilibili多进程爬虫/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-“J2EE高级编程”笔记（十五）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/“J2EE高级编程”笔记（十五）/" class="article-date">
-  	<time datetime="2017-12-19T05:39:48.000Z" itemprop="datePublished">2017-12-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/“J2EE高级编程”笔记（十五）/">“J2EE高级编程”笔记（十五）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Spring框架"><a href="#Spring框架" class="headerlink" title="Spring框架"></a>Spring框架</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> ......</div><div class="line"></div><div class="line"><span class="meta">@Controller</span>(<span class="string">"GroupController"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GroupController</span> </span>&#123;</div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    GroupService groupService;</div><div class="line">    </div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    DirectoryService directoryService;</div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    UserService userService;</div><div class="line">    </div><div class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/group/listData"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> Model <span class="title">groupListData</span><span class="params">(</span></span></div><div class="line">        @RequestParam Map&lt;String, Object&gt; reqs, </div><div class="line">        HttpSession session) &#123;</div><div class="line">    ......    </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>ViewResolver</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-“J2EE高级编程”笔记（十三）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/“J2EE高级编程”笔记（十三）/" class="article-date">
-  	<time datetime="2017-12-19T05:35:55.000Z" itemprop="datePublished">2017-12-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/“J2EE高级编程”笔记（十三）/">“J2EE高级编程”笔记（十三）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="上节内容回顾"><a href="#上节内容回顾" class="headerlink" title="上节内容回顾"></a>上节内容回顾</h2><p>上一节课我又因为有（shui）急（lan）事（jiao）错过了……以后补上吧。</p>
-<p>以下的示例程序可以内嵌至<code>.jsp</code>文件里运行。程序很简单，不多做解释。如果不想写<code>JSP</code>代码，<code>JSP</code>也有自己的连接数据库的写法：<a href="http://www.runoob.com/jsp/jsp-database-access.html">菜鸟教程-JSP连接数据库</a></p>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//注释里的写法是链接池的写法</span></div><div class="line"><span class="comment">//Context下有lookup()、bind()、rebind()函数</span></div><div class="line"><span class="comment">//InitialContext()使用了代理转发，有一个成员变量proxy。</span></div><div class="line"><span class="comment">//不传参数时，命名空间使用默认值</span></div><div class="line"><span class="comment">//Context ctx = new InitialContext();</span></div><div class="line"><span class="comment">//lookup是名值对原理，返回Object</span></div><div class="line"><span class="comment">//DataSource ds = </span></div><div class="line"><span class="comment">//   (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");</span></div><div class="line">Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</div><div class="line">Connection con = DriverManager.getConnection(</div><div class="line">    <span class="string">"jdbc:mysql://localhost/test"</span>, <span class="string">"java"</span>, <span class="string">"java12345"</span>);</div><div class="line">    </div><div class="line">Statement stmt = con.createStatement();</div><div class="line">Result rs = stmt.executeQuery(<span class="string">"select * from test"</span>);</div><div class="line"></div><div class="line"><span class="keyword">while</span> (rs.next()) &#123;</div><div class="line">    String name = rs.getString(<span class="string">"name"</span>);</div><div class="line">    <span class="keyword">int</span> age = rs.getInt(<span class="string">"age"</span>);</div><div class="line">    out.println(<span class="string">"name: "</span> + name + <span class="string">"&lt;/br&gt;"</span>);</div><div class="line">&#125;</div><div class="line">rs.close();</div><div class="line">stmt.close();</div><div class="line">con.close();</div></pre></td></tr></table></figure>
-<p>数据库的配置信息，既可以写在<code>.jsp</code>文件里，也可以另外写在<code>META-INF</code>文件夹里。详情请看文档。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/“J2EE高级编程”笔记（十三）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-“J2EE高级编程”笔记（十一）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/“J2EE高级编程”笔记（十一）/" class="article-date">
-  	<time datetime="2017-12-12T05:34:38.000Z" itemprop="datePublished">2017-12-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/“J2EE高级编程”笔记（十一）/">“J2EE高级编程”笔记（十一）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>因为上节课我有事情没上，“J2EE高级编程”笔记（十）的内容暂缺……内容和自定义标签、<code>IterationTag</code>、<code>doAfterBody()</code>、<code>EVAL_BODY_AGAIN</code>、<code>BodyTag</code>、<code>SimpleTag</code>、<code>doTag()</code>、<code>JspFragment</code>（简化了，能自动处理返回值）有关，先空着以后补充吧。</p>
-<p><a href="http://www.runoob.com/jsp/jsp-custom-tags.html" target="_blank" rel="external">菜鸟教程-自定义标签</a>里也涉及了相关内容</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"><span class="keyword">import</span> javax.servlet.*;</div><div class="line"><span class="keyword">import</span> javax.servlet.jsp.tagext.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeTag</span> <span class="keyword">extends</span> <span class="title">TagSupport</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doStartTag</span><span class="params">()</span> <span class="keyword">throws</span> JspException </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            pageContext.getOut()</div><div class="line">            .println(<span class="keyword">new</span> Java.util.Date());</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="function">nea <span class="title">JspException</span><span class="params">(e)</span></span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeTag</span> <span class="keyword">extends</span> <span class="title">SimpleTagSupport</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doTag</span><span class="params">()</span> <span class="keyword">throws</span> IOException, JspException </span>&#123;</div><div class="line">        JspContext jc = getJspContext();</div><div class="line">        PageContext pc = (PageContext)jc;</div><div class="line">        HttpSession session = pc.getSession();</div><div class="line">        </div><div class="line">       </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>当大部分代码用于输出时，推荐用以下方法：</p>
-<p><code>.jsp</code>文件改名为<code>.tag</code>，放到<code>/WEB-INF/tags</code>下，然后如此引用：</p>
-<pre><code>&lt;%@ tablib tagdir=&quot;/WEB-INF/tags&quot; prefix=&quot;t&quot; %&gt;
-&lt;t:time/&gt;
-</code></pre><p>这一块我记得不太清楚，只能说大致如此，待修正</p>
-<hr>
-<h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><p>关于<code>ODBC</code>和<code>JDBC</code>的定义、区别与联系，<a href="http://blog.csdn.net/u010926964/article/details/46389867" target="_blank" rel="external">点击查看</a></p>
-<p>天下的<code>JDBC</code>分为四种：</p>
-<ul>
-<li>JDBC-ODBC Bridge（效率差，一般不用）</li>
-<li>pure java(又称thin方式)（性能好、速度快、平台无关，功能一般）</li>
-<li>省略</li>
-<li>省略</li>
-</ul>
-<p>代码里写到SQL语句时，注意要避免字符串拼接的写法，这样有可能遭受SQL注入攻击；要使用<code>?</code>占位符来写。</p>
-<p>连接数据库的一个示例程序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import java.sql.*;</div><div class="line">public class JdbcTest &#123;</div><div class="line">    public static void main(String[] args) throws Exception &#123;</div><div class="line">        //jdbc url</div><div class="line">        //数据库不一定是mysql，只是mysql提供了驱动程序</div><div class="line">        Connection con = DriverManager</div><div class="line">        .getConnection(&quot;jdbc:mysql://localhost/test&quot;, </div><div class="line">            &quot;java&quot;, &quot;java12345&quot;);</div><div class="line">        Statement stmt = con.createStatement();</div><div class="line">        ResultSet rs = </div><div class="line">            stmt.executeQuery(&quot;select * from test&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-“J2EE高级编程”笔记（九）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/“J2EE高级编程”笔记（九）/" class="article-date">
-  	<time datetime="2017-12-05T05:34:26.000Z" itemprop="datePublished">2017-12-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/“J2EE高级编程”笔记（九）/">“J2EE高级编程”笔记（九）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="JSP表达式语言"><a href="#JSP表达式语言" class="headerlink" title="JSP表达式语言"></a>JSP表达式语言</h2><p>更多内容可以参考<a href="http://www.runoob.com/jsp/jsp-expression-language.html">菜鸟教程-JSP表达式语言</a>。有几点需要注意：</p>
-<ul>
-<li>注意<code>JSP Expression</code>也有隐含对象，而且有11个。除了<code>pageContext</code>是<code>PageContext</code>类型的，其余都是都是<code>map</code>类型的。</li>
-<li><code>${param.username}</code>和<code>${param[&quot;username&quot;]}</code>效果相同</li>
-<li>表达式语言也是在服务端而非客户端运行的</li>
-</ul>
-<p>以下是一个示例程序：</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/“J2EE高级编程”笔记（九）/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

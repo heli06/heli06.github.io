@@ -156,6 +156,366 @@
 
       <div class="body-wrap">
   
+    <article id="post-JAVA学习笔记（六）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（六）/" class="article-date">
+  	<time datetime="2017-07-03T04:01:34.000Z" itemprop="datePublished">2017-07-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/JAVA学习笔记（六）/">JAVA学习笔记（六）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="预备和零碎知识"><a href="#预备和零碎知识" class="headerlink" title="预备和零碎知识"></a>预备和零碎知识</h2><ul>
+<li>文件访问方式分为两种：顺序访问方式和随机访问方式。区别从名字就能看出来。</li>
+<li>路径分为相对路径与绝对路径。写程序时相对路径更为常用。</li>
+<li><code>..</code>代表父目录，<code>.</code>代表当前目录。</li>
+</ul>
+<hr>
+<h2 id="java-io包"><a href="#java-io包" class="headerlink" title="java.io包"></a>java.io包</h2><p>之后的小标题都是这个包里的类。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/category/JAVA学习笔记（六）/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JAVA学习笔记（五）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（五）/" class="article-date">
+  	<time datetime="2017-06-30T04:21:03.000Z" itemprop="datePublished">2017-06-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/JAVA学习笔记（五）/">JAVA学习笔记（五）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h2><p>函数：protected Object clone()</p>
+<pre><code>//这个Student的例子后面还用
+//若没有implement，运行时会抛出异常
+public calss Student implement Cloneable{
+    String id, name;
+    int age;
+    boolean gender;
+
+    public static void main(String[] a) {
+        Student s1 = new Student();
+        s1.id = new String(&quot;001&quot;);
+        s1.name = new String(&quot;zs&quot;);
+        s1.age = 18;
+        s1.gender = true;
+
+        //(Student)不可少, clone是protected
+        //clone实现的是浅复制
+        Student s2 = (Student) s1.clone();
+
+    }
+}
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/category/JAVA学习笔记（五）/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JAVA学习笔记（四）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（四）/" class="article-date">
+  	<time datetime="2017-06-29T02:47:35.000Z" itemprop="datePublished">2017-06-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/JAVA学习笔记（四）/">JAVA学习笔记（四）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="零碎知识"><a href="#零碎知识" class="headerlink" title="零碎知识"></a>零碎知识</h3><ol>
+<li>Base64的原理、编码解码方式和应用（邮箱、图片转Base64、URL等）。老师说得零散，百度吧，百度百科解释得还不错。</li>
+<li>文件相关函数：seek()等。</li>
+<li>Java有很好的API文档，记得下载</li>
+<li>在JAVA里，return,break等后接顺序执行语句，会报错（unreachable statement，无法到达的语句）</li>
+<li>抛出的异常尽可能精确，提高代码可读性</li>
+<li>覆盖函数的访问权限不能比被覆盖函数的访问权限低</li>
+</ol>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/category/JAVA学习笔记（四）/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JAVA学习笔记（三）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（三）/" class="article-date">
+  	<time datetime="2017-06-28T03:07:47.000Z" itemprop="datePublished">2017-06-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/JAVA学习笔记（三）/">JAVA学习笔记（三）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="零碎知识"><a href="#零碎知识" class="headerlink" title="零碎知识"></a>零碎知识</h3><ol>
+<li>移位运算向下取整，普通运算向零取整</li>
+<li>如果不想让其它人或程序调用对象，用abstract修饰类,或用privat    e修饰构造函数。详见单例模式的例子。</li>
+<li>元素之间可以byte-&gt;int,但是数组之间不可以，详见数组的例子。</li>
+<li>覆盖函数的访问权限不能低于被覆盖函数的访问权限</li>
+<li>java容易被反编译，找到序列号的类后可以破解或用新写的类代替。可以用混淆程序处理来防止被破解。</li>
+</ol>
+<p>单例模式的例子。这点老师上课时只是顺带一提，想深入了解还是百度吧。</p>
+<pre><code>class A {
+    static int i = 0;
+    static {}
+    private static A a = new A();
+    private A(){}
+    public static A getA() {
+        retuen new A();
+    }
+}
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/category/JAVA学习笔记（三）/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JAVA学习笔记（一）（二）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（一）（二）/" class="article-date">
+  	<time datetime="2017-06-20T03:59:59.000Z" itemprop="datePublished">2017-06-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/JAVA学习笔记（一）（二）/">JAVA学习笔记（一）（二）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="（一）组合、封装、多态与继承"><a href="#（一）组合、封装、多态与继承" class="headerlink" title="（一）组合、封装、多态与继承"></a>（一）组合、封装、多态与继承</h2><p>先说继承。</p>
+<pre><code>class person{
+string name;
+int age;
+}
+class Student extends Person{
+string student_id;
+}
+</code></pre><p>JAVA的类只支持单继承，但接口支持多继承（以后的课会提到）。<br>以下的内容都与继承联系紧密。</p>
+<h4 id="1-组合与聚合"><a href="#1-组合与聚合" class="headerlink" title="1.组合与聚合"></a>1.组合与聚合</h4><p>“组合”与“聚合”这两个词都用于描述类与类之间的关系。<br>聚合(aggregation)关系: 聚合是整体和个体之间的关系,即has-a的关系，此时整体与部分之间是可分离的，他们可以具有各自的生命周期，部分可以属于多个整体对象，也可以为多个整体对象共享；比如人与他买的汽车、公司与员工的关系等。<br>组合(合成)关系(composition): 他体现的是一种contains-a的关系，这种关系比聚合更强，也称为强聚合；他同样体现整体与部分间的关系，但此时整体与部分是不可分的，整体的生命周期结束也就意味着部分的生命周期结束；比如你和你的大脑。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/category/JAVA学习笔记（一）（二）/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-几个基于Jquey和Bootstrap的实用组件" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -441,339 +801,6 @@
       
         <p class="article-more-link">
           <a  href="/category/数据结构-排序算法/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-数据结构-图" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/数据结构-图/" class="article-date">
-  	<time datetime="2016-12-23T14:44:45.000Z" itemprop="datePublished">2016-12-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/数据结构-图/">数据结构-图</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>数据结构的上机真是太没人性了，最近一周关于图的题更是恼人。代码量600+还在其次，主要是算法这东西真的很费脑子啊。<br>拼了老命终于在周末两天写出来这玩意儿。写完这玩意儿我就生病了。<br>直接把代码贴上来吧，注释应该够详细了。<br>代码里包含图的邻接表写法、DFS、BFS、Prim算法、克鲁斯卡尔算法、迪杰斯特拉算法、弗洛伊德算法、寻找回路算法。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/数据结构-图/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-表白墙项目中其它一些零碎经验" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/表白墙项目中其它一些零碎经验/" class="article-date">
-  	<time datetime="2016-12-03T13:47:03.000Z" itemprop="datePublished">2016-12-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/表白墙项目中其它一些零碎经验/">表白墙项目中其它一些零碎经验</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="闲话"><a href="#闲话" class="headerlink" title="闲话"></a>闲话</h3><p>这部分内容非常零散。我打算分成js、CSS、HTML5、bootstrap、node几个部分，用列表列出。可能没啥看头，只是为了自己以后方便回顾。</p>
-<hr>
-<h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><ul>
-<li>Chrome浏览器的console功能太好用了！一些怀疑有问题的js代码可以输进去直接运行，很方便查BUG。</li>
-<li>event.textContent才是文本内容而不是直接event就好了</li>
-<li>jQuery选择器里的eq()，括号里只能填具体数字，想填一个字母然后for循环什么的行不通。遍历得用each（都是C++敲太多的惯性）</li>
-<li>jQuery的hasClass(“”)等方法，括号内填的类名不包含“.”（说到底就是不够熟练）</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/表白墙项目中其它一些零碎经验/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-前端小技巧：利用cookie完成换肤功能-使用在线字体库" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/前端小技巧：利用cookie完成换肤功能-使用在线字体库/" class="article-date">
-  	<time datetime="2016-12-03T13:34:39.000Z" itemprop="datePublished">2016-12-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/前端小技巧：利用cookie完成换肤功能-使用在线字体库/">前端小技巧：利用cookie完成换肤功能/使用在线字体库</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这两项内容不多，干脆并在一起写吧。<br><a href="http://www.w3school.com.cn/js/js_cookies.asp">w3cshool上有关于js如何使用cookie的介绍</a><br>我直接使用了其中的setCookie和getCookie函数，具体说明请点击链接。导航栏里留了个“style-change”换肤按钮（暂时只有两套皮肤）。</p>
-<pre><code>$(function () {
-    var style = getCookie(&apos;style&apos;);
-    if (style == null) {
-        setCookie(&apos;style&apos;, 0, 30);
-    }
-    if( style == 0){
-        $(&quot;#style&quot;).attr(&quot;href&quot;,&quot;/stylesheets/style.css&quot;);
-        ………………
-    }else{
-        $(&quot;#style&quot;).attr(&quot;href&quot;,&quot;/stylesheets/style1.css&quot;         ）;
-     ……………………}
-
-    $(&apos;#style-change&apos;).click(function () {
-        if(style == 1)
-            style = 0;
-        else
-           ………………
-        setCookie(&apos;style&apos;, style, 30);
-        window.location.reload();
-    })
-});
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/前端小技巧：利用cookie完成换肤功能-使用在线字体库/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-小议防XSS跨站脚本攻击" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/小议防XSS跨站脚本攻击/" class="article-date">
-  	<time datetime="2016-12-03T13:03:06.000Z" itemprop="datePublished">2016-12-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/小议防XSS跨站脚本攻击/">小议防XSS跨站脚本攻击</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="闲话"><a href="#闲话" class="headerlink" title="闲话"></a>闲话</h3><p>本来我以为“防XSS跨站脚本攻击”离我这个渣渣还有很远的距离，没想到做“表白墙”这个项目时具体接触了。在此感谢EDA实验室的大神学长给予的教导。</p>
-<h3 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h3><p>本来ejs模板引擎自带XSS过滤功能，字符串输出时默认是经过escape转义编码的：</p>
-<pre><code>// 用=号输出,就会被escapge转义编码 
-&lt;%= VARIABLE_NAME %&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/小议防XSS跨站脚本攻击/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-表白墙" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/表白墙/" class="article-date">
-  	<time datetime="2016-12-01T12:23:42.000Z" itemprop="datePublished">2016-12-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/表白墙/">表白墙</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一些闲话"><a href="#一些闲话" class="headerlink" title="一些闲话"></a>一些闲话</h3><p>本学期初的科技文化艺术节有“网页设计大赛”和各种创业创新比赛，最初我只打算用先前按《Node.js开发指南》做的微博，带我的小儿子去水一水。然而创业创新比赛的各种文档我根本不会写， 于是拉了个同班懂得产品和运营的妹子进来。妹子给了个好点子：把微博改成表白墙，这样既避免抄袭之嫌，又显得更有新意，能吸引眼球。<br>出于种种原因，最终只参加网页设计大赛。结果还没出来。<br>获奖不是目的，能锻炼技术才是实实在在的。<br>开始说正事。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/表白墙/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
