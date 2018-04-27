@@ -194,6 +194,47 @@
 <h3 id="第二章-自然语言处理-从规则到统计"><a href="#第二章-自然语言处理-从规则到统计" class="headerlink" title="第二章 自然语言处理 从规则到统计"></a>第二章 自然语言处理 从规则到统计</h3><p>早期的自然语言处理陷入了误区————试图概括自然语言文法规则，来使计算机理解人类的语言。很久人们才搞明白，通过规则和统计总结得到的文法规则显然更好用。</p>
 <h3 id="第三章-统计语言模型"><a href="#第三章-统计语言模型" class="headerlink" title="第三章 统计语言模型"></a>第三章 统计语言模型</h3><p>一个句子是否合理，看它的可能性大小如何。一个句子由一串有序词组成，该句子出现的概率等于每一个词出现的概率相乘。</p>
 <p>马尔科夫假设是一种偷懒但有效的假设——任意一个词出现的概率只与它前面的词有关。对应的统计语言模型为二元模型。当然也有三元、四元等高阶语言模型，它们更精确但更耗资源。</p>
+<h3 id="第四章-谈谈分词"><a href="#第四章-谈谈分词" class="headerlink" title="第四章 谈谈分词"></a>第四章 谈谈分词</h3><p>查字典+最长匹配的方法能解决七八成的分词问题，但从概率来判断的统计语言模型更为优越。</p>
+<p>不同的场景下应该选择不同的分词颗粒度。机器翻译选大些的，网页搜索选小些的。可以让一个分词器支持不同层次的词的划分，这需要基本词表和复合词表。</p>
+<h3 id="第五章-隐含马尔科夫模型"><a href="#第五章-隐含马尔科夫模型" class="headerlink" title="第五章 隐含马尔科夫模型"></a>第五章 隐含马尔科夫模型</h3><p>隐含马尔可夫模型是连接自然语言处理和通信的桥梁。</p>
+<h3 id="第六章-信息的度量和作用"><a href="#第六章-信息的度量和作用" class="headerlink" title="第六章 信息的度量和作用"></a>第六章 信息的度量和作用</h3><p>信息量可以用比特来度量。变量的不确定越大，熵也就越大，为了搞清问题所需的信息量也越大。</p>
+<p>汉语在所有语言中冗余度是相对小的，通俗地说它比较简洁。</p>
+<p>互信息用于度量两个随机事件“相关性”。</p>
+<h3 id="第七章-贾里尼克和现代语言处理"><a href="#第七章-贾里尼克和现代语言处理" class="headerlink" title="第七章 贾里尼克和现代语言处理"></a>第七章 贾里尼克和现代语言处理</h3><p>向伟大的科学家致敬！</p>
+<h3 id="第八章-简单之美——布尔代数和搜索引擎"><a href="#第八章-简单之美——布尔代数和搜索引擎" class="headerlink" title="第八章 简单之美——布尔代数和搜索引擎"></a>第八章 简单之美——布尔代数和搜索引擎</h3><p>搜索引擎做的事：下载、索引、排序。下载和索引由爬虫来做，排序由网页排名技术和关键词权重来做。</p>
+<p>索引是一张表，表的每一行对应一个关键词，后面跟着一组包含该关键词的文献序号。</p>
+<p>庞大的索引可以分为多份，还可以建立常用和非常用索引。</p>
+<h3 id="第九章-图论和网络爬虫"><a href="#第九章-图论和网络爬虫" class="headerlink" title="第九章 图论和网络爬虫"></a>第九章 图论和网络爬虫</h3><p>网络就是一个图。遍历图的算法有深度优先搜索（DFS）和广度优先搜索（BFS）。人们使用“散列表”来记录网页是否下载过。</p>
+<p>搜索引擎主要使用BFS（先爬每个网站的主页），但也结合使用DFS来减少DNS查询。目前脚本语言生成的网页比较难爬取信息。</p>
+<h3 id="第十章-Google的民主表决式网页排名技术"><a href="#第十章-Google的民主表决式网页排名技术" class="headerlink" title="第十章 Google的民主表决式网页排名技术"></a>第十章 Google的民主表决式网页排名技术</h3><p>Google之前的网页排名是通过使用目录分类或分析锚文本的方式实现的。Google的技术其实是这样的公式——某网页的排名等于指向它的其它网页的权重之和。具体的数学实现是二维矩阵相乘再迭代。</p>
+<h3 id="第十一章-如何确定网页和查询的相关性"><a href="#第十一章-如何确定网页和查询的相关性" class="headerlink" title="第十一章 如何确定网页和查询的相关性"></a>第十一章 如何确定网页和查询的相关性</h3><p>网页和用户搜索的相关性等于单文本词频乘词语权重再求和（TF-IDF）。停止词的权重为零。</p>
+<h3 id="第十二章-有限状态机和动态规划-地图与本地搜索的核心技术"><a href="#第十二章-有限状态机和动态规划-地图与本地搜索的核心技术" class="headerlink" title="第十二章 有限状态机和动态规划 地图与本地搜索的核心技术"></a>第十二章 有限状态机和动态规划 地图与本地搜索的核心技术</h3><p>识别地址可以通过基于概率的有限状态机来实现。导航通过动态规划实现。</p>
+<h3 id="第十三章-Google-AK-47的设计者-阿米特·辛格博士"><a href="#第十三章-Google-AK-47的设计者-阿米特·辛格博士" class="headerlink" title="第十三章 Google AK-47的设计者 阿米特·辛格博士"></a>第十三章 Google AK-47的设计者 阿米特·辛格博士</h3><p>再次向伟大的科学家致敬！</p>
+<h3 id="第十四章-余弦定理和新闻的分类"><a href="#第十四章-余弦定理和新闻的分类" class="headerlink" title="第十四章 余弦定理和新闻的分类"></a>第十四章 余弦定理和新闻的分类</h3><p>一篇新闻里出现的实词的TF-IDF按词汇表顺序排列，得到一个向量。两篇新闻是否相近，可以求两向量的夹角。对于大量新闻的分类，可以通过自底向上不断合并的方法。</p>
+<p>大数据计算时，存储向量的长度、只考虑向量的非零元素、删除虚词、位置加权都是降低算法复杂度、提高分类准确度的好办法。</p>
+<h3 id="第十五章-矩阵运算和文本处理中的两个分类问题"><a href="#第十五章-矩阵运算和文本处理中的两个分类问题" class="headerlink" title="第十五章 矩阵运算和文本处理中的两个分类问题"></a>第十五章 矩阵运算和文本处理中的两个分类问题</h3><p>分类还可以通过奇异值分解的方法实现。一个大矩阵可以分为三个小矩阵，存储量和计算量减少三个数量级。但这种分类方法略显粗糙。</p>
+<h3 id="第十六章-信息指纹及其应用"><a href="#第十六章-信息指纹及其应用" class="headerlink" title="第十六章 信息指纹及其应用"></a>第十六章 信息指纹及其应用</h3><p>信息指纹，可以简单理解为将一段信息（文字、图片等）随机地映射成一个二进制数字。它能减少散列表的内存需求量，也具有不可逆性。</p>
+<p>信息指纹也用于判断集合是否相同（反盗版、反垃圾邮件等）。</p>
+<h3 id="第十七章-由电视剧《暗算》想到的-谈谈密码学的数学原理"><a href="#第十七章-由电视剧《暗算》想到的-谈谈密码学的数学原理" class="headerlink" title="第十七章 由电视剧《暗算》想到的 谈谈密码学的数学原理"></a>第十七章 由电视剧《暗算》想到的 谈谈密码学的数学原理</h3><p>好的密码，它的加密函数应该很难推算。目前大部分算法都是找几个大素数做一些乘除和乘方运算。</p>
+<p>密码学的最高境界是，无论敌方获取多少密文，也无法消除己方情报系统的不确定性。说到底还是信息论。</p>
+<h3 id="第十八章-闪光的不一定是金子-谈谈搜索引擎反作弊问题和搜索结果的权威性问题"><a href="#第十八章-闪光的不一定是金子-谈谈搜索引擎反作弊问题和搜索结果的权威性问题" class="headerlink" title="第十八章 闪光的不一定是金子 谈谈搜索引擎反作弊问题和搜索结果的权威性问题"></a>第十八章 闪光的不一定是金子 谈谈搜索引擎反作弊问题和搜索结果的权威性问题</h3><p>反作弊的本质是消除通信中的噪声干扰。基本思路有两条：从信息源出发，加强编码的抗干扰能力；从传输来看，过滤掉噪音，还原信息。</p>
+<p>作弊者的卖链接的网站有大量的出链，这和正常网站不同。可以用余弦定理计算这些网站之间的余弦距离。另外作弊网站之间经常互相链接，形成节点之间都两两连接的图。可以使用图论的方法搜寻这些图。</p>
+<p>计算权威度要经过五个步骤。一，对网页里的句子进行句法分析，找出主题短语和对信息源的描述。二，利用互信息，找到主题短语和信息源的相关性。三，对近义的主题短语聚类。四，对一个网站中的网页聚类，因为权威网站下的子域未必权威。到这步可得到一个权威性的关联矩阵。五，使用民主表决技术得出最终结果。</p>
+<h3 id="第十九章-谈谈数学模型的重要性"><a href="#第十九章-谈谈数学模型的重要性" class="headerlink" title="第十九章 谈谈数学模型的重要性"></a>第十九章 谈谈数学模型的重要性</h3><p>其实托勒密对天文学做出了重大贡献，包括球坐标、黄道、弧度制，</p>
+<p>一个正确的数学模型应该在形式上是简单的。<br>它可能不如一个精雕细琢的错误模型来得准确，但如果大方向是对的，就应该坚持。<br>大量准确的数据对研发很重要。<br>正确的模型也可能受噪音干扰。不应用凑合的修正方法来弥补，而应该找到噪音的根源。</p>
+<h3 id="第二十章-不要把鸡蛋放到一个篮子里-谈谈最大熵模型"><a href="#第二十章-不要把鸡蛋放到一个篮子里-谈谈最大熵模型" class="headerlink" title="第二十章 不要把鸡蛋放到一个篮子里 谈谈最大熵模型"></a>第二十章 不要把鸡蛋放到一个篮子里 谈谈最大熵模型</h3><p>最大熵模型就是要保留全部的不确定性，将风险降到最小。最大熵原理指出，对一个随机事件的概率分布进行预测时，预测应当满足全部已知的条件，对未知的情况不要做任何主观假设（比如不该假设一颗未知的骰子灌铅）。</p>
+<h3 id="第二十一章-拼音输入法的数学原理"><a href="#第二十一章-拼音输入法的数学原理" class="headerlink" title="第二十一章 拼音输入法的数学原理"></a>第二十一章 拼音输入法的数学原理</h3><p>对汉字的编码分为两部分，对拼音的编码和消除歧义性（一音多字）的编码。</p>
+<p>第一代的双拼过分强调前者而忽视后者，第二代输入法则忽视了找到键记忆键的时间和成本。最后胜出的拼音输入法虽然击键数多，但有三个优点——不需要专门学习；输入自然不会中断思维；编码长而有冗余度，容错性高。</p>
+<p>根据前文的香农第一定理，运用信息熵的相关知识可以推出一个汉字的最小击键数。利用上下文可以减小击键数，可以通过词库或语言模型来做到。也可以针对每一位用户建立个性化的语言模型。</p>
+<p>拼音转汉字的本质其实是寻找最短路径，和地图导航原理相通。</p>
+<h3 id="第二十二章-自然语言处理的教父马库斯和他的优秀弟子们"><a href="#第二十二章-自然语言处理的教父马库斯和他的优秀弟子们" class="headerlink" title="第二十二章 自然语言处理的教父马库斯和他的优秀弟子们"></a>第二十二章 自然语言处理的教父马库斯和他的优秀弟子们</h3><p>继续向伟大的科学家致敬！</p>
+<h3 id="第二十三章-布隆过滤器"><a href="#第二十三章-布隆过滤器" class="headerlink" title="第二十三章 布隆过滤器"></a>第二十三章 布隆过滤器</h3><p>散列表快速准确但耗费存储空间。可以考虑使用布隆过滤器。它实际上使用信息指纹来实现比较。有误判的可能，常见的补救方法是建立白名单。</p>
+<h3 id="第二十四章-马尔可夫链的扩展-贝叶斯网络"><a href="#第二十四章-马尔可夫链的扩展-贝叶斯网络" class="headerlink" title="第二十四章 马尔可夫链的扩展 贝叶斯网络"></a>第二十四章 马尔可夫链的扩展 贝叶斯网络</h3><p>贝叶斯网络是一个加权有向图，是马尔可夫链的扩展。它克服了马尔科夫链那种机械的线性的约束，把任何有关联的事件统一到它的框架下面。它在文本分类、概念抽取、生物统计、图像处理、决策支持系统和博弈论中都有广泛应用。</p>
+<h3 id="第二十五章-条件随机场、文法分析及其他"><a href="#第二十五章-条件随机场、文法分析及其他" class="headerlink" title="第二十五章 条件随机场、文法分析及其他"></a>第二十五章 条件随机场、文法分析及其他</h3><p>在以前，文法分析采用建树的方法，自顶向下或自底向上。但如果某一步走岔路，回溯的过程会极大地增加计算复杂度。所以该方法没有实用性。</p>
+<p>后来拉纳帕提采用给句子括括号然后迭代的方法再加上最大熵原型部分解决了问题。但这种方法对于“不太好的”、有语法错误的句子不适用。</p>
+<p>条件随机场对于句子的浅层分析（找出句子中主要词组和它们对应关系）十分适用。它的本质是一种特殊的概率图模型。它在模型识别、机器学习、生物统计、预防犯罪等方面都有很成功的应用。</p>
+<h3 id="第二十六章-维特比和他的维特比算法"><a href="#第二十六章-维特比和他的维特比算法" class="headerlink" title="第二十六章 维特比和他的维特比算法"></a>第二十六章 维特比和他的维特比算法</h3><p>维特比算法是一种动态规划算法，原理和地图导航类似。</p>
+
       
     </div>
     
@@ -206,10 +247,6 @@
 
       
 
-      
-        <p class="article-more-link">
-          <a  href="/category/《数学之美》读书笔记/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -274,6 +311,64 @@
         <p class="article-more-link">
           <a  href="/category/网页动画初探（一）/#more">more >></a>
         </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JavaScript书籍复习合集" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JavaScript书籍复习合集/" class="article-date">
+  	<time datetime="2018-03-31T00:54:18.000Z" itemprop="datePublished">2018-03-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/JavaScript书籍复习合集/">JavaScript书籍复习合集</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>感觉最近准备面试的那几篇专业书籍复习笔记显得很零散而业余，让面试官看着也不太好……暂且收集起来以后再整理。</p>
+<p>挂个链接：<a href="https://gitee.com/yuezhuo/StudyNotes/tree/master/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0" target="_blank" rel="external">JavaScript学习笔记</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
       
       <div class="clearfix"></div>
     </div>
@@ -357,11 +452,11 @@
 
 
   
-    <article id="post-《JavaScript高级程序设计》复习（14~25章）" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java基础学习笔记和J2EE高级编程笔记合集" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/category/《JavaScript高级程序设计》复习（14~25章）/" class="article-date">
-  	<time datetime="2018-02-26T13:25:49.000Z" itemprop="datePublished">2018-02-26</time>
+      <a href="/category/Java基础学习笔记和J2EE高级编程笔记合集/" class="article-date">
+  	<time datetime="2018-02-27T07:12:58.000Z" itemprop="datePublished">2018-02-27</time>
 </a>
     </div>
   
@@ -374,7 +469,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/category/《JavaScript高级程序设计》复习（14~25章）/">《JavaScript高级程序设计》复习（14~25章）</a>
+      <a class="article-title" href="/category/Java基础学习笔记和J2EE高级编程笔记合集/">Java基础学习笔记和J2EE高级编程笔记合集</a>
     </h1>
   
 
@@ -383,14 +478,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文是我在看《JavaScript高级程序设计》时随手摘录的，打算面试前再看两眼回忆用。可能没什么逻辑，见谅~</p>
-<h3 id="第十四章"><a href="#第十四章" class="headerlink" title="第十四章"></a>第十四章</h3><ul>
-<li>不能通过<code>onclick</code>事件处理程序来实现“提交表单后禁用按钮”的功能，因为不同浏览器间存在时差</li>
-<li>对表单<code>value</code>属性所作的修改，不一定会反映在<code>DOM</code>中。因此，在处<br>理文本框的值时，最好不要使用<code>DOM</code>方法</li>
-<li>对于输入的文本和剪贴板，js有特别的处理方法。当然<code>HTML5</code>的方法更易用</li>
-<li><code>&lt;option&gt;</code>有特殊的选项处理方式</li>
-<li>富文本编辑好神奇，以前没接触过，值得关注</li>
+        <p>最近开始整理博文，觉得一些成系列的笔记还是整理一下挂在码云上比较好，博客上留一个入口链接就行了。不然整页都是Java的笔记，面试官都不觉得我是一名前端……</p>
+<ul>
+<li><a href="https://gitee.com/yuezhuo/StudyNotes/tree/master/Java%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0" target="_blank" rel="external">Java基础学习笔记</a></li>
+<li><a href="https://gitee.com/yuezhuo/StudyNotes/tree/master/J2EE%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0" target="_blank" rel="external">J2EE高级编程笔记</a></li>
 </ul>
+
       
     </div>
     
@@ -403,142 +496,6 @@
 
       
 
-      
-        <p class="article-more-link">
-          <a  href="/category/《JavaScript高级程序设计》复习（14~25章）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-《JavaScript高级程序设计》复习（1~13章）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/《JavaScript高级程序设计》复习（1~13章）/" class="article-date">
-  	<time datetime="2018-01-04T08:18:45.000Z" itemprop="datePublished">2018-01-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/《JavaScript高级程序设计》复习（1~13章）/">《JavaScript高级程序设计》复习（1~13章）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记得自己初学<code>JavaScript</code>没多久就被安利了这本书，兴致冲冲地拿起来读，然后…………没读到第六章就坑了。那时候太年轻，读不懂。现在再次拿起这本“红宝书”…………算是能读得进去了吧…………</p>
-<p>现在是<code>ES6</code>的年代，看完红宝书还得去看看<code>ES6</code>的书籍。</p>
-<p>这篇博文更接近摘录，偶尔会有自己的理解。<br>笔记字数少的章节不代表它不重要；很可能是因为它通篇都很重要而无法摘录。<br>文中所提书的页码，以图灵社区的<code>PDF</code>版为准。</p>
-<h3 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h3><ul>
-<li><code>Null</code>的含义是<strong>空对象指针</strong>，而<code>undefined</code>的含义是<strong>未经初始化的变量</strong>，这是两者的本质差别</li>
-<li>ECMAScript 能够表示的最小数值保<br>存在<code>Number.MIN_VALUE</code>中，大多数时候是<code>5e-324</code>；最大数值保存在<br><code>Number.MAX_VALUE</code>中，大多数时候是<code>1.7976931348623157e+308</code>。超出范围的值表示为<code>-Infinity</code>（负无穷）或<code>Infinity</code>（正无穷）。想确定一个数值是不是有穷的，可以使用<code>isFinite()</code>函数</li>
-<li>逻辑非操作符也可以用于将一个值转换为与其对应的布尔值。而同时使用两个逻辑非操作符，实际上就会模拟<code>Boolean()</code>转型函数的行为</li>
-<li><code>NaN</code>，即非数值（Not a Number）是一个特殊的数值，这个数值用于表示一个本来要返回数值的操作数未返回数值的情况，例如一个数字除以0。任何涉及<code>NaN</code>的操作（例如<code>NaN/10</code>）都会返回<code>NaN</code>。<code>NaN</code>与任何值都不相等，包括<code>NaN</code>本身。可使用<code>isNaN()</code>函数来判断传进的参数是不是数值。</li>
-<li><code>parseInt()</code>，<code>parseFloat()</code>，<code>Number()</code>是很灵活的函数</li>
-<li><code>for-in</code>语句是一种精准的迭代语句，可以用来枚举对象的属性</li>
-<li>在函数体内可以通过<code>arguments</code>对象来<br>访问这个参数数组，从而获取传递给函数的每一个参数。<code>arguments</code> 对象只是与数组类似<strong>而非</strong><code>Array</code> 的实例。可以使用方括号语法访<br>问它的每一个元素，用<code>length</code>属性来确定传递进来多少个参数</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/《JavaScript高级程序设计》复习（1~13章）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-《JavaScript DOM编程艺术（第二版）》复习" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/《JavaScript DOM编程艺术（第二版）》复习/" class="article-date">
-  	<time datetime="2018-01-01T02:53:17.000Z" itemprop="datePublished">2018-01-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/《JavaScript DOM编程艺术（第二版）》复习/">《JavaScript DOM编程艺术（第二版）》复习</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>嗯……这其实是很基本的入门书。不过自己有点久没写前端，很多内容不熟悉，便从头开始复习。现在摘录总结一下自己以前忽视的知识点。</p>
-<h3 id="第4-6章-渐进增强与平稳退化"><a href="#第4-6章-渐进增强与平稳退化" class="headerlink" title="第4~6章 渐进增强与平稳退化"></a>第4~6章 渐进增强与平稳退化</h3><p>第4章是做一个显示图片的网页：点击链接，图片显示在网页下方而非打开新链接。单纯地实现这个功能很容易，但如果用户的浏览器压根不支持或关闭了<code>JavaScript</code>呢？网页还能正常浏览吗？<br>我收集了书上列出的几种在支持<code>JavaScript</code>的浏览器下能实现相同功能的写法。先看<code>.html</code>文件：</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/《JavaScript DOM编程艺术（第二版）》复习/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -687,11 +644,11 @@ pip3 -V
 
 
   
-    <article id="post-“J2EE高级编程”笔记（十五）" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-编译技术上机题不完全汇总（Java版）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/category/“J2EE高级编程”笔记（十五）/" class="article-date">
-  	<time datetime="2017-12-19T05:39:48.000Z" itemprop="datePublished">2017-12-19</time>
+      <a href="/category/编译技术上机题不完全汇总（Java版）/" class="article-date">
+  	<time datetime="2017-11-27T13:10:23.000Z" itemprop="datePublished">2017-11-27</time>
 </a>
     </div>
   
@@ -704,7 +661,7 @@ pip3 -V
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/category/“J2EE高级编程”笔记（十五）/">“J2EE高级编程”笔记（十五）</a>
+      <a class="article-title" href="/category/编译技术上机题不完全汇总（Java版）/">编译技术上机题不完全汇总（Java版）</a>
     </h1>
   
 
@@ -713,9 +670,9 @@ pip3 -V
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Spring框架"><a href="#Spring框架" class="headerlink" title="Spring框架"></a>Spring框架</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> ......</div><div class="line"></div><div class="line"><span class="meta">@Controller</span>(<span class="string">"GroupController"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GroupController</span> </span>&#123;</div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    GroupService groupService;</div><div class="line">    </div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    DirectoryService directoryService;</div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    UserService userService;</div><div class="line">    </div><div class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/group/listData"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> Model <span class="title">groupListData</span><span class="params">(</span></span></div><div class="line">        @RequestParam Map&lt;String, Object&gt; reqs, </div><div class="line">        HttpSession session) &#123;</div><div class="line">    ......    </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>ViewResolver</p>
-
+        <h3 id="说在前面的话"><a href="#说在前面的话" class="headerlink" title="说在前面的话"></a>说在前面的话</h3><p>编译技术上机终于结束了。因为自己对于编译实在是没什么兴趣，上机的代码写得也不算太齐全，有时候检查松就浑水摸鱼混过去了。挑出几份写的还算像样的贴出来吧。</p>
+<p>以下代码都是Java语言写的，也顺便熟悉一下对Java语言的运用。</p>
+<p>相关代码已经上传至码云，<a href="https://gitee.com/yuezhuo/CompileAndDataStructureQuestion">点击查看</a></p>
       
     </div>
     
@@ -728,6 +685,10 @@ pip3 -V
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/category/编译技术上机题不完全汇总（Java版）/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -745,11 +706,11 @@ pip3 -V
 
 
   
-    <article id="post-“J2EE高级编程”笔记（十三）" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-数据结构上机题（二）（C++语言）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/category/“J2EE高级编程”笔记（十三）/" class="article-date">
-  	<time datetime="2017-12-19T05:35:55.000Z" itemprop="datePublished">2017-12-19</time>
+      <a href="/category/数据结构上机题（二）（C++语言）/" class="article-date">
+  	<time datetime="2017-11-27T13:01:39.000Z" itemprop="datePublished">2017-11-27</time>
 </a>
     </div>
   
@@ -762,7 +723,7 @@ pip3 -V
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/category/“J2EE高级编程”笔记（十三）/">“J2EE高级编程”笔记（十三）</a>
+      <a class="article-title" href="/category/数据结构上机题（二）（C++语言）/">数据结构上机题（二）（C++语言）</a>
     </h1>
   
 
@@ -771,10 +732,8 @@ pip3 -V
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="上节内容回顾"><a href="#上节内容回顾" class="headerlink" title="上节内容回顾"></a>上节内容回顾</h2><p>上一节课我又因为有（shui）急（lan）事（jiao）错过了……以后补上吧。</p>
-<p>以下的示例程序可以内嵌至<code>.jsp</code>文件里运行。程序很简单，不多做解释。如果不想写<code>JSP</code>代码，<code>JSP</code>也有自己的连接数据库的写法：<a href="http://www.runoob.com/jsp/jsp-database-access.html">菜鸟教程-JSP连接数据库</a></p>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//注释里的写法是链接池的写法</span></div><div class="line"><span class="comment">//Context下有lookup()、bind()、rebind()函数</span></div><div class="line"><span class="comment">//InitialContext()使用了代理转发，有一个成员变量proxy。</span></div><div class="line"><span class="comment">//不传参数时，命名空间使用默认值</span></div><div class="line"><span class="comment">//Context ctx = new InitialContext();</span></div><div class="line"><span class="comment">//lookup是名值对原理，返回Object</span></div><div class="line"><span class="comment">//DataSource ds = </span></div><div class="line"><span class="comment">//   (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");</span></div><div class="line">Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</div><div class="line">Connection con = DriverManager.getConnection(</div><div class="line">    <span class="string">"jdbc:mysql://localhost/test"</span>, <span class="string">"java"</span>, <span class="string">"java12345"</span>);</div><div class="line">    </div><div class="line">Statement stmt = con.createStatement();</div><div class="line">Result rs = stmt.executeQuery(<span class="string">"select * from test"</span>);</div><div class="line"></div><div class="line"><span class="keyword">while</span> (rs.next()) &#123;</div><div class="line">    String name = rs.getString(<span class="string">"name"</span>);</div><div class="line">    <span class="keyword">int</span> age = rs.getInt(<span class="string">"age"</span>);</div><div class="line">    out.println(<span class="string">"name: "</span> + name + <span class="string">"&lt;/br&gt;"</span>);</div><div class="line">&#125;</div><div class="line">rs.close();</div><div class="line">stmt.close();</div><div class="line">con.close();</div></pre></td></tr></table></figure>
-<p>数据库的配置信息，既可以写在<code>.jsp</code>文件里，也可以另外写在<code>META-INF</code>文件夹里。详情请看文档。</p>
+        <h3 id="说在前面的话"><a href="#说在前面的话" class="headerlink" title="说在前面的话"></a>说在前面的话</h3><p>以下这几份代码看着不太像我写的，也记不起从哪儿搜集的……也挂上来，造福一下学弟学妹们。</p>
+<p>以前写过的所有数据结构上机题代码已经上传到码云，<a href="https://gitee.com/yuezhuo/CompileAndDataStructureQuestion">点击查看</a></p>
       
     </div>
     
@@ -789,7 +748,68 @@ pip3 -V
 
       
         <p class="article-more-link">
-          <a  href="/category/“J2EE高级编程”笔记（十三）/#more">more >></a>
+          <a  href="/category/数据结构上机题（二）（C++语言）/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-数据结构上机题（C++语言）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/数据结构上机题（C++语言）/" class="article-date">
+  	<time datetime="2017-11-27T12:48:08.000Z" itemprop="datePublished">2017-11-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/数据结构上机题（C++语言）/">数据结构上机题（C++语言）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="说在前面的话"><a href="#说在前面的话" class="headerlink" title="说在前面的话"></a>说在前面的话</h3><p>最近整理电脑上的文件，翻出来大二数据结构上机时写的代码。现在看来那些代码写得都挺丑的，却还有些纪念意义，挂到博客上来保存一下吧。</p>
+<p>相关代码已经上传至码云，<a href="https://gitee.com/yuezhuo/CompileAndDataStructureQuestion">点击查看</a></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/category/数据结构上机题（C++语言）/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -810,7 +830,7 @@ pip3 -V
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
