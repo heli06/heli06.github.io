@@ -156,210 +156,6 @@
 
       <div class="body-wrap">
   
-    <article id="post-“J2EE高级编程“笔记（六）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/“J2EE高级编程“笔记（六）/" class="article-date">
-  	<time datetime="2017-11-23T00:17:00.000Z" itemprop="datePublished">2017-11-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/“J2EE高级编程“笔记（六）/">“J2EE高级编程”笔记（六）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h3><p>一个检测用户是否登录的过滤器：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"><span class="keyword">import</span> java.servlet.*;</div><div class="line"><span class="keyword">import</span> java.servlet.http.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FirstFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> FilterConfig config;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig config)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//主要操作都在这里进行</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest arg0, </div><div class="line">        ServletRespond arg1, FilterChain arg2)</span> </div><div class="line">        <span class="keyword">throws</span> ServletException, IOException </span>&#123;</div><div class="line">        HttpServletRequest request = </div><div class="line">            (HttpServletRequest) arg0;</div><div class="line">        <span class="comment">//会话</span></div><div class="line">        HttpSession session = request.getSession();</div><div class="line">        String s = (String) session.getAttrible(<span class="string">"login"</span>);</div><div class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span>) &#123;</div><div class="line">            request.getRequsetDispatcher(<span class="string">"/login.html"</span>);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125; </div><div class="line">        <span class="keyword">if</span> (s.equals(<span class="string">"true"</span>)) &#123;</div><div class="line">            arg2.doFilter(arg0, arg1);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            request.getRequestDispatcher(<span class="string">"/login.html"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/“J2EE高级编程“笔记（六）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-“J2EE高级编程”笔记（五）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/“J2EE高级编程”笔记（五）/" class="article-date">
-  	<time datetime="2017-11-21T13:59:14.000Z" itemprop="datePublished">2017-11-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/“J2EE高级编程”笔记（五）/">“J2EE高级编程”笔记（五）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这节课我因为犯困贪觉没去……以下内容修改自我小儿子的笔记。</p>
-<h3 id="RequestDispatcher-中的-forward-和-include"><a href="#RequestDispatcher-中的-forward-和-include" class="headerlink" title="RequestDispatcher 中的 forward 和 include"></a>RequestDispatcher 中的 forward 和 include</h3><p>阅读后文前建议先看看这篇：<a href="http://blog.csdn.net/baoyiming1991/article/details/5972989">Servlet请求转发之RequestDispatcher</a></p>
-<p><code>forward</code>的特点：</p>
-<pre><code>RequestDispatcher rd = rd.forward(request, responce);
-//后面不要继续处理该请求，因为已经转发给别的组件
-//req， res的生命周期由其他组件决定
-</code></pre><p><code>include</code>的特点：</p>
-<pre><code>RequestDispatcher rd = rd.include(request, responce);
-//后面将继续处理该请求
-//req， res的生命周期由本组件决定
-</code></pre><p><a href="http://www.runoob.com/servlet/servlet-writing-filters.html">CSDN博客-include和forward的区别</a></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/“J2EE高级编程”笔记（五）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-“J2EE高级编程“笔记（四）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/category/“J2EE高级编程“笔记（四）/" class="article-date">
-  	<time datetime="2017-11-15T23:58:31.000Z" itemprop="datePublished">2017-11-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/category/“J2EE高级编程“笔记（四）/">“J2EE高级编程”笔记（四）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="上节回顾和补充"><a href="#上节回顾和补充" class="headerlink" title="上节回顾和补充"></a>上节回顾和补充</h3><ul>
-<li><code>HttpServletRequest</code></li>
-<li><code>HttpServletResponse</code></li>
-</ul>
-<p>不要在<code>Servlet</code>类里设置成员变量，并发访问情况下会有严重问题。<br><code>service</code>函数在执行时是多线程的，底层已经实现。</p>
-<hr>
-<h3 id="本节新内容："><a href="#本节新内容：" class="headerlink" title="本节新内容："></a>本节新内容：</h3><ul>
-<li><code>HttpSession</code></li>
-<li><code>Servlet</code>, <code>ServletConfig</code>, <code>ServletContext</code></li>
-<li><code>RequestDispatcher</code></li>
-<li><code>Filter</code></li>
-</ul>
-<hr>
-<h4 id="HttpSession"><a href="#HttpSession" class="headerlink" title="HttpSession"></a>HttpSession</h4><p><code>HttpSession</code>通过<code>Token</code>（一串服务器生成的长随机字符串）实现。客户端获取<code>Token</code>后一般存在<code>cookie</code>中。如果客户端浏览器设置“阻止所有cookie”，需要会话支持的应用可能无法使用。<br>当然也有办法替代<code>cookie</code>：URL重写技术和隐藏域技术。详情可查看<a href="http://www.runoob.com/servlet/servlet-session-tracking.html">菜鸟教程-session跟踪</a>，介绍了三大技术的使用方法。<br>有多少个用户同时访问，就有多少个<code>HttpSession</code>对象。如果某个session长时间没反应，会被服务器删除相关数据（间隔时间可以通过<code>setMaxInactiveInterval(int interval)</code>设置）。<br><code>Token</code>、<code>cookie</code>等信息可以在浏览器的开发者工具中查看。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/category/“J2EE高级编程“笔记（四）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-“J2EE高级编程”笔记（三）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -778,6 +574,210 @@ javac -version
       
         <p class="article-more-link">
           <a  href="/category/使用vue-cli重构的掌上作业系统/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-“Java分布式文件存储系统”的经验总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/“Java分布式文件存储系统”的经验总结/" class="article-date">
+  	<time datetime="2017-07-25T06:49:08.000Z" itemprop="datePublished">2017-07-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/“Java分布式文件存储系统”的经验总结/">“Java分布式文件存储系统”的经验总结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以下每一块内容先贴有关博文的链接，博文里没提到的再用自己的文字叙述。</p>
+<h4 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h4><ul>
+<li><a href="http://www.cnblogs.com/moonpool/p/5488463.html">Java IO流体系中常用的流分类</a></li>
+</ul>
+<p>以及推荐使用<code>try-with-resources</code>语法来保证流在用完以后会关闭。手动<code>close</code>太不靠谱了。 </p>
+<h4 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h4><ul>
+<li><a href="http://www.blogjava.net/sterning/archive/2007/10/13/152508.html">Java基于Socket文件传输示例</a></li>
+<li><a href="http://blog.csdn.net/wintys/article/details/3525643/">Java UDP网络编程 - 最简单示例</a></li>
+<li><a href="http://blog.csdn.net/woshisap/article/details/6846656"> java使用UDP来进行客户端和服务器端通信的简单例子</a></li>
+</ul>
+<p>发送完信息后一定要<code>flush()</code>，不然程序可能卡在那儿不动了。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/category/“Java分布式文件存储系统”的经验总结/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Java分布式文件存储系统" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/Java分布式文件存储系统/" class="article-date">
+  	<time datetime="2017-07-25T00:14:00.000Z" itemprop="datePublished">2017-07-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/Java分布式文件存储系统/">Java分布式文件存储系统</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一些闲话"><a href="#一些闲话" class="headerlink" title="一些闲话"></a>一些闲话</h2><p>我在大二小学期选择了“Java编程与运用”这门课。大作业就是这个Java分布式文件存储系统。这个作业对初学Java一个月的我还是颇有难度的，还好绝大部分功能都实现了。</p>
+<p>授课老师姜国海是一位亲切温和又负责任的老师，下学期他的“J2EE高级编程”我一定要学。</p>
+<hr>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>先贴上项目代码，都传到码云上了。这个存储系统由FileServer、StorageNode、FileClient、Monitor四部分组成，代码也分为四个部分。</p>
+<ul>
+<li><a href="http://git.oschina.net/yuezhuo/FileServer">FileServer</a></li>
+<li><a href="http://git.oschina.net/yuezhuo/StorageNode">StorageNode</a></li>
+<li><a href="http://git.oschina.net/yuezhuo/FileClient">FileClient</a></li>
+<li><a href="http://git.oschina.net/yuezhuo/Monitor">Monitor</a></li>
+</ul>
+<p>接下来是项目介绍，我直接贴老师的第二次大作业要求吧。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/category/Java分布式文件存储系统/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JAVA学习笔记（十四）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/JAVA学习笔记（十四）/" class="article-date">
+  	<time datetime="2017-07-14T02:16:49.000Z" itemprop="datePublished">2017-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/category/JAVA学习笔记（十四）/">JAVA学习笔记（十四）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Web编程（回顾）"><a href="#Web编程（回顾）" class="headerlink" title="Web编程（回顾）"></a>Web编程（回顾）</h2><p>在老师发的代码的servlet路径底下有传输验证码图片和验证登录的示例程序。</p>
+<p><code>Tomcat</code>自带的网页访问8080端口，会有<code>JSP</code>的各种示例与游戏，值得好好研究。</p>
+<p>Guess Number 游戏的示例代码。其实老师发的或是<code>Tomcat</code>的示例程序里都有，这里蛮贴一下。</p>
+<p>这是 Model 部分的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> a;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NumberGuessBean</span> </span>&#123;</div><div class="line">    <span class="keyword">boolean</span> success;</div><div class="line">    <span class="keyword">int</span> answer;</div><div class="line">    <span class="keyword">int</span> count;</div><div class="line">    String hint;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NumberGuessBean</span><span class="params">()</span> </span>&#123;</div><div class="line">        reset();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reset</span><span class="params">()</span> </span>&#123;</div><div class="line">        answer = (<span class="keyword">int</span>)(Math.random() * <span class="number">100</span> + <span class="number">1</span>);</div><div class="line">        count = <span class="number">0</span>;</div><div class="line">        success = <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setGuess</span><span class="params">(String guess)</span> </span>&#123;</div><div class="line">        count++;</div><div class="line">        <span class="keyword">int</span> g = Integer.parseInt(guess);</div><div class="line">        <span class="keyword">if</span>(g &gt; answer) &#123;</div><div class="line">            hint = <span class="string">"lower"</span>;</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(g &lt; anwer) &#123;</div><div class="line">            hint = <span class="string">"higher"</span>;</div><div class="line">        &#125;<span class="keyword">else</span> &#123;</div><div class="line">            success = <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/category/JAVA学习笔记（十四）/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
