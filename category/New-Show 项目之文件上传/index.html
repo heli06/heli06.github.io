@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>New-Show 项目之文件上传 | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="七牛云这家公司挺有意思，通过笔试后还有open question环节，简单地说就是做一个在线相册的小项目。其中多文件上传我以前没做过，看似简单的问题竟然也折腾了我一个晚上。
+我前端用的是vue-cli，后端用的是koa2。首先我查看了koa2官方在github上的单文件上传示例和多文件上传示例。
+单文件上传示例很简单，但前端的网页用的是原生表单的提交方式，可我的项目得用ajax。多文件上传示例的a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="New-Show 项目之文件上传">
+<meta property="og:url" content="http://heli06.github.io/category/New-Show 项目之文件上传/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="七牛云这家公司挺有意思，通过笔试后还有open question环节，简单地说就是做一个在线相册的小项目。其中多文件上传我以前没做过，看似简单的问题竟然也折腾了我一个晚上。
+我前端用的是vue-cli，后端用的是koa2。首先我查看了koa2官方在github上的单文件上传示例和多文件上传示例。
+单文件上传示例很简单，但前端的网页用的是原生表单的提交方式，可我的项目得用ajax。多文件上传示例的a">
+<meta property="og:updated_time" content="2018-05-02T16:15:02.657Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="New-Show 项目之文件上传">
+<meta name="twitter:description" content="七牛云这家公司挺有意思，通过笔试后还有open question环节，简单地说就是做一个在线相册的小项目。其中多文件上传我以前没做过，看似简单的问题竟然也折腾了我一个晚上。
+我前端用的是vue-cli，后端用的是koa2。首先我查看了koa2官方在github上的单文件上传示例和多文件上传示例。
+单文件上传示例很简单，但前端的网页用的是原生表单的提交方式，可我的项目得用ajax。多文件上传示例的a">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-New-Show 项目之文件上传" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/New-Show 项目之文件上传/" class="article-date">
+  	<time datetime="2018-05-02T15:22:31.000Z" itemprop="datePublished">2018-05-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      New-Show 项目之文件上传
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>七牛云这家公司挺有意思，通过笔试后还有<code>open question</code>环节，简单地说就是做一个在线相册的小项目。其中多文件上传我以前没做过，看似简单的问题竟然也折腾了我一个晚上。</p>
+<p>我前端用的是<code>vue-cli</code>，后端用的是<code>koa2</code>。首先我查看了<code>koa2</code>官方在<code>github</code>上的<a href="https://github.com/koajs/examples/tree/master/upload" target="_blank" rel="external"><strong>单文件</strong>上传示例</a>和<a href="https://github.com/koajs/examples/tree/master/multipart" target="_blank" rel="external"><strong>多文件</strong>上传示例</a>。</p>
+<p>单文件上传示例很简单，但前端的网页用的是原生表单的提交方式，可我的项目得用<code>ajax</code>。多文件上传示例的<code>app.js</code>比较易懂。于是现在的问题是前端要怎么写。</p>
+<p>这里有两篇文章：<a href="http://www.jb51.net/article/118051.htm" target="_blank" rel="external">Vue+axios提交表单数据(含单文件上传)</a>和<a href="https://segmentfault.com/q/1010000009622562" target="_blank" rel="external">如何使用formData上传file数组</a>。这两篇文章把<code>vue</code>和多文件上传两个难点都给覆盖了。</p>
+<p>以下是前端表单的部分代码。为了简洁去除了样式。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">v-on:change</span>=<span class="string">"getFile($event)"</span> <span class="attr">multiple</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"submitForm()"</span> <span class="attr">type</span>=<span class="string">"button"</span>&gt;</span></div><div class="line">        上传文件</div><div class="line">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line">............</div><div class="line">methods: &#123;</div><div class="line">  getFile(event) &#123;</div><div class="line">    //this.files不是数组</div><div class="line">    this.files = event.target.files;</div><div class="line">  &#125;,</div><div class="line">  submitForm() &#123;</div><div class="line">    let formData = new FormData();</div><div class="line">    //基本数据类型可以直接append</div><div class="line">    formData.append('userId', this.$store.state.userInfo.id);</div><div class="line">    //但formData里不能直接append数组</div><div class="line">    for (let item of this.files) &#123;</div><div class="line">      //得循环append元素</div><div class="line">      formData.append('fileArr', item);</div><div class="line">    &#125;</div><div class="line">    let instance = this.$axios.create(&#123;</div><div class="line">        ..............</div><div class="line">      headers: &#123;</div><div class="line">        //使用了koa-jwt验证</div><div class="line">        'Authorization': 'Bearer ' + this.$store.state.token,</div><div class="line">        //据说XHR对象能自动识别form-data？待验证</div><div class="line">        'Content-Type':  'multipart/form-data'</div><div class="line">      &#125;</div><div class="line">    &#125;);</div><div class="line">    instance.post('/api/uploadPhoto', formData)</div><div class="line">      .then(function (response) &#123;</div><div class="line">        console.log(response.data.newPhotos);</div><div class="line">      &#125;)</div><div class="line">      .catch(function (error) &#123;</div><div class="line">        alert("上传失败！");</div><div class="line">        console.log(error);</div><div class="line">      &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其中<code>this.files</code>的结构如下文所示。</p>
+<pre><code>FileList {0: File(357224), 1: File(250584), 2: File(245061), length: 3}
+</code></pre><p>注意！<code>FileList</code>不是<code>Array</code>！这点让我懵逼了好一阵子，下意识地用数组处理却老是报错……不过可以用<code>for...of</code>循环遍历。</p>
+<p>其中的每项元素如下文所示。</p>
+<pre><code>File(357224) {
+    name: &quot;安贞堡.jpg&quot;,     
+    lastModified:1486307059006, 
+    lastModifiedDate: Sun Feb 05 2017 23:04:19 GMT+0800 (中国标准时间), 
+    webkitRelativePath: &quot;&quot;, 
+    size: 357224, 
+.......
+}
+</code></pre><p>后端接收到数据后处理方法如下文所示。和前面几篇文章有些区别，毕竟我还要把图片信息存入数据库。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//传到后端的fileArr终于是个数组了</span></div><div class="line"><span class="keyword">const</span> files = ctx.request.body.files.fileArr;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> files) &#123;</div><div class="line">    <span class="keyword">let</span> reader = fs.createReadStream(value.path);</div><div class="line">    <span class="keyword">let</span> stream = fs.createWriteStream(path.join(<span class="string">"download"</span>, <span class="built_in">Math</span>.random().toString() + value.name));</div><div class="line">    reader.pipe(stream);</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'uploading %s -&gt; %s'</span>, value.name, stream.path);</div><div class="line">    <span class="comment">//这里使用了sequelize来新建数据</span></div><div class="line">    <span class="keyword">let</span> photo = <span class="keyword">await</span> Photo.create(&#123;</div><div class="line">        userId: ctx.request.body.fields.userId,</div><div class="line">        path: stream.path.replace(<span class="string">'download\\'</span>, <span class="string">''</span>),</div><div class="line">        like: <span class="number">0</span></div><div class="line">    &#125;);</div><div class="line">    newPhotos.push(photo);</div><div class="line">&#125;</div><div class="line"><span class="comment">//先把相关信息扔回客户端，虽然未必有用</span></div><div class="line">ctx.rest(&#123;</div><div class="line">    newPhotos</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>New-Show 项目到目前依然没有完成。以后还会有多篇和它相关的博文。下一篇讲的是后端的大致结构，包括模型、ORM框架、配置文件、自动化的一些东西，敬请期待。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/category/《数学之美》读书笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《数学之美》读书笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="New-Show 项目之文件上传" data-title="New-Show 项目之文件上传" data-url="http://heli06.github.io/category/New-Show 项目之文件上传/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
