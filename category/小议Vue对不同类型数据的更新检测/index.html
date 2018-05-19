@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>小议Vue对不同类型数据的更新检测 | 鸑鷟的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="首先我们知道，Vue实现了双向绑定和响应依赖，当数据变化时，Vue能够智能地计算出重新渲染组件的最小代价并应用到DOM操作上。
+我们还知道，Vue对数组的更新检测和对对象的更改检测是有限制的。那么对Set和Map等常用的数据类型，Vue的监测是否有效呢？如果无效，有没有弥补的方法？
+下文的讲述将基于这个网页。结构很简单。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小议Vue对不同类型数据的更新检测">
+<meta property="og:url" content="http://heli06.github.io/category/小议Vue对不同类型数据的更新检测/index.html">
+<meta property="og:site_name" content="鸑鷟的博客">
+<meta property="og:description" content="首先我们知道，Vue实现了双向绑定和响应依赖，当数据变化时，Vue能够智能地计算出重新渲染组件的最小代价并应用到DOM操作上。
+我们还知道，Vue对数组的更新检测和对对象的更改检测是有限制的。那么对Set和Map等常用的数据类型，Vue的监测是否有效呢？如果无效，有没有弥补的方法？
+下文的讲述将基于这个网页。结构很简单。">
+<meta property="og:updated_time" content="2018-05-19T04:02:19.259Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小议Vue对不同类型数据的更新检测">
+<meta name="twitter:description" content="首先我们知道，Vue实现了双向绑定和响应依赖，当数据变化时，Vue能够智能地计算出重新渲染组件的最小代价并应用到DOM操作上。
+我们还知道，Vue对数组的更新检测和对对象的更改检测是有限制的。那么对Set和Map等常用的数据类型，Vue的监测是否有效呢？如果无效，有没有弥补的方法？
+下文的讲述将基于这个网页。结构很简单。">
+  
+    <link rel="alternative" href="/atom.xml" title="鸑鷟的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/touxiang.jpg" class="js-avatar show">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">鸑鷟</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术研究/">技术研究</a></li>
+				        
+							<li><a href="/tags/项目/">项目</a></li>
+				        
+							<li><a href="/tags/文学/">文学</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">大连理工大学2015年入学，软件工程（日语强化）本科在读，新手WEB前端</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">鸑鷟</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="null/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">鸑鷟</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">蛟龙虽困，不资凡鱼。鸑鷟虽孤，不匹鹜雏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术研究/">技术研究</a></li>
+		        
+					<li><a href="/tags/项目/">项目</a></li>
+		        
+					<li><a href="/tags/文学/">文学</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-小议Vue对不同类型数据的更新检测" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/category/小议Vue对不同类型数据的更新检测/" class="article-date">
+  	<time datetime="2018-05-15T13:43:26.000Z" itemprop="datePublished">2018-05-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      小议Vue对不同类型数据的更新检测
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术研究/">技术研究</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先我们知道，<code>Vue</code>实现了双向绑定和响应依赖，当数据变化时，<code>Vue</code>能够智能地计算出重新渲染组件的最小代价并应用到<code>DOM</code>操作上。</p>
+<p>我们还知道，<code>Vue</code>对<a href="https://cn.vuejs.org/v2/guide/list.html#%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B" target="_blank" rel="external">数组的更新检测</a>和对<a href="https://cn.vuejs.org/v2/guide/list.html#%E5%AF%B9%E8%B1%A1%E6%9B%B4%E6%94%B9%E6%A3%80%E6%B5%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" target="_blank" rel="external">对象的更改检测</a>是有限制的。那么对<code>Set</code>和<code>Map</code>等常用的数据类型，<code>Vue</code>的监测是否有效呢？如果无效，有没有弥补的方法？</p>
+<p>下文的讲述将基于这个网页。结构很简单。</p>
+<a id="more"></a>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Vue-table-render<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>数组的列表渲染<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in arr"</span>&gt;</span>&#123;&#123; item &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>数组的条件渲染<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"arr.length &gt; 3"</span>&gt;</span>数组长度大于3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span>数组长度不大于3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>相关依赖是数组的计算属性渲染<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in doubleArr"</span>&gt;</span>&#123;&#123; item &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/vue"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="keyword">let</span> app = <span class="keyword">new</span> Vue(&#123;</div><div class="line">        el: <span class="string">'#app'</span>,</div><div class="line">        data: &#123;</div><div class="line">            arr: [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>],</div><div class="line">            set: <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">0</span>])</div><div class="line">        &#125;,</div><div class="line">        computed: &#123;</div><div class="line">            doubleArr() &#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">this</span>.arr.map(item =&gt; item*<span class="number">2</span>);</div><div class="line">            &#125;,</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在浏览器里打开这个网页，打开控制台，输入<code>app.arr.push(3)</code>。嗯，一切正常。接下来试试集合。</p>
+<p>因为<code>v-for</code>指令不能直接用于集合，集合的列表渲染可以这样写——</p>
+<pre><code>&lt;p&gt;集合的列表渲染&lt;/p&gt;
+&lt;ul&gt;
+//使用扩展运算符，将集合转成数组。
+//用Array.from(set)也可以。
+    &lt;li v-for=&quot;item in [...set]&quot;&gt;{{ item }}&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><p>顺便也试试集合的条件渲染——</p>
+<pre><code>&lt;p&gt;集合的条件渲染&lt;/p&gt;
+&lt;div v-if=&quot;set.has(1)&quot;&gt;现在集合里有1了~&lt;/div&gt;
+&lt;div v-else&gt;集合里没有1&lt;/div&gt;
+</code></pre><p>还有集合的计算属性渲染——</p>
+<pre><code>&lt;p&gt;相关依赖是集合的计算属性渲染&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li v-for=&quot;item in [...doubleSetComputed]&quot;&gt;{{ item }}&lt;/li&gt;
+&lt;/ul&gt;
+......
+computed: {
+    ......
+    doubleSetComputed() {
+        return new Set([...this.set].map(item =&gt; item*2));
+    }
+}
+</code></pre><p>修改网页，再打开控制台，输入<code>app.set.add(1)</code>。不出所料，没动静。所幸<code>Vue</code>提供了一个叫做<a href="https://cn.vuejs.org/v2/api/#vm-forceUpdate" target="_blank" rel="external">forceUpdate()</a>的方法。</p>
+<p>再输入<code>app.$forceUpdate()</code>。集合的列表渲染和条件渲染都正常了，但是计算属性纹丝不动，为啥呢？<code>Vue</code>的文档做得是真心好，也提供了相关答案：<a href="https://cn.vuejs.org/v2/guide/computed.html#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E7%9A%84%E7%BC%93%E5%AD%98-vs-method-%E6%96%B9%E6%B3%95" target="_blank" rel="external">计算属性的缓存-vs-method-方法</a>。简单来说，集合不是<code>Vue</code>所认为的<strong>响应式依赖</strong>，计算属性在这里失灵了。</p>
+<p>解决方法也不难，这里不用计算属性，改用<code>method</code>方法——</p>
+<pre><code>&lt;p&gt;相关依赖是集合的method方法渲染&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li v-for=&quot;item in [...doubleSetMethods()]&quot;&gt;{{ item }}&lt;/li&gt;
+&lt;/ul&gt;
+methods: {
+    doubleSetMethods() {
+        return new Set([...this.set].map(item =&gt; item*2));
+    }
+}
+</code></pre><p>再次使用<code>app.$forceUpdate()</code>。成功！</p>
+<p>文章到这里接近结束了。篇末做一个总结——</p>
+<ul>
+<li>对<code>Set</code>等数据结构，<code>Vue</code>无法做到响应式依赖。</li>
+<li>可以使用<code>forceUpdate()</code>强制渲染。</li>
+<li>如果相关依赖是<code>Set</code>，请使用<code>method</code>方法而不是计算属性。</li>
+</ul>
+<p>再贴上和数据更新检测相关的几篇文章供大家参考——</p>
+<p><a href="https://blog.csdn.net/qq_37285177/article/details/78935831" target="_blank" rel="external">Vue爬坑日记，数组数据的更新检测</a><br><a href="https://blog.csdn.net/kirinlau/article/details/78027312" target="_blank" rel="external">vue.js中$set与数组更新</a><br><a href="https://cn.vuejs.org/v2/api/#Vue-set-target-key-value" target="_blank" rel="external">Vue.set( target, key, value )</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/category/Order的疑团/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Order的疑团</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="小议Vue对不同类型数据的更新检测" data-title="小议Vue对不同类型数据的更新检测" data-url="http://heli06.github.io/category/小议Vue对不同类型数据的更新检测/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"heli06"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 鸑鷟
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
